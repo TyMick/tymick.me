@@ -5,3 +5,15 @@ $enable-responsive-font-sizes: true;
   font-family: "Dawning of a New Day", cursive;
   @include font-size($h2-font-size);
 }
+
+.github-link {
+  @include font-size($h4-font-size);
+  color: $navbar-light-color;
+}
+@if $emphasized-link-hover-darken-percentage != 0 {
+  a.github-link {
+    @include hover-focus() {
+      color: #333 !important;
+    }
+  }
+}

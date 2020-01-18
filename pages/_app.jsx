@@ -26,6 +26,10 @@ export default ({ Component, pageProps }) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <script
+          src="https://kit.fontawesome.com/7f1bac7050.js"
+          crossOrigin="anonymous"
+        ></script>
         <link
           href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day&display=swap"
           rel="stylesheet"

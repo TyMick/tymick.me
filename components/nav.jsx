@@ -18,7 +18,7 @@ export default () => {
     <Container>
       <Navbar collapseOnSelect expand="sm">
         <Link href="/" passHref>
-          <Navbar.Brand className="signature">Ty Mick</Navbar.Brand>
+          <Navbar.Brand className="signature mr-auto">Ty Mick</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="nav-links" className="border-0" />
         <Navbar.Collapse id="nav-links" className="justify-content-end">
@@ -29,6 +29,9 @@ export default () => {
               </Link>
             ))}
           </Nav>
+          <Nav.Link className="github-link" href="https://github.com/TyWMick">
+            <i className="fab fa-github" />
+          </Nav.Link>
         </Navbar.Collapse>
       </Navbar>
     </Container>
