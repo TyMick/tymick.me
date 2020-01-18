@@ -1,3 +1,7 @@
 $enable-responsive-font-sizes: true;
-
 @import "~bootstrap/scss/bootstrap.scss";
+
+.signature {
+  font-family: "Dawning of a New Day", cursive;
+  @include font-size($h2-font-size);
+}
