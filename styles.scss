@@ -6,6 +6,11 @@ $enable-responsive-font-sizes: true;
   @include font-size($h2-font-size);
 }
 
+.greeting {
+  font-family: "Alegreya", serif;
+  @extend .display-3;
+}
+
 .github-link {
   @include font-size($h4-font-size);
   color: $navbar-light-color;
@@ -15,5 +20,19 @@ $enable-responsive-font-sizes: true;
     @include hover-focus() {
       color: #333 !important;
     }
+  }
+}
+
+a.instagram-link {
+  color: #e1306c;
+  @include hover-focus() {
+    color: darken(#e1306c, $emphasized-link-hover-darken-percentage) !important;
+  }
+}
+
+a.facebook-link {
+  color: lighten(#3b5998, $emphasized-link-hover-darken-percentage);
+  @include hover-focus() {
+    color: #3b5998 !important;
   }
 }

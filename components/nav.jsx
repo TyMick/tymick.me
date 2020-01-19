@@ -7,15 +7,14 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Writing", href: "/writing" },
-  { label: "Contact", href: "/contact" },
-  { label: "Social", href: "/social" }
+  { label: "Essays", href: "/essays" },
+  { label: "Contact", href: "/contact" }
 ];
 
 export default () => {
   const router = useRouter();
   return (
-    <Container>
+    <Container className="mb-3 mb-sm-5">
       <Navbar collapseOnSelect expand="sm">
         <Link href="/" passHref>
           <Navbar.Brand className="signature mr-auto">Ty Mick</Navbar.Brand>

@@ -3,6 +3,8 @@
 import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
+import { Container } from "react-bootstrap";
+import "../styles.scss";
 
 export default ({ Component, pageProps }) => {
   return (
@@ -29,7 +31,7 @@ export default ({ Component, pageProps }) => {
         <script
           src="https://kit.fontawesome.com/7f1bac7050.js"
           crossOrigin="anonymous"
-        ></script>
+        />
         <link
           href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day&display=swap"
           rel="stylesheet"
@@ -38,7 +40,9 @@ export default ({ Component, pageProps }) => {
 
       <Nav />
 
-      <Component {...pageProps} />
+      <Container>
+        <Component {...pageProps} />
+      </Container>
     </>
   );
 };
