@@ -4,6 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
@@ -29,7 +31,7 @@ export default () => {
             ))}
           </Nav>
           <Nav.Link className="github-link" href="https://github.com/TyWMick">
-            <i className="fab fa-github" />
+            <FontAwesomeIcon icon={faGithub} />
           </Nav.Link>
         </Navbar.Collapse>
       </Navbar>
