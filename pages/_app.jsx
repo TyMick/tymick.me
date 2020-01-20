@@ -3,6 +3,7 @@
 import React from "react";
 import Head from "next/head";
 import Nav from "../components/nav";
+import Footer from "../components/footer";
 import { Container } from "react-bootstrap";
 import "../styles.scss";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -22,9 +23,11 @@ export default ({ Component, pageProps }) => {
 
       <Nav />
 
-      <Container>
+      <Container className="mb-5">
         <Component {...pageProps} />
       </Container>
+
+      <Footer />
     </>
   );
 };
