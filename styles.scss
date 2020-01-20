@@ -1,6 +1,12 @@
 $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/bootstrap.scss";
 
+#__next {
+  min-height: 100vh;
+  @extend .d-flex;
+  @extend .flex-column;
+}
+
 .signature {
   font-family: "Dawning of a New Day", cursive;
   @include font-size($h2-font-size);

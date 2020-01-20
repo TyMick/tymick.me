@@ -23,7 +23,7 @@ export default ({ Component, pageProps }) => {
 
       <Nav />
 
-      <Container className="mb-5">
+      <Container as="main" className="mb-5">
         <Component {...pageProps} />
       </Container>
 

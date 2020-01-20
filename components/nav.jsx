@@ -16,7 +16,7 @@ const links = [
 export default () => {
   const router = useRouter();
   return (
-    <Container className="mb-3 mb-sm-5">
+    <Container as="header" className="mb-3 mb-sm-5">
       <Navbar collapseOnSelect expand="sm">
         <Link href="/" passHref>
           <Navbar.Brand className="signature mr-auto">Ty Mick</Navbar.Brand>

@@ -9,7 +9,7 @@ import {
 import { Container } from "react-bootstrap";
 
 export default () => (
-  <Container as="footer" fluid className="text-center mb-3">
+  <Container as="footer" fluid className="text-center mt-auto mb-3">
     <a
       rel="license"
       href="http://creativecommons.org/licenses/by/4.0/"
