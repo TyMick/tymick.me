@@ -10,13 +10,13 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const links = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Essays", href: "/essays" },
-  { label: "Contact", href: "/contact" }
+  { label: "Connect", href: "/connect" }
 ];
 
 export default () => {
   const router = useRouter();
   return (
-    <Container as="header" className="mb-3 mb-sm-5">
+    <Container as="header" className="mb-4 mb-sm-5 px-0">
       <Navbar collapseOnSelect expand="sm">
         <Link href="/" passHref>
           <Navbar.Brand className="signature">
@@ -30,7 +30,7 @@ export default () => {
             Ty Mick
           </Navbar.Brand>
         </Link>
-        <Navbar.Toggle aria-controls="nav-links" className="border-0" />
+        <Navbar.Toggle aria-controls="nav-links" className="border-0 pr-0" />
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={router.pathname}
@@ -42,8 +42,8 @@ export default () => {
               </Link>
             ))}
             <Nav.Link
-              className="github-nav-link"
-              href="https://github.com/TyWMick"
+              className="github-nav-link pr-0"
+              href="https://github.com/tywmick"
             >
               <FontAwesomeIcon icon={faGithub} />
             </Nav.Link>

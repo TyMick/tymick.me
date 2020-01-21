@@ -40,6 +40,20 @@ $enable-responsive-font-sizes: true;
   }
 }
 
+a.github-link {
+  color: lighten(#333, $emphasized-link-hover-darken-percentage);
+  @include hover-focus() {
+    color: #333 !important;
+  }
+}
+
+a.github-text-link {
+  @extend .text-secondary;
+  @include hover-focus() {
+    color: #333 !important;
+  }
+}
+
 a.instagram-link {
   color: #e1306c;
   @include hover-focus() {
@@ -52,4 +66,15 @@ a.facebook-link {
   @include hover-focus() {
     color: #3b5998 !important;
   }
+}
+
+a.twitter-link {
+  color: #1DA1F2;
+  @include hover-focus() {
+    color: darken(#1DA1F2, $emphasized-link-hover-darken-percentage) !important;
+  }
+}
+
+h1 {
+  font-family: "Alegreya", serif;
 }
