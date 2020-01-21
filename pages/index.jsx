@@ -8,12 +8,10 @@ import "../styles.scss";
 
 const Home = () => (
   <>
+    {/* prettier-ignore */}
     <Head>
       <title>Ty Mick, web developer</title>
-      <link
-        href="https://fonts.googleapis.com/css?family=Alegreya&display=swap"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css?family=Alegreya&display=swap" rel="stylesheet" />
     </Head>
 
     <Row className="align-items-center mb-3 mb-sm-5">
