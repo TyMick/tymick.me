@@ -32,7 +32,10 @@ export default () => {
         </Link>
         <Navbar.Toggle aria-controls="nav-links" className="border-0" />
         <Navbar.Collapse id="nav-links" className="justify-content-end">
-          <Nav activeKey={router.pathname} className="align-items-center">
+          <Nav
+            activeKey={router.pathname}
+            className="align-items-top align-items-sm-center"
+          >
             {links.map(({ label, href }) => (
               <Link href={href} passHref key={label.toLowerCase()}>
                 <Nav.Link>{label}</Nav.Link>
