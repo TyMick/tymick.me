@@ -19,7 +19,7 @@ export default () => {
     <Container as="header" className="mb-3 mb-sm-5">
       <Navbar collapseOnSelect expand="sm">
         <Link href="/" passHref>
-          <Navbar.Brand href="/" className="signature">
+          <Navbar.Brand className="signature">
             {router.pathname !== "/" && (
               <Image
                 src="/profile-pic.jpg"
