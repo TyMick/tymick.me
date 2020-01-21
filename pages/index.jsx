@@ -4,7 +4,6 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Row, Col, Image } from "react-bootstrap";
-import "../styles.scss";
 
 const Home = () => (
   <>

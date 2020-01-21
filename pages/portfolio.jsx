@@ -2,10 +2,10 @@
 
 import React from "react";
 import Head from "next/head";
-import "../styles.scss";
 
 export default () => (
   <>
+    {/* prettier-ignore */}
     <Head>
       <title>Ty Mick</title>
     </Head>
