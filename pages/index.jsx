@@ -34,53 +34,55 @@ const Home = () => (
       </Col>
     </Row>
 
-    <p className="lead">
-      I&rsquo;m a freelance web developer, and I would love to work on your
-      website, app, or API.
-    </p>
+    <div className="introduction">
+      <p className="lead">
+        I&rsquo;m a freelance web developer, and I would love to work on your
+        website, app, or API.
+      </p>
 
-    <p>
-      I work chiefly in JavaScript, in various combinations of React and
-      Node.js, but I&rsquo;d love the excuse to pick up a new framework or
-      language if your stack&rsquo;s a bit different.{" "}
-      <Link href="/portfolio">
-        <a>My portfolio</a>
-      </Link>{" "}
-      has more details if you&rsquo;d like to see what I&rsquo;ve built.
-    </p>
+      <p>
+        I work chiefly in JavaScript, in various combinations of React and
+        Node.js, but I&rsquo;d love the excuse to pick up a new framework or
+        language if your stack&rsquo;s a bit different.{" "}
+        <Link href="/portfolio">
+          <a>My portfolio</a>
+        </Link>{" "}
+        has more details if you&rsquo;d like to see what I&rsquo;ve built.
+      </p>
 
-    <p>
-      I&rsquo;ve also written a couple{" "}
-      <Link href="/essays">
-        <a>essays</a>
-      </Link>{" "}
-      on subjects that have nothing to do with web development.
-    </p>
+      <p>
+        I&rsquo;ve also written a couple{" "}
+        <Link href="/essays">
+          <a>essays</a>
+        </Link>{" "}
+        on subjects that have nothing to do with web development.
+      </p>
 
-    <p>
-      Apart from work, my wife{" "}
-      <a href="https://corriemick.com" title="Corrie Mick Photography">
-        Corrie
-      </a>{" "}
-      and I currently live on the road, traveling the United States in a 24-foot
-      RV! If you&rsquo;d like to see where we&rsquo;ve been in photographic
-      form, your best bet is{" "}
-      <a
-        href="https://www.instagram.com/corriemick/"
-        className="instagram-link"
-      >
-        Corrie&rsquo;s Instagram account
-      </a>
-      . I also post 360&deg; photos from our hikes{" "}
-      <a
-        href="https://www.facebook.com/TyWMick"
-        title="Ty's Facebook account"
-        className="facebook-link"
-      >
-        on Facebook
-      </a>{" "}
-      every now and then.
-    </p>
+      <p>
+        Apart from work, my wife{" "}
+        <a href="https://corriemick.com" title="Corrie Mick Photography">
+          Corrie
+        </a>{" "}
+        and I currently live on the road, traveling the United States in a
+        24&#8209;foot RV! If you&rsquo;d like to see where we&rsquo;ve been in
+        photographic form, your best bet is{" "}
+        <a
+          href="https://www.instagram.com/corriemick/"
+          className="instagram-link"
+        >
+          Corrie&rsquo;s Instagram account
+        </a>
+        . I also post 360&deg; photos from our hikes{" "}
+        <a
+          href="https://www.facebook.com/TyWMick"
+          title="Ty's Facebook account"
+          className="facebook-link"
+        >
+          on Facebook
+        </a>{" "}
+        every now and then.
+      </p>
+    </div>
   </>
 );
 
