@@ -1,6 +1,7 @@
 $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/bootstrap.scss";
 
+// Enables footer to stick to bottom
 #__next {
   position: absolute;
   min-height: 100%;
@@ -9,6 +10,9 @@ $enable-responsive-font-sizes: true;
   @extend .flex-column;
 }
 
+/*
+ *  Navbar styles
+ */
 .signature {
   font-family: "Dawning of a New Day", cursive;
   @include font-size($h2-font-size);
@@ -19,16 +23,6 @@ $enable-responsive-font-sizes: true;
     height: 1.5em;
   }
 }
-
-.greeting {
-  font-family: "Alegreya", serif;
-  @extend .display-3;
-}
-
-.introduction {
-  max-width: 48em;
-}
-
 .github-nav-link {
   @include font-size($h4-font-size);
 }
@@ -40,45 +34,20 @@ $enable-responsive-font-sizes: true;
   }
 }
 
-a.github-link {
-  color: lighten(#333, $emphasized-link-hover-darken-percentage);
-  @include hover-focus() {
-    color: #333 !important;
-  }
-}
-
-a.github-text-link {
-  @extend .text-secondary;
-  @include hover-focus() {
-    color: #333 !important;
-  }
-}
-
-a.instagram-link {
-  color: #e1306c;
-  @include hover-focus() {
-    color: darken(#e1306c, $emphasized-link-hover-darken-percentage) !important;
-  }
-}
-
-a.facebook-link {
-  color: lighten(#3b5998, $emphasized-link-hover-darken-percentage);
-  @include hover-focus() {
-    color: #3b5998 !important;
-  }
-}
-
-a.twitter-link {
-  color: #1DA1F2;
-  @include hover-focus() {
-    color: darken(#1DA1F2, $emphasized-link-hover-darken-percentage) !important;
-  }
-}
-
-h1 {
+/*
+ *  Home page styles
+ */
+.greeting {
   font-family: "Alegreya", serif;
+  @extend .display-3;
+}
+.introduction {
+  max-width: 48em;
 }
 
+/*
+ *  Essays styles
+ */
 .essay-preview {
   @extend .position-relative;
   &:not(:last-child) {
@@ -94,4 +63,45 @@ h1 {
   small {
     @extend .font-italic;
   }
+}
+
+/*
+ *  Brand-colored links (mostly on Connect)
+ */
+.github-link {
+  color: lighten(#333, $emphasized-link-hover-darken-percentage);
+  @include hover-focus() {
+    color: #333 !important;
+  }
+}
+.github-text-link {
+  @extend .text-secondary;
+  @include hover-focus() {
+    color: #333 !important;
+  }
+}
+.twitter-link {
+  color: #1DA1F2;
+  @include hover-focus() {
+    color: darken(#1DA1F2, $emphasized-link-hover-darken-percentage) !important;
+  }
+}
+.facebook-link {
+  color: lighten(#3b5998, $emphasized-link-hover-darken-percentage);
+  @include hover-focus() {
+    color: #3b5998 !important;
+  }
+}
+.instagram-link {
+  color: #e1306c;
+  @include hover-focus() {
+    color: darken(#e1306c, $emphasized-link-hover-darken-percentage) !important;
+  }
+}
+
+/*
+ *  Page titles
+ */
+h1 {
+  font-family: "Alegreya", serif;
 }
