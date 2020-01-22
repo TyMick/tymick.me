@@ -78,3 +78,20 @@ a.twitter-link {
 h1 {
   font-family: "Alegreya", serif;
 }
+
+.essay-preview {
+  @extend .position-relative;
+  &:not(:last-child) {
+    @extend .mb-5;
+  }
+  h5 a {
+    @extend .text-reset;
+    @extend .stretched-link;
+  }
+  h6, p {
+    @extend .text-muted;
+  }
+  small {
+    @extend .font-italic;
+  }
+}
