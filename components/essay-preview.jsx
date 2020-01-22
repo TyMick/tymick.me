@@ -1,7 +1,6 @@
 "use strict";
 
 import React from "react";
-import { Media } from "react-bootstrap";
 
 export default ({ title, subtitle, href, date, children }) => (
   <li className="essay-preview">
