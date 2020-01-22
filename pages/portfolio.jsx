@@ -8,5 +8,7 @@ export default () => (
     <Head>
       <title>Ty Mick</title>
     </Head>
+
+    <h1 >Portfolio</h1>
   </>
 );
