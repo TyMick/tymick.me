@@ -1,6 +1,6 @@
 "use strict";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Container, Navbar, Nav, Image } from "react-bootstrap";
@@ -15,11 +15,20 @@ const links = [
 
 export default () => {
   const router = useRouter();
+
+  const [expanded, setExpanded] = useState(false);
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
+  const collapse = () => {
+    setExpanded(false);
+  };
+
   return (
     <Container as="header" className="mb-4 mb-sm-5 px-0">
-      <Navbar collapseOnSelect expand="sm">
+      <Navbar expand="sm" expanded={expanded} onSelect={collapse} onToggle={toggleExpanded}>
         <Link href="/" passHref>
-          <Navbar.Brand className="signature">
+          <Navbar.Brand onClick={collapse} className="signature">
             {router.pathname !== "/" && (
               <Image
                 src="/profile-pic.jpg"
