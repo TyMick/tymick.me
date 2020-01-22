@@ -37,8 +37,8 @@ const Home = () => (
 
       <p>
         I work chiefly in JavaScript, in various combinations of React and
-        Node.js, but I&rsquo;d love the excuse to pick up a new framework or
-        language if your stack&rsquo;s a bit different.{" "}
+        Node.js, but I&rsquo;d certainly enjoy the excuse to pick up a new
+        framework or language if your stack&rsquo;s a bit different.{" "}
         <Link href="/portfolio">
           <a>My portfolio</a>
         </Link>{" "}
