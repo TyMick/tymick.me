@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = {"/connect":["static\u002Fchunks\u002Fcb1608f2.68ac7310472539eea900.js"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
