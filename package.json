@@ -1,11 +1,6 @@
 {
-  "name": "personal-site",
+  "name": "tywmick.github.io",
   "version": "0.1.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
@@ -22,6 +17,14 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "gh-pages": "^2.2.0",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "predeploy": "npm run build && touch out/.nojekyll",
+    "deploy": "gh-pages -b master -d out -m Build -t"
   }
 }
