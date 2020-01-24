@@ -77,7 +77,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     __self: this
   }, "CodePen"), ".")), __jsx("script", {
     async: true,
-    src: "https://static.codepen.io/assets/embed/ei.js",
+    src: "/vendor/codepen/embed/ei.js",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 36
