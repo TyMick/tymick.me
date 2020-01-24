@@ -5,12 +5,12 @@ import React from "react";
 /*
  *  Copied over from CodePen's HTML embed code (before converting to JSX)
  */
-export default ({ title, slug, height = 265 }) => (
+export default ({ title, slug, height = 265, theme = "dark" }) => (
   <>
     <p
       className="codepen"
       data-height={height}
-      data-theme-id="dark"
+      data-theme-id={theme}
       data-default-tab="result"
       data-user="tywmick"
       data-slug-hash={slug}
