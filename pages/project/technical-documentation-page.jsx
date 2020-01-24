@@ -37,9 +37,7 @@ export default () => {
           </a>{" "}
           or <a href="https://codepen.io/tywmick/pen/EJrmvx">CodePen</a>.
         </p>
-
         <h1>Technical documentation page</h1>
-
         <p>
           I created this app in fulfillment of{" "}
           <a href="https://www.freecodecamp.org/">freeCodeCamp</a>
@@ -58,7 +56,6 @@ export default () => {
           </a>
           . It fulfills the following user stories:
         </p>
-
         <ol>
           <li>
             I can see a <code>main</code> element with a corresponding{" "}
@@ -136,6 +133,22 @@ export default () => {
             My Technical Documentation page should use at least one media query.
           </li>
         </ol>
+
+        <p>
+          Content was sourced from{" "}
+          <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">
+            Getting started with HTML
+          </a>{" "}
+          by{" "}
+          <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started%24history">
+            Mozilla Contributors
+          </a>
+          , which is licensed under{" "}
+          <a href="https://creativecommons.org/licenses/by-sa/2.5/">
+            CC BY-SA 2.5
+          </a>
+          .
+        </p>
       </Container>
     </>
   );
