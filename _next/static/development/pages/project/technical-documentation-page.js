@@ -17,7 +17,7 @@ var _jsxFileName = "/Users/tymick/Documents/tywmick.github.io/components/codepen
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /*
- *  Copied over from CodePen's HTML embed code (before converting to JSX)
+ *  Copied over from CodePen's iframe embed code (before converting to JSX)
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
@@ -25,57 +25,44 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       slug = _ref.slug,
       _ref$height = _ref.height,
       height = _ref$height === void 0 ? 265 : _ref$height;
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
-    className: "codepen",
-    "data-height": height,
-    "data-theme-id": "dark",
-    "data-default-tab": "result",
-    "data-user": "tywmick",
-    "data-slug-hash": slug,
+  return __jsx("iframe", {
+    height: height,
     style: {
-      height: height + "px",
-      boxSizing: "border-box",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      border: "2px solid",
-      marginBottom: "1em",
-      padding: "1em"
+      width: "100%"
     },
-    "data-pen-title": title,
+    scrolling: "no",
+    title: title,
+    src: "https://codepen.io/tywmick/embed/" + slug + "?height=" + height + "&theme-id=dark&default-tab=result",
+    frameborder: "no",
+    allowtransparency: "true",
+    allowfullscreen: "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }, __jsx("span", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 9
     },
     __self: this
   }, "See the Pen", " ", __jsx("a", {
     href: "https://codepen.io/tywmick/pen/" + slug,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 20
     },
     __self: this
-  }, title), " by Ty Mick (", __jsx("a", {
+  }, title), " ", "by Ty Mick (", __jsx("a", {
     href: "https://codepen.io/tywmick",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 23
     },
     __self: this
   }, "@tywmick"), ") on", " ", __jsx("a", {
     href: "https://codepen.io",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 24
     },
     __self: this
-  }, "CodePen"), ".")));
+  }, "CodePen"), ".");
 });
 
 /***/ }),
@@ -19071,20 +19058,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
       lineNumber: 18
     },
     __self: this
-  }, "Technical documentation page \u2013 Ty Mick"), __jsx("script", {
-    type: "text/javascript",
-    src: "/vendor/codepen/embed/ei.js",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  })), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+  }, "Technical documentation page \u2013 Ty Mick")), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
     fluid: true,
     className: "mt-n3 mb-4 mb-lg-5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 21
     },
     __self: this
   }, __jsx(_components_codepen__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -19093,395 +19072,395 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     height: windowHeight * 0.6,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 22
     },
     __self: this
   })), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Container"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 30
     },
     __self: this
   }, __jsx("p", {
     className: "lead font-italic",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 31
     },
     __self: this
   }, "View this app", " ", __jsx("a", {
     href: "https://codepen.io/tywmick/full/EJrmvx",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 33
     },
     __self: this
   }, "in its own window"), ", or view the source on", " ", __jsx("a", {
     href: "https://github.com/tywmick/technical-documentation-page",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 35
     },
     __self: this
   }, "GitHub"), " ", "or ", __jsx("a", {
     href: "https://codepen.io/tywmick/pen/EJrmvx",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 38
     },
     __self: this
   }, "CodePen"), "."), __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 41
     },
     __self: this
   }, "Technical documentation page"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 43
     },
     __self: this
   }, "I created this app in fulfillment of", " ", __jsx("a", {
     href: "https://www.freecodecamp.org/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 45
     },
     __self: this
   }, "freeCodeCamp"), "'s Responsive Web Design Project", " ", __jsx("a", {
     href: "https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 47
     },
     __self: this
   }, "Build a Technical Documentation Page"), ", using", " ", __jsx("a", {
     href: "https://www.w3schools.com/w3css/default.asp",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 51
     },
     __self: this
   }, "W3.CSS"), ". I modeled it some after", " ", __jsx("a", {
     href: "https://codepen.io/freeCodeCamp/pen/RKRbwL",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 53
     },
     __self: this
   }, "their example"), ", but I was more inspired more by", " ", __jsx("a", {
     href: "https://www.w3schools.com",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 55
     },
     __self: this
   }, "W3School"), "'s", " ", __jsx("a", {
     href: "https://www.w3schools.com/w3css/w3css_sidebar.asp",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 56
     },
     __self: this
   }, "sidebar tutorials"), ". It fulfills the following user stories:"), __jsx("ol", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 62
     },
     __self: this
   }, __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 63
     },
     __self: this
   }, "I can see a ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 64
     },
     __self: this
   }, "main"), " element with a corresponding", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 65
     },
     __self: this
   }, "id=\"main-doc\""), ", which contains the page's main content (technical documentation)."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 68
     },
     __self: this
   }, "Within the ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 69
     },
     __self: this
   }, "#main-doc"), " element, I can see several", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 70
     },
     __self: this
   }, "section"), " elements, each with a class of", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 71
     },
     __self: this
   }, "main-section"), ". There should be a minimum of 5."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 73
     },
     __self: this
   }, "The first element within each ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 74
     },
     __self: this
   }, ".main-section"), " should be a", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 75
     },
     __self: this
   }, "header"), " element which contains text that describes the topic of that section."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 78
     },
     __self: this
   }, "Each ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 79
     },
     __self: this
   }, "section"), " element with the class of", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 80
     },
     __self: this
   }, "main-section"), " should also have an id that corresponds with the text of each ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 81
     },
     __self: this
   }, "header"), " contained within it. Any spaces should be replaced with underscores (e.g. The", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 83
     },
     __self: this
   }, "section"), " that contains the header \"JavaScript and Java\" should have a corresponding ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 84
     },
     __self: this
   }, "id=\"JavaScript_and_Java\""), ")."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 86
     },
     __self: this
   }, "The ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88
+      lineNumber: 87
     },
     __self: this
   }, ".main-section"), " elements should contain at least 10", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 88
     },
     __self: this
   }, "p"), " elements total (not each)."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 90
     },
     __self: this
   }, "The ", __jsx("code", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91
+    },
+    __self: this
+  }, ".main-section"), " elements should contain at least 5", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 92
     },
     __self: this
-  }, ".main-section"), " elements should contain at least 5", " ", __jsx("code", {
+  }, "code"), " elements total (not each)."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 94
     },
     __self: this
-  }, "code"), " elements total (not each)."), __jsx("li", {
+  }, "The ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 95
     },
     __self: this
-  }, "The ", __jsx("code", {
+  }, ".main-section"), " elements should contain at least 5", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 96
     },
     __self: this
-  }, ".main-section"), " elements should contain at least 5", " ", __jsx("code", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 97
-    },
-    __self: this
   }, "li"), " items total (not each)."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 98
     },
     __self: this
   }, "I can see a ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 99
     },
     __self: this
   }, "nav"), " element with a corresponding", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 100
     },
     __self: this
   }, "id=\"navbar\""), "."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 102
     },
     __self: this
   }, "The navbar element should contain one ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 103
     },
     __self: this
   }, "header"), " element which contains text that describes the topic of the technical documentation."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 107
     },
     __self: this
   }, "Additionally, the navbar should contain link (", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 108
     },
     __self: this
   }, "a"), ") elements with the class of ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 109
     },
     __self: this
   }, "nav-link"), ". There should be one for every element with the class ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 110
     },
     __self: this
   }, "main-section"), "."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113
+      lineNumber: 112
     },
     __self: this
   }, "The ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114
+      lineNumber: 113
     },
     __self: this
   }, "header"), " element in the navbar must come before any link (", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 114
     },
     __self: this
   }, "a"), ") elements in the navbar."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117
+      lineNumber: 116
     },
     __self: this
   }, "Each element with the class of ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118
+      lineNumber: 117
     },
     __self: this
   }, "nav-link"), " should contain text that corresponds to the ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119
+      lineNumber: 118
     },
     __self: this
   }, "header"), " text within each", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120
+      lineNumber: 119
     },
     __self: this
   }, "section"), " (e.g. if you have a \"Hello world\" section/header, your navbar should have an element which contains the text \"Hello world\")."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124
+      lineNumber: 123
     },
     __self: this
   }, "When I click on a navbar element, the page should navigate to the corresponding section of the ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 125
     },
     __self: this
   }, "main-doc"), " element (e.g. If I click on a ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127
+      lineNumber: 126
     },
     __self: this
   }, "nav-link"), " element that contains the text \"Hello world\", the page navigates to a ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128
+      lineNumber: 127
     },
     __self: this
   }, "section"), " element that has that id and contains the corresponding ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 128
     },
     __self: this
   }, "header"), "."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 130
     },
     __self: this
   }, "On regular sized devices (laptops, desktops), the element with", " ", __jsx("code", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133
+      lineNumber: 132
     },
     __self: this
   }, "id=\"navbar\""), " should be shown on the left side of the screen and should always be visible to the user."), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136
+      lineNumber: 135
     },
     __self: this
   }, "My Technical Documentation page should use at least one media query."))));
@@ -19489,7 +19468,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fproject%2Ftechnical-documentation-page&absolutePagePath=%2FUsers%2Ftymick%2FDocuments%2Ftywmick.github.io%2Fpages%2Fproject%2Ftechnical-documentation-page.jsx ***!
   \*************************************************************************************************************************************************************************************************************/
@@ -19512,5 +19491,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=technical-documentation-page.js.map
