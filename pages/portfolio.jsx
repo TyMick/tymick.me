@@ -2,13 +2,16 @@
 
 import React from "react";
 import Head from "next/head";
+import { Container } from "react-bootstrap";
 
 export default () => (
   <>
     <Head>
-      <title>Ty Mick</title>
+      <title>Portfolio – Ty Mick</title>
     </Head>
 
-    <h1 >Portfolio</h1>
+    <Container>
+      <h1>Portfolio</h1>
+    </Container>
   </>
 );

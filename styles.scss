@@ -44,6 +44,11 @@ $enable-responsive-font-sizes: true;
 .introduction {
   max-width: 48em;
 }
+.max-lg-48 {
+  @include media-breakpoint-up(lg) {
+    max-width: 48em;
+  }
+}
 
 /*
  *  Essays styles
@@ -57,7 +62,8 @@ $enable-responsive-font-sizes: true;
     @extend .text-reset;
     @extend .stretched-link;
   }
-  h6, p {
+  h6,
+  p {
     @extend .text-muted;
   }
   small {
@@ -81,9 +87,9 @@ $enable-responsive-font-sizes: true;
   }
 }
 .twitter-link {
-  color: #1DA1F2;
+  color: #1da1f2;
   @include hover-focus() {
-    color: darken(#1DA1F2, $emphasized-link-hover-darken-percentage) !important;
+    color: darken(#1da1f2, $emphasized-link-hover-darken-percentage) !important;
   }
 }
 .facebook-link {
