@@ -39,11 +39,9 @@ export default () => {
         </p>
         <h1>Technical documentation page</h1>
         <p>
-          I created this app in fulfillment of{" "}
-          <a href="https://www.freecodecamp.org/">freeCodeCamp</a>
-          's Responsive Web Design Project{" "}
-          <a href="https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page/">
-            Build a Technical Documentation Page
+          I created this app as a requirement for{" "}
+          <a href="https://www.freecodecamp.org/certification/tywmick/responsive-web-design">
+            my freeCodeCamp Responsive Web Design Certification
           </a>
           , using{" "}
           <a href="https://www.w3schools.com/w3css/default.asp">W3.CSS</a>. I
