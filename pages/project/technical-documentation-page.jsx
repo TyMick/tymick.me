@@ -29,7 +29,7 @@ export default () => {
       {/* Explanation */}
       <Container>
         <p className="lead font-italic">
-          View this app{" "}
+          View this project{" "}
           <a href="https://codepen.io/tywmick/full/EJrmvx">in its own window</a>
           , or view the source on{" "}
           <a href="https://github.com/tywmick/technical-documentation-page">
