@@ -1,6 +1,12 @@
 {
   "name": "tywmick.github.io",
   "version": "0.1.0",
+  "author": {
+    "name": "Tyler Westin Mick",
+    "email": "ty@tymick.me",
+    "url": "http://tymick.me"
+  },
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
@@ -25,8 +31,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start",
+    "start": "next dev",
     "predeploy": "npm run build && touch out/.nojekyll",
     "deploy": "gh-pages -b master -d out -m Build -t"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
