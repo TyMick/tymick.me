@@ -10,8 +10,8 @@ export default ({ algorithm, argumentName, inputType }) => {
 
   return (
     <div className="mx-2 mx-sm-5 mb-3">
-      <Form inline className="mb-3">
-        <InputGroup>
+      <Form inline className="mb-3 text-monospace">
+        <InputGroup className="w-100">
           <InputGroup.Prepend>
             <InputGroup.Text id="functionName">
               {algorithm.name}({inputType === "text" && argValue && '"'}
