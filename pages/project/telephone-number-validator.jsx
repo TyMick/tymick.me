@@ -8,7 +8,12 @@ import AlgorithmTest from "../../components/algorithm-test";
 
 export default () => {
   function telephoneCheck(str) {
-    let numDigits = str.match(/\d/g).length;
+    let numDigits;
+    if (str.match(/\d/g)) {
+      numDigits = str.match(/\d/g).length;
+    } else {
+      return false;
+    }
 
     if (numDigits == 10) {
       if (
