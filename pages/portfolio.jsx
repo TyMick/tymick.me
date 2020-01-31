@@ -15,18 +15,19 @@ export default () => (
 
       <p>
         I don&rsquo;t consider myself a designer, but I definitely know whether
-        or not I like a given design. Maybe that&rsquo;s what makes one a
-        designer? In any case, I&rsquo;ve gotten to know my way around{" "}
-        <a href="https://getbootstrap.com/">Bootstrap</a> pretty well by now, so
-        I can definitely make something functional and attractive.
+        or not I like a given design. Come to think of it, maybe that&rsquo;s
+        what makes one a designer? In any case, I&rsquo;ve gotten to know my way
+        around <a href="https://getbootstrap.com/">Bootstrap</a> pretty well by
+        now, so I can definitely make something functional and attractive.
       </p>
       <p>
         That being said, that&rsquo;s not the fun part. The <em>fun</em> part is
         the <em>logic</em>, the <em>behind-the-scenes</em>, the stuff you
         don&rsquo;t notice until something&rsquo;s going wrong.{" "}
-        <em>That&rsquo;s</em> where the excitement&rsquo;s at, and where I
-        prefer to spend my time.
+        <em>That&rsquo;s</em> where the excitement&rsquo;s at, and that&rsquo;s
+        where I prefer to spend my time.
       </p>
+      <p>It is kind of cool seeing the full picture sometimes, though</p>
     </Container>
   </>
 );
