@@ -23,8 +23,9 @@ export default () => (
       <p>
         That being said, that&rsquo;s not the fun part. The <em>fun</em> part is
         the <em>logic</em>, the <em>behind-the-scenes</em>, the stuff you
-        don&rsquo;t notice until something&rsquo;s going wrong. That&rsquo;s
-        where the excitement&rsquo;s at, and where I prefer to spend my time.
+        don&rsquo;t notice until something&rsquo;s going wrong.{" "}
+        <em>That&rsquo;s</em> where the excitement&rsquo;s at, and where I
+        prefer to spend my time.
       </p>
     </Container>
   </>
