@@ -4,7 +4,7 @@ import React from "react";
 import Head from "next/head";
 import Gist from "react-gist";
 import { Container } from "react-bootstrap";
-import AlgorithmTest from "../../components/AlgorithmTest";
+import AlgorithmTest from "../../components/algorithm-test";
 
 export default () => {
   function palindrome(str) {
