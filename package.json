@@ -6,6 +6,7 @@
     "email": "ty@tymick.me",
     "url": "http://tymick.me"
   },
+  "repository": "github:tywmick/tywmick.github.io",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
