@@ -434,8 +434,9 @@ export default () => {
             my freeCodeCamp JavaScript Algorithms and Data Structures
             Certification
           </a>
-          . Output isn't terribly human-readable, but I suppose cash registers
-          don't really speak English, so I guess that's okay. Here are the
+          . Output isn't terribly human-readable, but, well, human-readable
+          wasn't part of the requirements. I suppose cash registers don't really
+          speak English, though, so I guess that's okay. Here are the
           requirements I built to:
         </p>
 

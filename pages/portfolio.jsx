@@ -12,6 +12,8 @@ export default () => (
 
     <Container>
       <h1>Portfolio</h1>
+      
+      <p>I don&rsquo;t consider myself a designer, but I definitely know whether or not I like a given design. Or maybe that&rsoquo;s what makes one a designer? In any case, </p>
     </Container>
   </>
 );
