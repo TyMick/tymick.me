@@ -14,7 +14,7 @@ export default ({ algorithm, argumentName, inputType }) => {
         <InputGroup>
           <InputGroup.Prepend>
             <InputGroup.Text id="functionName">
-              {algorithm.name}(
+              {algorithm.name}({inputType === "text" && argValue && '"'}
             </InputGroup.Text>
           </InputGroup.Prepend>
           <Form.Control
@@ -27,7 +27,9 @@ export default ({ algorithm, argumentName, inputType }) => {
             }}
           />
           <InputGroup.Append>
-            <InputGroup.Text>)</InputGroup.Text>
+            <InputGroup.Text>
+              {inputType === "text" && argValue && '"'})
+            </InputGroup.Text>
           </InputGroup.Append>
         </InputGroup>
       </Form>
