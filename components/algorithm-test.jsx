@@ -41,7 +41,9 @@ export default ({ algorithm, argumentName, inputType }) => {
               style={githubGist}
               className="px-2 py-1 m-0"
             >
-              {algorithm(argValue).toString()}
+              {typeof algorithm(argValue) === "string"
+                ? '"' + algorithm(argValue) + '"'
+                : algorithm(argValue).toString()}
             </SyntaxHighlighter>
           ) : (
             <pre className="px-2 py-1 m-0">&nbsp;</pre>
