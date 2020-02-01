@@ -106,8 +106,12 @@ $enable-responsive-font-sizes: true;
 }
 
 /*
- *  Page titles
+ *  Miscellaneous
  */
 h1 {
   font-family: "Alegreya", serif;
+}
+.tooltip-inner {
+  text-align: left;
+  max-width: 98vw;
 }
