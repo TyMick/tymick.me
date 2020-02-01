@@ -1,3 +1,12 @@
+#
+# Glitch.com created this file when I worked on this project there once. Not
+# sure what to do with it now. I have no need for pnpm on my local machine, but
+# should I hang onto this file for the next time I pull this repo to the Glitch
+# project to do a little work there on my Chromebook? Will Glitch update this
+# file if it sees my package.json and package-lock.json have changed?
+#
+# ¯\_(ツ)_/¯
+#
 dependencies:
   '@fortawesome/fontawesome-svg-core': 1.2.26
   '@fortawesome/free-brands-svg-icons': 5.12.0
