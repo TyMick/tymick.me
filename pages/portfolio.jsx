@@ -37,8 +37,15 @@ export default () => (
         </Link>{" "}
         if you have any questions!
       </p>
-      
-      <h2 className="h3">Full-stack demos</h2>
+
+      <h2>Full-stack demos</h2>
+      <ul className="lead">
+        <li>
+          <a href="https://nextjs-local-authentication.tymick.me">
+            Next.js local authentication with MongoDB
+          </a>
+        </li>
+      </ul>
     </Container>
   </>
 );
