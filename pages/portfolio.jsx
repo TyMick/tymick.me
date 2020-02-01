@@ -2,6 +2,7 @@
 
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { Container } from "react-bootstrap";
 
 export default () => (
@@ -27,7 +28,17 @@ export default () => (
         <em>That&rsquo;s</em> where the excitement&rsquo;s at, and that&rsquo;s
         where I prefer to spend my time.
       </p>
-      <p>It is kind of cool seeing the full picture sometimes, though</p>
+      <p>
+        But it&rsquo;s useful to be able to see the whole picture, so I&rsquo;ve
+        created projects that span the spectrum from front to back. Hope you
+        enjoy what I&rsquo;ve built, and{" "}
+        <Link href="/connect">
+          <a title="Connect – Ty Mick">let me know</a>
+        </Link>{" "}
+        if you have any questions!
+      </p>
+      
+      <h2 className="h3">Full-stack demos</h2>
     </Container>
   </>
 );
