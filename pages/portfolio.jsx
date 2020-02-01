@@ -46,6 +46,15 @@ export default () => (
           </a>
         </li>
       </ul>
+
+      <h2>Multi-page websites</h2>
+      <ul className="lead">
+        <li>
+          <Link href="/projects/personal-site">
+            <a title="About this site">TyMick.me</a>
+          </Link>
+        </li>
+      </ul>
     </Container>
   </>
 );
