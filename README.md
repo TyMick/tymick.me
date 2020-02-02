@@ -19,7 +19,7 @@ If you're curious how I got separate source and build branches in this single `t
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "predeploy": "npm run build && touch out/.nojekyll",
+    "predeploy": "npm run build && touch out/.nojekyll && echo 'tymick.me' >> out/CNAME",
     "deploy": "gh-pages -b master -d out -m Build -t"
   }
   ```

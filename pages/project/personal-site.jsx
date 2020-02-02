@@ -11,7 +11,7 @@ const npmScripts = `"scripts": {
   "dev": "next dev",
   "build": "next build && next export",
   "start": "next start",
-  "predeploy": "npm run build && touch out/.nojekyll",
+  "predeploy": "npm run build && touch out/.nojekyll && echo 'tymick.me' >> out/CNAME",
   "deploy": "gh-pages -b master -d out -m Build -t"
 }`;
 
