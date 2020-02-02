@@ -11,7 +11,7 @@ export default () => (
       <title>Essays – Ty Mick</title>
     </Head>
 
-    <Container>
+    <Container className="cap-width-lg">
       <h1 className="mb-4 mb-md-5">Essays</h1>
 
       <ul className="list-unstyled">

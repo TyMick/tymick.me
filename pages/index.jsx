@@ -11,7 +11,7 @@ const Home = () => (
       <title>Ty Mick, web developer</title>
     </Head>
 
-    <Container className="max-lg-48">
+    <Container className="cap-lg-49">
       <Row className="align-items-center mb-3 mb-sm-5">
         <Col
           xs={12}

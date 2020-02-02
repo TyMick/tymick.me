@@ -44,12 +44,9 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   font-family: "Alegreya", serif;
   @extend .display-3;
 }
-.introduction {
-  max-width: 48em;
-}
-.max-lg-48 {
+.cap-lg-49 {
   @include media-breakpoint-up(lg) {
-    max-width: 48em;
+    max-width: 49rem;
   }
 }
 
@@ -109,8 +106,22 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
 }
 
 /*
+ *  Cap max widths of containers
+ */
+@each $breakpoint, $container-max-width in $container-max-widths {
+  .cap-width-#{$breakpoint} {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+/*
  *  Miscellaneous
  */
+body {
+  @extend .text-justify;
+}
 h1,
 .h1 {
   font-family: "Alegreya", serif;

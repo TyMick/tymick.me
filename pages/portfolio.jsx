@@ -13,7 +13,7 @@ export default () => (
       <title>Portfolio – Ty Mick</title>
     </Head>
 
-    <Container>
+    <Container className="cap-width-lg">
       <h1>Portfolio</h1>
 
       <p>
@@ -69,7 +69,7 @@ export default () => (
         projects={[
           {
             name: "TyMick.me",
-            href: "/projects/personal-site",
+            href: "/project/personal-site",
             linkTitle: "About this site"
           }
         ]}

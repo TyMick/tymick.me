@@ -18,7 +18,7 @@ export default () => (
       <title>Connect – Ty Mick</title>
     </Head>
 
-    <Container>
+    <Container className="cap-width-md">
       <h1 className="mb-3">Connect</h1>
 
       <ContactMethod icon={faAt} href="mailto:hire@tymick.me">
