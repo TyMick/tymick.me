@@ -1,4 +1,7 @@
 $enable-responsive-font-sizes: true;
+$font-size-base: 1rem; // Same as Bootstrap default, necessary for next line
+$h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm using for h1
+
 @import "~bootstrap/scss/bootstrap.scss";
 
 // Enables footer to stick to bottom
@@ -108,8 +111,10 @@ $enable-responsive-font-sizes: true;
 /*
  *  Miscellaneous
  */
-h1 {
+h1,
+.h1 {
   font-family: "Alegreya", serif;
+  @extend .mb-3;
 }
 .tooltip-inner {
   text-align: left;

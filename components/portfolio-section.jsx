@@ -10,7 +10,7 @@ export default ({ name, id, projects }) => {
   };
 
   return (
-    <>
+    <section aria-labelledby={id}>
       <h2 className="h3" id={id}>
         {name}
       </h2>
@@ -29,6 +29,6 @@ export default ({ name, id, projects }) => {
           </li>
         ))}
       </ul>
-    </>
+    </section>
   );
 };

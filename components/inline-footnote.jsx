@@ -3,10 +3,6 @@
 import React from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-// I realize that putting a tooltip on a <span> is not ideal for accessibility
-// (https://getbootstrap.com/docs/4.4/components/tooltips/#markup), but I can't
-// think of another way to implement this fun sort of inline footnote at the
-// moment. Suggestions are appreciated.
 export default ({ note, noteId, children }) => (
   <OverlayTrigger
     placement="top"
@@ -25,4 +21,7 @@ export default ({ note, noteId, children }) => (
 );
 
 // Consider using getClientRects() to better position notes on multi-line
-// spans: https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects
+// spans.
+// - https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects
+// - https://popper.js.org/docs/v2/modifiers/offset
+// - https://react-bootstrap.netlify.com/components/overlays/#overlay-trigger-props
