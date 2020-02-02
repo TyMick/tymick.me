@@ -2,7 +2,7 @@
   "name": "tywmick.github.io",
   "version": "0.1.0",
   "author": {
-    "name": "Tyler Westin Mick",
+    "name": "Ty Mick",
     "email": "ty@tymick.me",
     "url": "http://tymick.me"
   },
@@ -16,7 +16,6 @@
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
     "next": "^9.2.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
