@@ -79399,7 +79399,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-var npmScripts = "\"scripts\": {\n  \"dev\": \"next dev\",\n  \"build\": \"next build && next export\",\n  \"start\": \"next start\",\n  \"predeploy\": \"npm run build && touch out/.nojekyll\",\n  \"deploy\": \"gh-pages -b master -d out -m Build -t\"\n}";
+var npmScripts = "\"scripts\": {\n  \"dev\": \"next dev\",\n  \"build\": \"next build && next export\",\n  \"start\": \"next start\",\n  \"predeploy\": \"npm run build && touch out/.nojekyll && echo 'tymick.me' >> out/CNAME\",\n  \"deploy\": \"gh-pages -b master -d out -m Build -t\"\n}";
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
@@ -79677,7 +79677,7 @@ var npmScripts = "\"scripts\": {\n  \"dev\": \"next dev\",\n  \"build\": \"next 
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!*******************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fproject%2Fpersonal-site&absolutePagePath=%2FUsers%2Ftymick%2FDocuments%2Ftywmick.github.io%2Fpages%2Fproject%2Fpersonal-site.jsx ***!
   \*******************************************************************************************************************************************************************************/
@@ -79700,5 +79700,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[5,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=personal-site.js.map
