@@ -21,79 +21,85 @@ export default () => (
     <Container className="cap-width-md">
       <h1 className="mb-3">Connect</h1>
 
-      <ContactMethod icon={faAt} href="mailto:hire@tymick.me">
-        Interested in hiring me? Send an email to{" "}
-        <a href="mailto:hire@tymick.me">hire@tymick.me</a>.
-      </ContactMethod>
+      <ul className="list-unstyled">
+        <ContactMethod icon={faAt} href="mailto:hire@tymick.me">
+          Interested in hiring me? Send an email to{" "}
+          <a href="mailto:hire@tymick.me">hire@tymick.me</a>. I&rsquo;m
+          currently open to freelance work and remote part-time employment.
+          Remote full-time would be alright if it doesn&rsquo;t require specific
+          hours, since working three long days per week is much better for our
+          RV life.
+        </ContactMethod>
 
-      <ContactMethod
-        brand="github"
-        icon={faGithub}
-        href="https://github.com/tywmick"
-      >
-        Want to contribute to one of my projects? Found something I need to fix?
-        Head on over to{" "}
-        <a
+        <ContactMethod
+          brand="github"
+          icon={faGithub}
           href="https://github.com/tywmick"
-          title="Ty's GitHub profile"
-          className="github-text-link"
         >
-          GitHub
-        </a>
-        .
-      </ContactMethod>
+          Want to contribute to one of my projects? Found something I need to
+          fix? Head on over to{" "}
+          <a
+            href="https://github.com/tywmick"
+            title="Ty's GitHub profile"
+            className="github-text-link"
+          >
+            GitHub
+          </a>
+          .
+        </ContactMethod>
 
-      <ContactMethod
-        brand="twitter"
-        icon={faTwitter}
-        href="https://twitter.com/tywmick"
-      >
-        Want to ask my opinion on something? I&rsquo;d prefer the more public
-        nature of{" "}
-        <a
+        <ContactMethod
+          brand="twitter"
+          icon={faTwitter}
           href="https://twitter.com/tywmick"
-          title="Ty's Twitter profile"
-          className="twitter-link"
         >
-          Twitter
-        </a>{" "}
-        for that purpose, so I don&rsquo;t have to repeat myself as often. I
-        also use Twitter to briefly announce when I&rsquo;ve written or released
-        something new.
-      </ContactMethod>
+          Want to ask my opinion on something? I&rsquo;d prefer the more public
+          nature of{" "}
+          <a
+            href="https://twitter.com/tywmick"
+            title="Ty's Twitter profile"
+            className="twitter-link"
+          >
+            Twitter
+          </a>{" "}
+          for that purpose, so I don&rsquo;t have to repeat myself as often. I
+          also use Twitter to briefly announce when I&rsquo;ve written or
+          released something new.
+        </ContactMethod>
 
-      <ContactMethod
-        brand="facebook"
-        icon={faFacebook}
-        href="https://www.facebook.com/tylerwestinmick"
-      >
-        Curious to see some of the destinations in my RV travels? I post
-        360&deg; photos from hikes on{" "}
-        <a
+        <ContactMethod
+          brand="facebook"
+          icon={faFacebook}
           href="https://www.facebook.com/tylerwestinmick"
-          title="Ty's Facebook profile"
-          className="facebook-link"
         >
-          Facebook
-        </a>{" "}
-        every now and then.
-      </ContactMethod>
+          Curious to see some of the destinations in my RV travels? I post
+          360&deg; photos from hikes on{" "}
+          <a
+            href="https://www.facebook.com/tylerwestinmick"
+            title="Ty's Facebook profile"
+            className="facebook-link"
+          >
+            Facebook
+          </a>{" "}
+          every now and then.
+        </ContactMethod>
 
-      <ContactMethod
-        brand="instagram"
-        icon={faInstagram}
-        href="https://www.instagram.com/tywmick/"
-      >
-        Looking for more photos of me? I don&rsquo;t post to{" "}
-        <a
+        <ContactMethod
+          brand="instagram"
+          icon={faInstagram}
           href="https://www.instagram.com/tywmick/"
-          title="Ty's Instagram profile"
-          className="instagram-link"
         >
-          Instagram
-        </a>{" "}
-        myself anymore, but people still tag me there.
-      </ContactMethod>
+          Looking for more photos of me? I don&rsquo;t post to{" "}
+          <a
+            href="https://www.instagram.com/tywmick/"
+            title="Ty's Instagram profile"
+            className="instagram-link"
+          >
+            Instagram
+          </a>{" "}
+          myself anymore, but people still tag me there.
+        </ContactMethod>
+      </ul>
     </Container>
   </>
 );
