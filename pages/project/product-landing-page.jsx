@@ -15,7 +15,7 @@ export default () => {
   return (
     <>
       <Head>
-        <title>Technical documentation page – Ty Mick</title>
+        <title>Product landing page – Ty Mick</title>
       </Head>
 
       <Container fluid className="mt-n3 mb-4 mb-lg-5">
@@ -37,7 +37,7 @@ export default () => {
         </p>
         <h1>Product landing page</h1>
         <p>
-          I created this app as a requirement for{" "}
+          I created this page as a requirement for{" "}
           <a href="https://www.freecodecamp.org/certification/tywmick/responsive-web-design">
             my freeCodeCamp Responsive Web Design Certification
           </a>
