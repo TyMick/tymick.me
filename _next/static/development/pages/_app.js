@@ -107,6 +107,9 @@ var links = [{
   label: "Portfolio",
   href: "/portfolio"
 }, {
+  label: "Résumé",
+  href: "/resume.pdf"
+}, {
   label: "Essays",
   href: "/essays"
 }, {
@@ -130,20 +133,22 @@ var links = [{
 
   return __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Container"], {
     as: "header",
-    className: "mb-4 mb-sm-5 px-0",
+    bsPrefix: "container" + (router.pathname === "/" ? "" : "-md") // Change to `fluid={router.pathname === "/" ? false : "md"}` once react-bootstrap releases fix
+    ,
+    className: "px-0 mb-4 mb-" + (router.pathname === "/" ? "sm" : "md") + "-5",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 29
     },
     __self: this
   }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"], {
-    expand: "sm",
+    expand: router.pathname === "/" ? "sm" : "md",
     expanded: expanded,
     onSelect: collapse,
     onToggle: toggleExpanded,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 36
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -151,7 +156,7 @@ var links = [{
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 42
     },
     __self: this
   }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Brand, {
@@ -159,7 +164,7 @@ var links = [{
     className: "signature",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 43
     },
     __self: this
   }, router.pathname !== "/" && __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Image"], {
@@ -168,7 +173,7 @@ var links = [{
     roundedCircle: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 45
     },
     __self: this
   }), "Ty Mick")), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Toggle, {
@@ -176,7 +181,7 @@ var links = [{
     className: "border-0 pr-0",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 54
     },
     __self: this
   }), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Collapse, {
@@ -184,33 +189,41 @@ var links = [{
     className: "justify-content-end",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 55
     },
     __self: this
   }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"], {
     activeKey: router.pathname,
-    className: "align-items-top align-items-sm-center",
+    className: "align-items-top align-items-" + (router.pathname === "/" ? "sm" : "md") + "-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 56
     },
     __self: this
   }, links.map(function (_ref) {
     var label = _ref.label,
         href = _ref.href;
-    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    return href.includes(".") ? __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"].Link, {
+      href: href,
+      key: label.toLowerCase(),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 66
+      },
+      __self: this
+    }, label) : __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: href,
       passHref: true,
       key: label.toLowerCase(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 70
       },
       __self: this
     }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"].Link, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 71
       },
       __self: this
     }, label));
@@ -219,14 +232,14 @@ var links = [{
     href: "https://github.com/tywmick",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 75
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faGithub"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 79
     },
     __self: this
   }))))));

@@ -23870,7 +23870,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!***************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fportfolio&absolutePagePath=%2FUsers%2Ftymick%2FDocuments%2Ftywmick.github.io%2Fpages%2Fportfolio.jsx ***!
   \***************************************************************************************************************************************************/
@@ -23893,5 +23893,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=portfolio.js.map
