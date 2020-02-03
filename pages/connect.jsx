@@ -22,11 +22,11 @@ export default () => (
       <h1 className="mb-3">Connect</h1>
 
       <ul className="list-unstyled">
-        <ContactMethod icon={faAt} href="mailto:hire@tymick.me">
+        <ContactMethod id="email" icon={faAt} href="mailto:hire@tymick.me">
           Interested in hiring me? Send an email to{" "}
           <a href="mailto:hire@tymick.me">hire@tymick.me</a>. I&rsquo;m
-          currently open to freelance work and remote part-time employment.
-          Remote full-time would be alright if it doesn&rsquo;t require specific
+          currently open to freelance work and remote part-time employment. And
+          remote full-time would be alright if it doesn&rsquo;t require specific
           hours, since working three long days per week is much better for our
           RV life.
         </ContactMethod>
