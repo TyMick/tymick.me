@@ -9,6 +9,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Résumé", href: "/resume.pdf" },
   { label: "Essays", href: "/essays" },
   { label: "Connect", href: "/connect" }
 ];
@@ -25,8 +26,19 @@ export default () => {
   };
 
   return (
-    <Container as="header" className="mb-4 mb-sm-5 px-0">
-      <Navbar expand="sm" expanded={expanded} onSelect={collapse} onToggle={toggleExpanded}>
+    <Container
+      as="header"
+      bsPrefix={"container" + (router.pathname === "/" ? "" : "-md")} // Change to `fluid={router.pathname === "/" ? false : "md"}` once react-bootstrap releases fix
+      className={
+        "px-0 mb-4 mb-" + (router.pathname === "/" ? "sm" : "md") + "-5"
+      }
+    >
+      <Navbar
+        expand={router.pathname === "/" ? "sm" : "md"}
+        expanded={expanded}
+        onSelect={collapse}
+        onToggle={toggleExpanded}
+      >
         <Link href="/" passHref>
           <Navbar.Brand onClick={collapse} className="signature">
             {router.pathname !== "/" && (
@@ -43,13 +55,23 @@ export default () => {
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={router.pathname}
-            className="align-items-top align-items-sm-center"
+            className={
+              "align-items-top align-items-" +
+              (router.pathname === "/" ? "sm" : "md") +
+              "-center"
+            }
           >
-            {links.map(({ label, href }) => (
-              <Link href={href} passHref key={label.toLowerCase()}>
-                <Nav.Link>{label}</Nav.Link>
-              </Link>
-            ))}
+            {links.map(({ label, href }) =>
+              href.includes(".") ? (
+                <Nav.Link href={href} key={label.toLowerCase()}>
+                  {label}
+                </Nav.Link>
+              ) : (
+                <Link href={href} passHref key={label.toLowerCase()}>
+                  <Nav.Link>{label}</Nav.Link>
+                </Link>
+              )
+            )}
             <Nav.Link
               className="github-nav-link pr-0"
               href="https://github.com/tywmick"
