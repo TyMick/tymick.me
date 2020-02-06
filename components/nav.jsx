@@ -10,7 +10,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const links = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Résumé", href: "/resume.pdf" },
-  { label: "Essays", href: "/essays" },
   { label: "Connect", href: "/connect" }
 ];
 
@@ -28,13 +27,12 @@ export default () => {
   return (
     <Container
       as="header"
-      bsPrefix={"container" + (router.pathname === "/" ? "" : "-md")} // Change to `fluid={router.pathname === "/" ? false : "md"}` once react-bootstrap releases fix
       className={
-        "px-0 mb-4 mb-" + (router.pathname === "/" ? "sm" : "md") + "-5"
+        "px-0 mb-4 mb-sm-5"
       }
     >
       <Navbar
-        expand={router.pathname === "/" ? "sm" : "md"}
+        expand="sm"
         expanded={expanded}
         onSelect={collapse}
         onToggle={toggleExpanded}

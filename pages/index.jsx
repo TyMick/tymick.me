@@ -47,14 +47,6 @@ const Home = () => (
         </p>
 
         <p>
-          I&rsquo;ve also written a couple{" "}
-          <Link href="/essays">
-            <a>essays</a>
-          </Link>{" "}
-          on subjects that have nothing to do with web development.
-        </p>
-
-        <p>
           Apart from work, my wife{" "}
           <a href="https://corriemick.com" title="Corrie Mick Photography">
             Corrie
