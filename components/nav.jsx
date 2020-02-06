@@ -25,12 +25,7 @@ export default () => {
   };
 
   return (
-    <Container
-      as="header"
-      className={
-        "px-0 mb-4 mb-sm-5"
-      }
-    >
+    <Container as="header" className="px-0 mb-4 mb-sm-5">
       <Navbar
         expand="sm"
         expanded={expanded}
@@ -53,11 +48,7 @@ export default () => {
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={router.pathname}
-            className={
-              "align-items-top align-items-" +
-              (router.pathname === "/" ? "sm" : "md") +
-              "-center"
-            }
+            className="align-items-top align-items-sm-center"
           >
             {links.map(({ label, href }) =>
               href.includes(".") ? (
