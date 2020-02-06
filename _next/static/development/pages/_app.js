@@ -143,7 +143,7 @@ var links = [{
     onToggle: toggleExpanded,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 29
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -151,7 +151,7 @@ var links = [{
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 35
     },
     __self: this
   }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Brand, {
@@ -159,7 +159,7 @@ var links = [{
     className: "signature",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 36
     },
     __self: this
   }, router.pathname !== "/" && __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Image"], {
@@ -168,7 +168,7 @@ var links = [{
     roundedCircle: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 38
     },
     __self: this
   }), "Ty Mick")), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Toggle, {
@@ -176,7 +176,7 @@ var links = [{
     className: "border-0 pr-0",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 47
     },
     __self: this
   }), __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Navbar"].Collapse, {
@@ -184,15 +184,15 @@ var links = [{
     className: "justify-content-end",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 48
     },
     __self: this
   }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"], {
     activeKey: router.pathname,
-    className: "align-items-top align-items-" + (router.pathname === "/" ? "sm" : "md") + "-center",
+    className: "align-items-top align-items-sm-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 49
     },
     __self: this
   }, links.map(function (_ref) {
@@ -203,7 +203,7 @@ var links = [{
       key: label.toLowerCase(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 55
       },
       __self: this
     }, label) : __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -212,13 +212,13 @@ var links = [{
       key: label.toLowerCase(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68
+        lineNumber: 59
       },
       __self: this
     }, __jsx(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Nav"].Link, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69
+        lineNumber: 60
       },
       __self: this
     }, label));
@@ -227,14 +227,14 @@ var links = [{
     href: "https://github.com/tywmick",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 64
     },
     __self: this
   }, __jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
     icon: _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faGithub"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 68
     },
     __self: this
   }))))));
