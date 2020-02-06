@@ -24,11 +24,7 @@ export default () => (
       <ul className="list-unstyled">
         <ContactMethod id="email" icon={faAt} href="mailto:hire@tymick.me">
           Interested in hiring me? Send an email to{" "}
-          <a href="mailto:hire@tymick.me">hire@tymick.me</a>. I&rsquo;m
-          currently open to freelance work and remote part-time employment. And
-          remote full-time would be alright if it doesn&rsquo;t require specific
-          hours, since working three long days per week is much better for our
-          RV life.
+          <a href="mailto:hire@tymick.me">hire@tymick.me</a>.
         </ContactMethod>
 
         <ContactMethod
@@ -62,9 +58,7 @@ export default () => (
           >
             Twitter
           </a>{" "}
-          for that purpose, so I don&rsquo;t have to repeat myself as often. I
-          also use Twitter to briefly announce when I&rsquo;ve written or
-          released something new.
+          for that purpose, so I don&rsquo;t have to repeat myself as often.
         </ContactMethod>
 
         <ContactMethod
