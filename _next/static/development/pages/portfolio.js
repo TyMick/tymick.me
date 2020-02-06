@@ -110,6 +110,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     __self: this
   }, projects.map(function (_ref2) {
     var name = _ref2.name,
+        extra = _ref2.extra,
         href = _ref2.href,
         linkTitle = _ref2.linkTitle;
     return __jsx("li", {
@@ -119,29 +120,29 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
         lineNumber: 19
       },
       __self: this
-    }, href[0] === "/" ? __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    }, href[0] === "/" ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
       href: href,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
     }, __jsx("a", {
       title: linkTitle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
-    }, name)) : __jsx("a", {
+    }, name)), extra) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("a", {
       href: href,
       title: linkTitle,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 29
       },
       __self: this
-    }, name));
+    }, name), extra));
   })));
 });
 
@@ -23828,7 +23829,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     __self: this
   }), __jsx(_components_portfolio_section__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "JavaScript algorithms",
-    id: "algorithms",
+    id: "javascript-algorithms",
     projects: [{
       name: "Roman numeral converter",
       href: "/project/roman-numeral-converter"
@@ -23852,7 +23853,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     __self: this
   }), __jsx(_components_portfolio_section__WEBPACK_IMPORTED_MODULE_4__["default"], {
     name: "Single-page responsive web designs",
-    id: "single-page-sites",
+    id: "single-page-designs",
     projects: [{
       name: "Technical documentation page",
       href: "/project/technical-documentation-page"
@@ -23863,6 +23864,23 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
     __source: {
       fileName: _jsxFileName,
       lineNumber: 175
+    },
+    __self: this
+  }), __jsx(_components_portfolio_section__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    name: "Open-source contributions",
+    id: "open-ource",
+    projects: [{
+      name: "Documentation help",
+      extra: " for Bootstrap",
+      href: "https://github.com/twbs/bootstrap/pull/30010"
+    }, {
+      name: "Documentation help",
+      extra: " for Next.js",
+      href: "https://github.com/zeit/next.js/pull/10023"
+    }],
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 190
     },
     __self: this
   })));
