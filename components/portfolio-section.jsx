@@ -15,16 +15,22 @@ export default ({ name, id, projects }) => {
         {name}
       </h2>
       <ul className="lead">
-        {projects.map(({ name, href, linkTitle }) => (
+        {projects.map(({ name, extra, href, linkTitle }) => (
           <li key={endOfPath(href)}>
             {href[0] === "/" ? (
-              <Link href={href}>
-                <a title={linkTitle}>{name}</a>
-              </Link>
+              <>
+                <Link href={href}>
+                  <a title={linkTitle}>{name}</a>
+                </Link>
+                {extra}
+              </>
             ) : (
-              <a href={href} title={linkTitle}>
-                {name}
-              </a>
+              <>
+                <a href={href} title={linkTitle}>
+                  {name}
+                </a>
+                {extra}
+              </>
             )}
           </li>
         ))}

@@ -147,7 +147,7 @@ export default () => (
 
       <PortfolioSection
         name="JavaScript algorithms"
-        id="algorithms"
+        id="javascript-algorithms"
         projects={[
           {
             name: "Roman numeral converter",
@@ -174,7 +174,7 @@ export default () => (
 
       <PortfolioSection
         name="Single-page responsive web designs"
-        id="single-page-sites"
+        id="single-page-designs"
         projects={[
           {
             name: "Technical documentation page",
@@ -183,6 +183,23 @@ export default () => (
           {
             name: "Product landing page",
             href: "/project/product-landing-page"
+          }
+        ]}
+      />
+
+      <PortfolioSection
+        name="Open-source contributions"
+        id="open-ource"
+        projects={[
+          {
+            name: "Documentation help",
+            extra: " for Bootstrap",
+            href: "https://github.com/twbs/bootstrap/pull/30010"
+          },
+          {
+            name: "Documentation help",
+            extra: " for Next.js",
+            href: "https://github.com/zeit/next.js/pull/10023"
           }
         ]}
       />
