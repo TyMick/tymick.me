@@ -33,14 +33,7 @@ export default () => (
         That being said, while I&rsquo;m not nearly as interested in how
         something looks than in how it works, I realize that the two concepts
         are very intertwined. Good design <em>works better</em> than bad design.
-        And while I don&rsquo;t consider myself a designer,{" "}
-        <InlineFootnote
-          note="Come to think of it, maybe that&rsquo;s what makes one a designer?"
-          nodeId="designer"
-        >
-          I definitely know whether or not I <em>like</em> a given design
-        </InlineFootnote>
-        . In any case, I&rsquo;ve gotten to know my way around{" "}
+        I&rsquo;ve gotten to know my way around{" "}
         <a href="https://getbootstrap.com/">Bootstrap</a> pretty well by now, so
         I can definitely make something functional and attractive.
       </p>
