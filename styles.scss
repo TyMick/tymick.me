@@ -13,9 +13,7 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   @extend .flex-column;
 }
 
-/*
- *  Navbar styles
- */
+// Navbar styles
 .signature {
   font-family: "Dawning of a New Day", cursive;
   @include font-size($h2-font-size);
@@ -37,9 +35,7 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   }
 }
 
-/*
- *  Home page styles
- */
+// Home page styles
 .greeting {
   font-family: "Alegreya", serif;
   @extend .display-3;
@@ -50,19 +46,20 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   }
 }
 
-/*
- *  Essays styles
- */
+// Blog styles
+.serif {
+  font-family: 'Merriweather', serif;
+}
 .essay-preview {
   @extend .position-relative;
   &:not(:last-child) {
     @extend .mb-5;
   }
-  h5 a {
+  h2 a {
     @extend .text-reset;
     @extend .stretched-link;
   }
-  h6,
+  h3,
   p {
     @extend .text-muted;
   }
@@ -71,9 +68,7 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   }
 }
 
-/*
- *  Brand-colored links (mostly on /connect)
- */
+// Brand-colored links (mostly on /connect)
 .github-link {
   color: lighten(#333, $emphasized-link-hover-darken-percentage);
   @include hover-focus() {
@@ -105,9 +100,7 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   }
 }
 
-/*
- *  Cap max widths of containers
- */
+// Cap max widths of containers
 @each $breakpoint, $container-max-width in $container-max-widths {
   .cap-width-#{$breakpoint} {
     @include media-breakpoint-up($breakpoint) {
@@ -116,9 +109,7 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
   }
 }
 
-/*
- *  Miscellaneous
- */
+// Miscellaneous
 p, li {
   @extend .text-justify;
 }

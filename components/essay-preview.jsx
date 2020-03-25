@@ -4,11 +4,11 @@ import React from "react";
 
 export default ({ title, subtitle, href, date, children }) => (
   <li className="essay-preview">
-    <h5>
+    <h2 className="h5 serif">
       <a href={href}>{title}</a>
-    </h5>
-    {subtitle && <h6>{subtitle}</h6>}
+    </h2>
+    {subtitle && <h3 className="h6 serif">{subtitle}</h3>}
     <small>{date}</small>
-    <p>{children}</p>
+    <p className="serif">{children}</p>
   </li>
 );
