@@ -8,11 +8,11 @@ import EssayPreview from "../components/essay-preview";
 export default () => (
   <>
     <Head>
-      <title>Essays – Ty Mick</title>
+      <title>Blog – Ty Mick</title>
     </Head>
 
     <Container className="cap-width-lg">
-      <h1 className="mb-4 mb-md-5">Essays</h1>
+      <h1 className="mb-4 mb-md-5">Blog</h1>
 
       <ul className="list-unstyled">
         <EssayPreview

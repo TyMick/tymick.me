@@ -10,6 +10,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const links = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Résumé", href: "/resume.pdf" },
+  { label: "Blog", href: "/blog" },
   { label: "Connect", href: "/connect" }
 ];
 
