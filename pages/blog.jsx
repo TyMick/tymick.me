@@ -16,6 +16,20 @@ export default () => (
 
       <ul className="list-unstyled">
         <EssayPreview
+          title="COVID-19 social distancing is probably going to last longer than you think"
+          subtitle="And what isolation means for nomads"
+          href="/covid-19-social-distancing"
+          date="March 25, 2020"
+        >
+          My goodness gracious, this coronavirus epidemic keeps looking worse
+          every single day. From what I&rsquo;m reading lately, it now looks
+          like the need for social distancing is going to extend for several
+          more months, not just several more weeks. Most frightening, look at
+          these maps of projected infection rates in the United States by July 1
+          based on three different scenarios&hellip;
+        </EssayPreview>
+
+        <EssayPreview
           title="Asking your Uber driver #WhatsMyName is the exact opposite of what you should do"
           href="https://medium.com/@tywmick/whatsmyname-puts-drivers-at-risk-56285d6a56ac?source=friends_link&sk=bd1ad67637a4c0fe3298aec63f0e4c59"
           date="June 9, 2019"

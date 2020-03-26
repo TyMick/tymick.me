@@ -1,11 +1,18 @@
 "use strict";
 
 import React from "react";
+import Link from "next/link";
 
 export default ({ title, subtitle, href, date, children }) => (
   <li className="essay-preview">
     <h2 className="h5 serif">
-      <a href={href}>{title}</a>
+      {href.startsWith("/") ? (
+        <Link href={href}>
+          <a>{title}</a>
+        </Link>
+      ) : (
+        <a href={href}>{title}</a>
+      )}
     </h2>
     {subtitle && <h3 className="h6 serif">{subtitle}</h3>}
     <small>{date}</small>

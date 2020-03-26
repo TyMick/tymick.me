@@ -51,9 +51,13 @@ const Home = () => (
           <a href="https://corriemick.com" title="Corrie Mick Photography">
             Corrie
           </a>{" "}
-          and I currently live on the road, traveling the United States in a
-          24&#8209;foot RV! If you&rsquo;d like to see where we&rsquo;ve been in
-          photographic form, your best bet is{" "}
+          and I currently live on the road (or used to,{" "}
+          <Link href="/covid-19-social-distancing">
+            <a>until this coronavirus epidemic</a>
+          </Link>
+          ), traveling the United States in a 24&#8209;foot RV! If you&rsquo;d
+          like to see where we&rsquo;ve been in photographic form, your best bet
+          is{" "}
           <a
             href="https://www.instagram.com/corriemick/"
             className="instagram-link"
