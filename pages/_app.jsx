@@ -18,7 +18,7 @@ export default ({ Component, pageProps }) => {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link href="https://fonts.googleapis.com/css?family=Alegreya|Dawning+of+a+New+Day|Merriweather&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Alegreya|Dawning+of+a+New+Day|Lora&display=swap" rel="stylesheet" />
       </Head>
 
       <Nav />
