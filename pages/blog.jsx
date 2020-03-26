@@ -16,7 +16,7 @@ export default () => (
 
       <ul className="list-unstyled">
         <EssayPreview
-          title="COVID-19 social distancing is probably going to last longer than you think"
+          title="COVID-19 social distancing will probably last longer than you think"
           subtitle="And what isolation means for nomads"
           href="/covid-19-social-distancing"
           date="March 25, 2020"

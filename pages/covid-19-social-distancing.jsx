@@ -8,8 +8,8 @@ export default () => (
   <>
     <Head>
       <title>
-        COVID-19 social distancing is probably going to last longer than you
-        think – Ty Mick
+        COVID-19 social distancing will probably last longer than you think – Ty
+        Mick
       </title>
     </Head>
 
@@ -18,9 +18,8 @@ export default () => (
       aria-labelledby="article-title"
       className="serif cap-width-lg"
     >
-      <h1 id="article-title" className="">
-        COVID-19 social distancing is probably going to last longer than you
-        think
+      <h1 id="article-title">
+        COVID-19 social distancing will probably last longer than you think
       </h1>
 
       <h2 className="h3 text-secondary">And what isolation means for nomads</h2>
