@@ -6,11 +6,17 @@ import { Container, Figure, Row, Col, Image } from "react-bootstrap";
 
 export default () => (
   <>
+    {/* prettier-ignore */}
     <Head>
-      <title>
-        COVID-19 social distancing will probably last longer than you think – Ty
-        Mick
-      </title>
+      <title>COVID-19 social distancing will probably last longer than you think – Ty Mick</title>
+      <meta property="og:title" content="COVID-19 social distancing will probably last longer than you think – Ty Mick" />
+      <meta property="og:description" content="And what isolation means for nomads." />
+      <meta property="og:image" content="https://tymick.me/outbreak-scenarios-july.png" />
+      <meta property="og:url" content="https://tymick.me/covid-19-social-distancing" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:site_name" content="Ty Mick" />
+      <meta name="twitter:image:alt" content="Three scenarios for how the outbreak could spread." />
+      <meta name="twitter:site" content="@tywmick" />
     </Head>
 
     <Container
