@@ -3,6 +3,10 @@
 import React from "react";
 import Head from "next/head";
 import { Container, Figure, Row, Col, Image } from "react-bootstrap";
+import outbreakScenariosJuly from "../images/outbreak-scenarios-july.png?resize&max=3204&min=801&steps=4";
+import outbreakScenario1August from "../images/outbreak-scenario-1-august.png?resize&max=2402&min=600&steps=4";
+import outbreakScenario2August from "../images/outbreak-scenario-2-august.png?resize&max=2402&min=600&steps=4";
+import outbreakScenario3August from "../images/outbreak-scenario-3-august.png?resize&max=2402&min=600&steps=4";
 
 export default () => (
   <>
@@ -48,7 +52,8 @@ export default () => (
 
       <Figure className="full-width mt-2 mb-4">
         <Figure.Image
-          src="/outbreak-scenarios-july.png"
+          srcSet={outbreakScenariosJuly.srcSet}
+          src={outbreakScenariosJuly.src}
           fluid
           className="d-block mx-auto"
         />
@@ -72,13 +77,28 @@ export default () => (
       <Figure className="full-width mt-2 mb-4">
         <Row className="figure-img">
           <Col>
-            <Image src="/outbreak-scenario-1-august.png" fluid />
+            <Image
+              srcSet={outbreakScenario1August.srcSet}
+              src={outbreakScenario1August.src}
+              sizes="33.3vw"
+              fluid
+            />
           </Col>
           <Col>
-            <Image src="/outbreak-scenario-2-august.png" fluid />
+            <Image
+              srcSet={outbreakScenario2August.srcSet}
+              src={outbreakScenario2August.src}
+              sizes="33.3vw"
+              fluid
+            />
           </Col>
           <Col>
-            <Image src="/outbreak-scenario-3-august.png" fluid />
+            <Image
+              srcSet={outbreakScenario3August.srcSet}
+              src={outbreakScenario3August.src}
+              sizes="33.3vw"
+              fluid
+            />
           </Col>
         </Row>
         <Figure.Caption className="sans-serif text-center">

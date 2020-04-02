@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Container, Navbar, Nav, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import profilePic from "../images/profile-pic.jpg?sizes[]=48&sizes[]=96&sizes[]=144&sizes[]=192";
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
@@ -37,7 +38,9 @@ export default () => {
           <Navbar.Brand onClick={collapse} className="signature">
             {router.pathname !== "/" && (
               <Image
-                src="/profile-pic.jpg"
+                srcSet={profilePic.srcSet}
+                src={profilePic.src}
+                sizes="1.5em"
                 alt="Ty hiking in Joshua Tree National Park"
                 roundedCircle
               />
