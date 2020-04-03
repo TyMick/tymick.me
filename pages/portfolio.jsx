@@ -193,6 +193,11 @@ export default () => (
             name: "Documentation help",
             extra: " for Next.js",
             href: "https://github.com/zeit/next.js/pull/10023"
+          },
+          {
+            name: "Documentation help",
+            extra: " for Code Shelter",
+            href: "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10"
           }
         ]}
       />
