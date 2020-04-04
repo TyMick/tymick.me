@@ -46,6 +46,17 @@ export default () => (
       </p>
 
       <PortfolioSection
+        name="Client work"
+        id="client-work"
+        projects={[
+          {
+            name: "Responsive, server-rendered real estate listing page",
+            href: "https://real-estate-listing-page.tymick.me",
+          }
+        ]}
+      />
+
+      <PortfolioSection
         name="Full-stack demos"
         id="full-stack"
         projects={[
