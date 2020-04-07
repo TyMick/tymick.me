@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: tymick.me
+Token: 37da4c29790fa34fab66bc42dec93727e8eaef591285c3fb3e84a458f7941443
