@@ -1,5 +1,3 @@
-"use strict";
-
 import React from "react";
 import Head from "next/head";
 import Gist from "react-gist";

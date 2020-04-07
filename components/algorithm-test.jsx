@@ -1,5 +1,3 @@
-"use strict";
-
 import React, { useState } from "react";
 import { Form, InputGroup, Card } from "react-bootstrap";
 import SyntaxHighlighter from "react-syntax-highlighter";

@@ -1,5 +1,3 @@
-"use strict";
-
 import React from "react";
 import Router from "next/router";
 import Head from "next/head";
