@@ -8,6 +8,7 @@ import profilePic from "../images/profile-pic.jpg?sizes[]=48&sizes[]=96&sizes[]=
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Résumé", href: "/resume.pdf" },
   { label: "Blog", href: "/blog" },
   { label: "Connect", href: "/connect" }
@@ -25,9 +26,9 @@ export default () => {
   };
 
   return (
-    <Container as="header" className="px-0 mb-4 mb-sm-5">
+    <Container as="header" className="px-0 mb-4 mb-md-5">
       <Navbar
-        expand="sm"
+        expand="md"
         expanded={expanded}
         onSelect={collapse}
         onToggle={toggleExpanded}
@@ -46,11 +47,11 @@ export default () => {
             Ty Mick
           </Navbar.Brand>
         </Link>
-        <Navbar.Toggle aria-controls="nav-links" className="border-0 pr-0" />
+        <Navbar.Toggle aria-controls="nav-links" className="border-0 px-0" />
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={router.pathname}
-            className="align-items-top align-items-sm-center"
+            className="align-items-end align-items-md-center"
           >
             {links.map(({ label, href }) =>
               href.includes(".") ? (
