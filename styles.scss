@@ -100,6 +100,12 @@ $h1-font-size: $font-size-base * 2.85; // Works better on Alegreya font I'm usin
     color: darken(#1da1f2, $emphasized-link-hover-darken-percentage) !important;
   }
 }
+.linkedin-link {
+  color: lighten(#2867b2, $emphasized-link-hover-darken-percentage);
+  @include hover-focus() {
+    color: #2867b2 !important;
+  }
+}
 .facebook-link {
   color: lighten(#3b5998, $emphasized-link-hover-darken-percentage);
   @include hover-focus() {

@@ -7,7 +7,8 @@ import {
   faGithub,
   faTwitter,
   faFacebook,
-  faInstagram
+  faInstagram,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default () => (
@@ -57,6 +58,22 @@ export default () => (
             Twitter
           </a>{" "}
           for that purpose, so I don&rsquo;t have to repeat myself as often.
+        </ContactMethod>
+
+        <ContactMethod
+          brand="linkedin"
+          icon={faLinkedin}
+          href="https://www.linkedin.com/in/tywmick/"
+        >
+          Can&rsquo;t avoid{" "}
+          <a
+            href="https://www.linkedin.com/in/tywmick/"
+            title="Ty's LinkedIn profile"
+            className="linkedin-link"
+          >
+            LinkedIn
+          </a>
+          ? Me neither.
         </ContactMethod>
 
         <ContactMethod
