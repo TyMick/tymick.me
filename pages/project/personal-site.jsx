@@ -54,7 +54,7 @@ export default () => (
         natural choice for building this portfolio site as quickly and
         efficiently as possible. I&rsquo;m thinking I may port it to{" "}
         <a href="https://www.gatsbyjs.org/">Gatsby</a> once I start{" "}
-        <Link href="/essays">
+        <Link href="/blog">
           <a>writing</a>
         </Link>{" "}
         more, but no need to learn a new framework just yet.
