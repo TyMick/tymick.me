@@ -5,7 +5,7 @@ export default ({ children, source }) => {
   const sourceHTML = { __html: marked(source).slice(3, -5) };
 
   return (
-    <blockquote className="blockquote mb-4">
+    <blockquote className="blockquote mb-5">
       <p className="mb-0">{children}</p>
       <footer
         className="blockquote-footer"

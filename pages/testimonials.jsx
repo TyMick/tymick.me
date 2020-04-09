@@ -10,7 +10,7 @@ export default () => (
     </Head>
 
     <Container className="cap-width-lg">
-      <h1 className="mb-4">Testimonials</h1>
+      <h1 className="mb-4 mb-md-5">Testimonials</h1>
 
       <Testimonial source="Nick Massie [on Upwork](https://www.upwork.com/o/profiles/users/~01e11c1caf833675be/)">
         Tyler was a joy to work with. He suggested beneficial enhancements to
