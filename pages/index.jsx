@@ -6,8 +6,18 @@ import profilePic from "../images/profile-pic.jpg?sizes[]=200&sizes[]=400&sizes[
 
 const Home = () => (
   <>
+    {/* prettier-ignore */}
     <Head>
       <title>Ty Mick, web developer</title>
+
+      <meta property="og:title" content="Ty Mick, web developer" />
+      <meta property="og:description" content="Hi! I'm Ty. I'm a freelance web developer, and I would love to work on your website, app, or API." />
+      <meta property="og:image" content="https://tymick.me/preview.png" />
+      <meta property="og:url" content="https://tymick.me/" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:site_name" content="Ty Mick" />
+      <meta name="twitter:image:alt" content="A preview of Ty Mick's personal website" />
+      <meta name="twitter:site" content="@tywmick" />
     </Head>
 
     <Container className="cap-lg-49">
