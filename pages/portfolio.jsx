@@ -50,7 +50,7 @@ export default () => (
           {
             name: "Responsive, server-rendered real estate listing page",
             href: "https://real-estate-listing-page.tymick.me",
-          }
+          },
         ]}
       />
 
@@ -60,8 +60,8 @@ export default () => (
         projects={[
           {
             name: "Next.js local authentication with MongoDB",
-            href: "https://nextjs-local-authentication.tymick.me"
-          }
+            href: "https://nextjs-local-authentication.tymick.me",
+          },
         ]}
       />
 
@@ -72,8 +72,8 @@ export default () => (
           {
             name: "TyMick.me",
             href: "/project/personal-site",
-            linkTitle: "About this site"
-          }
+            linkTitle: "About this site",
+          },
         ]}
       />
 
@@ -83,44 +83,44 @@ export default () => (
         projects={[
           {
             name: "Personal library",
-            href: "https://ty-library.glitch.me"
+            href: "https://ty-library.glitch.me",
           },
           {
             name: "Stock price checker",
-            href: "https://ty-stockchecker.glitch.me"
+            href: "https://ty-stockchecker.glitch.me",
           },
           {
             name: "Issue tracker",
-            href: "https://ty-issue-tracker.glitch.me"
+            href: "https://ty-issue-tracker.glitch.me",
           },
           {
             name: "Metric-imperial converter",
-            href: "https://ty-metricimpconverter.glitch.me"
+            href: "https://ty-metricimpconverter.glitch.me",
           },
           {
             name: "Anonymous message board",
-            href: "https://ty-messageboard.glitch.me"
+            href: "https://ty-messageboard.glitch.me",
           },
           {
             name: "Exercise tracker",
-            href: "https://ty-exercise-tracker.glitch.me"
+            href: "https://ty-exercise-tracker.glitch.me",
           },
           {
             name: "URL shortener",
-            href: "https://ty-urlshortener.glitch.me"
+            href: "https://ty-urlshortener.glitch.me",
           },
           {
             name: "File metadata",
-            href: "https://ty-file-metadata.glitch.me"
+            href: "https://ty-file-metadata.glitch.me",
           },
           {
             name: "Timestamp",
-            href: "https://ty-timestamp.glitch.me"
+            href: "https://ty-timestamp.glitch.me",
           },
           {
             name: "Request header parser",
-            href: "https://ty-headerparser.glitch.me"
-          }
+            href: "https://ty-headerparser.glitch.me",
+          },
         ]}
       />
 
@@ -130,20 +130,20 @@ export default () => (
         projects={[
           {
             name: "Pomodoro clock",
-            href: "https://ty-pomodoro-clock.glitch.me"
+            href: "https://ty-pomodoro-clock.glitch.me",
           },
           {
             name: "JavaScript calculator",
-            href: "https://codepen.io/tywmick/full/BaBVeVO"
+            href: "https://codepen.io/tywmick/full/BaBVeVO",
           },
           {
             name: "Drum machine",
-            href: "https://codepen.io/tywmick/full/zYOaPyW"
+            href: "https://codepen.io/tywmick/full/zYOaPyW",
           },
           {
             name: "Markdown previewer",
-            href: "https://codepen.io/tywmick/full/PoYeapB"
-          }
+            href: "https://codepen.io/tywmick/full/PoYeapB",
+          },
         ]}
       />
 
@@ -153,24 +153,24 @@ export default () => (
         projects={[
           {
             name: "Roman numeral converter",
-            href: "/project/roman-numeral-converter"
+            href: "/project/roman-numeral-converter",
           },
           {
             name: "Cash register",
-            href: "/project/cash-register"
+            href: "/project/cash-register",
           },
           {
             name: "Palindrome checker",
-            href: "/project/palindrome-checker"
+            href: "/project/palindrome-checker",
           },
           {
             name: "Telephone number validator",
-            href: "/project/telephone-number-validator"
+            href: "/project/telephone-number-validator",
           },
           {
             name: "Caesar's cipher",
-            href: "/project/caesars-cipher"
-          }
+            href: "/project/caesars-cipher",
+          },
         ]}
       />
 
@@ -180,34 +180,40 @@ export default () => (
         projects={[
           {
             name: "Technical documentation page",
-            href: "/project/technical-documentation-page"
+            href: "/project/technical-documentation-page",
           },
           {
             name: "Product landing page",
-            href: "/project/product-landing-page"
-          }
+            href: "/project/product-landing-page",
+          },
         ]}
       />
 
       <PortfolioSection
         name="Open-source contributions"
-        id="open-ource"
+        id="open-source"
         projects={[
+          {
+            name: "New feature",
+            extra: " for nextjs-redirect",
+            href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
+          },
           {
             name: "Documentation help",
             extra: " for Bootstrap",
-            href: "https://github.com/twbs/bootstrap/pull/30010"
+            href: "https://github.com/twbs/bootstrap/pull/30010",
           },
           {
             name: "Documentation help",
             extra: " for Next.js",
-            href: "https://github.com/zeit/next.js/pull/10023"
+            href: "https://github.com/zeit/next.js/pull/10023",
           },
           {
             name: "Documentation help",
             extra: " for Code Shelter",
-            href: "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10"
-          }
+            href:
+              "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10",
+          },
         ]}
       />
     </Container>
