@@ -44,22 +44,15 @@ export default () => (
       </p>
 
       <PortfolioSection
-        name="Client work"
-        id="client-work"
-        projects={[
-          {
-            name: "Responsive, server-rendered real estate listing page",
-            href: "https://real-estate-listing-page.tymick.me",
-          },
-        ]}
-      />
-
-      <PortfolioSection
         name="Full-stack demos"
         id="full-stack"
         projects={[
           {
-            name: "Next.js local authentication with MongoDB",
+            name: "Server-rendered real estate listing page",
+            href: "https://real-estate-listing-page.tymick.me",
+          },
+          {
+            name: "Next.js local authentication boilerplate",
             href: "https://nextjs-local-authentication.tymick.me",
           },
         ]}
