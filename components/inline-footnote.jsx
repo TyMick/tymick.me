@@ -10,7 +10,8 @@ export default ({ note, noteId, children }) => (
       tabIndex="0"
       style={{
         textDecoration: "underline dotted",
-        cursor: "help"
+        textDecorationSkipInk: "none",
+        cursor: "help",
       }}
     >
       {children}
