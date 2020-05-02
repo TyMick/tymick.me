@@ -21,7 +21,7 @@ export default () => (
     {new Date().getFullYear()}{" "}
     <a
       {...{"xmlns:cc": "http://creativecommons.org/ns#"}}
-      href="http://tymick.me"
+      href="https://tymick.me"
       property="cc:attributionName"
       rel="cc:attributionURL"
       className="text-reset text-decoration-none"
