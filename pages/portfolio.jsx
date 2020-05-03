@@ -118,6 +118,17 @@ export default () => (
       />
 
       <PortfolioSection
+        name="WordPress themes"
+        id="wordpress"
+        projects={[
+          {
+            name: "Personal site WordPress port",
+            href: "https://ty-mick-wordpress-port.000webhostapp.com",
+          },
+        ]}
+      />
+
+      <PortfolioSection
         name="Single-page React apps"
         id="react-apps"
         projects={[
@@ -136,6 +147,17 @@ export default () => (
           {
             name: "Markdown previewer",
             href: "https://codepen.io/tywmick/full/PoYeapB",
+          },
+        ]}
+      />
+
+      <PortfolioSection
+        name="Single-page PHP apps"
+        id="php"
+        projects={[
+          {
+            name: "To-do list",
+            href: "http://php-todo.tymick.me",
           },
         ]}
       />
