@@ -17,7 +17,7 @@ export default () => (
           title="COVID-19 social distancing will probably last longer than you think"
           subtitle="And what isolation means for nomads"
           href="/covid-19-social-distancing"
-          date="March 25, 2020"
+          date="March 26, 2020"
         >
           My goodness gracious, this coronavirus epidemic keeps looking worse
           every single day. From what I&rsquo;m reading lately, it now looks
