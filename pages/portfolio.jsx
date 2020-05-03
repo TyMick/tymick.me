@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
-import PortfolioSection from "../../components/portfolio-section";
-import InlineFootnote from "../../components/inline-footnote";
+import PortfolioSection from "../components/portfolio-section";
+import InlineFootnote from "../components/inline-footnote";
 
 export default () => (
   <>
