@@ -77,7 +77,7 @@ const Home = () => (
           </a>
           . I also post 360&deg; photos from our hikes{" "}
           <a
-            href="https://www.facebook.com/TyWMick"
+            href="https://www.facebook.com/tylerwestinmick"
             title="Ty's Facebook account"
             className="facebook-link"
           >
