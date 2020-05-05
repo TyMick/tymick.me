@@ -43,7 +43,7 @@ const Home = () => (
 
       <div>
         <p className="lead">
-          I&rsquo;m a freelance web developer, and I would love to work on your
+          I&rsquo;m a full-stack web developer, and I would love to work on your
           website, app, or API.
         </p>
 
