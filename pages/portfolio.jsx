@@ -225,6 +225,11 @@ export default () => (
           },
           {
             name: "Documentation help",
+            extra: " for Ant Design",
+            href: "https://github.com/ant-design/ant-design/pull/23917",
+          },
+          {
+            name: "Documentation help",
             extra: " for Code Shelter",
             href:
               "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10",
