@@ -214,6 +214,11 @@ export default () => (
             href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
           },
           {
+            name: "Example bug fix",
+            extra: " for Next.js",
+            href: "https://github.com/zeit/next.js/pull/12580"
+          },
+          {
             name: "Documentation help",
             extra: " for Bootstrap",
             href: "https://github.com/twbs/bootstrap/pull/30010",
