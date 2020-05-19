@@ -216,7 +216,13 @@ export default () => (
           {
             name: "Example bug fix",
             extra: " for Next.js",
-            href: "https://github.com/zeit/next.js/pull/12580"
+            href: "https://github.com/zeit/next.js/pull/12580",
+          },
+          {
+            name: "Curriculum help",
+            extra: " for freeCodeCamp",
+            href:
+              "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
           },
           {
             name: "Documentation help",
