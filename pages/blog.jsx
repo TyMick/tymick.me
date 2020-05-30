@@ -1,3 +1,7 @@
+/**
+ * @todo Convert old posts to markdown, add to _posts, create dynamic preview
+ * list here
+ */
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";

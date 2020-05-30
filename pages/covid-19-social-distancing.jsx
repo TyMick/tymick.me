@@ -1,3 +1,6 @@
+/**
+ * @todo Convert to markdown, add to _posts
+ */
 import React from "react";
 import Head from "next/head";
 import { Container, Figure, Row, Col, Image } from "react-bootstrap";
