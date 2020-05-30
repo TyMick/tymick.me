@@ -14,15 +14,19 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "bootstrap": "^4.4.1",
+    "date-fns": "^2.14.0",
+    "gray-matter": "^4.0.2",
     "marked": "^0.8.2",
     "next": "^9.3.6",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-gist": "^1.2.1",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "remark": "^12.0.0",
+    "remark-html": "^11.0.2"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",

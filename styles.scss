@@ -83,6 +83,13 @@ $font-family-sans-serif: "Alegreya Sans", $native-fonts;
   padding-left: $grid-gutter-width / 2;
   padding-right: $grid-gutter-width / 2;
 }
+.markdown-post {
+  hr {
+    @extend .border-secondary;
+    @extend .my-4;
+    width: 5rem;
+  }
+}
 
 // Brand-colored links (mostly on /connect)
 .github-link {
