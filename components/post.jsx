@@ -2,24 +2,36 @@ import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
 import DateTime from "./date-time";
+import { smartypants } from "../lib/text-processing";
 
 export default function Post({ post }) {
+  const {
+    title,
+    subtitle,
+    description,
+    slug,
+    ogImage,
+    date,
+    content,
+    links,
+    cta,
+  } = post;
   return (
     <>
       <Head>
-        <title>{post.title} – Ty Mick</title>
-        <meta property="og:title" content={`${post.title} – Ty Mick`} />
-        {(post.subtitle || post.description) && (
-          <meta
-            property="og:description"
-            content={post.subtitle || post.description}
-          />
+        <title>{title} – Ty Mick</title>
+        <meta property="og:title" content={title} />
+        {(subtitle || description) && (
+          <meta property="og:description" content={subtitle || description} />
         )}
-        <meta property="og:url" content={`https://tymick.me/${post.slug}`} />
-        {post.ogImage && (
+        <meta property="og:url" content={`https://tymick.me/${slug}`} />
+        {ogImage && (
           <>
-            <meta property="og:image" content={post.ogImage.url} />
-            <meta name="twitter:image:alt" content={post.ogImage.alt} />
+            <meta
+              property="og:image"
+              content={require(`../images/${ogImage.fileName}`)}
+            />
+            <meta name="twitter:image:alt" content={ogImage.alt} />
             <meta name="twitter:card" content="summary_large_image" />
           </>
         )}
@@ -32,20 +44,55 @@ export default function Post({ post }) {
         aria-labelledby="article-title"
         className="serif cap-width-lg"
       >
-        <h1 id="article-title">{post.title}</h1>
+        <h1 id="article-title">{smartypants(title)}</h1>
 
-        {post.subtitle && (
-          <h2 className="h3 text-secondary">{post.subtitle}</h2>
+        {subtitle && (
+          <h2 className="h3 text-secondary">{smartypants(subtitle)}</h2>
         )}
 
         <div className="font-italic text-secondary sans-serif mb-4">
-          <DateTime isoString={post.date} formatString="LLLL d, yyyy" />
+          <DateTime isoString={date} formatString="LLLL d, yyyy" />
         </div>
 
         <div
           className="markdown-post"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
+
+        <hr />
+
+        {links && (
+          <p>
+            {smartypants(cta) || "Want to discuss this topic further? Chime in"}{" "}
+            on{" "}
+            <a href={links.twitter} className="twitter-link">
+              Twitter
+            </a>
+            {links.linkedin ? ", " : " or "}
+            <a href={links.facebook} className="facebook-link">
+              Facebook
+            </a>
+            {links.linkedin && (
+              <>
+                , or{" "}
+                <a href={links.linkedin} className="linkedin-link">
+                  LinkedIn
+                </a>
+              </>
+            )}
+            .
+          </p>
+        )}
+
+        <p>
+          Found an error or typo in this post you&rsquo;d like to fix? Send me a{" "}
+          <a
+            href={`https://github.com/tywmick/tywmick.github.io/blob/source/_posts/${slug}.md`}
+          >
+            pull request on GitHub
+          </a>
+          !
+        </p>
       </Container>
     </>
   );

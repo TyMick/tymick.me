@@ -3,7 +3,7 @@ import Redirect from "../components/client-side-redirect";
 import Post from "../components/post";
 import { SHORTCUT_LINKS } from "../lib/constants";
 import { getPostBySlug, getAllPosts } from "../lib/api";
-import markdownToHtml from "../lib/markdownToHtml";
+import { markdownToHtml } from "../lib/text-processing";
 
 export default function Slug({ forward, post }) {
   return forward ? <Redirect href={forward} /> : <Post post={post} />;
@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
   if (link) {
     return { props: { forward: link.forward } };
   } else {
-    const post = getPostBySlug(params.slug, [
+    let post = getPostBySlug(params.slug, [
       "title",
       "subtitle",
       "description",
@@ -36,8 +36,10 @@ export async function getStaticProps({ params }) {
       "ogImage",
       "date",
       "content",
+      "cta",
+      "links",
     ]);
-    const content = await markdownToHtml(post.content || "");
-    return { props: { post: { ...post, content } } };
+    if (post.content) post.content = await markdownToHtml(post.content);
+    return { props: { post } };
   }
 }
