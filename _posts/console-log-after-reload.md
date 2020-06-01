@@ -1,0 +1,44 @@
+---
+title: How to make a browser console log wait until after a page reload
+description: Sure, that isn't a problem if you enable the "preserve log" option in your developer console, but hear me out.
+excerpt: Ever wanted to create a browser console log that persists after a page reloads? Sure, that isn't a problem if you enable the "preserve log" option in your developer console, but hear me out.
+date: "2020-06-01T16:35:53.401-04:00"
+ogImage:
+  fileName: console-log-after-reload.jpg
+  alt: A view of Chrome's developer console
+cta: Know another way to make console logs wait until after a page reloads? I'd love to hear about it
+links:
+  twitter: https://twitter.com/tywmick
+  facebook: https://www.facebook.com/tylerwestinmick
+  linkedin: https://www.linkedin.com/in/tywmick/
+---
+
+Ever wanted to create a browser console log that persists after a page reloads? Sure, that isn't a problem if you [enable the "preserve log" option](https://stackoverflow.com/questions/5327955/how-to-make-google-chrome-javascript-console-persistent) in your developer console, but hear me out.
+
+Say you have a JavaScript framework with a development server that usually hot-reloads when you update files while the server is running. In the few cases where hot reloading isn't possible and the page has to fully reload, you want to warn your users and explain why this is happening. It'd be nice to just log a warning to the console with `console.warn()`, but the moment it shows up in the console, wouldn't you know, _the page reloads_, and the browser clears it. Even if your user is eagle-eyed enough to _notice_ your warning flash on the screen for a fraction of a second, it certainly isn't there long enough to actually _read_.
+
+You _could_ say that if any of your users don't know where the "preserve log" button is then that's their problem, but you're kinder than that. You'd rather help them fall into [the Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/).
+
+As it happens, that's [the very issue](https://github.com/vercel/next.js/issues/13070) I ran into the other day when strolling through my favorite open source project, [Next.js](https://nextjs.org/).
+
+In my naïveté, I first tried just moving the `console.warn()` to the line _after_ `window.location.reload()` and crossing my fingers, but that didn't help. I tried googling things like "console log after page reload", but that only gave me instructions for how to turn on "preserve log", which I already knew how to do.
+
+Here's what worked. Where the `console.warn()` statement stood before, I instead saved the text content of the warning to the window's [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) in a key called `"consoleWarnAfterReload"`:
+
+```js
+sessionStorage.setItem(
+  "consoleWarnAfterReload",
+  "Dear me, the page had to fully reload!"
+);
+```
+
+Then, near the top of a file involved in the loading of a new page, I added a few lines that check that same `sessionStorage` key. If the key exists, it logs the contents of the warning to the console and then removes the item from `sessionStorage`:
+
+```js
+if (sessionStorage && sessionStorage.getItem("consoleWarnAfterReload")) {
+  console.warn(sessionStorage.getItem("consoleWarnAfterReload"));
+  sessionStorage.removeItem("consoleWarnAfterReload");
+}
+```
+
+That [did the trick](https://github.com/vercel/next.js/pull/13588)!

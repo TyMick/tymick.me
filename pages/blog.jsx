@@ -18,6 +18,17 @@ export default () => (
 
       <ul className="list-unstyled">
         <EssayPreview
+          title="How to make a browser console log wait until after a page reload"
+          href="/console-log-after-reload"
+          date="June 1, 2020"
+        >
+          Ever wanted to create a browser console log that persists after a page
+          reloads? Sure, that isn&rsquo;t a problem if you enable the
+          &ldquo;preserve log&rdquo; option in your developer console, but hear
+          me out&hellip;
+        </EssayPreview>
+
+        <EssayPreview
           title="COVID-19 social distancing will probably last longer than you think"
           subtitle="And what isolation means for nomads"
           href="/covid-19-social-distancing"
