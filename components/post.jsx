@@ -31,12 +31,14 @@ export default function Post({ post }) {
               property="og:image"
               content={require(`../images/${ogImage.fileName}`)}
             />
+            <meta name="og:image:alt" content={ogImage.alt} />
             <meta name="twitter:image:alt" content={ogImage.alt} />
             <meta name="twitter:card" content="summary_large_image" />
           </>
         )}
         <meta property="og:site_name" content="Ty Mick" />
         <meta name="twitter:site" content="@tywmick" />
+        <meta name="twitter:creator" content="@tywmick" />
       </Head>
 
       <Container
