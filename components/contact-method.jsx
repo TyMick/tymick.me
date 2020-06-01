@@ -9,6 +9,6 @@ export default ({ id, brand, icon, href, children }) => (
         <FontAwesomeIcon icon={icon} size="2x" fixedWidth />
       </a>
     </Col>
-    <Col style={{ paddingTop: "0.35rem" }}>{children}</Col>
+    <Col className="pt-1">{children}</Col>
   </Row>
 );
