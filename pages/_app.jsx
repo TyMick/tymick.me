@@ -4,6 +4,7 @@ import Head from "next/head";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import "../styles.scss";
+import "highlight.js/styles/github.css";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
