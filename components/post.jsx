@@ -16,10 +16,14 @@ export default function Post({ post }) {
           />
         )}
         <meta property="og:url" content={`https://tymick.me/${post.slug}`} />
-        <meta property="og:image" content={post.ogImage.url} />
-        <meta name="twitter:card" content="summary_large_image" />
+        {post.ogImage && (
+          <>
+            <meta property="og:image" content={post.ogImage.url} />
+            <meta name="twitter:image:alt" content={post.ogImage.alt} />
+            <meta name="twitter:card" content="summary_large_image" />
+          </>
+        )}
         <meta property="og:site_name" content="Ty Mick" />
-        <meta name="twitter:image:alt" content={post.ogImage.alt} />
         <meta name="twitter:site" content="@tywmick" />
       </Head>
 
