@@ -8,9 +8,9 @@ ogImage:
   alt: A view of Chrome's developer console
 cta: Know another way to make console logs wait until after a page reloads? I'd love to hear about it
 links:
-  twitter: https://twitter.com/tywmick
-  facebook: https://www.facebook.com/tylerwestinmick
-  linkedin: https://www.linkedin.com/in/tywmick/
+  twitter: https://twitter.com/tywmick/status/1267558991590277125
+  facebook: https://www.facebook.com/tylerwestinmick/posts/10213624361162141
+  linkedin: https://www.linkedin.com/posts/tywmick_how-to-make-a-browser-console-log-wait-until-activity-6673327410404036608-FjLG
 ---
 
 Ever wanted to create a browser console log that persists after a page reloads? Sure, that isn't a problem if you [enable the "preserve log" option](https://stackoverflow.com/questions/5327955/how-to-make-google-chrome-javascript-console-persistent) in your developer console, but hear me out.
