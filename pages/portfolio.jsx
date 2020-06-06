@@ -209,14 +209,15 @@ export default () => (
         id="open-source"
         projects={[
           {
+            name: "Several contributions",
+            extra: " to Next.js",
+            href:
+              "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
+          },
+          {
             name: "New feature",
             extra: " for nextjs-redirect",
             href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
-          },
-          {
-            name: "Example bug fix",
-            extra: " for Next.js",
-            href: "https://github.com/zeit/next.js/pull/12580",
           },
           {
             name: "Curriculum help",
@@ -228,11 +229,6 @@ export default () => (
             name: "Documentation help",
             extra: " for Bootstrap",
             href: "https://github.com/twbs/bootstrap/pull/30010",
-          },
-          {
-            name: "Documentation help",
-            extra: " for Next.js",
-            href: "https://github.com/zeit/next.js/pull/10023",
           },
           {
             name: "Documentation help",
