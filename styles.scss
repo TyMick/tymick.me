@@ -125,7 +125,7 @@ $h1-font-size: $font-size-base * 2.875; // Works better on Alegreya fonts
 // Miscellaneous
 p,
 li {
-  @extend .text-justify;
+  text-align: justify;
 }
 h1,
 .h1 {

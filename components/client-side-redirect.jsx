@@ -1,14 +1,17 @@
 import React from "react";
 import Head from "next/head";
+import { Container } from "react-bootstrap";
 
-export default ({ href }) => (
+const Redirect = ({ href }) => (
   <>
     <Head>
       <meta httpEquiv="refresh" content={`0;url=${href}`} />
       <link rel="canonical" href={href} />
     </Head>
-    <p>
+    <Container fluid as="p" style={{ textAlign: "left" }}>
       Redirecting to <a href={href}>{href}</a>&hellip;
-    </p>
+    </Container>
   </>
 );
+
+export default Redirect;
