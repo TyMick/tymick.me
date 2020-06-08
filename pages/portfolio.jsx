@@ -44,6 +44,46 @@ export default () => (
       </p>
 
       <PortfolioSection
+        name="Open-source contributions"
+        id="open-source"
+        projects={[
+          {
+            name: "Several contributions",
+            extra: " to Next.js",
+            href:
+              "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
+          },
+          {
+            name: "New feature",
+            extra: " for nextjs-redirect",
+            href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
+          },
+          {
+            name: "Curriculum help",
+            extra: " for freeCodeCamp",
+            href:
+              "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
+          },
+          {
+            name: "Documentation help",
+            extra: " for Bootstrap",
+            href: "https://github.com/twbs/bootstrap/pull/30010",
+          },
+          {
+            name: "Documentation help",
+            extra: " for Ant Design",
+            href: "https://github.com/ant-design/ant-design/pull/23917",
+          },
+          {
+            name: "Documentation help",
+            extra: " for Code Shelter",
+            href:
+              "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10",
+          },
+        ]}
+      />
+
+      <PortfolioSection
         name="Full-stack demos"
         id="full-stack"
         projects={[
@@ -200,46 +240,6 @@ export default () => (
           {
             name: "Product landing page",
             href: "/project/product-landing-page",
-          },
-        ]}
-      />
-
-      <PortfolioSection
-        name="Open-source contributions"
-        id="open-source"
-        projects={[
-          {
-            name: "Several contributions",
-            extra: " to Next.js",
-            href:
-              "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
-          },
-          {
-            name: "New feature",
-            extra: " for nextjs-redirect",
-            href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
-          },
-          {
-            name: "Curriculum help",
-            extra: " for freeCodeCamp",
-            href:
-              "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
-          },
-          {
-            name: "Documentation help",
-            extra: " for Bootstrap",
-            href: "https://github.com/twbs/bootstrap/pull/30010",
-          },
-          {
-            name: "Documentation help",
-            extra: " for Ant Design",
-            href: "https://github.com/ant-design/ant-design/pull/23917",
-          },
-          {
-            name: "Documentation help",
-            extra: " for Code Shelter",
-            href:
-              "https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10",
           },
         ]}
       />
