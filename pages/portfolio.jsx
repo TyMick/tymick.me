@@ -192,6 +192,17 @@ export default () => (
       />
 
       <PortfolioSection
+        name="React hooks"
+        id="react-hooks"
+        projects={[
+          {
+            name: "useMediaBreakpoints",
+            href: "https://github.com/tywmick/use-media-breakpoints",
+          },
+        ]}
+      />
+
+      <PortfolioSection
         name="Single-page PHP apps"
         id="php"
         projects={[
