@@ -196,8 +196,8 @@ export default () => (
         id="react-hooks"
         projects={[
           {
-            name: "useMediaBreakpoints",
-            href: "https://github.com/tywmick/use-media-breakpoints",
+            name: "useWindowWidthBreakpoints",
+            href: "https://github.com/tywmick/use-window-width-breakpoints",
           },
         ]}
       />
