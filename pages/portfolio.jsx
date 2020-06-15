@@ -54,9 +54,9 @@ export default () => (
               "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
           },
           {
-            name: "New feature",
+            name: "New features",
             extra: " for nextjs-redirect",
-            href: "https://github.com/pablopunk/nextjs-redirect/pull/1",
+            href: "https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
           },
           {
             name: "Curriculum help",
