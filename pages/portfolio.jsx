@@ -111,7 +111,7 @@ export default () => (
       />
 
       <PortfolioSection
-        name="API/microservice demos"
+        name="Node.js API/microservice demos"
         id="api-microservices"
         projects={[
           {
@@ -153,6 +153,29 @@ export default () => (
           {
             name: "Request header parser",
             href: "https://ty-headerparser.glitch.me",
+          },
+        ]}
+      />
+
+<PortfolioSection
+        name="Python API/microservice demos"
+        id="python-apis"
+        projects={[
+          {
+            name: "Metric-imperial converter",
+            href: "https://ty-metricimpconverter-python.glitch.me",
+          },
+          {
+            name: "File metadata",
+            href: "https://ty-file-metadata-python.glitch.me",
+          },
+          {
+            name: "Timestamp",
+            href: "https://ty-timestamp-python.glitch.me",
+          },
+          {
+            name: "Request header parser",
+            href: "https://ty-headerparser-python.glitch.me",
           },
         ]}
       />
