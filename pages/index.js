@@ -49,7 +49,8 @@ const Home = () => (
 
         <p>
           I work mostly in JavaScript, in various combinations of Node.js and
-          React, though I&rsquo;ve been dabbling in PHP recently, as well.{" "}
+          React, though I&rsquo;ve been getting into Python and PHP lately, as
+          well.{" "}
           <Link href="/portfolio">
             <a>My portfolio</a>
           </Link>{" "}
