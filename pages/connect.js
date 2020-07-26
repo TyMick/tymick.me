@@ -79,12 +79,12 @@ export default () => (
         <ContactMethod
           brand="facebook"
           icon={faFacebook}
-          href="https://www.facebook.com/tylerwestinmick"
+          href="https://www.facebook.com/tywmick"
         >
           Curious to see some of the destinations in my RV travels? I post
           360&deg; photos from hikes on{" "}
           <a
-            href="https://www.facebook.com/tylerwestinmick"
+            href="https://www.facebook.com/tywmick"
             title="Ty's Facebook profile"
             className="facebook-link"
           >

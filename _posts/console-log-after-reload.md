@@ -9,7 +9,7 @@ ogImage:
 cta: Know another way to make console logs wait until after a page reloads? I'd love to hear about it
 links:
   twitter: https://twitter.com/tywmick/status/1267558991590277125
-  facebook: https://www.facebook.com/tylerwestinmick/posts/10213624361162141
+  facebook: https://www.facebook.com/tywmick/posts/10213624361162141
   linkedin: https://www.linkedin.com/posts/tywmick_how-to-make-a-browser-console-log-wait-until-activity-6673327410404036608-FjLG
 ---
 
