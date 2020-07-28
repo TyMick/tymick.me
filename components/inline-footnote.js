@@ -1,7 +1,7 @@
 import React from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
-export default ({ note, noteId, children }) => (
+const InlineFootnote = ({ note, noteId, children }) => (
   <OverlayTrigger
     placement="top"
     overlay={<Tooltip id={noteId}>{note}</Tooltip>}
@@ -18,6 +18,8 @@ export default ({ note, noteId, children }) => (
     </span>
   </OverlayTrigger>
 );
+
+export default InlineFootnote;
 
 // Consider using getClientRects() to better position notes on multi-line
 // spans.

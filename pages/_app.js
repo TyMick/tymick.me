@@ -15,7 +15,7 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-export default ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => {
   return (
     <>
       {/* prettier-ignore */}
@@ -38,3 +38,5 @@ export default ({ Component, pageProps }) => {
     </>
   );
 };
+
+export default App;

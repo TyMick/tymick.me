@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Container } from "react-bootstrap";
 
-export default () => (
+const Footer = () => (
   <Container as="footer" fluid className="text-center mt-auto mb-3">
     <a
       rel="license"
@@ -31,3 +31,5 @@ export default () => (
     </a>
   </Container>
 );
+
+export default Footer;

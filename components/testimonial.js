@@ -1,7 +1,7 @@
 import React from "react";
 import marked from "marked";
 
-export default ({ children, source }) => {
+const Testimonial = ({ children, source }) => {
   const sourceHTML = { __html: marked(source).slice(3, -5) };
 
   return (
@@ -14,3 +14,5 @@ export default ({ children, source }) => {
     </blockquote>
   );
 };
+
+export default Testimonial;

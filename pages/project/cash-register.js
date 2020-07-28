@@ -5,7 +5,7 @@ import { Container, Form, InputGroup, Button, Card } from "react-bootstrap";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-export default () => {
+const CashRegister = () => {
   function checkCashRegister(price, cash, cid) {
     let changeLeft = cash - price;
     let drawerTotal = cid.reduce(function(acc, cur) {
@@ -18,7 +18,7 @@ export default () => {
       let changeUnits = [];
 
       function processUnit(name, amt) {
-        let unitTotal = cid.filter(item => item[0] == name)[0][1];
+        let unitTotal = cid.filter((item) => item[0] == name)[0][1];
         let unitChange = Math.min(
           unitTotal,
           Math.floor(changeLeft / amt) * amt
@@ -62,7 +62,7 @@ export default () => {
   const [functionCall, setFunctionCall] = useState(null);
   const [functionReturn, setFunctionReturn] = useState(null);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setFunctionCall(
       "checkCashRegister(" +
@@ -100,7 +100,7 @@ export default () => {
           ["FIVE", dollar],
           ["TEN", ten],
           ["TWENTY", twenty],
-          ["ONE HUNDRED", hundred]
+          ["ONE HUNDRED", hundred],
         ])
       )
     );
@@ -131,7 +131,7 @@ export default () => {
                   step="0.01"
                   min="0"
                   value={price}
-                  onChange={e => {
+                  onChange={(e) => {
                     setPrice(e.target.value);
                   }}
                   aria-describedby="dsPrice"
@@ -153,7 +153,7 @@ export default () => {
                   step="0.01"
                   min="0"
                   value={cash}
-                  onChange={e => {
+                  onChange={(e) => {
                     setCash(e.target.value);
                   }}
                   aria-describedby="dsCash"
@@ -184,7 +184,7 @@ export default () => {
                   step="0.01"
                   min="0"
                   value={penny}
-                  onChange={e => {
+                  onChange={(e) => {
                     setPenny(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -208,7 +208,7 @@ export default () => {
                   step="0.05"
                   min="0"
                   value={nickel}
-                  onChange={e => {
+                  onChange={(e) => {
                     setNickel(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -229,7 +229,7 @@ export default () => {
                   step="0.1"
                   min="0"
                   value={dime}
-                  onChange={e => {
+                  onChange={(e) => {
                     setDime(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -253,7 +253,7 @@ export default () => {
                   step="0.25"
                   min="0"
                   value={quarter}
-                  onChange={e => {
+                  onChange={(e) => {
                     setQuarter(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -277,7 +277,7 @@ export default () => {
                   step="1"
                   min="0"
                   value={dollar}
-                  onChange={e => {
+                  onChange={(e) => {
                     setDollar(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -298,7 +298,7 @@ export default () => {
                   step="5"
                   min="0"
                   value={five}
-                  onChange={e => {
+                  onChange={(e) => {
                     setFive(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -319,7 +319,7 @@ export default () => {
                   step="10"
                   min="0"
                   value={ten}
-                  onChange={e => {
+                  onChange={(e) => {
                     setTen(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -343,7 +343,7 @@ export default () => {
                   step="20"
                   min="0"
                   value={twenty}
-                  onChange={e => {
+                  onChange={(e) => {
                     setTwenty(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -367,7 +367,7 @@ export default () => {
                   step="100"
                   min="0"
                   value={hundred}
-                  onChange={e => {
+                  onChange={(e) => {
                     setHundred(e.target.value);
                   }}
                   aria-labelledby="cid"
@@ -476,3 +476,5 @@ export default () => {
     </>
   );
 };
+
+export default CashRegister;

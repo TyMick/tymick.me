@@ -3,7 +3,7 @@ import React from "react";
 /*
  *  Copied over from CodePen's HTML embed code (before converting to JSX)
  */
-export default ({ title, slug, height = 265, theme = "dark" }) => (
+const CodePen = ({ title, slug, height = 265, theme = "dark" }) => (
   <>
     <p
       className="codepen"
@@ -20,7 +20,7 @@ export default ({ title, slug, height = 265, theme = "dark" }) => (
         justifyContent: "center",
         border: "2px solid",
         marginBottom: "1em",
-        padding: "1em"
+        padding: "1em",
       }}
       data-pen-title={title}
     >
@@ -34,3 +34,5 @@ export default ({ title, slug, height = 265, theme = "dark" }) => (
     <script async src="https://static.codepen.io/assets/embed/ei.js" />
   </>
 );
+
+export default CodePen;

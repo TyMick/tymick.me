@@ -9,7 +9,7 @@ import outbreakScenario1August from "../images/outbreak-scenario-1-august.png?re
 import outbreakScenario2August from "../images/outbreak-scenario-2-august.png?resize&max=2402&min=600&steps=4";
 import outbreakScenario3August from "../images/outbreak-scenario-3-august.png?resize&max=2402&min=600&steps=4";
 
-export default () => (
+const Covid19SocialDistancing = () => (
   <>
     {/* prettier-ignore */}
     <Head>
@@ -275,3 +275,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Covid19SocialDistancing;

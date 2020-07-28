@@ -3,7 +3,7 @@ import { Form, InputGroup, Card } from "react-bootstrap";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-export default ({ algorithm, argumentName, inputType }) => {
+const AlgorithmTest = ({ algorithm, argumentName, inputType }) => {
   const [argValue, setArgValue] = useState(null);
 
   return (
@@ -20,7 +20,7 @@ export default ({ algorithm, argumentName, inputType }) => {
             placeholder={argumentName}
             aria-label={argumentName}
             aria-describedby="functionName"
-            onChange={e => {
+            onChange={(e) => {
               setArgValue(e.target.value);
             }}
           />
@@ -53,3 +53,5 @@ export default ({ algorithm, argumentName, inputType }) => {
     </div>
   );
 };
+
+export default AlgorithmTest;

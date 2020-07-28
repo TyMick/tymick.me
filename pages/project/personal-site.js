@@ -13,7 +13,7 @@ const npmScripts = `"scripts": {
   "deploy": "gh-pages -b master -d out -m Build -t"
 }`;
 
-export default () => (
+const PersonalSite = () => (
   <>
     <Head>
       <title>About TyMick.me – Ty Mick</title>
@@ -111,3 +111,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default PersonalSite;

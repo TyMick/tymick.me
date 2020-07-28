@@ -11,10 +11,10 @@ const links = [
   { label: "Testimonials", href: "/testimonials" },
   { label: "Résumé", href: "/resume.pdf" },
   { label: "Blog", href: "/blog" },
-  { label: "Connect", href: "/connect" }
+  { label: "Connect", href: "/connect" },
 ];
 
-export default () => {
+const Navigation = () => {
   const router = useRouter();
 
   const [expanded, setExpanded] = useState(false);
@@ -76,3 +76,5 @@ export default () => {
     </Container>
   );
 };
+
+export default Navigation;

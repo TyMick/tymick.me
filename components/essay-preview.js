@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default ({ title, subtitle, href, date, children }) => (
+const EssayPreview = ({ title, subtitle, href, date, children }) => (
   <li className="essay-preview">
     <h2 className="h5 serif">
       {href.startsWith("/") ? (
@@ -17,3 +17,5 @@ export default ({ title, subtitle, href, date, children }) => (
     <p className="serif">{children}</p>
   </li>
 );
+
+export default EssayPreview;

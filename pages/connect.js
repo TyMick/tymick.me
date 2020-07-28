@@ -11,7 +11,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-export default () => (
+const Connect = () => (
   <>
     <Head>
       <title>Connect – Ty Mick</title>
@@ -112,3 +112,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Connect;

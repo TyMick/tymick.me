@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default ({ id, brand, icon, href, children }) => (
+const ContactMethod = ({ id, brand, icon, href, children }) => (
   <Row id={id || brand} as="li" noGutters className="p-2 p-md-3">
     <Col xs="auto" className="mr-2 mr-md-3">
       <a href={href} className={brand ? brand + "-link" : "text-secondary"}>
@@ -12,3 +12,5 @@ export default ({ id, brand, icon, href, children }) => (
     <Col className="pt-1">{children}</Col>
   </Row>
 );
+
+export default ContactMethod;

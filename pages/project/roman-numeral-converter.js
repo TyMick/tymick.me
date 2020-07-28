@@ -4,7 +4,7 @@ import Gist from "react-gist";
 import { Container } from "react-bootstrap";
 import AlgorithmTest from "../../components/algorithm-test";
 
-export default () => {
+const RomanNumeralConverter = () => {
   function convertToRoman(num) {
     let roman = "";
 
@@ -79,3 +79,5 @@ export default () => {
     </>
   );
 };
+
+export default RomanNumeralConverter;

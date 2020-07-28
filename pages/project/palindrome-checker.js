@@ -4,7 +4,7 @@ import Gist from "react-gist";
 import { Container } from "react-bootstrap";
 import AlgorithmTest from "../../components/algorithm-test";
 
-export default () => {
+const PalindromeChecker = () => {
   function palindrome(str) {
     let test = str.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
     let forw = 0;
@@ -57,3 +57,5 @@ export default () => {
     </>
   );
 };
+
+export default PalindromeChecker;

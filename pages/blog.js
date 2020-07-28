@@ -7,7 +7,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import EssayPreview from "../components/essay-preview";
 
-export default () => (
+const Blog = () => (
   <>
     <Head>
       <title>Blog – Ty Mick</title>
@@ -72,3 +72,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Blog;

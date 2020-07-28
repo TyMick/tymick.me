@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import Testimonial from "../components/testimonial";
 
-export default () => (
+const Testimonials = () => (
   <>
     <Head>
       <title>Testimonials – Ty Mick</title>
@@ -23,3 +23,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Testimonials;

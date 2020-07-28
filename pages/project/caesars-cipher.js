@@ -4,7 +4,7 @@ import Gist from "react-gist";
 import { Container } from "react-bootstrap";
 import AlgorithmTest from "../../components/algorithm-test";
 
-export default () => {
+const CaesarsCipher = () => {
   function rot13(str) {
     let decoded = "";
 
@@ -62,3 +62,5 @@ export default () => {
     </>
   );
 };
+
+export default CaesarsCipher;

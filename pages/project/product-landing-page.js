@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import CodePen from "../../components/codepen";
 
-export default () => {
+const ProductLandingPage = () => {
   // Just capture the window height once
   const [windowHeight, setWindowHeight] = useState(0);
   useEffect(() => {
@@ -121,3 +121,5 @@ export default () => {
     </>
   );
 };
+
+export default ProductLandingPage;

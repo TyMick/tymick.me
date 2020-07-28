@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-export default ({ name, id, projects }) => {
-  const endOfPath = url => {
+const PortfolioSection = ({ name, id, projects }) => {
+  const endOfPath = (url) => {
     const urlParts = url.split("/");
     return urlParts[urlParts.length - 1];
   };
@@ -36,3 +36,5 @@ export default ({ name, id, projects }) => {
     </section>
   );
 };
+
+export default PortfolioSection;

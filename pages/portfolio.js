@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import PortfolioSection from "../components/portfolio-section";
 import InlineFootnote from "../components/inline-footnote";
 
-export default () => (
+const Portfolio = () => (
   <>
     <Head>
       <title>Portfolio – Ty Mick</title>
@@ -280,3 +280,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Portfolio;
