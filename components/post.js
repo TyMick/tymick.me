@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
+import clsx from "clsx";
 import DateTime from "./date-time";
 import { smartypants } from "../lib/text-processing";
 
@@ -15,6 +16,7 @@ export default function Post({ post }) {
     content,
     links,
     cta,
+    ipynb,
   } = post;
   return (
     <>
@@ -29,7 +31,9 @@ export default function Post({ post }) {
           <>
             <meta
               property="og:image"
-              content={"https://tymick.me" + require(`../images/${ogImage.fileName}`)}
+              content={
+                "https://tymick.me" + require(`../images/${ogImage.fileName}`)
+              }
             />
             <meta name="og:image:alt" content={ogImage.alt} />
             <meta name="twitter:image:alt" content={ogImage.alt} />
@@ -57,7 +61,7 @@ export default function Post({ post }) {
         </div>
 
         <div
-          className="markdown-post"
+          className={clsx("markdown-post", ipynb && "ipynb")}
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
@@ -65,7 +69,11 @@ export default function Post({ post }) {
 
         {links && (
           <p>
-            {smartypants(cta) || "Want to discuss this topic further? Chime in"}{" "}
+            {cta ? (
+              <span dangerouslySetInnerHTML={{ __html: cta }} />
+            ) : (
+              "Want to discuss this topic further? Chime in"
+            )}{" "}
             on{" "}
             <a href={links.twitter} className="twitter-link">
               Twitter

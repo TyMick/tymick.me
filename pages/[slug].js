@@ -3,7 +3,7 @@ import Redirect from "../components/client-side-redirect";
 import Post from "../components/post";
 import { SHORTCUT_LINKS } from "../lib/shortcut-links";
 import { getPostBySlug, getAllPosts } from "../lib/api";
-import { markdownToHtml } from "../lib/text-processing";
+import { markdownToHtml, markdownToHtmlSnippet } from "../lib/text-processing";
 
 export default function Slug({ forward, as, post }) {
   return forward ? <Redirect url={forward} as={as} /> : <Post post={post} />;
@@ -40,8 +40,10 @@ export async function getStaticProps({ params }) {
       "content",
       "cta",
       "links",
+      "ipynb",
     ]);
     if (post.content) post.content = await markdownToHtml(post.content);
+    if (post.cta) post.cta = await markdownToHtmlSnippet(post.cta);
     return { props: { post } };
   }
 }

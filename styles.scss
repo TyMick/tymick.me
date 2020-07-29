@@ -74,6 +74,39 @@ $h1-font-size: $font-size-base * 2.875; // Works better on Alegreya fonts
   padding-left: $grid-gutter-width / 2;
   padding-right: $grid-gutter-width / 2;
 }
+.ipynb {
+  .language-python {
+    @extend .border;
+  }
+  .language-plaintext {
+    color: white;
+    background: black;
+    @extend .rounded;
+    max-height: 22.2rem;
+  }
+  p + pre, p + .data-table, p + img {
+    margin-top: 2rem;
+  }
+  pre, .data-table, img {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  pre + p, .data-table + p, img + p {
+    margin-top: 2rem;
+  }
+  .data-table p {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+  th, td {
+    @extend .p-1;
+  }
+  td {
+    @extend .text-monospace;
+  }
+}
 
 // Brand-colored links (mostly on /connect)
 .github-link {

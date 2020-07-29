@@ -18,6 +18,22 @@ const Blog = () => (
 
       <ul className="list-unstyled">
         <EssayPreview
+          title="Building a Neural Network to Predict Loan Risk"
+          subtitle="or, Ty Goes Into Far Too Much Detail About Cleaning Data"
+          href="/loan-risk-neural-network"
+          date="July 29, 2020"
+        >
+          LendingClub is the world&rsquo;s largest peer-to-peer lending
+          platform. Until recently (through the end of 2018), LendingClub
+          published a public dataset of all loans issued since the
+          company&rsquo;s launch in 2007. With 2,260,701 loans to look at and
+          151 potential variables, my goal is to create a neural network model
+          to predict the fraction of an expected loan return that a prospective
+          borrower will pay back. Afterward, I&rsquo;ll create a public API to
+          serve that model&hellip;
+        </EssayPreview>
+
+        <EssayPreview
           title="How to make a browser console log wait until after a page reload"
           href="/console-log-after-reload"
           date="June 1, 2020"
