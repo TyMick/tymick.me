@@ -7,6 +7,10 @@ ogImage:
   fileName: neonbrand-dDvrIJbSCkg-unsplash.jpg
   alt: A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.
 cta: One of the best/worst things about machine learning is that your models _always_ have room for improvement. I mentioned a couple ideas along the way above for how I could improve the model in the future, but what's the first thing you would tweak in this model? I'd love to hear
+links:
+  twitter: https://twitter.com/tywmick/status/1288557300479909893
+  facebook: https://www.facebook.com/tywmick/posts/10213991818068334
+  linkedin: https://www.linkedin.com/posts/tywmick_building-a-neural-network-to-predict-loan-activity-6694323719113912320-Mwcr
 ipynb: true
 ---
 
