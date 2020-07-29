@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { Container } from "react-bootstrap";
 import clsx from "clsx";
 import DateTime from "./date-time";
@@ -102,6 +103,21 @@ export default function Post({ post }) {
             pull request on GitHub
           </a>
           !
+        </p>
+
+        <p>
+          Want to publish this article on your blog, in your magazine, or
+          anywhere else? This post, like all the content on my website, is
+          licensed under a{" "}
+          <a href="https://creativecommons.org/licenses/by/4.0/">
+            Creative Commons Attribution license
+          </a>
+          , so you're welcome to share it wherever and however you please, as
+          long as you cite me as the author. I'd also enjoy{" "}
+          <Link href="/connect">
+            <a>hearing from you</a>
+          </Link>{" "}
+          if you do publish this somewhere, but that's totally up to you.
         </p>
       </Container>
     </>
