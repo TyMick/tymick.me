@@ -112,12 +112,12 @@ export default function Post({ post }) {
           <a href="https://creativecommons.org/licenses/by/4.0/">
             Creative Commons Attribution license
           </a>
-          , so you're welcome to share it wherever and however you please, as
-          long as you cite me as the author. I'd also enjoy{" "}
+          , so you&rsquo;re welcome to share it wherever and however you please,
+          as long as you cite me as the author. I&rsquo;d also enjoy{" "}
           <Link href="/connect">
             <a>hearing from you</a>
           </Link>{" "}
-          if you do publish this somewhere, but that's totally up to you.
+          if you do publish this somewhere, but that&rsquo;s totally up to you.
         </p>
       </Container>
     </>
