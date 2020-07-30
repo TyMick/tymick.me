@@ -39,7 +39,7 @@ const Navigation = () => {
               <Image
                 srcSet={profilePic.srcSet}
                 src={profilePic.src}
-                sizes="1.5em"
+                sizes="(min-width: 1420px) 48px, calc(1.09vw + 33px)" // instead of 1.5em, as per https://ausi.github.io/respimagelint/
                 alt="Ty hiking in Joshua Tree National Park"
                 roundedCircle
               />
