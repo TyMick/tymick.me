@@ -32,7 +32,8 @@
     "remark-highlight.js": "^6.0.0",
     "remark-html": "^11.0.2",
     "retext": "^7.0.1",
-    "retext-smartypants": "^4.0.0"
+    "retext-smartypants": "^4.0.0",
+    "use-window-width-breakpoints": "^1.0.6"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",

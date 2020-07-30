@@ -51,7 +51,7 @@ const Covid19SocialDistancing = () => (
         in the United States by July 1 based on three different scenarios:
       </p>
 
-      <Figure className="full-width mt-2 mb-4">
+      <Figure className="full-width-padded mt-2 mb-4">
         <Figure.Image
           srcSet={outbreakScenariosJuly.srcSet}
           src={outbreakScenariosJuly.src}
@@ -75,7 +75,7 @@ const Covid19SocialDistancing = () => (
         just a month later to August 1 and it looks even worse:
       </p>
 
-      <Figure className="full-width mt-2 mb-4">
+      <Figure className="full-width-padded mt-2 mb-4">
         <Row className="figure-img">
           <Col>
             <Image
@@ -195,7 +195,7 @@ const Covid19SocialDistancing = () => (
         parents&rsquo; age or older.
       </p>
 
-      <Figure className="full-width mt-2 mb-4">
+      <Figure className="full-width-padded mt-2 mb-4">
         <Figure.Image
           src="https://pbs.twimg.com/media/ETuMzdBWAAgzf-T?format=jpg&name=medium"
           rounded
