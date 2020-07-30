@@ -8,7 +8,6 @@ import profilePic from "../images/profile-pic.jpg?sizes[]=48&sizes[]=96&sizes[]=
 
 const links = [
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Testimonials", href: "/testimonials" },
   { label: "Résumé", href: "/resume.pdf" },
   { label: "Blog", href: "/blog" },
   { label: "Connect", href: "/connect" },
@@ -26,9 +25,9 @@ const Navigation = () => {
   };
 
   return (
-    <Container as="header" className="px-0 mb-4 mb-md-5">
+    <Container as="header" className="px-0 mb-4 mb-sm-5">
       <Navbar
-        expand="md"
+        expand="sm"
         expanded={expanded}
         onSelect={collapse}
         onToggle={toggleExpanded}
@@ -51,7 +50,7 @@ const Navigation = () => {
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={router.pathname}
-            className="align-items-end align-items-md-center"
+            className="align-items-end align-items-sm-center"
           >
             {links.map(({ label, href }) =>
               href.includes(".") ? (
