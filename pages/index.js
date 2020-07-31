@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import A from "../components/internal-link";
 import profilePic from "../images/profile-pic.jpg?sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800";
 
 export default function Home() {
@@ -44,11 +44,8 @@ export default function Home() {
 
         <div>
           <p className="lead">
-            I&rsquo;m an{" "}
-            <Link href="/hq-afmc-award">
-              <a>award-winning</a>
-            </Link>{" "}
-            analyst and data scientist who&rsquo;s nuts about neural networks.
+            I&rsquo;m an <A href="/hq-afmc-award">award-winning</A> analyst and
+            data scientist who&rsquo;s nuts about neural networks.
           </p>
 
           {/* <p>
@@ -73,10 +70,8 @@ export default function Home() {
             only can I <em>build</em> machine learning models—I&rsquo;ll even
             write the APIs to serve them on. I also have experience with R, and
             I can make data visualizations with JavaScript, too.{" "}
-            <Link href="/portfolio">
-              <a>My portfolio</a>
-            </Link>{" "}
-            has more details if you&rsquo;d like to see some examples.
+            <A href="/portfolio">My portfolio</A> has more details if
+            you&rsquo;d like to see some examples.
           </p>
 
           <p>
@@ -85,10 +80,10 @@ export default function Home() {
               Corrie
             </a>{" "}
             and I currently live on the road (or used to,{" "}
-            <Link href="/blog/covid-19-social-distancing">
+            <A href="/blog/covid-19-social-distancing">
               {/* href="/blog/[post]" as="/blog/covid-19-social-distancing" */}
-              <a>until this coronavirus epidemic</a>
-            </Link>
+              until this coronavirus epidemic
+            </A>
             ), traveling the United States in a 24&#8209;foot RV! If you&rsquo;d
             like to see where we&rsquo;ve been in photographic form, your best
             bet is{" "}

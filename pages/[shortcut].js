@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import Link from "next/link";
 import { Container } from "react-bootstrap";
+import A from "../components/internal-link";
 import { SHORTCUT_LINKS } from "../lib/shortcut-links";
 
 export default function Shortcut({ url, as }) {
@@ -29,13 +29,9 @@ export default function Shortcut({ url, as }) {
       <Container fluid as="p" style={{ textAlign: "left" }}>
         Redirecting to{" "}
         {as ? (
-          <Link href={url} as={as}>
-            <a>{`https://tymick.me${as}`}</a>
-          </Link>
+          <A href={url} as={as}>{`https://tymick.me${as}`}</A>
         ) : url[0] === "/" ? (
-          <Link href={url}>
-            <a>{`https://tymick.me${url}`}</a>
-          </Link>
+          <A href={url}>{`https://tymick.me${url}`}</A>
         ) : (
           <a href={url}>{url}</a>
         )}

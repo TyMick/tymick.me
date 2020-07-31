@@ -13,23 +13,9 @@ const PortfolioSection = ({ name, id, projects }) => {
         {name}
       </h2>
       <ul className="lead">
-        {projects.map(({ name, extra, href, linkTitle }) => (
-          <li key={endOfPath(href)}>
-            {href[0] === "/" ? (
-              <>
-                <Link href={href}>
-                  <a title={linkTitle}>{name}</a>
-                </Link>
-                {extra}
-              </>
-            ) : (
-              <>
-                <a href={href} title={linkTitle}>
-                  {name}
-                </a>
-                {extra}
-              </>
-            )}
+        {projects.map((project, index) => (
+          <li key={`${id}-${index}`}>
+            {project}
           </li>
         ))}
       </ul>
