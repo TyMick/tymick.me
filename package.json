@@ -20,7 +20,7 @@
     "highlight.js": "^10.1.2",
     "lodash": "^4.17.19",
     "marked": "^0.8.2",
-    "next": "^9.5.0",
+    "next": "^9.5.1",
     "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
@@ -39,7 +39,7 @@
     "gh-pages": "^2.2.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "jimp": "^0.10.3",
+    "jimp": "^0.14.0",
     "next-optimized-images": "^2.6.2",
     "prettier": "^1.19.1",
     "responsive-loader": "^1.2.0"
