@@ -85,7 +85,8 @@ export default function Home() {
               Corrie
             </a>{" "}
             and I currently live on the road (or used to,{" "}
-            <Link href="/covid-19-social-distancing">
+            <Link href="/blog/covid-19-social-distancing">
+              {/* href="/blog/[post]" as="/blog/covid-19-social-distancing" */}
               <a>until this coronavirus epidemic</a>
             </Link>
             ), traveling the United States in a 24&#8209;foot RV! If you&rsquo;d

@@ -13,7 +13,7 @@ const links = [
   { label: "Connect", href: "/connect" },
 ];
 
-const Navigation = () => {
+export default function Navigation() {
   const router = useRouter();
 
   const [expanded, setExpanded] = useState(false);
@@ -49,7 +49,7 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="nav-links" className="border-0 px-0" />
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
-            activeKey={router.pathname}
+            activeKey={getSubdirectory(router.pathname)}
             className="align-items-end align-items-sm-center"
           >
             {links.map(({ label, href }) =>
@@ -76,4 +76,6 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+function getSubdirectory(path) {
+  return "/" + path.split("/")[1]
+}

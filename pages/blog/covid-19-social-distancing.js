@@ -4,10 +4,10 @@
 import React from "react";
 import Head from "next/head";
 import { Container, Figure, Row, Col, Image } from "react-bootstrap";
-import outbreakScenariosJuly from "../images/outbreak-scenarios-july.png?resize&max=3204&min=801&steps=4";
-import outbreakScenario1August from "../images/outbreak-scenario-1-august.png?resize&max=2402&min=600&steps=4";
-import outbreakScenario2August from "../images/outbreak-scenario-2-august.png?resize&max=2402&min=600&steps=4";
-import outbreakScenario3August from "../images/outbreak-scenario-3-august.png?resize&max=2402&min=600&steps=4";
+import outbreakScenariosJuly from "../../images/outbreak-scenarios-july.png?resize&max=3204&min=801&steps=4";
+import outbreakScenario1August from "../../images/outbreak-scenario-1-august.png?resize&max=2402&min=600&steps=4";
+import outbreakScenario2August from "../../images/outbreak-scenario-2-august.png?resize&max=2402&min=600&steps=4";
+import outbreakScenario3August from "../../images/outbreak-scenario-3-august.png?resize&max=2402&min=600&steps=4";
 
 const Covid19SocialDistancing = () => (
   <>
@@ -16,7 +16,7 @@ const Covid19SocialDistancing = () => (
       <title>COVID-19 social distancing will probably last longer than you think – Ty Mick</title>
       <meta property="og:title" content="COVID-19 social distancing will probably last longer than you think – Ty Mick" />
       <meta property="og:description" content="And what isolation means for nomads." />
-      <meta property="og:image" content={require("../images/outbreak-scenarios-july.png")} />
+      <meta property="og:image" content={require("../../images/outbreak-scenarios-july.png")} />
       <meta property="og:url" content="https://tymick.me/covid-19-social-distancing" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:site_name" content="Ty Mick" />

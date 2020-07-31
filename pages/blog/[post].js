@@ -3,8 +3,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
 import clsx from "clsx";
-import DateTime from "./date-time";
-import { smartypants } from "../lib/text-processing";
+import DateTime from "../../components/date-time";
+import { getPostBySlug, getAllPosts } from "../../lib/api";
+import {
+  markdownToHtml,
+  markdownToHtmlSnippet,
+  smartypants,
+} from "../../lib/text-processing";
 
 export default function Post({ post }) {
   const {
@@ -27,13 +32,14 @@ export default function Post({ post }) {
         {(subtitle || description) && (
           <meta property="og:description" content={subtitle || description} />
         )}
-        <meta property="og:url" content={`https://tymick.me/${slug}`} />
+        <meta property="og:url" content={`https://tymick.me/blog/${slug}`} />
         {ogImage && (
           <>
             <meta
               property="og:image"
               content={
-                "https://tymick.me" + require(`../images/${ogImage.fileName}`)
+                "https://tymick.me" +
+                require(`../../images/${ogImage.fileName}`)
               }
             />
             <meta name="og:image:alt" content={ogImage.alt} />
@@ -122,4 +128,32 @@ export default function Post({ post }) {
       </Container>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const posts = getAllPosts(["slug"]);
+  const paths = [
+    ...posts.map((post) => ({
+      params: { post: post.slug },
+    })),
+  ];
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  let post = getPostBySlug(params.post, [
+    "title",
+    "subtitle",
+    "description",
+    "slug",
+    "ogImage",
+    "date",
+    "content",
+    "cta",
+    "links",
+    "ipynb",
+  ]);
+  if (post.content) post.content = await markdownToHtml(post.content);
+  if (post.cta) post.cta = await markdownToHtmlSnippet(post.cta);
+  return { props: { post } };
 }
