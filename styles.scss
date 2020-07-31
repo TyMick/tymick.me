@@ -141,6 +141,7 @@ $brand-colors: (
   "telegram": #0088cc,
   "wikipedia": #000000,
   "youtube": #ff0000,
+  "paypal": #003087,
 );
 @each $brand, $color in $brand-colors {
   .#{$brand}-link {

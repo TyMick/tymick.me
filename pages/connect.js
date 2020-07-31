@@ -22,6 +22,7 @@ import {
   faTelegramPlane,
   faWikipediaW,
   faYoutube,
+  faPaypal,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Connect() {
@@ -189,6 +190,11 @@ export default function Connect() {
               brand="YouTube"
               icon={faYoutube}
               href="https://www.youtube.com/TylerWestinMick"
+            />
+            <MiscProfile
+              brand="PayPal"
+              icon={faPaypal}
+              href="https://www.paypal.me/tymick"
             />
           </div>
         </div>
