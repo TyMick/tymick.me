@@ -1,12 +1,6 @@
 import React from "react";
-import Link from "next/link";
 
-const PortfolioSection = ({ name, id, projects }) => {
-  const endOfPath = (url) => {
-    const urlParts = url.split("/");
-    return urlParts[urlParts.length - 1];
-  };
-
+export default function PortfolioSection({ name, id, projects }) {
   return (
     <section aria-labelledby={id}>
       <h2 className="h3" id={id}>
@@ -14,13 +8,9 @@ const PortfolioSection = ({ name, id, projects }) => {
       </h2>
       <ul className="lead">
         {projects.map((project, index) => (
-          <li key={`${id}-${index}`}>
-            {project}
-          </li>
+          <li key={`${id}-${index}`}>{project}</li>
         ))}
       </ul>
     </section>
   );
-};
-
-export default PortfolioSection;
+}
