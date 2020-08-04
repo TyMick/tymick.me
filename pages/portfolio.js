@@ -18,6 +18,12 @@ export default function Portfolio() {
           id="papers-articles"
           projects={[
             <>
+              <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
+                Building a Neural Network to Predict Loan Risk
+              </a>
+              <cite className="text-muted ml-3">Towards Data Science</cite>
+            </>,
+            <>
               <a href="https://apps.dtic.mil/sti/citations/AD1012051">
                 Readiness Based Sparing: A Research Summary
               </a>

@@ -48,30 +48,25 @@ export default function Home() {
             data scientist who&rsquo;s nuts about neural networks.
           </p>
 
-          {/* <p>
-            My work has been published in the{" "}
-            <a
-              href="https://duckduckgo.com/?q=site%3Adtic.mil+%22Mick%2C+Tyler+W.%22"
-              title="DTIC search: Mick, Tyler W."
-            >
-              Defense Technical Information Center
-            </a>{" "}
-            and{" "}
+          <p>
+            My technical articles and papers have been published in{" "}
+            <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
+              Towards Data Science
+            </a>
+            , the <A href="/dtic">Defense Technical Information Center</A>, and{" "}
             <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
               Hacker Noon
             </a>
             .
-          </p> */}
+          </p>
 
           <p>
-            I work mostly in Python, spending a lot of time in TensorFlow/Keras
-            (and I still think it&rsquo;s funny telling people I work with{" "}
-            <a href="https://pandas.pydata.org">pandas</a> every day). And not
-            only can I <em>build</em> machine learning models—I&rsquo;ll even
-            write the APIs to serve them on. I also have experience with R, and
-            I can make data visualizations with JavaScript, too.{" "}
-            <A href="/portfolio">My portfolio</A> has more details if
-            you&rsquo;d like to see some examples.
+            I work mostly in Python, building models with TensorFlow and APIs
+            with Flask. I still think it&rsquo;s funny telling people I work
+            with <a href="https://pandas.pydata.org">pandas</a> every day. I
+            also have experience with R, and I can make data visualizations with
+            JavaScript, too. <A href="/portfolio">My portfolio</A> has more
+            details if you&rsquo;d like to see some examples.
           </p>
 
           <p>

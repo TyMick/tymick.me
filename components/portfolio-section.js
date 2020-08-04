@@ -8,7 +8,7 @@ export default function PortfolioSection({ name, id, projects }) {
       </h2>
       <ul className="lead">
         {projects.map((project, index) => (
-          <li key={`${id}-${index}`}>{project}</li>
+          <li className="text-left" key={`${id}-${index}`}>{project}</li>
         ))}
       </ul>
     </section>
