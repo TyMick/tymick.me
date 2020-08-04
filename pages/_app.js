@@ -1,6 +1,5 @@
 import React from "react";
 import Router from "next/router";
-import Head from "next/head";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import "../styles.scss";
@@ -18,16 +17,6 @@ Router.events.on("routeChangeError", () => NProgress.done());
 const App = ({ Component, pageProps }) => {
   return (
     <>
-      {/* prettier-ignore */}
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link href="https://fonts.googleapis.com/css?family=Alegreya|Dawning+of+a+New+Day&display=swap" rel="stylesheet" />
-        <meta name="monetization" content="$ilp.uphold.com/6NNW67MyBLDw" />
-      </Head>
-
       <Nav />
 
       <main className="mb-5">
