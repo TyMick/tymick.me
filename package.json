@@ -50,8 +50,5 @@
     "start": "next start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d out -m Build -t"
-  },
-  "engines": {
-    "node": "12.x"
   }
 }
