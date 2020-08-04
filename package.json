@@ -6,7 +6,7 @@
     "url": "http://tymick.me"
   },
   "repository": "github:tywmick/tywmick.github.io",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
