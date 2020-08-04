@@ -135,6 +135,12 @@ export default function Portfolio() {
               for nextjs-redirect
             </>,
             <>
+              <a href="https://github.com/mauriciopoppe/function-plot/pull/145">
+                Licensing help
+              </a>{" "}
+              for Function Plot
+            </>,
+            <>
               <a href="https://github.com/twbs/bootstrap/pull/30010">
                 Documentation help
               </a>{" "}
