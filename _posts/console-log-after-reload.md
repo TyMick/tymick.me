@@ -41,4 +41,4 @@ if (sessionStorage && sessionStorage.getItem("consoleWarnAfterReload")) {
 }
 ```
 
-That [did the trick](https://github.com/vercel/next.js/pull/13588)!
+That did the trick!
