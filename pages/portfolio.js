@@ -107,6 +107,19 @@ export default function Portfolio() {
         />
 
         <PortfolioSection
+          name="npm packages"
+          id="npm"
+          projects={[
+            <a href="https://www.npmjs.com/package/use-window-width-breakpoints">
+              useWindowWidthBreakpoints
+            </a>,
+            <a href="https://www.npmjs.com/package/use-window-orientation">
+              useWindowOrientation
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
           name="Open-source contributions"
           id="open-source"
           projects={[
