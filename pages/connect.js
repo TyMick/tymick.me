@@ -23,6 +23,7 @@ import {
   faWikipediaW,
   faYoutube,
   faPaypal,
+  faMastodon,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Connect() {
@@ -155,6 +156,11 @@ export default function Connect() {
               brand="GitLab"
               icon={faGitlab}
               href="https://gitlab.com/tywmick"
+            />
+            <MiscProfile
+              brand="Mastodon"
+              icon={faMastodon}
+              href="https://mastodon.online/@tywmick"
             />
             <MiscProfile
               brand="Telegram"
