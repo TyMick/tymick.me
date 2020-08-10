@@ -120,7 +120,7 @@ export default function Portfolio() {
         />
 
         <PortfolioSection
-          name="Open-source contributions"
+          name="Selected open-source contributions"
           id="open-source"
           projects={[
             <>
@@ -128,6 +128,19 @@ export default function Portfolio() {
                 Documentation help
               </a>{" "}
               for pandas
+            </>,
+            <>
+              <a href="https://github.com/rtcovidlive/covid-model/pull/27">
+                Formatting help
+              </a>{" "}
+              for <a href="https://rt.live/">R<sub>t</sub> Live</a>&rsquo;s
+              COVID-19 <var>R<sub>t</sub></var> model
+            </>,
+            <>
+              <a href="https://github.com/MatejBransky/react-katex/pull/9">
+                New feature
+              </a>{" "}
+              for react-katex
             </>,
             <>
               <a href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
