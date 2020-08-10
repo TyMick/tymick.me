@@ -5,25 +5,25 @@ import ContactMethod from "../components/contact-method";
 import MiscProfile from "../components/misc-profile";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import {
-  faGithub,
-  faTwitter,
-  faFacebook,
-  faInstagram,
-  faLinkedin,
   faCodepen,
   faDev,
+  faFacebook,
   faFreeCodeCamp,
+  faGithub,
   faGitlab,
+  faInstagram,
   faKaggle,
+  faLinkedin,
+  faMastodon,
   faMediumM,
   faNpm,
+  faPaypal,
   faSpotify,
   faStackExchange,
   faTelegramPlane,
+  faTwitter,
   faWikipediaW,
   faYoutube,
-  faPaypal,
-  faMastodon,
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Connect() {
