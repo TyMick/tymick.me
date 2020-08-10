@@ -28,14 +28,16 @@ export default function Portfolio() {
                 Readiness Based Sparing: A Research Summary
               </a>
               <cite className="text-muted ml-3">
-                <abbr title="Defense Technical Information Center">DTIC</abbr>
+                Defense Technical Information Center
               </cite>
             </>,
             <>
               <a href="https://apps.dtic.mil/sti/citations/AD1012101">
                 The Case for AFMC Social Media Analysis
               </a>
-              <cite className="text-muted ml-3">DTIC</cite>
+              <cite className="text-muted ml-3">
+                Defense Technical Information Center
+              </cite>
             </>,
             <>
               <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
