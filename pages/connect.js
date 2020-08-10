@@ -108,22 +108,6 @@ export default function Connect() {
             </a>{" "}
             every now and then.
           </ContactMethod>
-
-          <ContactMethod
-            brand="instagram"
-            icon={faInstagram}
-            href="https://www.instagram.com/tywmick/"
-          >
-            Looking for more photos of me? I don&rsquo;t post to{" "}
-            <a
-              href="https://www.instagram.com/tywmick/"
-              title="Ty's Instagram profile"
-              className="instagram-link"
-            >
-              Instagram
-            </a>{" "}
-            myself anymore, but people still tag me there.
-          </ContactMethod>
         </ul>
 
         <div className="full-width">
@@ -156,6 +140,11 @@ export default function Connect() {
               brand="GitLab"
               icon={faGitlab}
               href="https://gitlab.com/tywmick"
+            />
+            <MiscProfile
+              brand="Instagram"
+              icon={faInstagram}
+              href="https://instagram.com/tywmick"
             />
             <MiscProfile
               brand="Mastodon"
