@@ -139,8 +139,8 @@ export default function Portfolio() {
               COVID-19 <var>R<sub>t</sub></var> model
             </>,
             <>
-              <a href="https://github.com/MatejBransky/react-katex/pull/9">
-                New feature
+              <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+                New feature and bug fixes
               </a>{" "}
               for react-katex
             </>,
