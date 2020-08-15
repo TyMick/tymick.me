@@ -1,8 +1,7 @@
 import React from "react";
+import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import ContactMethod from "../components/contact-method";
-import MiscProfile from "../components/misc-profile";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
 import {
   faCodepen,
@@ -25,8 +24,12 @@ import {
   faWikipediaW,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import ContactMethod from "../components/contact-method";
+import MiscProfile from "../components/misc-profile";
+import clsx from "clsx";
 
 export default function Connect() {
+  const breakpoint = useWindowWidthBreakpoints();
   return (
     <>
       <Head>
@@ -110,88 +113,84 @@ export default function Connect() {
           </ContactMethod>
         </ul>
 
-        <div className="full-width">
-          <div
-            id="miscellaneous-profiles"
-            className="d-flex overflow-auto mx-auto text-center"
-            style={{ "max-width": "max-content" }}
-          >
-            <MiscProfile
-              brand="Kaggle"
-              icon={faKaggle}
-              href="https://www.kaggle.com/tywmick"
-            />
-            <MiscProfile
-              brand="npm"
-              icon={faNpm}
-              href="https://www.npmjs.com/~tywmick"
-            />
-            <MiscProfile
-              brand="freeCodeCamp"
-              icon={faFreeCodeCamp}
-              href="https://www.freecodecamp.org/tywmick"
-            />
-            <MiscProfile
-              brand="CodePen"
-              icon={faCodepen}
-              href="https://codepen.io/tywmick"
-            />
-            <MiscProfile
-              brand="GitLab"
-              icon={faGitlab}
-              href="https://gitlab.com/tywmick"
-            />
-            <MiscProfile
-              brand="Instagram"
-              icon={faInstagram}
-              href="https://instagram.com/tywmick"
-            />
-            <MiscProfile
-              brand="Mastodon"
-              icon={faMastodon}
-              href="https://mastodon.online/@tywmick"
-            />
-            <MiscProfile
-              brand="Telegram"
-              icon={faTelegramPlane}
-              href="https://t.me/tywmick"
-            />
-            <MiscProfile
-              brand="Spotify"
-              icon={faSpotify}
-              href="https://open.spotify.com/user/tywmick"
-            />
-            <MiscProfile
-              brand="Medium"
-              icon={faMediumM}
-              href="https://medium.com/@tywmick"
-            />
-            <MiscProfile
-              brand="DEV"
-              icon={faDev}
-              href="https://dev.to/tywmick"
-            />
-            <MiscProfile
-              brand="Stack Exchange"
-              icon={faStackExchange}
-              href="https://stackexchange.com/users/3957560/ty-mick?tab=accounts"
-            />
-            <MiscProfile
-              brand="Wikipedia"
-              icon={faWikipediaW}
-              href="https://en.wikipedia.org/wiki/User:TyWMick"
-            />
-            <MiscProfile
-              brand="YouTube"
-              icon={faYoutube}
-              href="https://www.youtube.com/TylerWestinMick"
-            />
-            <MiscProfile
-              brand="PayPal"
-              icon={faPaypal}
-              href="https://www.paypal.me/tymick"
-            />
-          </div>
+        <div
+          id="miscellaneous-profiles"
+          className={clsx(
+            "full-width-lg d-flex justify-content-sm-center flex-sm-wrap",
+            breakpoint.xs && "full-width overflow-auto"
+          )}
+        >
+          <MiscProfile
+            brand="Kaggle"
+            icon={faKaggle}
+            href="https://www.kaggle.com/tywmick"
+          />
+          <MiscProfile
+            brand="npm"
+            icon={faNpm}
+            href="https://www.npmjs.com/~tywmick"
+          />
+          <MiscProfile
+            brand="freeCodeCamp"
+            icon={faFreeCodeCamp}
+            href="https://www.freecodecamp.org/tywmick"
+          />
+          <MiscProfile
+            brand="CodePen"
+            icon={faCodepen}
+            href="https://codepen.io/tywmick"
+          />
+          <MiscProfile
+            brand="GitLab"
+            icon={faGitlab}
+            href="https://gitlab.com/tywmick"
+          />
+          <MiscProfile
+            brand="Instagram"
+            icon={faInstagram}
+            href="https://instagram.com/tywmick"
+          />
+          <MiscProfile
+            brand="Mastodon"
+            icon={faMastodon}
+            href="https://mastodon.online/@tywmick"
+          />
+          <MiscProfile
+            brand="Telegram"
+            icon={faTelegramPlane}
+            href="https://t.me/tywmick"
+          />
+          <MiscProfile
+            brand="Spotify"
+            icon={faSpotify}
+            href="https://open.spotify.com/user/tywmick"
+          />
+          <MiscProfile
+            brand="Medium"
+            icon={faMediumM}
+            href="https://medium.com/@tywmick"
+          />
+          <MiscProfile brand="DEV" icon={faDev} href="https://dev.to/tywmick" />
+          <MiscProfile
+            brand="Stack Exchange"
+            icon={faStackExchange}
+            href="https://stackexchange.com/users/3957560/ty-mick?tab=accounts"
+          />
+          <MiscProfile
+            brand="Wikipedia"
+            icon={faWikipediaW}
+            href="https://en.wikipedia.org/wiki/User:TyWMick"
+          />
+          <MiscProfile
+            brand="YouTube"
+            icon={faYoutube}
+            href="https://www.youtube.com/TylerWestinMick"
+          />
+          <MiscProfile
+            brand="PayPal"
+            icon={faPaypal}
+            href="https://www.paypal.me/tymick"
+          />
         </div>
       </Container>
     </>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MiscProfile({ brand, icon, href }) {
   return (
-    <div className="p-3 flex-fill position-relative">
+    <div className="p-3">
       <a
         href={href}
         title={brand}
