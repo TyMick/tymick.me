@@ -67,16 +67,15 @@ export default function Connect() {
             icon={faTwitter}
             href="https://twitter.com/tywmick"
           >
-            Want to ask my opinion on something? I&rsquo;d prefer the more
-            public nature of{" "}
+            Just want to chat? I&rsquo;d love to say hi on{" "}
             <a
               href="https://twitter.com/tywmick"
               title="Ty's Twitter profile"
               className="twitter-link"
             >
               Twitter
-            </a>{" "}
-            for that purpose, so I don&rsquo;t have to repeat myself as often.
+            </a>
+            .
           </ContactMethod>
 
           <ContactMethod
@@ -94,23 +93,6 @@ export default function Connect() {
             </a>
             ? Me neither.
           </ContactMethod>
-
-          <ContactMethod
-            brand="facebook"
-            icon={faFacebook}
-            href="https://www.facebook.com/tywmick"
-          >
-            Curious to see some of the destinations in my RV travels? I post
-            360&deg; photos from hikes on{" "}
-            <a
-              href="https://www.facebook.com/tywmick"
-              title="Ty's Facebook profile"
-              className="facebook-link"
-            >
-              Facebook
-            </a>{" "}
-            every now and then.
-          </ContactMethod>
         </ul>
 
         <div
@@ -120,6 +102,11 @@ export default function Connect() {
             breakpoint.xs && "full-width overflow-auto"
           )}
         >
+          <MiscProfile
+            brand="Facebook"
+            icon={faFacebook}
+            href="https://www.facebook.com/tywmick"
+          />
           <MiscProfile
             brand="Kaggle"
             icon={faKaggle}
