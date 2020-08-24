@@ -1,0 +1,20 @@
+.signature {
+  font-family: "Dawning of a New Day", cursive;
+  @include font-size($h2-font-size);
+  img {
+    @extend .d-inline-block;
+    @extend .align-top;
+    @extend .mr-3;
+    height: 1.5em;
+  }
+}
+.github-nav-link {
+  @include font-size($h4-font-size);
+}
+@if $emphasized-link-hover-darken-percentage != 0 {
+  a.github-nav-link {
+    @include hover-focus() {
+      color: #333 !important;
+    }
+  }
+}

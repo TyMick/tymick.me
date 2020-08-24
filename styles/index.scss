@@ -1,0 +1,46 @@
+// Bootstrap
+$enable-responsive-font-sizes: true;
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 2.875; // Works better on Alegreya fonts
+@import "~bootstrap/scss/bootstrap";
+
+// Enables footer to stick to bottom
+#__next {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
+  @extend .d-flex;
+  @extend .flex-column;
+}
+
+// Miscellaneous
+p,
+li {
+  text-align: justify;
+}
+h1,
+.h1 {
+  font-family: "Alegreya", serif;
+  @extend .mb-3;
+}
+.tooltip-inner {
+  text-align: left;
+  max-width: 98vw;
+}
+hr {
+  @extend .border-secondary;
+  @extend .my-4;
+  width: 5rem;
+}
+
+// Other custom
+@import "blog";
+@import "brand-color-links";
+@import "containers";
+@import "home-page";
+@import "navbar";
+
+// Other vendor styles
+@import "~@fortawesome/fontawesome-svg-core/styles";
+@import "~highlight.js/styles/github";
+@import "~nprogress/nprogress";

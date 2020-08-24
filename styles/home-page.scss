@@ -1,0 +1,9 @@
+.greeting {
+  font-family: "Alegreya", serif;
+  @extend .display-3;
+}
+.cap-lg-49 {
+  @include media-breakpoint-up(lg) {
+    max-width: 49rem;
+  }
+}

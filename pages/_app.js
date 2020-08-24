@@ -1,13 +1,11 @@
 import React from "react";
 import Router from "next/router";
+import NProgress from "nprogress";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
-import "../styles.scss";
-import "highlight.js/styles/github.css";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import "../styles/index.scss";
+
 config.autoAddCss = false;
 
 Router.events.on("routeChangeStart", () => NProgress.start());

@@ -1,0 +1,57 @@
+.essay-preview {
+  @extend .position-relative;
+  &:not(:last-child) {
+    @extend .mb-5;
+  }
+  h2 a {
+    @extend .text-reset;
+    @extend .stretched-link;
+  }
+  h3,
+  p {
+    @extend .text-muted;
+  }
+  small {
+    @extend .font-italic;
+  }
+}
+.ipynb {
+  .language-python {
+    @extend .border;
+  }
+  .language-plaintext {
+    color: white;
+    background: black;
+    @extend .rounded;
+    max-height: 22.2rem;
+  }
+  p + pre,
+  p + .data-table,
+  p + img {
+    margin-top: 2rem;
+  }
+  pre,
+  .data-table,
+  img {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  pre + p,
+  .data-table + p,
+  img + p {
+    margin-top: 2rem;
+  }
+  .data-table p {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 2rem;
+  }
+  th,
+  td {
+    @extend .p-1;
+  }
+  td {
+    @extend .text-monospace;
+  }
+}

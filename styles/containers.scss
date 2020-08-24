@@ -1,0 +1,29 @@
+// Cap max widths of containers
+@each $breakpoint, $container-max-width in $container-max-widths {
+  .cap-width-#{$breakpoint} {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+// Full width containers
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint) {
+    .full-width#{$infix} {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+    .full-width-padded#{$infix} {
+      @extend .full-width#{$infix};
+      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width / 2;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+$brand-colors: (
+  "github": #333,
+  "twitter": #1da1f2,
+  "linkedin": #2867b2,
+  "facebook": #3b5998,
+  "instagram": #e1306c,
+  "codepen": #000000,
+  "dev": #08090a,
+  "freecodecamp": #0a0a23,
+  "gitlab": #fc6d26,
+  "kaggle": #20beff,
+  "mastodon": #3088d4,
+  "medium": rgba(41, 41, 41, 1),
+  "npm": #cb3837,
+  "spotify": #1db954,
+  "stack-exchange": #376db6,
+  "telegram": #0088cc,
+  "wikipedia": #000000,
+  "youtube": #ff0000,
+  "paypal": #003087,
+);
+@each $brand, $color in $brand-colors {
+  .#{$brand}-link {
+    @if lightness($color) >= 50% {
+      color: $color;
+      @include hover-focus() {
+        color: darken(
+          $color,
+          $emphasized-link-hover-darken-percentage
+        ) !important;
+      }
+    } @else if lightness($color) >= 20% {
+      color: lighten($color, $emphasized-link-hover-darken-percentage);
+      @include hover-focus() {
+        color: $color !important;
+      }
+    } @else {
+      color: lighten($color, 2 * $emphasized-link-hover-darken-percentage);
+      @include hover-focus() {
+        color: $color !important;
+      }
+    }
+  }
+}
+.github-text-link {
+  @extend .text-secondary;
+  @include hover-focus() {
+    color: #333 !important;
+  }
+}
