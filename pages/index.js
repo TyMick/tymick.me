@@ -54,10 +54,7 @@ export default function Home() {
               Towards Data Science
             </a>
             , the <A href="/dtic">Defense Technical Information Center</A>, and{" "}
-            <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
-              Hacker Noon
-            </a>
-            .
+            <a href="https://hackernoon.com/u/tywmick">Hacker Noon</a>.
           </p>
 
           <p>
