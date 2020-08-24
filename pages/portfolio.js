@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
+import TeX from "@matejmazur/react-katex";
 import PortfolioSection from "../components/portfolio-section";
 
 export default function Portfolio() {
@@ -55,6 +56,16 @@ export default function Portfolio() {
           projects={[
             <a href="https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk">
               Loan risk prediction using neural network regression
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
+          name="Interactive data visualizations"
+          id="data-visualizations"
+          projects={[
+            <a href="https://rtsimulator.com">
+              <TeX as="var">R_t</TeX> Simulator
             </a>,
           ]}
         />
@@ -135,8 +146,15 @@ export default function Portfolio() {
               <a href="https://github.com/rtcovidlive/covid-model/pull/27">
                 Formatting help
               </a>{" "}
-              for <a href="https://rt.live/">R<sub>t</sub> Live</a>&rsquo;s
-              COVID-19 <var>R<sub>t</sub></var> model
+              for{" "}
+              <a href="https://rt.live/">
+                R<sub>t</sub> Live
+              </a>
+              &rsquo;s COVID-19{" "}
+              <var>
+                R<sub>t</sub>
+              </var>{" "}
+              model
             </>,
             <>
               <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
