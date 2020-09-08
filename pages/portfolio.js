@@ -31,6 +31,17 @@ export default function Portfolio() {
             </>,
             <>
               <a
+                href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2"
+                className="d-block"
+              >
+                Loan Risk Prediction Using Neural Networks
+              </a>
+              <small className="d-block">
+                <cite className="text-muted">Hacker Noon</cite>
+              </small>
+            </>,
+            <>
+              <a
                 href="https://apps.dtic.mil/sti/citations/AD1012051"
                 className="d-block"
               >
