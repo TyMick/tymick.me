@@ -19,33 +19,53 @@ export default function Portfolio() {
           id="papers-articles"
           projects={[
             <>
-              <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
+              <a
+                href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e"
+                className="d-block"
+              >
                 Building a Neural Network to Predict Loan Risk
               </a>
-              <cite className="text-muted ml-3">Towards Data Science</cite>
+              <small className="d-block">
+                <cite className="text-muted">Towards Data Science</cite>
+              </small>
             </>,
             <>
-              <a href="https://apps.dtic.mil/sti/citations/AD1012051">
+              <a
+                href="https://apps.dtic.mil/sti/citations/AD1012051"
+                className="d-block"
+              >
                 Readiness Based Sparing: A Research Summary
               </a>
-              <cite className="text-muted ml-3">
-                Defense Technical Information Center
-              </cite>
+              <small className="d-block">
+                <cite className="text-muted">
+                  Defense Technical Information Center
+                </cite>
+              </small>
             </>,
             <>
-              <a href="https://apps.dtic.mil/sti/citations/AD1012101">
+              <a
+                href="https://apps.dtic.mil/sti/citations/AD1012101"
+                className="d-block"
+              >
                 The Case for AFMC Social Media Analysis
               </a>
-              <cite className="text-muted ml-3">
-                Defense Technical Information Center
-              </cite>
+              <small className="d-block">
+                <cite className="text-muted">
+                  Defense Technical Information Center
+                </cite>
+              </small>
             </>,
             <>
-              <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
+              <a
+                href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9"
+                className="d-block"
+              >
                 Making a Browser Console Log Wait Until Page Reloads [A How-To
                 Guide]
               </a>
-              <cite className="text-muted ml-3">Hacker Noon</cite>
+              <small className="d-block">
+                <cite className="text-muted">Hacker Noon</cite>
+              </small>
             </>,
           ]}
         />
