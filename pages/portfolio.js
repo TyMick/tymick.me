@@ -21,7 +21,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 Building a Neural Network to Predict Loan Risk
               </a>
@@ -32,7 +32,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 Loan Risk Prediction Using Neural Networks
               </a>
@@ -43,7 +43,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://apps.dtic.mil/sti/citations/AD1012051"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 Readiness Based Sparing: A Research Summary
               </a>
@@ -56,7 +56,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://apps.dtic.mil/sti/citations/AD1012101"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 The Case for AFMC Social Media Analysis
               </a>
@@ -69,7 +69,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 Making a Browser Console Log Wait Until Page Reloads [A How-To
                 Guide]
@@ -81,7 +81,7 @@ export default function Portfolio() {
             <>
               <a
                 href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938"
-                className="d-block"
+                className="d-block stretched-link"
               >
                 Make a Browser Console Log Wait for a Page Reload
               </a>
