@@ -25,7 +25,7 @@ export default function Portfolio() {
               >
                 Building a Neural Network to Predict Loan Risk
               </a>
-              <small className="d-block">
+              <small className="d-block mb-1">
                 <cite className="text-muted">Towards Data Science</cite>
               </small>
             </>,
@@ -36,7 +36,7 @@ export default function Portfolio() {
               >
                 Loan Risk Prediction Using Neural Networks
               </a>
-              <small className="d-block">
+              <small className="d-block mb-1">
                 <cite className="text-muted">Hacker Noon</cite>
               </small>
             </>,
@@ -47,7 +47,7 @@ export default function Portfolio() {
               >
                 Readiness Based Sparing: A Research Summary
               </a>
-              <small className="d-block">
+              <small className="d-block mb-1">
                 <cite className="text-muted">
                   Defense Technical Information Center
                 </cite>
@@ -60,7 +60,7 @@ export default function Portfolio() {
               >
                 The Case for AFMC Social Media Analysis
               </a>
-              <small className="d-block">
+              <small className="d-block mb-1">
                 <cite className="text-muted">
                   Defense Technical Information Center
                 </cite>
@@ -74,7 +74,7 @@ export default function Portfolio() {
                 Making a Browser Console Log Wait Until Page Reloads [A How-To
                 Guide]
               </a>
-              <small className="d-block">
+              <small className="d-block mb-1">
                 <cite className="text-muted">Hacker Noon</cite>
               </small>
             </>,

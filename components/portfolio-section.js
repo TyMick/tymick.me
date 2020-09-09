@@ -11,7 +11,7 @@ export default function PortfolioSection({ name, id, projects }) {
       </h2>
       <ul style={{ ...(breakpoint.xs && { paddingInlineStart: "2rem" }) }}>
         {projects.map((project, index) => (
-          <li className="text-left mb-1" key={`${id}-${index}`}>
+          <li className="text-left" key={`${id}-${index}`}>
             {project}
           </li>
         ))}
