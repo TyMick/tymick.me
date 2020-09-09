@@ -53,8 +53,12 @@ export default function Home() {
             <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
               Towards Data Science
             </a>
-            , the <A href="/dtic">Defense Technical Information Center</A>, and{" "}
-            <a href="https://hackernoon.com/u/tywmick">Hacker Noon</a>.
+            , the <A href="/dtic">Defense Technical Information Center</A>,{" "}
+            <a href="https://hackernoon.com/u/tywmick">Hacker Noon</a>, and{" "}
+            <a href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938">
+              JavaScript in Plain English
+            </a>
+            .
           </p>
 
           <p>

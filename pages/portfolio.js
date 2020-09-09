@@ -78,6 +78,17 @@ export default function Portfolio() {
                 <cite className="text-muted">Hacker Noon</cite>
               </small>
             </>,
+            <>
+              <a
+                href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938"
+                className="d-block"
+              >
+                Make a Browser Console Log Wait for a Page Reload
+              </a>
+              <small className="d-block mb-1">
+                <cite className="text-muted">JavaScript in Plain English</cite>
+              </small>
+            </>,
           ]}
         />
 
