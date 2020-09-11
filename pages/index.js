@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import A from "../components/internal-link";
 import profilePic from "../images/profile-pic.jpg?sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800";
 
 export default function Home() {
+  // Logic to remove Mastodon verification link after page loads
+  const [pageLoaded, setPageLoaded] = useState(false);
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
+
   return (
     <>
       {/* prettier-ignore */}
@@ -102,8 +108,8 @@ export default function Home() {
         </div>
       </Container>
 
-      {/* Mastadon verification */}
-      <a rel="me" href="https://mastodon.online/@tywmick" className="d-none" />
+      {/* Mastodon verification */}
+      {!pageLoaded && <a rel="me" href="https://mastodon.online/@tywmick" />}
     </>
   );
 }
