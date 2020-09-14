@@ -20,6 +20,7 @@ $h1-font-size: $font-size-base * 2.875; // Works better on Alegreya fonts
 p,
 li {
   text-align: justify;
+  hyphens: auto;
 }
 h1,
 .h1 {

@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en-US">
         {/* prettier-ignore */}
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
