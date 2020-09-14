@@ -6,6 +6,7 @@ import { faAt } from "@fortawesome/free-solid-svg-icons";
 import {
   faCodepen,
   faDev,
+  faDiscord,
   faFacebook,
   faFreeCodeCamp,
   faGithub,
@@ -146,6 +147,11 @@ export default function Connect() {
             brand="Telegram"
             icon={faTelegramPlane}
             href="https://t.me/tywmick"
+          />
+          <MiscProfile
+            brand="Discord"
+            icon={faDiscord}
+            username="tywmick#4573"
           />
           <MiscProfile
             brand="Spotify"
