@@ -12,15 +12,8 @@ export default function MiscProfile({ brand, icon, href, username }) {
   const [copyStatus, setCopyStatus] = useState(null);
   const copyUsername = async () => {
     try {
-      const permission = await navigator.permissions.query({
-        name: "clipboard-write",
-      });
-      if (["granted", "prompt"].includes(permission.state)) {
-        await navigator.clipboard.writeText(username);
-        setCopyStatus("success");
-      } else {
-        setCopyStatus("failure");
-      }
+      await navigator.clipboard.writeText(username);
+      setCopyStatus("success");
     } catch (e) {
       setCopyStatus("failure");
     }
@@ -40,7 +33,7 @@ export default function MiscProfile({ brand, icon, href, username }) {
           onBlur: () => setFocus(false),
           onClick: copyUsername,
           tabIndex: 0,
-          style: { cursor: "pointer" },
+          style: { cursor: "pointer" }
         })}
       >
         <FontAwesomeIcon icon={icon} size="2x" />
@@ -48,7 +41,7 @@ export default function MiscProfile({ brand, icon, href, username }) {
 
       {username && (
         <Overlay target={anchor.current} show={hover || focus}>
-          {(props) => (
+          {props => (
             <Tooltip
               id={`${kebabCase(brand.toLowerCase())}-username`}
               {...props}
