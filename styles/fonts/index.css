@@ -4,6 +4,35 @@ body {
   font-kerning: normal;
 }
 
+/* Source: Butterick's Practical Typography (https://practicaltypography.com/charter.html) */
+@font-face {
+  font-family: "Charter";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Charter"), url("Charter/charter_regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Charter";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Charter Bold"), local("Charter-Bold"),
+    url("Charter/charter_bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Charter";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Charter Italic"), local("Charter-Italic"),
+    url("Charter/charter_italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Charter";
+  font-style: italic;
+  font-weight: 700;
+  src: local("Charter Bold Italic"), local("Charter-BoldItalic"),
+    url("Charter/charter_bold_italic.woff") format("woff");
+}
+
 /* Source: google-webfonts-helper (https://google-webfonts-helper.herokuapp.com) */
 @font-face {
   font-family: "Alegreya";
