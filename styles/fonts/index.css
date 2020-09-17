@@ -4,30 +4,30 @@ body {
   font-kerning: normal;
 }
 
-/**
- * Fonts downloaded with google-webfonts-helper (https://google-webfonts-helper.herokuapp.com)
- */
+/* Source: google-webfonts-helper (https://google-webfonts-helper.herokuapp.com) */
 @font-face {
   font-family: "Alegreya";
   font-style: normal;
   font-weight: 400;
   src: local("Alegreya Regular"), local("Alegreya-Regular"),
-    url("alegreya-v14-latin-regular.woff2") format("woff2"),
-    url("alegreya-v14-latin-regular.woff") format("woff");
+    url("Alegreya/alegreya-v14-latin-regular.woff2") format("woff2"),
+    url("Alegreya/alegreya-v14-latin-regular.woff") format("woff");
 }
 @font-face {
   font-family: "Alegreya";
   font-style: normal;
   font-weight: 500;
   src: local("Alegreya Medium"), local("Alegreya-Medium"),
-    url("alegreya-v14-latin-500.woff2") format("woff2"),
-    url("alegreya-v14-latin-500.woff") format("woff");
+    url("Alegreya/alegreya-v14-latin-500.woff2") format("woff2"),
+    url("Alegreya/alegreya-v14-latin-500.woff") format("woff");
 }
 @font-face {
   font-family: "Dawning of a New Day";
   font-style: normal;
   font-weight: 400;
   src: local("Dawning of a New Day"), local("DawningofaNewDay"),
-    url("dawning-of-a-new-day-v11-latin-regular.woff2") format("woff2"),
-    url("dawning-of-a-new-day-v11-latin-regular.woff") format("woff");
+    url("Dawning of a New Day/dawning-of-a-new-day-v11-latin-regular.woff2")
+      format("woff2"),
+    url("Dawning of a New Day/dawning-of-a-new-day-v11-latin-regular.woff")
+      format("woff");
 }
