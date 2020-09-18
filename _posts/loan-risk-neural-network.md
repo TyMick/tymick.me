@@ -2617,7 +2617,7 @@ So [head on over](https://tywmick.pythonanywhere.com/ "Neural Network Loan Risk 
 
 <h2 id="evaluating-performance">Evaluating performance</h2>
 
-A month and a half after I first published this, I have decided I should evaluate whether or not this predictive model is actually _useful_. Tipping my hat once again to Michael Wurm for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8), I figure comparing my model's performance to a selection method based on the loan grade assigned by LendingClub ought to be sufficient. I'll save a version of `loans_1` to disc, adding a few original columns back for evaluation, so I can do this in a new notebook (this article's long enough already).
+A month and a half after I first published this, I have decided I should evaluate whether or not this predictive model is actually _useful_. Tipping my hat once again to Michael Wurm for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8), I figure comparing my model's performance to a selection method based on the loan grade assigned by LendingClub ought to be sufficient. I'll save a version of `loans_1` to disk, adding a few original columns back for evaluation, so I can do this in a new notebook (this article's long enough already).
 
 ```python
 expected.rename("expected_return", inplace=True)
@@ -2796,6 +2796,16 @@ joblib.dump(loans_for_eval, "loans_for_eval.joblib")
 
 ```plaintext
 ['loans_for_eval.joblib']
+```
+
+Oh, and I should save my neural network pipeline, too.
+
+```python
+joblib.dump(run_pipeline, "pipeline.joblib")
+```
+
+```plaintext
+['pipeline.joblib']
 ```
 
 That'll do it. Stay tuned for the sequel!
