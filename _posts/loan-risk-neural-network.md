@@ -3,7 +3,7 @@ title: Building a Neural Network to Predict Loan Risk
 subtitle: or, Ty Goes Into Far Too Much Detail About Cleaning Data
 excerpt: LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.
 date: "2020-07-29T14:41:46.514-04:00"
-lastUpdated: "2020-09-17T19:52:57.750-04:00"
+lastUpdated: "2020-09-18T17:02:23.875-04:00"
 ogImage:
   fileName: neonbrand-dDvrIJbSCkg-unsplash.jpg
   alt: A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.
@@ -2798,14 +2798,16 @@ joblib.dump(loans_for_eval, "loans_for_eval.joblib")
 ['loans_for_eval.joblib']
 ```
 
-Oh, and I should save my neural network pipeline, too.
+Oh, and I should save my neural network pipeline and a couple column lists, too.
 
 ```python
-joblib.dump(run_pipeline, "pipeline.joblib")
+joblib.dump(run_pipeline, "run_pipeline.joblib")
+joblib.dump(onehot_cols, "onehot_cols.joblib")
+joblib.dump(ordinal_cols, "ordinal_cols.joblib")
 ```
 
 ```plaintext
-['pipeline.joblib']
+['ordinal_cols.joblib']
 ```
 
 That'll do it. Stay tuned for the sequel!
