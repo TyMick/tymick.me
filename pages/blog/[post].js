@@ -2,13 +2,14 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
+import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 import clsx from "clsx";
 import DateTime from "../../components/date-time";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import {
   markdownToHtml,
   markdownToHtmlSnippet,
-  smartypants,
+  smartypants
 } from "../../lib/text-processing";
 
 export default function Post({ post }) {
@@ -19,11 +20,15 @@ export default function Post({ post }) {
     slug,
     ogImage,
     date,
+    lastUpdated,
     content,
     links,
     cta,
-    ipynb,
+    ipynb
   } = post;
+
+  const breakpoint = useWindowWidthBreakpoints();
+
   return (
     <>
       <Head>
@@ -65,6 +70,13 @@ export default function Post({ post }) {
 
         <div className="font-italic text-secondary sans-serif mb-4">
           <DateTime isoString={date} formatString="LLLL d, yyyy" />
+          {lastUpdated && (
+            <>
+              {breakpoint.xs ? <br /> : " "}
+              (last updated{" "}
+              <DateTime isoString={lastUpdated} formatString="LLLL d, yyyy" />)
+            </>
+          )}
         </div>
 
         <div
@@ -133,9 +145,9 @@ export default function Post({ post }) {
 export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
   const paths = [
-    ...posts.map((post) => ({
-      params: { post: post.slug },
-    })),
+    ...posts.map(post => ({
+      params: { post: post.slug }
+    }))
   ];
   return { paths, fallback: false };
 }
@@ -148,10 +160,11 @@ export async function getStaticProps({ params }) {
     "slug",
     "ogImage",
     "date",
+    "lastUpdated",
     "content",
     "cta",
     "links",
-    "ipynb",
+    "ipynb"
   ]);
   if (post.content) post.content = await markdownToHtml(post.content);
   if (post.cta) post.cta = await markdownToHtmlSnippet(post.cta);
