@@ -33,23 +33,25 @@ body {
     url("Charter/charter_bold_italic.woff") format("woff");
 }
 
-/* Source: google-webfonts-helper (https://google-webfonts-helper.herokuapp.com) */
+/* Source: https://github.com/huertatipografica/Alegreya */
 @font-face {
   font-family: "Alegreya";
   font-style: normal;
   font-weight: 400;
   src: local("Alegreya Regular"), local("Alegreya-Regular"),
-    url("Alegreya/alegreya-v14-latin-regular.woff2") format("woff2"),
-    url("Alegreya/alegreya-v14-latin-regular.woff") format("woff");
+    url("Alegreya/Alegreya-Regular.woff2") format("woff2"),
+    url("Alegreya/Alegreya-Regular.woff") format("woff");
 }
 @font-face {
   font-family: "Alegreya";
   font-style: normal;
   font-weight: 500;
   src: local("Alegreya Medium"), local("Alegreya-Medium"),
-    url("Alegreya/alegreya-v14-latin-500.woff2") format("woff2"),
-    url("Alegreya/alegreya-v14-latin-500.woff") format("woff");
+    url("Alegreya/Alegreya-Medium.woff2") format("woff2"),
+    url("Alegreya/Alegreya-Medium.woff") format("woff");
 }
+
+/* Source: https://google-webfonts-helper.herokuapp.com */
 @font-face {
   font-family: "Dawning of a New Day";
   font-style: normal;
