@@ -7,10 +7,11 @@ ogImage:
   fileName: the-new-york-public-library-w8uU35aGU6A-unsplash.jpg
   alt: A 1937 photo of Liberty Finance Company in Oklahoma City. The sign on the building advertises "Salary Loans – $5 to $50". Photo by The New York Public Library on Unsplash.
 cta: What I'd really like to know now is what quantitative range of estimated risk each LendingClub grade and sub-grade corresponds to, but it looks like [that's proprietary](https://www.lendingclub.com/foliofn/rateDetail.action). Does anyone know if loans grades generally correspond to certain percentage ranges like letter grades in academic classes? If not, have any ideas for better benchmarks I could use to evaluate my model's performance? Go ahead and chime in
-# links:
-#   twitter: https://twitter.com/tywmick/status/
-#   facebook: https://www.facebook.com/tywmick/posts/
-#   linkedin: https://www.linkedin.com/posts/
+links:
+  twitter: https://twitter.com/tywmick/status/1308907207845703680
+  mastodon: https://mastodon.online/@tywmick/104916772860010856
+  facebook: https://www.facebook.com/tywmick/posts/10214308124695802
+  linkedin: https://www.linkedin.com/posts/tywmick_can-i-grade-loans-better-than-lendingclub-activity-6714674213397037056-rTt2
 syndicated:
   medium:
   dev:
