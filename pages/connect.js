@@ -104,11 +104,6 @@ export default function Connect() {
           )}
         >
           <MiscProfile
-            brand="Facebook"
-            icon={faFacebook}
-            href="https://www.facebook.com/tywmick"
-          />
-          <MiscProfile
             brand="Kaggle"
             icon={faKaggle}
             href="https://www.kaggle.com/tywmick"
@@ -134,9 +129,9 @@ export default function Connect() {
             href="https://gitlab.com/tywmick"
           />
           <MiscProfile
-            brand="Instagram"
-            icon={faInstagram}
-            href="https://instagram.com/tywmick"
+            brand="Facebook"
+            icon={faFacebook}
+            href="https://www.facebook.com/tywmick"
           />
           <MiscProfile
             brand="Mastodon"
@@ -144,9 +139,9 @@ export default function Connect() {
             href="https://mastodon.online/@tywmick"
           />
           <MiscProfile
-            brand="Telegram"
-            icon={faTelegramPlane}
-            href="https://t.me/tywmick"
+            brand="Instagram"
+            icon={faInstagram}
+            href="https://instagram.com/tywmick"
           />
           <MiscProfile
             brand="Discord"
