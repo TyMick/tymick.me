@@ -1,0 +1,598 @@
+---
+title: Can I Grade Loans Better Than LendingClub?
+subtitle: Pitting My Neural Network Against a Corporate Benchmark
+excerpt: Today I'm going to put my loan risk model to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!
+date: "2020-09-23T16:51:17.048-04:00"
+ogImage:
+  fileName: the-new-york-public-library-w8uU35aGU6A-unsplash.jpg
+  alt: A 1937 photo of Liberty Finance Company in Oklahoma City. The sign on the building advertises "Salary Loans – $5 to $50". Photo by The New York Public Library on Unsplash.
+cta: What I'd really like to know now is what quantitative range of estimated risk each LendingClub grade and sub-grade corresponds to, but it looks like [that's proprietary](https://www.lendingclub.com/foliofn/rateDetail.action). Does anyone know if loans grades generally correspond to certain percentage ranges like letter grades in academic classes? If not, have any ideas for better benchmarks I could use to evaluate my model's performance? Go ahead and chime in
+# links:
+#   twitter: https://twitter.com/tywmick/status/
+#   facebook: https://www.facebook.com/tywmick/posts/
+#   linkedin: https://www.linkedin.com/posts/
+syndicated:
+  medium:
+  dev:
+  hackerNoon:
+ipynb: true
+---
+
+1. **[Introduction](#introduction)**
+2. **[Ground rules](#ground-rules)**
+3. **[Test metric](#test-metric)**
+4. **[LendingClub's turn](#lendingclubs-turn)**
+5. **[My turn](#my-turn)**
+6. **[Victory!](#victory)**
+
+<h2 id="introduction">Introduction</h2>
+
+In case you missed it, I [built a neural network to predict loan risk](/blog/loan-risk-neural-network) using a [public dataset](https://www.kaggle.com/wordsforthewise/lending-club) from [LendingClub](https://www.lendingclub.com/). Then I built a [public API](https://tywmick.pythonanywhere.com/) to serve the model's predictions. That's nice and all, but&hellip; how _good_ is my model?
+
+Today I'm going to put it to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!
+
+```python
+import joblib
+
+prev_notebook_folder = "../input/building-a-neural-network-to-predict-loan-risk/"
+loans = joblib.load(prev_notebook_folder + "loans_for_eval.joblib")
+loans.shape
+```
+
+```plaintext
+(1110171, 70)
+```
+
+```python
+loans.head()
+```
+
+<div class="data-table">
+  <style scoped>
+    .dataframe tbody tr th:only-of-type {
+      vertical-align: middle;
+    }
+    .dataframe tbody tr th {
+      vertical-align: top;
+    }
+    .dataframe thead th {
+      text-align: right;
+    }
+  </style>
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right;">
+        <th></th>
+        <th>loan_amnt</th>
+        <th>term</th>
+        <th>emp_length</th>
+        <th>home_ownership</th>
+        <th>annual_inc</th>
+        <th>purpose</th>
+        <th>dti</th>
+        <th>delinq_2yrs</th>
+        <th>cr_hist_age_mths</th>
+        <th>fico_range_low</th>
+        <th>...</th>
+        <th>tax_liens</th>
+        <th>tot_hi_cred_lim</th>
+        <th>total_bal_ex_mort</th>
+        <th>total_bc_limit</th>
+        <th>total_il_high_credit_limit</th>
+        <th>fraction_recovered</th>
+        <th>issue_d</th>
+        <th>grade</th>
+        <th>sub_grade</th>
+        <th>expected_return</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>0</th>
+        <td>3600.0</td>
+        <td>36&nbsp;months</td>
+        <td>10+ years</td>
+        <td>MORTGAGE</td>
+        <td>55000.0</td>
+        <td>debt_consolidation</td>
+        <td>5.91</td>
+        <td>0.0</td>
+        <td>148.0</td>
+        <td>675.0</td>
+        <td>...</td>
+        <td>0.0</td>
+        <td>178050.0</td>
+        <td>7746.0</td>
+        <td>2400.0</td>
+        <td>13734.0</td>
+        <td>1.0</td>
+        <td>Dec-2015</td>
+        <td>C</td>
+        <td>C4</td>
+        <td>4429.08</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>24700.0</td>
+        <td>36&nbsp;months</td>
+        <td>10+ years</td>
+        <td>MORTGAGE</td>
+        <td>65000.0</td>
+        <td>small_business</td>
+        <td>16.06</td>
+        <td>1.0</td>
+        <td>192.0</td>
+        <td>715.0</td>
+        <td>...</td>
+        <td>0.0</td>
+        <td>314017.0</td>
+        <td>39475.0</td>
+        <td>79300.0</td>
+        <td>24667.0</td>
+        <td>1.0</td>
+        <td>Dec-2015</td>
+        <td>C</td>
+        <td>C1</td>
+        <td>29530.08</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>20000.0</td>
+        <td>60&nbsp;months</td>
+        <td>10+ years</td>
+        <td>MORTGAGE</td>
+        <td>63000.0</td>
+        <td>home_improvement</td>
+        <td>10.78</td>
+        <td>0.0</td>
+        <td>184.0</td>
+        <td>695.0</td>
+        <td>...</td>
+        <td>0.0</td>
+        <td>218418.0</td>
+        <td>18696.0</td>
+        <td>6200.0</td>
+        <td>14877.0</td>
+        <td>1.0</td>
+        <td>Dec-2015</td>
+        <td>B</td>
+        <td>B4</td>
+        <td>25959.60</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>10400.0</td>
+        <td>60&nbsp;months</td>
+        <td>3 years</td>
+        <td>MORTGAGE</td>
+        <td>104433.0</td>
+        <td>major_purchase</td>
+        <td>25.37</td>
+        <td>1.0</td>
+        <td>210.0</td>
+        <td>695.0</td>
+        <td>...</td>
+        <td>0.0</td>
+        <td>439570.0</td>
+        <td>95768.0</td>
+        <td>20300.0</td>
+        <td>88097.0</td>
+        <td>1.0</td>
+        <td>Dec-2015</td>
+        <td>F</td>
+        <td>F1</td>
+        <td>17394.60</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td>11950.0</td>
+        <td>36&nbsp;months</td>
+        <td>4 years</td>
+        <td>RENT</td>
+        <td>34000.0</td>
+        <td>debt_consolidation</td>
+        <td>10.20</td>
+        <td>0.0</td>
+        <td>338.0</td>
+        <td>690.0</td>
+        <td>...</td>
+        <td>0.0</td>
+        <td>16900.0</td>
+        <td>12798.0</td>
+        <td>9400.0</td>
+        <td>4000.0</td>
+        <td>1.0</td>
+        <td>Dec-2015</td>
+        <td>C</td>
+        <td>C3</td>
+        <td>14586.48</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>5 rows × 70 columns</p>
+</div>
+
+<h2 id="ground-rules">Ground rules</h2>
+
+This is going to be a clean fight—my model won't use any data LendingClub wouldn't have access to at the point they calculate a loan's grade (including the grade itself).
+
+I'm going to sort the dataset chronologically (using the `issue_d` column, the month and year the loan was issued) and split it into two parts. The first 80% I'll use for training my competition model, and I'll compare performance on the last 20%.
+
+```python
+from sklearn.model_selection import train_test_split
+
+loans["date"] = loans["issue_d"].astype("datetime64[ns]")
+loans.sort_values("date", axis="index", inplace=True, kind="mergesort")
+
+train, test = train_test_split(loans, test_size=0.2, shuffle=False)
+train, test = train.copy(), test.copy()
+print(f"The test set contains {len(test):,} loans.")
+```
+
+```plaintext
+The test set contains 222,035 loans.
+```
+
+At the earlier end of the test set my model may have a slight informational advantage, having been trained on a few loans that may not have closed yet at the point LendingClub was grading those ones. On the other hand, LendingClub may have a slight informational advantage on the later end of the test set, since they would have known the outcomes of some loans on the earlier end of the test set by that time.
+
+I have to give credit to Michael Wurm, by the way, for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8) of comparing my model's performance to LendingClub's loan grades, but my approach is pretty different. I'm not trying to simulate the performance of an investment portfolio; I'm just evaluating how well my predictions of simple risk compare.
+
+<h2 id="test-metric">Test metric</h2>
+
+The test: who can pick the best set of grade A loans, judged on the basis of the independent variable from [my last notebook](/blog/loan-risk-neural-network), the fraction of an expected loan return that a prospective borrower will pay back (which I engineered as `fraction_recovered`).
+
+LendingClub will take the plate first. I'll gather all their grade A loans from the test set, count them, and calculate their average `fraction_recovered`. That average will be the metric my model has to beat.
+
+Then I'll train my model on the training set using the same [pipeline and parameters](/blog/loan-risk-neural-network#building-the-neural-networks) I settled on in my last notebook. Once it's trained, I'll use it to make predictions on the test set, then gather the number of top predictions equal to the number of LendingClub's grade A loans. Finally, I'll calculate the same average of `fraction_recovered` on that subset, and we'll have ourselves a winner!
+
+<h2 id="lendingclubs-turn">LendingClub's turn</h2>
+
+```python
+from statistics import mean
+
+lc_grade_a = test[test["grade"] == "A"]
+print(f"LendingClub gave {len(lc_grade_a):,} loans in the test set an A grade.")
+
+print("\nAverage `fraction_recovered` on LendingClub's grade A loans:")
+print(round(mean(lc_grade_a["fraction_recovered"]), 5))
+```
+
+```plaintext
+LendingClub gave 38,779 loans in the test set an A grade.
+
+Average `fraction_recovered` on LendingClub's grade A loans:
+0.96021
+```
+
+That's a pretty high percentage. I'm a bit nervous.
+
+<h2 id="my-turn">My turn</h2>
+
+First, I'll copy over my `run_pipeline` function from [my previous notebook](/blog/loan-risk-neural-network#building-the-neural-networks):
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn_pandas import DataFrameMapper
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
+from tensorflow.keras import Sequential, Input
+from tensorflow.keras.layers import Dense, Dropout
+
+
+def run_pipeline(
+    data,
+    onehot_cols,
+    ordinal_cols,
+    batch_size,
+    validate=True,
+):
+    X = data.drop(columns=["fraction_recovered"])
+    y = data["fraction_recovered"]
+    X_train, X_valid, y_train, y_valid = (
+        train_test_split(X, y, test_size=0.2, random_state=0)
+        if validate
+        else (X, None, y, None)
+    )
+
+    transformer = DataFrameMapper(
+        [
+            (onehot_cols, OneHotEncoder(drop="if_binary")),
+            (
+                list(ordinal_cols.keys()),
+                OrdinalEncoder(categories=list(ordinal_cols.values())),
+            ),
+        ],
+        default=StandardScaler(),
+    )
+
+    X_train = transformer.fit_transform(X_train)
+    X_valid = transformer.transform(X_valid) if validate else None
+
+    input_nodes = X_train.shape[1]
+    output_nodes = 1
+
+    model = Sequential()
+    model.add(Input((input_nodes,)))
+    model.add(Dense(64, activation="relu"))
+    model.add(Dropout(0.3, seed=0))
+    model.add(Dense(32, activation="relu"))
+    model.add(Dropout(0.3, seed=1))
+    model.add(Dense(16, activation="relu"))
+    model.add(Dropout(0.3, seed=2))
+    model.add(Dense(output_nodes))
+    model.compile(optimizer="adam", loss="mean_squared_logarithmic_error")
+
+    history = model.fit(
+        X_train,
+        y_train,
+        batch_size=batch_size,
+        epochs=100,
+        validation_data=(X_valid, y_valid) if validate else None,
+        verbose=2,
+    )
+
+    return history.history, model, transformer
+
+
+onehot_cols = ["term", "application_type", "home_ownership", "purpose"]
+ordinal_cols = {
+    "emp_length": [
+        "< 1 year",
+        "1 year",
+        "2 years",
+        "3 years",
+        "4 years",
+        "5 years",
+        "6 years",
+        "7 years",
+        "8 years",
+        "9 years",
+        "10+ years",
+    ]
+}
+```
+
+Now for the moment of truth:
+
+```python
+# Train the model
+_, model, transformer = run_pipeline(
+    train.drop(columns=["issue_d", "date", "grade", "sub_grade", "expected_return"]),
+    onehot_cols,
+    ordinal_cols,
+    batch_size=128,
+    validate=False,
+)
+
+# Make predictions
+X_test = transformer.transform(
+    test.drop(
+        columns=[
+            "fraction_recovered",
+            "issue_d",
+            "date",
+            "grade",
+            "sub_grade",
+            "expected_return",
+        ]
+    )
+)
+test["model_predictions"] = model.predict(X_test)
+
+# Gather top predictions
+test_sorted = test.sort_values("model_predictions", axis="index", ascending=False)
+ty_grade_a = test_sorted.iloc[0:len(lc_grade_a)]
+
+# Display results
+print("\nAverage `fraction_recovered` on Ty's grade A loans:")
+print(round(mean(ty_grade_a["fraction_recovered"]), 5))
+```
+
+```plaintext
+Epoch 1/100
+6939/6939 - 11s - loss: 0.0245
+Epoch 2/100
+6939/6939 - 11s - loss: 0.0204
+Epoch 3/100
+6939/6939 - 11s - loss: 0.0203
+Epoch 4/100
+6939/6939 - 12s - loss: 0.0202
+Epoch 5/100
+6939/6939 - 11s - loss: 0.0202
+Epoch 6/100
+6939/6939 - 11s - loss: 0.0202
+Epoch 7/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 8/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 9/100
+6939/6939 - 13s - loss: 0.0201
+Epoch 10/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 11/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 12/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 13/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 14/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 15/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 16/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 17/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 18/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 19/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 20/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 21/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 22/100
+6939/6939 - 11s - loss: 0.0201
+Epoch 23/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 24/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 25/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 26/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 27/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 28/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 29/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 30/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 31/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 32/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 33/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 34/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 35/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 36/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 37/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 38/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 39/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 40/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 41/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 42/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 43/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 44/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 45/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 46/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 47/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 48/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 49/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 50/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 51/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 52/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 53/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 54/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 55/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 56/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 57/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 58/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 59/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 60/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 61/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 62/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 63/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 64/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 65/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 66/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 67/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 68/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 69/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 70/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 71/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 72/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 73/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 74/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 75/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 76/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 77/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 78/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 79/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 80/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 81/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 82/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 83/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 84/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 85/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 86/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 87/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 88/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 89/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 90/100
+6939/6939 - 12s - loss: 0.0200
+Epoch 91/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 92/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 93/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 94/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 95/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 96/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 97/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 98/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 99/100
+6939/6939 - 11s - loss: 0.0200
+Epoch 100/100
+6939/6939 - 12s - loss: 0.0200
+
+Average `fraction_recovered` on Ty's grade A loans:
+0.96108
+```
+
+<h2 id="victory">Victory!</h2>
+
+Phew, that was a close one! My win might be too small to be statistically significant, but hey, it's cool seeing that I can keep up with LendingClub's best and brightest.

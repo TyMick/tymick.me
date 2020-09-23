@@ -21,6 +21,21 @@ export default function Blog() {
 
         <ul className="list-unstyled">
           <EssayPreview
+            title="Can I Grade Loans Better Than LendingClub?"
+            subtitle="Pitting My Neural Network Against a Corporate Benchmark"
+            href="/blog/[post]"
+            as="/blog/loan-grading-showdown"
+            date="September 23, 2020"
+          >
+            Today I&rsquo;m going to put my loan risk model to the test, pitting
+            it against the risk models of the very institution who issued those
+            loans. That&rsquo;s right, LendingClub included their own calculated
+            loan grades (and sub-grades) in the dataset, so all the pieces are
+            in place for the most thrilling risk modeling smackdown of the{" "}
+            <del>century</del> week. May the best algorithm win&hellip;
+          </EssayPreview>
+
+          <EssayPreview
             title="Building a Neural Network to Predict Loan Risk"
             subtitle="or, Ty Goes Into Far Too Much Detail About Cleaning Data"
             href="/blog/[post]"
