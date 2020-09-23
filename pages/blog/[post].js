@@ -9,7 +9,7 @@ import { getPostBySlug, getAllPosts } from "../../lib/api";
 import {
   markdownToHtml,
   markdownToHtmlSnippet,
-  smartypants
+  smartypants,
 } from "../../lib/text-processing";
 
 export default function Post({ post }) {
@@ -24,7 +24,7 @@ export default function Post({ post }) {
     content,
     links,
     cta,
-    ipynb
+    ipynb,
   } = post;
 
   const breakpoint = useWindowWidthBreakpoints();
@@ -84,8 +84,6 @@ export default function Post({ post }) {
           dangerouslySetInnerHTML={{ __html: content }}
         />
 
-        <hr />
-
         {links && (
           <p>
             {cta ? (
@@ -113,6 +111,8 @@ export default function Post({ post }) {
           </p>
         )}
 
+        <hr />
+
         <p>
           Found an error or typo in this post you&rsquo;d like to fix? Send me a{" "}
           <a
@@ -122,6 +122,8 @@ export default function Post({ post }) {
           </a>
           !
         </p>
+
+        <hr />
 
         <p>
           Want to publish this article on your blog, in your magazine, or
@@ -145,9 +147,9 @@ export default function Post({ post }) {
 export async function getStaticPaths() {
   const posts = getAllPosts(["slug"]);
   const paths = [
-    ...posts.map(post => ({
-      params: { post: post.slug }
-    }))
+    ...posts.map((post) => ({
+      params: { post: post.slug },
+    })),
   ];
   return { paths, fallback: false };
 }
@@ -164,7 +166,7 @@ export async function getStaticProps({ params }) {
     "content",
     "cta",
     "links",
-    "ipynb"
+    "ipynb",
   ]);
   if (post.content) post.content = await markdownToHtml(post.content);
   if (post.cta) post.cta = await markdownToHtmlSnippet(post.cta);

@@ -25,6 +25,11 @@
     @extend .rounded;
     max-height: 22.2rem;
   }
+  .data-table table {
+    display: block;
+    border: none;
+    overflow-x: auto;
+  }
   p + pre,
   p + .data-table,
   p + img {
