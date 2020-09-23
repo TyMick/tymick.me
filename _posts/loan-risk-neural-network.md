@@ -3,7 +3,7 @@ title: Building a Neural Network to Predict Loan Risk
 subtitle: or, Ty Goes Into Far Too Much Detail About Cleaning Data
 excerpt: LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.
 date: "2020-07-29T14:41:46.514-04:00"
-lastUpdated: "2020-09-18T17:02:23.875-04:00"
+lastUpdated: "2020-09-23T16:50:54.668-04:00"
 ogImage:
   fileName: neonbrand-dDvrIJbSCkg-unsplash.jpg
   alt: A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.
@@ -45,7 +45,9 @@ loans_raw.shape
 (2260701, 151)
 ```
 
-With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.
+With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. (Spoiler alert: my model can pick grade A loans [better than LendingClub](/blog/loan-grading-showdown)).
+
+Afterward, I'll create a public API to serve that model.
 
 Also, as you may have guessed from the preceding code block, this post is adapted from a Jupyter Notebook. If you'd like to follow along in your own notebook, go ahead and fork mine on [Kaggle](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk "Building a Neural Network to Predict Loan Risk | Kaggle") or [GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-risk-neural-network.ipynb "loan-risk-neural-network/loan-risk-neural-network.ipynb at master · tywmick/loan-risk-neural-network").
 
@@ -2617,7 +2619,7 @@ So [head on over](https://tywmick.pythonanywhere.com/ "Neural Network Loan Risk 
 
 <h2 id="evaluating-performance">Evaluating performance</h2>
 
-A month and a half after I first published this, I have decided I should evaluate whether or not this predictive model is actually _useful_. Tipping my hat once again to Michael Wurm for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8), I figure comparing my model's performance to a selection method based on the loan grade assigned by LendingClub ought to be sufficient. I'll save a version of `loans_1` to disk, adding a few original columns back for evaluation, so I can do this in a new notebook (this article's long enough already).
+A month and a half after I first published this, I have decided I should evaluate whether or not this predictive model is actually _good_. Tipping my hat once again to Michael Wurm for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8), I figure comparing my model's performance to a selection method based on the loan grade assigned by LendingClub ought to be sufficient. I'll save a version of `loans_1` to disk, adding a few original columns back for evaluation, so I can do this in a new notebook (this article's long enough already).
 
 ```python
 expected.rename("expected_return", inplace=True)
@@ -2798,16 +2800,4 @@ joblib.dump(loans_for_eval, "loans_for_eval.joblib")
 ['loans_for_eval.joblib']
 ```
 
-Oh, and I should save my neural network pipeline and a couple column lists, too.
-
-```python
-joblib.dump(run_pipeline, "run_pipeline.joblib")
-joblib.dump(onehot_cols, "onehot_cols.joblib")
-joblib.dump(ordinal_cols, "ordinal_cols.joblib")
-```
-
-```plaintext
-['ordinal_cols.joblib']
-```
-
-That'll do it. Stay tuned for the sequel!
+That'll do it. Check out [the sequel](/blog/loan-grading-showdown) if you're interested!
