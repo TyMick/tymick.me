@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
 import useWindowWidthBreakpoints from "use-window-width-breakpoints";
+import { get, startCase } from "lodash";
 import clsx from "clsx";
 import DateTime from "../../components/date-time";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
@@ -28,6 +29,12 @@ export default function Post({ post }) {
   } = post;
 
   const breakpoint = useWindowWidthBreakpoints();
+
+  const numLinks = links ? Object.keys(links).length : undefined;
+  function linkSort([keyA, valueA], [keyB, valueB]) {
+    const linkRanks = { twitter: 1, mastodon: 2, facebook: 3, linkedin: 4 };
+    return get(linkRanks, keyA, 100) - get(linkRanks, keyB, 100);
+  }
 
   return (
     <>
@@ -92,21 +99,28 @@ export default function Post({ post }) {
               "Want to discuss this topic further? Chime in"
             )}{" "}
             on{" "}
-            <a href={links.twitter} className="twitter-link">
-              Twitter
-            </a>
-            {links.linkedin ? ", " : " or "}
-            <a href={links.facebook} className="facebook-link">
-              Facebook
-            </a>
-            {links.linkedin && (
-              <>
-                , or{" "}
-                <a href={links.linkedin} className="linkedin-link">
-                  LinkedIn
-                </a>
-              </>
-            )}
+            {Object.entries(links)
+              .sort(linkSort)
+              .map(([label, link], i) => (
+                <span key={i}>
+                  <a href={link} className={`${label}-link`}>
+                    {label === "linkedin" ? "LinkedIn" : startCase(label)}
+                  </a>
+
+                  {// Determine appropriate list punctation
+                  numLinks === 1
+                    ? ""
+                    : numLinks === 2
+                    ? i + 1 === numLinks
+                      ? ""
+                      : " or "
+                    : i + 1 === numLinks
+                    ? ""
+                    : i + 2 === numLinks
+                    ? ", or "
+                    : ", "}
+                </span>
+              ))}
             .
           </p>
         )}
