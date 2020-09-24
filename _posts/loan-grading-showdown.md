@@ -213,6 +213,8 @@ loans.head()
   <p>5 rows × 70 columns</p>
 </div>
 
+This post was adapted from a Jupyter Notebook, by the way, so if you'd like to follow along in your own notebook, go ahead and fork mine [on Kaggle](https://www.kaggle.com/tywmick/can-i-grade-loans-better-than-lendingclub)!
+
 <h2 id="ground-rules">Ground rules</h2>
 
 This is going to be a clean fight—my model won't use any data LendingClub wouldn't have access to at the point they calculate a loan's grade (including the grade itself).
