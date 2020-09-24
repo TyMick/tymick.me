@@ -19,86 +19,62 @@ export default function Portfolio() {
           id="papers-articles"
           projects={[
             <>
-              <a
-                href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e"
-                className="d-block stretched-link"
-              >
-                Building a Neural Network to Predict Loan Risk
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">Towards Data Science</cite>
-              </small>
+              <cite className="text-muted">Towards Data Science</cite>
+              <ul className="mb-1">
+                <li>
+                  <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
+                    Building a Neural Network to Predict Loan Risk
+                  </a>
+                </li>
+                <li>
+                  <a href="https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2">
+                    Can I Grade Loans Better Than LendingClub?
+                  </a>
+                </li>
+              </ul>
             </>,
             <>
-              <a
-                href="https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2"
-                className="d-block stretched-link"
-              >
-                Can I Grade Loans Better Than LendingClub?
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">Towards Data Science</cite>
-              </small>
+              <cite className="text-muted">
+                Defense Technical Information Center
+              </cite>
+              <ul className="mb-1">
+                <li>
+                  <a href="https://apps.dtic.mil/sti/citations/AD1012051">
+                    Readiness Based Sparing: A Research Summary
+                  </a>
+                </li>
+                <li>
+                  <a href="https://apps.dtic.mil/sti/citations/AD1012101">
+                    The Case for AFMC Social Media Analysis
+                  </a>
+                </li>
+              </ul>
             </>,
             <>
-              <a
-                href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2"
-                className="d-block stretched-link"
-              >
-                Loan Risk Prediction Using Neural Networks
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">Hacker Noon</cite>
-              </small>
+              <cite className="text-muted">Hacker Noon</cite>
+              <ul className="mb-1">
+                <li>
+                  <a href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2">
+                    Loan Risk Prediction Using Neural Networks
+                  </a>
+                </li>
+                <li>
+                  <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
+                    Making a Browser Console Log Wait Until Page Reloads [A
+                    How-To Guide]
+                  </a>
+                </li>
+              </ul>
             </>,
             <>
-              <a
-                href="https://apps.dtic.mil/sti/citations/AD1012051"
-                className="d-block stretched-link"
-              >
-                Readiness Based Sparing: A Research Summary
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">
-                  Defense Technical Information Center
-                </cite>
-              </small>
-            </>,
-            <>
-              <a
-                href="https://apps.dtic.mil/sti/citations/AD1012101"
-                className="d-block stretched-link"
-              >
-                The Case for AFMC Social Media Analysis
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">
-                  Defense Technical Information Center
-                </cite>
-              </small>
-            </>,
-            <>
-              <a
-                href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9"
-                className="d-block stretched-link"
-              >
-                Making a Browser Console Log Wait Until Page Reloads [A How-To
-                Guide]
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">Hacker Noon</cite>
-              </small>
-            </>,
-            <>
-              <a
-                href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938"
-                className="d-block stretched-link"
-              >
-                Make a Browser Console Log Wait for a Page Reload
-              </a>
-              <small className="d-block mb-1">
-                <cite className="text-muted">JavaScript in Plain English</cite>
-              </small>
+              <cite className="text-muted">JavaScript in Plain English</cite>
+              <ul>
+                <li>
+                  <a href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938">
+                    Make a Browser Console Log Wait for a Page Reload
+                  </a>
+                </li>
+              </ul>
             </>,
           ]}
         />
