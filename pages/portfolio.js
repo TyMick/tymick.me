@@ -31,6 +31,17 @@ export default function Portfolio() {
             </>,
             <>
               <a
+                href="https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2"
+                className="d-block stretched-link"
+              >
+                Can I Grade Loans Better Than LendingClub?
+              </a>
+              <small className="d-block mb-1">
+                <cite className="text-muted">Towards Data Science</cite>
+              </small>
+            </>,
+            <>
+              <a
                 href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2"
                 className="d-block stretched-link"
               >

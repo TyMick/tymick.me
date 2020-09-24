@@ -56,7 +56,7 @@ export default function Home() {
 
           <p>
             My technical articles and papers have been published in{" "}
-            <a href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e">
+            <a href="https://towardsdatascience.com/@tywmick">
               Towards Data Science
             </a>
             , the <A href="/dtic">Defense Technical Information Center</A>,{" "}
