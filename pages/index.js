@@ -50,8 +50,8 @@ export default function Home() {
 
         <div>
           <p className="lead">
-            I&rsquo;m an <A href="/hq-afmc-award">award-winning</A> analyst and
-            data scientist who&rsquo;s nuts about neural networks.
+            I&rsquo;m an <A href="/hq-afmc-award">award-winning</A> analyst,
+            data scientist, and web developer.
           </p>
 
           <p>
@@ -68,12 +68,13 @@ export default function Home() {
           </p>
 
           <p>
-            I work mostly in Python, building models with TensorFlow and APIs
-            with Flask. I still think it&rsquo;s funny telling people I work
-            with <a href="https://pandas.pydata.org">pandas</a> every day. I
-            also have experience with R, and I can make data visualizations with
-            JavaScript, too. <A href="/portfolio">My portfolio</A> has more
-            details if you&rsquo;d like to see some examples.
+            On the data side, I work mostly in Python, building models with
+            TensorFlow and APIs with Flask. I also have experience with R, and I
+            can make data visualizations with JavaScript, too. My web
+            development work consists mostly of various combinations of Node.js
+            and React, and I&rsquo;m particularly fond of Next.js.{" "}
+            <A href="/portfolio">My portfolio</A> has more details on both the
+            data and web fronts if you&rsquo;d like to see some examples.
           </p>
 
           <p>

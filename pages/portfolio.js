@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import TeX from "@matejmazur/react-katex";
 import PortfolioSection from "../components/portfolio-section";
+import A from "../components/internal-link";
 
 export default function Portfolio() {
   return (
@@ -230,8 +231,60 @@ export default function Portfolio() {
         />
 
         <PortfolioSection
-          name="npm packages"
-          id="npm"
+          name="Full-stack web apps"
+          id="full-stack"
+          projects={[
+            <a href="https://real-estate-listing-page.tymick.me">
+              Real estate listing page
+            </a>,
+            <a href="https://nextjs-local-authentication.tymick.me">
+              Next.js + MongoDB local authentication boilerplate
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
+          name="Multi-page static websites"
+          id="static-sites"
+          projects={[
+            <A href="/project/personal-site" title="About this site">
+              Personal portfolio/blog site
+            </A>,
+          ]}
+        />
+
+        <PortfolioSection
+          name="WordPress themes"
+          id="wordpress"
+          projects={[
+            <a href="https://ty-mick-wordpress-port.000webhostapp.com">
+              Personal site WordPress port
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
+          name="Single-page PHP apps"
+          id="php-apps"
+          projects={[<a href="http://php-todo.tymick.me/">To-do list</a>]}
+        />
+
+        <PortfolioSection
+          name="Single-page React apps"
+          id="react-apps"
+          projects={[
+            <a href="https://ty-pomodoro-clock.glitch.me/">Pomodoro clock</a>,
+            <a href="https://codepen.io/tywmick/full/BaBVeVO">Calculator</a>,
+            <a href="https://codepen.io/tywmick/full/zYOaPyW">Drum machine</a>,
+            <a href="https://codepen.io/tywmick/full/PoYeapB">
+              Markdown previewer
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
+          name="React hooks"
+          id="react-hooks"
           projects={[
             <a href="https://www.npmjs.com/package/use-window-width-breakpoints">
               useWindowWidthBreakpoints
@@ -246,6 +299,30 @@ export default function Portfolio() {
           name="Selected open-source contributions"
           id="open-source"
           projects={[
+            <>
+              <a href="https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+                Bug fixes and documentation help
+              </a>{" "}
+              for Next.js
+            </>,
+            <>
+              <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+                New feature and bug fixes
+              </a>{" "}
+              for react-katex
+            </>,
+            <>
+              <a href="https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+                New features
+              </a>{" "}
+              for nextjs-redirect
+            </>,
+            <>
+              <a href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+                Curriculum help
+              </a>{" "}
+              for freeCodeCamp
+            </>,
             <>
               <a href="https://github.com/pandas-dev/pandas/pull/35337">
                 Documentation help
@@ -265,30 +342,6 @@ export default function Portfolio() {
                 R<sub>t</sub>
               </var>{" "}
               model
-            </>,
-            <>
-              <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
-                New feature and bug fixes
-              </a>{" "}
-              for react-katex
-            </>,
-            <>
-              <a href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
-                Curriculum help
-              </a>{" "}
-              for freeCodeCamp
-            </>,
-            <>
-              <a href="https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
-                Bug fixes and documentation help
-              </a>{" "}
-              for Next.js
-            </>,
-            <>
-              <a href="https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
-                New features
-              </a>{" "}
-              for nextjs-redirect
             </>,
             <>
               <a href="https://github.com/mauriciopoppe/function-plot/pull/145">

@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Container, Navbar, Nav, Image } from "react-bootstrap";
+import { Container, Navbar, Nav, Image, Dropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import profilePic from "../images/profile-pic.jpg?sizes[]=48&sizes[]=96&sizes[]=144&sizes[]=192";
-
-const links = [
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Résumé", href: "/resume.pdf" },
-  { label: "Blog", href: "/blog" },
-  { label: "Connect", href: "/connect" },
-];
 
 export default function Navigation() {
   const router = useRouter();
@@ -52,17 +45,30 @@ export default function Navigation() {
             activeKey={getSubdirectory(router.pathname)}
             className="align-items-end align-items-sm-center"
           >
-            {links.map(({ label, href }) =>
-              href.includes(".") ? (
-                <Nav.Link href={href} key={label.toLowerCase()}>
-                  {label}
-                </Nav.Link>
-              ) : (
-                <Link href={href} passHref key={label.toLowerCase()}>
-                  <Nav.Link>{label}</Nav.Link>
-                </Link>
-              )
-            )}
+            <Link href="/portfolio" passHref>
+              <Nav.Link>Portfolio</Nav.Link>
+            </Link>
+
+            <Dropdown>
+              <Dropdown.Toggle as={Nav.Link}>Résumé</Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="/data-scientist-resume.pdf">
+                  Data Scientist
+                </Dropdown.Item>
+                <Dropdown.Item href="/web-developer-resume.pdf">
+                  Web Developer
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Link href="/blog" passHref>
+              <Nav.Link>Blog</Nav.Link>
+            </Link>
+
+            <Link href="/connect" passHref>
+              <Nav.Link>Connect</Nav.Link>
+            </Link>
+
             <Nav.Link
               className="github-nav-link pr-0"
               href="https://github.com/tywmick"
@@ -74,8 +80,8 @@ export default function Navigation() {
       </Navbar>
     </Container>
   );
-};
+}
 
 function getSubdirectory(path) {
-  return "/" + path.split("/")[1]
+  return "/" + path.split("/")[1];
 }
