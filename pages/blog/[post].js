@@ -92,42 +92,45 @@ export default function Post({ post }) {
         />
 
         {links && (
-          <p>
-            {cta ? (
-              <span dangerouslySetInnerHTML={{ __html: cta }} />
-            ) : (
-              "Want to discuss this topic further? Chime in"
-            )}{" "}
-            on{" "}
-            {Object.entries(links)
-              .sort(linkSort)
-              .map(([label, link], i) => (
-                <span key={i}>
-                  <a href={link} className={`${label}-link`}>
-                    {label === "linkedin" ? "LinkedIn" : startCase(label)}
-                  </a>
+          <>
+            <hr />
+            <p>
+              {cta ? (
+                <span dangerouslySetInnerHTML={{ __html: cta }} />
+              ) : (
+                "Want to discuss this topic further? Chime in"
+              )}{" "}
+              on{" "}
+              {Object.entries(links)
+                .sort(linkSort)
+                .map(([label, link], i) => (
+                  <span key={i}>
+                    <a href={link} className={`${label}-link`}>
+                      {label === "linkedin" ? "LinkedIn" : startCase(label)}
+                    </a>
 
-                  {// Determine appropriate list punctation
-                  numLinks === 1
-                    ? ""
-                    : numLinks === 2
-                    ? i + 1 === numLinks
+                    {// Determine appropriate list punctation
+                    numLinks === 1
                       ? ""
-                      : " or "
-                    : i + 1 === numLinks
-                    ? ""
-                    : i + 2 === numLinks
-                    ? ", or "
-                    : ", "}
-                </span>
-              ))}
-            .
-          </p>
+                      : numLinks === 2
+                      ? i + 1 === numLinks
+                        ? ""
+                        : " or "
+                      : i + 1 === numLinks
+                      ? ""
+                      : i + 2 === numLinks
+                      ? ", or "
+                      : ", "}
+                  </span>
+                ))}
+              .
+            </p>
+          </>
         )}
 
-        <hr />
+        <hr className="border-secondary" />
 
-        <p>
+        <p className="text-secondary font-italic">
           Found an error or typo in this post you&rsquo;d like to fix? Send me a{" "}
           <a
             href={`https://github.com/tywmick/tywmick.github.io/blob/source/_posts/${slug}.md`}
@@ -137,9 +140,7 @@ export default function Post({ post }) {
           !
         </p>
 
-        <hr />
-
-        <p>
+        <p className="text-secondary font-italic">
           Want to publish this article on your blog, in your magazine, or
           anywhere else? This post, like all the content on my website, is
           licensed under a{" "}
