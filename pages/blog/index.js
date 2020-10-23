@@ -21,6 +21,19 @@ export default function Blog() {
 
         <ul className="list-unstyled">
           <EssayPreview
+            title="Natural Language Processing for Loan Risk"
+            href="/blog/[post]"
+            as="/blog/loan-risk-nlp"
+            date="October 23, 2020"
+          >
+            A couple months ago, I built a neural network regression model to
+            predict loan risk. Now that I&rsquo;ve learned the fundamentals of
+            natural language processing, I&rsquo;m going to see if I can eke out
+            a bit more predictive power using a couple of freeform text fields
+            in the dataset&hellip;
+          </EssayPreview>
+
+          <EssayPreview
             title="Can I Grade Loans Better Than LendingClub?"
             subtitle="Pitting My Neural Network Against a Corporate Benchmark"
             href="/blog/[post]"

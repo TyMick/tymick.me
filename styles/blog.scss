@@ -15,6 +15,7 @@
     @extend .font-italic;
   }
 }
+
 .ipynb {
   .language-python {
     @extend .border;
@@ -32,7 +33,13 @@
   }
   p + pre,
   p + .data-table,
-  p + img {
+  p + img,
+  ul + pre,
+  ul + .data-table,
+  ul + img,
+  ol + pre,
+  ol + .data-table,
+  ol + img {
     margin-top: 2rem;
   }
   pre,
@@ -42,8 +49,14 @@
     margin-bottom: 0.5rem;
   }
   pre + p,
+  pre + ul,
+  pre + ol,
   .data-table + p,
-  img + p {
+  .data-table + ul,
+  .data-table + ol,
+  img + p,
+  img + ul,
+  img + ol {
     margin-top: 2rem;
   }
   .data-table p {
