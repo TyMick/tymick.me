@@ -1,6 +1,6 @@
 ---
 title: Natural Language Processing for Loan Risk
-description: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
+description: Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.
 excerpt: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
 date: "2020-10-23T13:03:32.729-05:00"
 ogImage:
