@@ -7,11 +7,11 @@ ogImage:
   fileName: aaron-burden-y02jEX_B0O0-unsplash.jpg
   alt: A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.
 cta: Well that was fun! Have any thoughts on how to better integrate language data into the model? I'd love to hear them
-# links:
-#   twitter: https://twitter.com/tywmick
-#   mastodon: https://mastodon.online/@tywmick
-#   facebook: https://www.facebook.com/tywmick
-#   linkedin: https://www.linkedin.com/in/tywmick
+links:
+  twitter: https://twitter.com/tywmick/status/1319709097307049986
+  mastodon: https://mastodon.online/@tywmick/105085580139071056
+  # facebook: https://www.facebook.com/tywmick
+  linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6725480058460413952/
 syndicated:
   medium:
   dev:
