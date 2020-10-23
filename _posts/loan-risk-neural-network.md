@@ -3,7 +3,7 @@ title: Building a Neural Network to Predict Loan Risk
 subtitle: or, Ty Goes Into Far Too Much Detail About Cleaning Data
 excerpt: LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.
 date: "2020-07-29T14:41:46.514-04:00"
-lastUpdated: "2020-09-23T16:50:54.668-04:00"
+lastUpdated: "2020-10-23T13:03:32.729-05:00"
 ogImage:
   fileName: neonbrand-dDvrIJbSCkg-unsplash.jpg
   alt: A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.
@@ -25,7 +25,7 @@ ipynb: true
 3. **[Building the neural networks](#building-the-neural-networks)**
 4. **[Saving the final model](#saving-the-final-model)**
 5. **[Building the API](#building-the-api)**
-6. **[Evaluating performance](#evaluating-performance)**
+6. **[Further reading](#further-reading)**
 
 <h2 id="introduction">Introduction</h2>
 
@@ -246,7 +246,7 @@ loans_raw["emp_title"].nunique()
 
 Too many unique values indeed. In a future version of this model I could perhaps try to generate a feature from this column by aggregating job titles into categories, but that effort may have a low return on investment, since there are already columns for annual income and length of employment.
 
-Two other interesting columns that I'll also remove are `title` and `desc` ("description"), which are both freeform text entries written by the borrower. These could be fascinating subjects for natural language processing, but that's outside the scope of the current project. Perhaps in the future I could generate additional features from these fields using measures like syntactic complexity, word count, or keyword inclusion.
+Two other interesting columns that I'll also remove are `title` and `desc` ("description"), which are both freeform text entries written by the borrower. These could be fascinating subjects for natural language processing, but that's outside the scope of the current project. Perhaps in the future I could generate additional features from these fields using measures like syntactic complexity, word count, or keyword inclusion. (I ended up exploring this line of thinking in [a later post](/blog/loan-risk-nlp "Natural Language Processing for Loan Risk") using document vectors.)
 
 ```python
 cols_to_drop = ["id", "member_id", "funded_amnt", "funded_amnt_inv", "int_rate", "grade", "sub_grade", "emp_title", "pymnt_plan", "url", "desc", "title", "zip_code", "addr_state", "initial_list_status", "out_prncp", "out_prncp_inv", "total_pymnt", "total_pymnt_inv", "last_pymnt_d", "last_pymnt_amnt", "next_pymnt_d", "last_credit_pull_d", "last_fico_range_high", "last_fico_range_low", "policy_code", "hardship_flag", "hardship_type", "hardship_reason", "hardship_status", "deferral_term", "hardship_amount", "hardship_start_date", "hardship_end_date", "payment_plan_start_date", "hardship_length", "hardship_dpd", "hardship_loan_status", "orig_projected_additional_accrued_interest", "hardship_payoff_balance_amount", "hardship_last_payment_amount", "disbursement_method", "debt_settlement_flag", "debt_settlement_flag_date", "settlement_status", "settlement_date", "settlement_amount", "settlement_percentage", "settlement_term"]
@@ -1689,7 +1689,7 @@ Phew, the data's all clean now! Time for the fun part.
 
 <h2 id="building-the-neural-networks">Building the neural networks</h2>
 
-After a good deal of trial and error, I found that a network architecture with three hidden layers, each followed by a dropout layer of rate 0.3, was as good as I could find. I used ReLU activation in those hidden layers, and adam optimization and a loss metric of mean squared error in the model as a whole. I tried using mean absolute error at first, but then I found that the resulting model would essentially always guess either 1 or 0 for the output, and the majority of the dataset's output is 1. Therefore, larger errors needed to be penalized to a greater degree, which is what mean squared error is good at.
+After a good deal of trial and error, I found that a network architecture with three hidden layers, each followed by a dropout layer of rate 0.3, was as good as I could find. I used ReLU activation in those hidden layers, and adam optimization and a loss metric of mean squared error in the model as a whole. I also settled on a mean squared logarithmic error loss function, since it performed better than mean absolute error, mean squared error, and mean absolute percentage error.
 
 The dataset being so large, I had great results increasing the batch size for the first couple models.
 
@@ -1738,7 +1738,7 @@ def run_pipeline(
     model.add(Dense(16, activation="relu"))
     model.add(Dropout(0.3, seed=2))
     model.add(Dense(output_nodes))
-    model.compile(optimizer="adam", loss="mean_squared_error")
+    model.compile(optimizer="adam", loss="mean_squared_logarithmic_error")
 
     history = model.fit(
         X_train,
@@ -1767,612 +1767,612 @@ history_3, _, _ = run_pipeline(
 ```plaintext
 Model 1:
 Epoch 1/100
-6939/6939 - 13s - loss: 0.0848 - val_loss: 0.0603
+6939/6939 - 15s - loss: 0.0267 - val_loss: 0.0233
 Epoch 2/100
-6939/6939 - 13s - loss: 0.0598 - val_loss: 0.0593
+6939/6939 - 15s - loss: 0.0235 - val_loss: 0.0232
 Epoch 3/100
-6939/6939 - 13s - loss: 0.0594 - val_loss: 0.0589
+6939/6939 - 15s - loss: 0.0234 - val_loss: 0.0233
 Epoch 4/100
-6939/6939 - 13s - loss: 0.0592 - val_loss: 0.0588
+6939/6939 - 15s - loss: 0.0233 - val_loss: 0.0234
 Epoch 5/100
-6939/6939 - 13s - loss: 0.0591 - val_loss: 0.0591
+6939/6939 - 15s - loss: 0.0233 - val_loss: 0.0233
 Epoch 6/100
-6939/6939 - 13s - loss: 0.0590 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0233 - val_loss: 0.0233
 Epoch 7/100
-6939/6939 - 13s - loss: 0.0590 - val_loss: 0.0589
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0232
 Epoch 8/100
-6939/6939 - 14s - loss: 0.0590 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0230
 Epoch 9/100
-6939/6939 - 15s - loss: 0.0590 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0230
 Epoch 10/100
-6939/6939 - 13s - loss: 0.0589 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0231
 Epoch 11/100
-6939/6939 - 13s - loss: 0.0589 - val_loss: 0.0584
+6939/6939 - 16s - loss: 0.0232 - val_loss: 0.0232
 Epoch 12/100
-6939/6939 - 13s - loss: 0.0588 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0232
 Epoch 13/100
-6939/6939 - 13s - loss: 0.0588 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0232
 Epoch 14/100
-6939/6939 - 13s - loss: 0.0588 - val_loss: 0.0592
+6939/6939 - 16s - loss: 0.0232 - val_loss: 0.0230
 Epoch 15/100
-6939/6939 - 13s - loss: 0.0587 - val_loss: 0.0585
+6939/6939 - 18s - loss: 0.0232 - val_loss: 0.0231
 Epoch 16/100
-6939/6939 - 13s - loss: 0.0587 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0232
 Epoch 17/100
-6939/6939 - 13s - loss: 0.0587 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0232 - val_loss: 0.0231
 Epoch 18/100
-6939/6939 - 13s - loss: 0.0587 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 19/100
-6939/6939 - 13s - loss: 0.0587 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 20/100
-6939/6939 - 14s - loss: 0.0587 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 21/100
-6939/6939 - 14s - loss: 0.0587 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 22/100
-6939/6939 - 14s - loss: 0.0586 - val_loss: 0.0584
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0233
 Epoch 23/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 24/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 25/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 26/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 27/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 28/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 29/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 30/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 31/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 32/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 33/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 34/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 35/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 36/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 18s - loss: 0.0231 - val_loss: 0.0231
 Epoch 37/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 38/100
-6939/6939 - 14s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0234
 Epoch 39/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 40/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 41/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 42/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 43/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0229
 Epoch 44/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 45/100
-6939/6939 - 14s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 46/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 47/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 48/100
-6939/6939 - 14s - loss: 0.0585 - val_loss: 0.0581
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 49/100
-6939/6939 - 14s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 50/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 51/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0587
+6939/6939 - 17s - loss: 0.0231 - val_loss: 0.0230
 Epoch 52/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 53/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 54/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 55/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0581
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 56/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 57/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0581
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0230
 Epoch 58/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 59/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 60/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 61/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 62/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 63/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 64/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 65/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 66/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 67/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 68/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 69/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 70/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 71/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0588
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 72/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0234
 Epoch 73/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 74/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 75/100
-6939/6939 - 14s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 76/100
-6939/6939 - 14s - loss: 0.0584 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 77/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0230
 Epoch 78/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 79/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 80/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 81/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 82/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0581
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 83/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 84/100
-6939/6939 - 14s - loss: 0.0584 - val_loss: 0.0581
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 85/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 86/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0592
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 87/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0582
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0233
 Epoch 88/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0586
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 89/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 90/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0231
 Epoch 91/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 Epoch 92/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 93/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0230
 Epoch 94/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0230
 Epoch 95/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0583
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0232
 Epoch 96/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0584
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 97/100
-6939/6939 - 13s - loss: 0.0586 - val_loss: 0.0593
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 98/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0585
+6939/6939 - 20s - loss: 0.0231 - val_loss: 0.0232
 Epoch 99/100
-6939/6939 - 13s - loss: 0.0585 - val_loss: 0.0582
+6939/6939 - 16s - loss: 0.0231 - val_loss: 0.0231
 Epoch 100/100
-6939/6939 - 13s - loss: 0.0584 - val_loss: 0.0583
+6939/6939 - 15s - loss: 0.0231 - val_loss: 0.0232
 
 Model 2:
 Epoch 1/100
-5745/5745 - 10s - loss: 0.1097 - val_loss: 0.0749
+5745/5745 - 11s - loss: 0.0361 - val_loss: 0.0298
 Epoch 2/100
-5745/5745 - 10s - loss: 0.0752 - val_loss: 0.0739
+5745/5745 - 11s - loss: 0.0302 - val_loss: 0.0295
 Epoch 3/100
-5745/5745 - 10s - loss: 0.0745 - val_loss: 0.0729
+5745/5745 - 11s - loss: 0.0299 - val_loss: 0.0295
 Epoch 4/100
-5745/5745 - 10s - loss: 0.0742 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0298 - val_loss: 0.0296
 Epoch 5/100
-5745/5745 - 10s - loss: 0.0741 - val_loss: 0.0735
+5745/5745 - 11s - loss: 0.0298 - val_loss: 0.0293
 Epoch 6/100
-5745/5745 - 10s - loss: 0.0739 - val_loss: 0.0733
+5745/5745 - 11s - loss: 0.0297 - val_loss: 0.0292
 Epoch 7/100
-5745/5745 - 10s - loss: 0.0738 - val_loss: 0.0731
+5745/5745 - 11s - loss: 0.0297 - val_loss: 0.0293
 Epoch 8/100
-5745/5745 - 10s - loss: 0.0737 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0296 - val_loss: 0.0292
 Epoch 9/100
-5745/5745 - 10s - loss: 0.0737 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0296 - val_loss: 0.0293
 Epoch 10/100
-5745/5745 - 10s - loss: 0.0736 - val_loss: 0.0729
+5745/5745 - 11s - loss: 0.0296 - val_loss: 0.0292
 Epoch 11/100
-5745/5745 - 10s - loss: 0.0736 - val_loss: 0.0726
+5745/5745 - 12s - loss: 0.0296 - val_loss: 0.0292
 Epoch 12/100
-5745/5745 - 10s - loss: 0.0735 - val_loss: 0.0732
+5745/5745 - 11s - loss: 0.0296 - val_loss: 0.0292
 Epoch 13/100
-5745/5745 - 10s - loss: 0.0735 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0295 - val_loss: 0.0292
 Epoch 14/100
-5745/5745 - 10s - loss: 0.0735 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0295 - val_loss: 0.0292
 Epoch 15/100
-5745/5745 - 10s - loss: 0.0734 - val_loss: 0.0729
+5745/5745 - 13s - loss: 0.0295 - val_loss: 0.0293
 Epoch 16/100
-5745/5745 - 10s - loss: 0.0734 - val_loss: 0.0727
+5745/5745 - 12s - loss: 0.0295 - val_loss: 0.0291
 Epoch 17/100
-5745/5745 - 10s - loss: 0.0734 - val_loss: 0.0733
+5745/5745 - 12s - loss: 0.0295 - val_loss: 0.0291
 Epoch 18/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0733
+5745/5745 - 11s - loss: 0.0295 - val_loss: 0.0290
 Epoch 19/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0295 - val_loss: 0.0293
 Epoch 20/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0731
+5745/5745 - 11s - loss: 0.0295 - val_loss: 0.0292
 Epoch 21/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0291
 Epoch 22/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0728
+5745/5745 - 12s - loss: 0.0294 - val_loss: 0.0291
 Epoch 23/100
-5745/5745 - 10s - loss: 0.0733 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0293
 Epoch 24/100
-5745/5745 - 10s - loss: 0.0732 - val_loss: 0.0724
+5745/5745 - 13s - loss: 0.0294 - val_loss: 0.0293
 Epoch 25/100
-5745/5745 - 10s - loss: 0.0732 - val_loss: 0.0726
+5745/5745 - 14s - loss: 0.0294 - val_loss: 0.0291
 Epoch 26/100
-5745/5745 - 10s - loss: 0.0732 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0292
 Epoch 27/100
-5745/5745 - 10s - loss: 0.0732 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0291
 Epoch 28/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0292
 Epoch 29/100
-5745/5745 - 10s - loss: 0.0732 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0292
 Epoch 30/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 31/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0733
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 32/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 33/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 34/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0294 - val_loss: 0.0291
 Epoch 35/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 36/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 37/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0729
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 38/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0735
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 39/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0728
+5745/5745 - 12s - loss: 0.0293 - val_loss: 0.0291
 Epoch 40/100
-5745/5745 - 11s - loss: 0.0730 - val_loss: 0.0722
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 41/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0722
+5745/5745 - 12s - loss: 0.0294 - val_loss: 0.0292
 Epoch 42/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0729
+5745/5745 - 13s - loss: 0.0293 - val_loss: 0.0293
 Epoch 43/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0724
+5745/5745 - 13s - loss: 0.0293 - val_loss: 0.0291
 Epoch 44/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0726
+5745/5745 - 12s - loss: 0.0293 - val_loss: 0.0291
 Epoch 45/100
-5745/5745 - 10s - loss: 0.0731 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 46/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0727
+5745/5745 - 12s - loss: 0.0293 - val_loss: 0.0290
 Epoch 47/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0725
+5745/5745 - 12s - loss: 0.0293 - val_loss: 0.0291
 Epoch 48/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0730
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 49/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 50/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0732
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0294
 Epoch 51/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 52/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0723
+5745/5745 - 14s - loss: 0.0293 - val_loss: 0.0291
 Epoch 53/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0290
 Epoch 54/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 55/100
-5745/5745 - 10s - loss: 0.0730 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 56/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0729
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0293
 Epoch 57/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0291
 Epoch 58/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0293
 Epoch 59/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0292
 Epoch 60/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 61/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0293 - val_loss: 0.0290
 Epoch 62/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 63/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 64/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 65/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0294
 Epoch 66/100
-5745/5745 - 10s - loss: 0.0729 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 67/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 68/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0725
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0292
 Epoch 69/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0293
 Epoch 70/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 71/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0724
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 72/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 73/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 74/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0728
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 75/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0293
 Epoch 76/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0294
 Epoch 77/100
-5745/5745 - 10s - loss: 0.0728 - val_loss: 0.0723
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 78/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 79/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 80/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 13s - loss: 0.0292 - val_loss: 0.0295
 Epoch 81/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0290
 Epoch 82/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 83/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 84/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0293
 Epoch 85/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0727
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 86/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 87/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0293
 Epoch 88/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 89/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0723
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0291
 Epoch 90/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0728
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0293
 Epoch 91/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0725
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0292
 Epoch 92/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0292 - val_loss: 0.0291
 Epoch 93/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0291 - val_loss: 0.0291
 Epoch 94/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0727
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0291
 Epoch 95/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0726
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0293
 Epoch 96/100
-5745/5745 - 10s - loss: 0.0727 - val_loss: 0.0726
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0292
 Epoch 97/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0724
+5745/5745 - 13s - loss: 0.0291 - val_loss: 0.0295
 Epoch 98/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0726
+5745/5745 - 11s - loss: 0.0291 - val_loss: 0.0291
 Epoch 99/100
-5745/5745 - 9s - loss: 0.0726 - val_loss: 0.0728
+5745/5745 - 12s - loss: 0.0291 - val_loss: 0.0292
 Epoch 100/100
-5745/5745 - 10s - loss: 0.0726 - val_loss: 0.0723
+5745/5745 - 12s - loss: 0.0292 - val_loss: 0.0292
 
 Model 3:
 Epoch 1/100
-362/362 - 1s - loss: 0.4367 - val_loss: 0.1752
+362/362 - 1s - loss: 0.1141 - val_loss: 0.0628
 Epoch 2/100
-362/362 - 1s - loss: 0.1696 - val_loss: 0.1288
+362/362 - 1s - loss: 0.0575 - val_loss: 0.0527
 Epoch 3/100
-362/362 - 1s - loss: 0.1409 - val_loss: 0.1218
+362/362 - 1s - loss: 0.0506 - val_loss: 0.0502
 Epoch 4/100
-362/362 - 1s - loss: 0.1251 - val_loss: 0.1188
+362/362 - 1s - loss: 0.0486 - val_loss: 0.0486
 Epoch 5/100
-362/362 - 1s - loss: 0.1218 - val_loss: 0.1163
+362/362 - 1s - loss: 0.0468 - val_loss: 0.0477
 Epoch 6/100
-362/362 - 1s - loss: 0.1157 - val_loss: 0.1144
+362/362 - 1s - loss: 0.0463 - val_loss: 0.0474
 Epoch 7/100
-362/362 - 1s - loss: 0.1122 - val_loss: 0.1131
+362/362 - 1s - loss: 0.0455 - val_loss: 0.0471
 Epoch 8/100
-362/362 - 1s - loss: 0.1108 - val_loss: 0.1121
+362/362 - 1s - loss: 0.0445 - val_loss: 0.0466
 Epoch 9/100
-362/362 - 1s - loss: 0.1092 - val_loss: 0.1117
+362/362 - 1s - loss: 0.0439 - val_loss: 0.0465
 Epoch 10/100
-362/362 - 1s - loss: 0.1073 - val_loss: 0.1118
+362/362 - 1s - loss: 0.0438 - val_loss: 0.0465
 Epoch 11/100
-362/362 - 1s - loss: 0.1063 - val_loss: 0.1112
+362/362 - 1s - loss: 0.0433 - val_loss: 0.0463
 Epoch 12/100
-362/362 - 1s - loss: 0.1045 - val_loss: 0.1108
+362/362 - 1s - loss: 0.0430 - val_loss: 0.0462
 Epoch 13/100
-362/362 - 1s - loss: 0.1041 - val_loss: 0.1101
+362/362 - 1s - loss: 0.0428 - val_loss: 0.0463
 Epoch 14/100
-362/362 - 1s - loss: 0.1033 - val_loss: 0.1092
+362/362 - 1s - loss: 0.0427 - val_loss: 0.0460
 Epoch 15/100
-362/362 - 1s - loss: 0.1027 - val_loss: 0.1096
+362/362 - 1s - loss: 0.0425 - val_loss: 0.0462
 Epoch 16/100
-362/362 - 1s - loss: 0.1022 - val_loss: 0.1090
+362/362 - 1s - loss: 0.0422 - val_loss: 0.0461
 Epoch 17/100
-362/362 - 1s - loss: 0.1017 - val_loss: 0.1121
+362/362 - 1s - loss: 0.0416 - val_loss: 0.0459
 Epoch 18/100
-362/362 - 1s - loss: 0.1000 - val_loss: 0.1100
+362/362 - 1s - loss: 0.0416 - val_loss: 0.0460
 Epoch 19/100
-362/362 - 1s - loss: 0.0997 - val_loss: 0.1118
+362/362 - 1s - loss: 0.0412 - val_loss: 0.0460
 Epoch 20/100
-362/362 - 1s - loss: 0.0997 - val_loss: 0.1117
+362/362 - 1s - loss: 0.0414 - val_loss: 0.0461
 Epoch 21/100
-362/362 - 1s - loss: 0.0992 - val_loss: 0.1163
+362/362 - 1s - loss: 0.0410 - val_loss: 0.0459
 Epoch 22/100
-362/362 - 1s - loss: 0.0986 - val_loss: 0.1150
+362/362 - 1s - loss: 0.0409 - val_loss: 0.0459
 Epoch 23/100
-362/362 - 1s - loss: 0.0986 - val_loss: 0.1139
+362/362 - 1s - loss: 0.0401 - val_loss: 0.0456
 Epoch 24/100
-362/362 - 1s - loss: 0.0983 - val_loss: 0.1100
+362/362 - 1s - loss: 0.0400 - val_loss: 0.0460
 Epoch 25/100
-362/362 - 1s - loss: 0.0979 - val_loss: 0.1125
+362/362 - 1s - loss: 0.0399 - val_loss: 0.0462
 Epoch 26/100
-362/362 - 1s - loss: 0.0969 - val_loss: 0.1117
+362/362 - 1s - loss: 0.0394 - val_loss: 0.0461
 Epoch 27/100
-362/362 - 1s - loss: 0.0960 - val_loss: 0.1098
+362/362 - 1s - loss: 0.0396 - val_loss: 0.0466
 Epoch 28/100
-362/362 - 1s - loss: 0.0957 - val_loss: 0.1124
+362/362 - 1s - loss: 0.0394 - val_loss: 0.0462
 Epoch 29/100
-362/362 - 1s - loss: 0.0956 - val_loss: 0.1133
+362/362 - 1s - loss: 0.0388 - val_loss: 0.0468
 Epoch 30/100
-362/362 - 1s - loss: 0.0950 - val_loss: 0.1080
+362/362 - 1s - loss: 0.0384 - val_loss: 0.0465
 Epoch 31/100
-362/362 - 1s - loss: 0.0953 - val_loss: 0.1086
+362/362 - 1s - loss: 0.0386 - val_loss: 0.0462
 Epoch 32/100
-362/362 - 1s - loss: 0.0944 - val_loss: 0.1091
+362/362 - 1s - loss: 0.0379 - val_loss: 0.0467
 Epoch 33/100
-362/362 - 1s - loss: 0.0952 - val_loss: 0.1096
+362/362 - 1s - loss: 0.0375 - val_loss: 0.0469
 Epoch 34/100
-362/362 - 1s - loss: 0.0932 - val_loss: 0.1091
+362/362 - 1s - loss: 0.0382 - val_loss: 0.0468
 Epoch 35/100
-362/362 - 1s - loss: 0.0919 - val_loss: 0.1087
+362/362 - 1s - loss: 0.0375 - val_loss: 0.0475
 Epoch 36/100
-362/362 - 1s - loss: 0.0921 - val_loss: 0.1123
+362/362 - 1s - loss: 0.0374 - val_loss: 0.0468
 Epoch 37/100
-362/362 - 1s - loss: 0.0927 - val_loss: 0.1110
+362/362 - 1s - loss: 0.0371 - val_loss: 0.0471
 Epoch 38/100
-362/362 - 1s - loss: 0.0920 - val_loss: 0.1111
+362/362 - 1s - loss: 0.0370 - val_loss: 0.0474
 Epoch 39/100
-362/362 - 1s - loss: 0.0909 - val_loss: 0.1108
+362/362 - 1s - loss: 0.0363 - val_loss: 0.0472
 Epoch 40/100
-362/362 - 1s - loss: 0.0914 - val_loss: 0.1140
+362/362 - 1s - loss: 0.0366 - val_loss: 0.0477
 Epoch 41/100
-362/362 - 1s - loss: 0.0902 - val_loss: 0.1124
+362/362 - 1s - loss: 0.0359 - val_loss: 0.0488
 Epoch 42/100
-362/362 - 1s - loss: 0.0895 - val_loss: 0.1116
+362/362 - 1s - loss: 0.0356 - val_loss: 0.0476
 Epoch 43/100
-362/362 - 1s - loss: 0.0908 - val_loss: 0.1113
+362/362 - 1s - loss: 0.0361 - val_loss: 0.0474
 Epoch 44/100
-362/362 - 1s - loss: 0.0885 - val_loss: 0.1126
+362/362 - 1s - loss: 0.0357 - val_loss: 0.0476
 Epoch 45/100
-362/362 - 1s - loss: 0.0869 - val_loss: 0.1137
+362/362 - 1s - loss: 0.0360 - val_loss: 0.0480
 Epoch 46/100
-362/362 - 1s - loss: 0.0883 - val_loss: 0.1127
+362/362 - 1s - loss: 0.0351 - val_loss: 0.0476
 Epoch 47/100
-362/362 - 1s - loss: 0.0884 - val_loss: 0.1112
+362/362 - 1s - loss: 0.0354 - val_loss: 0.0475
 Epoch 48/100
-362/362 - 1s - loss: 0.0880 - val_loss: 0.1115
+362/362 - 1s - loss: 0.0348 - val_loss: 0.0487
 Epoch 49/100
-362/362 - 1s - loss: 0.0886 - val_loss: 0.1106
+362/362 - 1s - loss: 0.0348 - val_loss: 0.0475
 Epoch 50/100
-362/362 - 1s - loss: 0.0863 - val_loss: 0.1152
+362/362 - 1s - loss: 0.0351 - val_loss: 0.0477
 Epoch 51/100
-362/362 - 1s - loss: 0.0864 - val_loss: 0.1136
+362/362 - 1s - loss: 0.0344 - val_loss: 0.0481
 Epoch 52/100
-362/362 - 1s - loss: 0.0861 - val_loss: 0.1130
+362/362 - 1s - loss: 0.0348 - val_loss: 0.0482
 Epoch 53/100
-362/362 - 1s - loss: 0.0851 - val_loss: 0.1171
+362/362 - 1s - loss: 0.0346 - val_loss: 0.0480
 Epoch 54/100
-362/362 - 1s - loss: 0.0850 - val_loss: 0.1150
+362/362 - 1s - loss: 0.0344 - val_loss: 0.0487
 Epoch 55/100
-362/362 - 1s - loss: 0.0850 - val_loss: 0.1139
+362/362 - 1s - loss: 0.0331 - val_loss: 0.0490
 Epoch 56/100
-362/362 - 1s - loss: 0.0851 - val_loss: 0.1125
+362/362 - 1s - loss: 0.0339 - val_loss: 0.0488
 Epoch 57/100
-362/362 - 1s - loss: 0.0853 - val_loss: 0.1132
+362/362 - 1s - loss: 0.0334 - val_loss: 0.0486
 Epoch 58/100
-362/362 - 1s - loss: 0.0827 - val_loss: 0.1129
+362/362 - 1s - loss: 0.0336 - val_loss: 0.0497
 Epoch 59/100
-362/362 - 1s - loss: 0.0838 - val_loss: 0.1145
+362/362 - 1s - loss: 0.0335 - val_loss: 0.0488
 Epoch 60/100
-362/362 - 1s - loss: 0.0822 - val_loss: 0.1222
+362/362 - 1s - loss: 0.0336 - val_loss: 0.0485
 Epoch 61/100
-362/362 - 1s - loss: 0.0811 - val_loss: 0.1152
+362/362 - 1s - loss: 0.0336 - val_loss: 0.0490
 Epoch 62/100
-362/362 - 1s - loss: 0.0831 - val_loss: 0.1127
+362/362 - 1s - loss: 0.0327 - val_loss: 0.0493
 Epoch 63/100
-362/362 - 1s - loss: 0.0805 - val_loss: 0.1184
+362/362 - 1s - loss: 0.0327 - val_loss: 0.0488
 Epoch 64/100
-362/362 - 1s - loss: 0.0820 - val_loss: 0.1149
+362/362 - 1s - loss: 0.0331 - val_loss: 0.0489
 Epoch 65/100
-362/362 - 1s - loss: 0.0812 - val_loss: 0.1138
+362/362 - 1s - loss: 0.0327 - val_loss: 0.0486
 Epoch 66/100
-362/362 - 1s - loss: 0.0799 - val_loss: 0.1149
+362/362 - 1s - loss: 0.0324 - val_loss: 0.0500
 Epoch 67/100
-362/362 - 1s - loss: 0.0816 - val_loss: 0.1132
+362/362 - 1s - loss: 0.0326 - val_loss: 0.0493
 Epoch 68/100
-362/362 - 1s - loss: 0.0806 - val_loss: 0.1179
+362/362 - 1s - loss: 0.0320 - val_loss: 0.0499
 Epoch 69/100
-362/362 - 1s - loss: 0.0789 - val_loss: 0.1172
+362/362 - 1s - loss: 0.0323 - val_loss: 0.0497
 Epoch 70/100
-362/362 - 1s - loss: 0.0791 - val_loss: 0.1131
+362/362 - 1s - loss: 0.0321 - val_loss: 0.0495
 Epoch 71/100
-362/362 - 1s - loss: 0.0786 - val_loss: 0.1140
+362/362 - 1s - loss: 0.0323 - val_loss: 0.0492
 Epoch 72/100
-362/362 - 1s - loss: 0.0799 - val_loss: 0.1165
+362/362 - 1s - loss: 0.0321 - val_loss: 0.0487
 Epoch 73/100
-362/362 - 1s - loss: 0.0795 - val_loss: 0.1137
+362/362 - 1s - loss: 0.0324 - val_loss: 0.0491
 Epoch 74/100
-362/362 - 1s - loss: 0.0785 - val_loss: 0.1169
+362/362 - 1s - loss: 0.0325 - val_loss: 0.0487
 Epoch 75/100
-362/362 - 1s - loss: 0.0778 - val_loss: 0.1159
+362/362 - 1s - loss: 0.0315 - val_loss: 0.0496
 Epoch 76/100
-362/362 - 1s - loss: 0.0785 - val_loss: 0.1144
+362/362 - 1s - loss: 0.0317 - val_loss: 0.0503
 Epoch 77/100
-362/362 - 1s - loss: 0.0767 - val_loss: 0.1141
+362/362 - 1s - loss: 0.0318 - val_loss: 0.0486
 Epoch 78/100
-362/362 - 1s - loss: 0.0756 - val_loss: 0.1132
+362/362 - 1s - loss: 0.0312 - val_loss: 0.0504
 Epoch 79/100
-362/362 - 1s - loss: 0.0769 - val_loss: 0.1171
+362/362 - 1s - loss: 0.0312 - val_loss: 0.0493
 Epoch 80/100
-362/362 - 1s - loss: 0.0782 - val_loss: 0.1159
+362/362 - 1s - loss: 0.0315 - val_loss: 0.0490
 Epoch 81/100
-362/362 - 1s - loss: 0.0770 - val_loss: 0.1153
+362/362 - 1s - loss: 0.0307 - val_loss: 0.0502
 Epoch 82/100
-362/362 - 1s - loss: 0.0761 - val_loss: 0.1139
+362/362 - 1s - loss: 0.0310 - val_loss: 0.0499
 Epoch 83/100
-362/362 - 1s - loss: 0.0770 - val_loss: 0.1164
+362/362 - 1s - loss: 0.0312 - val_loss: 0.0499
 Epoch 84/100
-362/362 - 1s - loss: 0.0768 - val_loss: 0.1146
+362/362 - 1s - loss: 0.0306 - val_loss: 0.0507
 Epoch 85/100
-362/362 - 1s - loss: 0.0759 - val_loss: 0.1182
+362/362 - 1s - loss: 0.0311 - val_loss: 0.0506
 Epoch 86/100
-362/362 - 1s - loss: 0.0754 - val_loss: 0.1180
+362/362 - 1s - loss: 0.0305 - val_loss: 0.0506
 Epoch 87/100
-362/362 - 1s - loss: 0.0760 - val_loss: 0.1164
+362/362 - 1s - loss: 0.0309 - val_loss: 0.0503
 Epoch 88/100
-362/362 - 1s - loss: 0.0755 - val_loss: 0.1176
+362/362 - 1s - loss: 0.0314 - val_loss: 0.0504
 Epoch 89/100
-362/362 - 1s - loss: 0.0739 - val_loss: 0.1167
+362/362 - 1s - loss: 0.0308 - val_loss: 0.0508
 Epoch 90/100
-362/362 - 1s - loss: 0.0751 - val_loss: 0.1163
+362/362 - 1s - loss: 0.0304 - val_loss: 0.0500
 Epoch 91/100
-362/362 - 1s - loss: 0.0740 - val_loss: 0.1192
+362/362 - 1s - loss: 0.0306 - val_loss: 0.0497
 Epoch 92/100
-362/362 - 1s - loss: 0.0745 - val_loss: 0.1296
+362/362 - 1s - loss: 0.0305 - val_loss: 0.0510
 Epoch 93/100
-362/362 - 1s - loss: 0.0745 - val_loss: 0.1165
+362/362 - 1s - loss: 0.0308 - val_loss: 0.0502
 Epoch 94/100
-362/362 - 1s - loss: 0.0743 - val_loss: 0.1192
+362/362 - 1s - loss: 0.0300 - val_loss: 0.0504
 Epoch 95/100
-362/362 - 1s - loss: 0.0734 - val_loss: 0.1166
+362/362 - 1s - loss: 0.0310 - val_loss: 0.0509
 Epoch 96/100
-362/362 - 1s - loss: 0.0743 - val_loss: 0.1150
+362/362 - 1s - loss: 0.0306 - val_loss: 0.0509
 Epoch 97/100
-362/362 - 1s - loss: 0.0728 - val_loss: 0.1182
+362/362 - 1s - loss: 0.0298 - val_loss: 0.0509
 Epoch 98/100
-362/362 - 1s - loss: 0.0737 - val_loss: 0.1185
+362/362 - 1s - loss: 0.0303 - val_loss: 0.0503
 Epoch 99/100
-362/362 - 1s - loss: 0.0729 - val_loss: 0.1185
+362/362 - 1s - loss: 0.0296 - val_loss: 0.0509
 Epoch 100/100
-362/362 - 1s - loss: 0.0731 - val_loss: 0.1200
+362/362 - 1s - loss: 0.0301 - val_loss: 0.0509
 ```
 
-The first model performed best, settling around a mean squared error of 0.0583 (though it seems even after setting `random_state` inside `train_test_split` and `seed` inside the dropout layers, there's still a bit of entropy left in the training of the model, so if you run this notebook yourself, the course of your training may look a little different). Apparently the additional _records_ in the first dataset did more to aid in training than the additional _metrics_ in the subsequent sets. And the dropout layers didn't stop the third model from overfitting anyway.
+The first model performed best, settling around a mean squared logarithmic error of 0.0231 (though it seems even after setting `random_state` inside `train_test_split` and `seed` inside the dropout layers, there's still a bit of entropy left in the training of the model, so if you run this notebook yourself, the course of your training may look a little different). Apparently the additional _records_ in the first dataset did more to aid in training than the additional _metrics_ in the subsequent sets. And the dropout layers didn't stop the third model from overfitting anyway.
 
 ```python
 sns.lineplot(x=range(1, 101), y=history_1["loss"], label="loss")
@@ -2392,11 +2392,7 @@ First I need to _create_ the final model, training `model_1`'s architecture on t
 import joblib
 
 _, final_model, final_transformer = run_pipeline(
-    loans_1,
-    onehot_cols,
-    ordinal_cols,
-    batch_size=128,
-    validate=False,
+    loans_1, onehot_cols, ordinal_cols, batch_size=128, validate=False
 )
 
 final_model.save("loan_risk_model")
@@ -2405,205 +2401,205 @@ joblib.dump(final_transformer, "data_transformer.joblib")
 
 ```plaintext
 Epoch 1/100
-8674/8674 - 14s - loss: 0.0804
+8674/8674 - 17s - loss: 0.0268
 Epoch 2/100
-8674/8674 - 14s - loss: 0.0598
+8674/8674 - 17s - loss: 0.0234
 Epoch 3/100
-8674/8674 - 14s - loss: 0.0594
+8674/8674 - 17s - loss: 0.0233
 Epoch 4/100
-8674/8674 - 15s - loss: 0.0593
+8674/8674 - 17s - loss: 0.0233
 Epoch 5/100
-8674/8674 - 14s - loss: 0.0592
+8674/8674 - 17s - loss: 0.0232
 Epoch 6/100
-8674/8674 - 15s - loss: 0.0591
+8674/8674 - 17s - loss: 0.0232
 Epoch 7/100
-8674/8674 - 14s - loss: 0.0591
+8674/8674 - 17s - loss: 0.0232
 Epoch 8/100
-8674/8674 - 14s - loss: 0.0591
+8674/8674 - 17s - loss: 0.0232
 Epoch 9/100
-8674/8674 - 14s - loss: 0.0590
+8674/8674 - 17s - loss: 0.0232
 Epoch 10/100
-8674/8674 - 14s - loss: 0.0591
+8674/8674 - 22s - loss: 0.0231
 Epoch 11/100
-8674/8674 - 14s - loss: 0.0590
+8674/8674 - 17s - loss: 0.0232
 Epoch 12/100
-8674/8674 - 14s - loss: 0.0590
+8674/8674 - 17s - loss: 0.0231
 Epoch 13/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 14/100
-8674/8674 - 14s - loss: 0.0590
+8674/8674 - 17s - loss: 0.0231
 Epoch 15/100
-8674/8674 - 14s - loss: 0.0590
+8674/8674 - 17s - loss: 0.0231
 Epoch 16/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 17/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0232
 Epoch 18/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 19s - loss: 0.0231
 Epoch 19/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 20/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 21/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 16s - loss: 0.0231
 Epoch 22/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 23/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 24/100
-8674/8674 - 15s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 25/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 16s - loss: 0.0231
 Epoch 26/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 27/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 28/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 29/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 30/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 31/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 32/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 33/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 34/100
-8674/8674 - 15s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 35/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 36/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 37/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 19s - loss: 0.0231
 Epoch 38/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 39/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 40/100
-8674/8674 - 16s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 41/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 42/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 43/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 44/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 18s - loss: 0.0231
 Epoch 45/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 18s - loss: 0.0231
 Epoch 46/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 47/100
-8674/8674 - 15s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 48/100
-8674/8674 - 15s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 49/100
-8674/8674 - 15s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 50/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 51/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 52/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 16s - loss: 0.0231
 Epoch 53/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 54/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 55/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 56/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 16s - loss: 0.0231
 Epoch 57/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 58/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 59/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 16s - loss: 0.0231
 Epoch 60/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 16s - loss: 0.0230
 Epoch 61/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 62/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 63/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 18s - loss: 0.0231
 Epoch 64/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0231
 Epoch 65/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 66/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 67/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 68/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 69/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 70/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 16s - loss: 0.0231
 Epoch 71/100
-8674/8674 - 15s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 72/100
-8674/8674 - 15s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 73/100
-8674/8674 - 15s - loss: 0.0588
+8674/8674 - 19s - loss: 0.0231
 Epoch 74/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 19s - loss: 0.0231
 Epoch 75/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 76/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 77/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 78/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 79/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 80/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 81/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 18s - loss: 0.0230
 Epoch 82/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0230
 Epoch 83/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0230
 Epoch 84/100
-8674/8674 - 14s - loss: 0.0589
+8674/8674 - 17s - loss: 0.0231
 Epoch 85/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 86/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 87/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0230
 Epoch 88/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 16s - loss: 0.0231
 Epoch 89/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 90/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0230
 Epoch 91/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0230
 Epoch 92/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 19s - loss: 0.0231
 Epoch 93/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 19s - loss: 0.0231
 Epoch 94/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 95/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0230
 Epoch 96/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 18s - loss: 0.0231
 Epoch 97/100
-8674/8674 - 15s - loss: 0.0587
+8674/8674 - 17s - loss: 0.0231
 Epoch 98/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 Epoch 99/100
-8674/8674 - 15s - loss: 0.0588
+8674/8674 - 19s - loss: 0.0231
 Epoch 100/100
-8674/8674 - 14s - loss: 0.0588
+8674/8674 - 17s - loss: 0.0231
 ```
 
 ```plaintext
@@ -2618,187 +2614,22 @@ Then I discovered [PythonAnywhere](https://www.pythonanywhere.com/)! They have p
 
 So [head on over](https://tywmick.pythonanywhere.com/ "Neural Network Loan Risk Prediction API – Ty Mick") if you'd like to check it out; the front end includes a form where you can fill in all the parameters for the API request, and there are a couple of buttons that let you fill the form with typical examples from the dataset (since there are a _lot_ of fields to fill in). Or you can send a GET request to `https://tywmick.pythonanywhere.com/api/predict` if you really want to include every parameter in your query string. In either case, you're also more than welcome to take a look at its source [on GitHub](https://github.com/tywmick/loan-risk-neural-network).
 
-<h2 id="evaluating-performance">Evaluating performance</h2>
+<h2 id="further-reading">Further reading</h2>
 
-A month and a half after I first published this, I have decided I should evaluate whether or not this predictive model is actually _good_. Tipping my hat once again to Michael Wurm for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8), I figure comparing my model's performance to a selection method based on the loan grade assigned by LendingClub ought to be sufficient. I'll save a version of `loans_1` to disk, adding a few original columns back for evaluation, so I can do this in a new notebook (this article's long enough already).
+- [Can I Grade Loans Better Than LendingClub?](/blog/loan-grading-showdown)
+- [Natural Language Processing for Loan Risk](/blog/loan-risk-nlp)
 
 ```python
+# Exports for "Can I Grade Loans Better than LendingClub?"
 expected.rename("expected_return", inplace=True)
-loans_for_eval = loans_1.join([loans_raw[["grade", "sub_grade"]], expected])
-loans_for_eval.head()
-```
-
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
-    <thead>
-      <tr style="text-align: right;">
-        <th></th>
-        <th>loan_amnt</th>
-        <th>term</th>
-        <th>emp_length</th>
-        <th>home_ownership</th>
-        <th>annual_inc</th>
-        <th>purpose</th>
-        <th>dti</th>
-        <th>delinq_2yrs</th>
-        <th>cr_hist_age_mths</th>
-        <th>fico_range_low</th>
-        <th>...</th>
-        <th>pub_rec_bankruptcies</th>
-        <th>tax_liens</th>
-        <th>tot_hi_cred_lim</th>
-        <th>total_bal_ex_mort</th>
-        <th>total_bc_limit</th>
-        <th>total_il_high_credit_limit</th>
-        <th>fraction_recovered</th>
-        <th>grade</th>
-        <th>sub_grade</th>
-        <th>expected_return</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>0</th>
-        <td>3600.0</td>
-        <td>36&nbsp;months</td>
-        <td>10+ years</td>
-        <td>MORTGAGE</td>
-        <td>55000.0</td>
-        <td>debt_consolidation</td>
-        <td>5.91</td>
-        <td>0.0</td>
-        <td>148.0</td>
-        <td>675.0</td>
-        <td>...</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td>178050.0</td>
-        <td>7746.0</td>
-        <td>2400.0</td>
-        <td>13734.0</td>
-        <td>1.0</td>
-        <td>C</td>
-        <td>C4</td>
-        <td>4429.08</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>24700.0</td>
-        <td>36&nbsp;months</td>
-        <td>10+ years</td>
-        <td>MORTGAGE</td>
-        <td>65000.0</td>
-        <td>small_business</td>
-        <td>16.06</td>
-        <td>1.0</td>
-        <td>192.0</td>
-        <td>715.0</td>
-        <td>...</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td>314017.0</td>
-        <td>39475.0</td>
-        <td>79300.0</td>
-        <td>24667.0</td>
-        <td>1.0</td>
-        <td>C</td>
-        <td>C1</td>
-        <td>29530.08</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>20000.0</td>
-        <td>60&nbsp;months</td>
-        <td>10+ years</td>
-        <td>MORTGAGE</td>
-        <td>63000.0</td>
-        <td>home_improvement</td>
-        <td>10.78</td>
-        <td>0.0</td>
-        <td>184.0</td>
-        <td>695.0</td>
-        <td>...</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td>218418.0</td>
-        <td>18696.0</td>
-        <td>6200.0</td>
-        <td>14877.0</td>
-        <td>1.0</td>
-        <td>B</td>
-        <td>B4</td>
-        <td>25959.60</td>
-      </tr>
-      <tr>
-        <th>4</th>
-        <td>10400.0</td>
-        <td>60&nbsp;months</td>
-        <td>3 years</td>
-        <td>MORTGAGE</td>
-        <td>104433.0</td>
-        <td>major_purchase</td>
-        <td>25.37</td>
-        <td>1.0</td>
-        <td>210.0</td>
-        <td>695.0</td>
-        <td>...</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td>439570.0</td>
-        <td>95768.0</td>
-        <td>20300.0</td>
-        <td>88097.0</td>
-        <td>1.0</td>
-        <td>F</td>
-        <td>F1</td>
-        <td>17394.60</td>
-      </tr>
-      <tr>
-        <th>5</th>
-        <td>11950.0</td>
-        <td>36&nbsp;months</td>
-        <td>4 years</td>
-        <td>RENT</td>
-        <td>34000.0</td>
-        <td>debt_consolidation</td>
-        <td>10.20</td>
-        <td>0.0</td>
-        <td>338.0</td>
-        <td>690.0</td>
-        <td>...</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td>16900.0</td>
-        <td>12798.0</td>
-        <td>9400.0</td>
-        <td>4000.0</td>
-        <td>1.0</td>
-        <td>C</td>
-        <td>C3</td>
-        <td>14586.48</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>5 rows × 69 columns</p>
-</div>
-
-```python
+loans_for_eval = loans_1.join([loans_raw[["issue_d", "grade", "sub_grade"]], expected])
 joblib.dump(loans_for_eval, "loans_for_eval.joblib")
+
+# Exports for "Improving Loan Risk Prediction With Natural Language Processing"
+loans_for_nlp = loans_1.join(loans_raw[["issue_d", "title", "desc"]])
+joblib.dump(loans_for_nlp, "loans_for_nlp.joblib")
 ```
 
 ```plaintext
-['loans_for_eval.joblib']
+['loans_for_nlp.joblib']
 ```
-
-That'll do it. Check out [the sequel](/blog/loan-grading-showdown) if you're interested!

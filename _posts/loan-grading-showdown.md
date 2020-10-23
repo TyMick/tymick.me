@@ -3,6 +3,7 @@ title: Can I Grade Loans Better Than LendingClub?
 subtitle: Pitting My Neural Network Against a Corporate Benchmark
 excerpt: Today I'm going to put my loan risk model to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!
 date: "2020-09-23T16:51:17.048-04:00"
+lastUpdated: "2020-10-23T13:03:32.729-05:00"
 ogImage:
   fileName: the-new-york-public-library-w8uU35aGU6A-unsplash.jpg
   alt: A 1937 photo of Liberty Finance Company in Oklahoma City. The sign on the building advertises "Salary Loans – $5 to $50". Photo by The New York Public Library on Unsplash.
@@ -25,6 +26,7 @@ ipynb: true
 4. **[LendingClub's turn](#lendingclubs-turn)**
 5. **[My turn](#my-turn)**
 6. **[Victory!](#victory)**
+7. **[Further reading](#further-reading)**
 
 <h2 id="introduction">Introduction</h2>
 
@@ -213,7 +215,7 @@ loans.head()
   <p>5 rows × 70 columns</p>
 </div>
 
-This post was adapted from a Jupyter Notebook, by the way, so if you'd like to follow along in your own notebook, go ahead and fork mine [on Kaggle](https://www.kaggle.com/tywmick/can-i-grade-loans-better-than-lendingclub)!
+This post was adapted from a Jupyter Notebook, by the way, so if you'd like to follow along in your own notebook, go ahead and fork mine [Kaggle](https://www.kaggle.com/tywmick/can-i-grade-loans-better-than-lendingclub "Can I Grade Loans Better Than LendingClub? | Kaggle") or [GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-grading-showdown.ipynb "loan-risk-neural-network/loan-grading-showdown.ipynb at master · tywmick/loan-risk-neural-network")!
 
 <h2 id="ground-rules">Ground rules</h2>
 
@@ -387,215 +389,219 @@ ty_grade_a = test_sorted.iloc[0:len(lc_grade_a)]
 
 # Display results
 print("\nAverage `fraction_recovered` on Ty's grade A loans:")
-print(round(mean(ty_grade_a["fraction_recovered"]), 5))
+print(format(mean(ty_grade_a["fraction_recovered"]), ".5f"))
 ```
 
 ```plaintext
 Epoch 1/100
-6939/6939 - 11s - loss: 0.0245
+6939/6939 - 13s - loss: 0.0249
 Epoch 2/100
-6939/6939 - 11s - loss: 0.0204
+6939/6939 - 13s - loss: 0.0204
 Epoch 3/100
-6939/6939 - 11s - loss: 0.0203
+6939/6939 - 13s - loss: 0.0202
 Epoch 4/100
-6939/6939 - 12s - loss: 0.0202
+6939/6939 - 13s - loss: 0.0202
 Epoch 5/100
-6939/6939 - 11s - loss: 0.0202
+6939/6939 - 13s - loss: 0.0202
 Epoch 6/100
-6939/6939 - 11s - loss: 0.0202
+6939/6939 - 14s - loss: 0.0201
 Epoch 7/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 14s - loss: 0.0201
 Epoch 8/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 14s - loss: 0.0201
 Epoch 9/100
 6939/6939 - 13s - loss: 0.0201
 Epoch 10/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 12s - loss: 0.0201
 Epoch 11/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0201
 Epoch 12/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0201
 Epoch 13/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0201
 Epoch 14/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0201
 Epoch 15/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 12s - loss: 0.0201
 Epoch 16/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 12s - loss: 0.0201
 Epoch 17/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0200
 Epoch 18/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0200
 Epoch 19/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0200
 Epoch 20/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 14s - loss: 0.0200
 Epoch 21/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0200
 Epoch 22/100
-6939/6939 - 11s - loss: 0.0201
+6939/6939 - 13s - loss: 0.0200
 Epoch 23/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 12s - loss: 0.0200
 Epoch 24/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 12s - loss: 0.0200
 Epoch 25/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 12s - loss: 0.0200
 Epoch 26/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 27/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 28/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 29/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 30/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 31/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 15s - loss: 0.0200
 Epoch 32/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 33/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 34/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 35/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 36/100
 6939/6939 - 12s - loss: 0.0200
+Epoch 34/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 35/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 36/100
+6939/6939 - 13s - loss: 0.0200
 Epoch 37/100
 6939/6939 - 13s - loss: 0.0200
 Epoch 38/100
-6939/6939 - 12s - loss: 0.0200
-Epoch 39/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 40/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 41/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 42/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 43/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 44/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 45/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 46/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 47/100
-6939/6939 - 12s - loss: 0.0200
-Epoch 48/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 49/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 50/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 51/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 52/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 53/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 54/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 55/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 56/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 57/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 58/100
-6939/6939 - 12s - loss: 0.0200
-Epoch 59/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 60/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 61/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 62/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 63/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 64/100
-6939/6939 - 11s - loss: 0.0200
-Epoch 65/100
 6939/6939 - 13s - loss: 0.0200
+Epoch 39/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 40/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 41/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 42/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 43/100
+6939/6939 - 14s - loss: 0.0200
+Epoch 44/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 45/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 46/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 47/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 48/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 49/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 50/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 51/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 52/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 53/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 54/100
+6939/6939 - 14s - loss: 0.0200
+Epoch 55/100
+6939/6939 - 14s - loss: 0.0200
+Epoch 56/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 57/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 58/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 59/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 60/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 61/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 62/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 63/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 64/100
+6939/6939 - 13s - loss: 0.0200
+Epoch 65/100
+6939/6939 - 12s - loss: 0.0200
 Epoch 66/100
 6939/6939 - 13s - loss: 0.0200
 Epoch 67/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 14s - loss: 0.0200
 Epoch 68/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 69/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 70/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 71/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 72/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 73/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 74/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 75/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 76/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 77/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 78/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 79/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 14s - loss: 0.0200
 Epoch 80/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 81/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 82/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 83/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 84/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 12s - loss: 0.0200
 Epoch 85/100
 6939/6939 - 13s - loss: 0.0200
 Epoch 86/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 87/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 88/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 89/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 90/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 91/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 14s - loss: 0.0200
 Epoch 92/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 93/100
 6939/6939 - 13s - loss: 0.0200
 Epoch 94/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 95/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 96/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 97/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 98/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 99/100
-6939/6939 - 11s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 Epoch 100/100
-6939/6939 - 12s - loss: 0.0200
+6939/6939 - 13s - loss: 0.0200
 
 Average `fraction_recovered` on Ty's grade A loans:
-0.96108
+0.96166
 ```
 
 <h2 id="victory">Victory!</h2>
 
 Phew, that was a close one! My win might be too small to be statistically significant, but hey, it's cool seeing that I can keep up with LendingClub's best and brightest.
+
+<h2 id="further-reading">Further reading</h2>
+
+- [Natural Language Processing for Loan Risk](/blog/loan-risk-nlp)
