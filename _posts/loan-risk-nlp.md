@@ -1,8 +1,10 @@
 ---
 title: Natural Language Processing for Loan Risk
+subtitle: Adding spaCy Word Vectors to a Keras Model
 description: Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.
 excerpt: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
 date: "2020-10-23T13:03:32.729-05:00"
+lastUpdated: "2020-10-24T10:07:09.557-05:00"
 ogImage:
   fileName: aaron-burden-y02jEX_B0O0-unsplash.jpg
   alt: A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.

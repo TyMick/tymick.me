@@ -22,6 +22,7 @@ export default function Blog() {
         <ul className="list-unstyled">
           <EssayPreview
             title="Natural Language Processing for Loan Risk"
+            subtitle="Adding spaCy Word Vectors to a Keras Model"
             href="/blog/[post]"
             as="/blog/loan-risk-nlp"
             date="October 23, 2020"

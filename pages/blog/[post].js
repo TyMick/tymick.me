@@ -42,7 +42,7 @@ export default function Post({ post }) {
         <title>{title} – Ty Mick</title>
         <meta property="og:title" content={title} />
         {(subtitle || description) && (
-          <meta property="og:description" content={subtitle || description} />
+          <meta property="og:description" content={description || subtitle} />
         )}
         <meta property="og:url" content={`https://tymick.me/blog/${slug}`} />
         {ogImage && (
