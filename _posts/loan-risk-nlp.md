@@ -4,7 +4,7 @@ subtitle: Adding spaCy Word Vectors to a Keras Model
 description: Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.
 excerpt: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
 date: "2020-10-23T13:03:32.729-05:00"
-lastUpdated: "2020-10-24T12:16:13.332-05:00"
+lastUpdated: "2020-10-24T12:58:32.455-05:00"
 ogImage:
   fileName: aaron-burden-y02jEX_B0O0-unsplash.jpg
   alt: A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.
@@ -1483,6 +1483,6 @@ Wow, still not good enough to beat my original model. Just for kicks, I also tri
 
 <h2 id="next-steps">Next steps</h2>
 
-If adding these two features decreased predictive capability, then surely removing some others would help as well. I should try using some of scikit-learn's [feature selection methods](https://scikit-learn.org/stable/modules/feature_selection.html) to reduce the dimensionality of the input data.
+If adding these two features decreased predictive capability, then perhaps some of the other variables I was already using are doing the same thing. I should try using some of scikit-learn's [feature selection methods](https://scikit-learn.org/stable/modules/feature_selection.html) to reduce the dimensionality of the input data.
 
 A more efficient method of hyperparameter optimization would be pretty useful as well. I should give [AutoKeras](https://autokeras.com/) a shot.
