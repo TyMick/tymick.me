@@ -4,7 +4,7 @@ subtitle: Adding spaCy Word Vectors to a Keras Model
 description: Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.
 excerpt: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
 date: "2020-10-23T13:03:32.729-05:00"
-lastUpdated: "2020-10-24T10:07:09.557-05:00"
+lastUpdated: "2020-10-24T12:16:13.332-05:00"
 ogImage:
   fileName: aaron-burden-y02jEX_B0O0-unsplash.jpg
   alt: A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.
@@ -1427,7 +1427,7 @@ plot_loss_metrics(history_1, "1")
 
 <img src="/images/loan-risk-nlp_37_0.png" alt='A line plot entitled “Model 1 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. Training loss falls rapidly and fairly smoothly, with another small but interesting drop around the 40th epoch. The validation loss line, while very jagged, appears on average to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting.' />
 
-Well, it didn't overfit, but this model performed a bit _worse_ than my original, which settled around a loss of 0.0231. I bet the `desc` feature is getting in the way&mdash;zeroes spanning 300 columns of the input data on 94% of the rows is probably quite confusing to the model. I'll see what happens if I repeat the process while leaving `desc` out (making the `title` vectors the only new feature of this model compared to my original).
+Well, it didn't overfit, but this model performed a bit _worse_ than my original, which had settled around a loss of 0.0231. I bet the `desc` feature is getting in the way&mdash;zeroes spanning 300 columns of the input data on 94% of the rows is probably quite confusing to the model. I'll see what happens if I repeat the process while leaving `desc` out (making the `title` vectors the only new feature of this model compared to my original).
 
 ```python
 history_2, _, _ = run_pipeline(
