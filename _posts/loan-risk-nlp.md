@@ -12,7 +12,7 @@ cta: Well that was fun! Have any thoughts on how to better integrate language da
 links:
   twitter: https://twitter.com/tywmick/status/1319709097307049986
   mastodon: https://mastodon.online/@tywmick/105085580139071056
-  # facebook: https://www.facebook.com/tywmick
+  facebook: https://www.facebook.com/tywmick/posts/10214467025628226
   linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6725480058460413952/
 syndicated:
   medium:
