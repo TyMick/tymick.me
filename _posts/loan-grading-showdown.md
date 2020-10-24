@@ -14,9 +14,9 @@ links:
   facebook: https://www.facebook.com/tywmick/posts/10214308124695802
   linkedin: https://www.linkedin.com/posts/tywmick_can-i-grade-loans-better-than-lendingclub-activity-6714674213397037056-rTt2
 syndicated:
-  medium:
-  dev:
-  hackerNoon:
+  medium: https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2
+  dev: https://dev.to/tywmick/can-i-grade-loans-better-than-lendingclub-19jd
+  hackerNoon: https://app.hackernoon.com/drafts/cW0z6aFAM6mUVeflWCoL
 ipynb: true
 ---
 

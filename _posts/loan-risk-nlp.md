@@ -15,8 +15,8 @@ links:
   facebook: https://www.facebook.com/tywmick/posts/10214467025628226
   linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6725480058460413952/
 syndicated:
-  medium:
-  dev:
+  medium: https://towardsdatascience.com/loan-risk-nlp-d98021613ff3
+  dev: https://dev.to/tywmick/natural-language-processing-for-loan-risk-3m1k
   hackerNoon:
 ipynb: true
 ---
