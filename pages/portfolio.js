@@ -32,6 +32,11 @@ export default function Portfolio() {
                     Can I Grade Loans Better Than LendingClub?
                   </a>
                 </li>
+                <li>
+                  <a href="https://towardsdatascience.com/loan-risk-nlp-d98021613ff3">
+                    Natural Language Processing for Loan Risk
+                  </a>
+                </li>
               </ul>
             </>,
             <>
@@ -96,6 +101,9 @@ export default function Portfolio() {
                 </li>
               </ul>
             </>,
+            <a href="https://www.kaggle.com/tywmick/natural-language-processing-for-loan-risk">
+              Natural language processing of loan applications
+            </a>,
           ]}
         />
 
@@ -231,6 +239,16 @@ export default function Portfolio() {
         />
 
         <PortfolioSection
+          name="Data structure implementations"
+          id="data-structures"
+          projects={[
+            <a href="https://github.com/tywmick/data-structures#readme">
+              12 common data structures in TypeScript and Python
+            </a>,
+          ]}
+        />
+
+        <PortfolioSection
           name="Full-stack web apps"
           id="full-stack"
           projects={[
@@ -324,6 +342,12 @@ export default function Portfolio() {
               for freeCodeCamp
             </>,
             <>
+              <a href="https://github.com/tensorflow/tensorflow/pull/41599">
+                Documentation help
+              </a>{" "}
+              for TensorFlow
+            </>,
+            <>
               <a href="https://github.com/pandas-dev/pandas/pull/35337">
                 Documentation help
               </a>{" "}
@@ -333,15 +357,7 @@ export default function Portfolio() {
               <a href="https://github.com/rtcovidlive/covid-model/pull/27">
                 Formatting help
               </a>{" "}
-              for{" "}
-              <a href="https://rt.live/">
-                R<sub>t</sub> Live
-              </a>
-              &rsquo;s COVID-19{" "}
-              <var>
-                R<sub>t</sub>
-              </var>{" "}
-              model
+              for R<sub>t</sub> Live&rsquo;s COVID-19 model
             </>,
             <>
               <a href="https://github.com/mauriciopoppe/function-plot/pull/145">
@@ -372,6 +388,12 @@ export default function Portfolio() {
                 Documentation help
               </a>{" "}
               for Code Shelter
+            </>,
+            <>
+              <a href="https://github.com/pulls?q=user%3AVSCodium+author%3Atywmick+is%3Apr+is%3Amerged">
+                Documentation help
+              </a>{" "}
+              for VSCodium
             </>,
           ]}
         />

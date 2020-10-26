@@ -55,6 +55,9 @@ export default function Navigation() {
                 <Dropdown.Item href="/data-scientist-resume.pdf">
                   Data Scientist
                 </Dropdown.Item>
+                <Dropdown.Item href="/data-engineer-resume.pdf">
+                  Data Engineer
+                </Dropdown.Item>
                 <Dropdown.Item href="/web-developer-resume.pdf">
                   Web Developer
                 </Dropdown.Item>
@@ -80,8 +83,4 @@ export default function Navigation() {
       </Navbar>
     </Container>
   );
-}
-
-function getSubdirectory(path) {
-  return "/" + path.split("/")[1];
 }
