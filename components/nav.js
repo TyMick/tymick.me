@@ -10,12 +10,12 @@ export default function Navigation() {
   const router = useRouter();
 
   const [expanded, setExpanded] = useState(false);
-  const toggleExpanded = () => {
-    setExpanded(!expanded);
-  };
-  const collapse = () => {
-    setExpanded(false);
-  };
+  const toggleExpanded = () => setExpanded(!expanded);
+  const collapse = () => setExpanded(false);
+
+  function getSubdirectory(path) {
+    return "/" + path.split("/")[1];
+  }
 
   return (
     <Container as="header" className="px-0 mb-4 mb-sm-5">
