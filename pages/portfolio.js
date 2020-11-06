@@ -282,21 +282,42 @@ export default function Portfolio() {
         />
 
         <PortfolioSection
-          name="Single-page PHP apps"
-          id="php-apps"
-          projects={[<a href="http://php-todo.tymick.me/">To-do list</a>]}
-        />
-
-        <PortfolioSection
-          name="Single-page React apps"
-          id="react-apps"
+          name="Single-page apps"
+          id="single-page-apps"
           projects={[
-            <a href="https://ty-pomodoro-clock.glitch.me/">Pomodoro clock</a>,
-            <a href="https://codepen.io/tywmick/full/BaBVeVO">Calculator</a>,
-            <a href="https://codepen.io/tywmick/full/zYOaPyW">Drum machine</a>,
-            <a href="https://codepen.io/tywmick/full/PoYeapB">
-              Markdown previewer
-            </a>,
+            <>
+              React
+              <ul className="mb-1">
+                <li>
+                  <a href="https://ty-pomodoro-clock.glitch.me/">
+                    Pomodoro clock
+                  </a>
+                </li>
+                <li>
+                  <a href="https://codepen.io/tywmick/full/BaBVeVO">
+                    Calculator
+                  </a>
+                </li>
+                <li>
+                  <a href="https://codepen.io/tywmick/full/zYOaPyW">
+                    Drum machine
+                  </a>
+                </li>
+                <li>
+                  <a href="https://codepen.io/tywmick/full/PoYeapB">
+                    Markdown previewer
+                  </a>
+                </li>
+              </ul>
+            </>,
+            <>
+              PHP
+              <ul>
+                <li>
+                  <a href="http://php-todo.tymick.me/">To-do list</a>
+                </li>
+              </ul>
+            </>,
           ]}
         />
 
