@@ -243,7 +243,7 @@ export default function Portfolio() {
           id="data-structures"
           projects={[
             <a href="https://github.com/tywmick/data-structures#readme">
-              12 common data structures in TypeScript and Python
+              12 common data structures in C, TypeScript, and Python
             </a>,
           ]}
         />
