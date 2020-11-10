@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import A from "../components/internal-link";
+import A from "../components/InternalLink";
 import profilePic from "../images/profile-pic.jpg?sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800";
 
 export default function Home() {

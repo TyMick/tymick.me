@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import Testimonial from "../components/testimonial";
+import Testimonial from "../components/Testimonial";
 
 const Testimonials = () => (
   <>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import A from "../components/internal-link";
+import A from "../components/InternalLink";
 import { SHORTCUT_LINKS } from "../lib/shortcut-links";
 
 export default function Shortcut({ url, as }) {

@@ -1,8 +1,8 @@
 import React from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../styles/index.scss";
 

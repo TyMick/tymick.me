@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Gist from "react-gist";
 import { Container } from "react-bootstrap";
-import AlgorithmTest from "../../components/algorithm-test";
+import AlgorithmTest from "../../components/AlgorithmTest";
 
 const CaesarsCipher = () => {
   function rot13(str) {
@@ -22,7 +22,7 @@ const CaesarsCipher = () => {
 
     function inRange(target, ...ranges) {
       let inAnyRange = false;
-      ranges.forEach(range => {
+      ranges.forEach((range) => {
         if (range[0] <= target && target <= range[1]) {
           inAnyRange = true;
         }

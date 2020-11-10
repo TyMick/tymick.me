@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import EssayPreview from "../components/essay-preview";
+import EssayPreview from "../components/EssayPreview";
 
 export default function Dtic() {
   return (

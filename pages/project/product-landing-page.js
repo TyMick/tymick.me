@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import CodePen from "../../components/codepen";
+import Codepen from "../../components/Codepen";
 
 const ProductLandingPage = () => {
   // Just capture the window height once
@@ -17,7 +17,7 @@ const ProductLandingPage = () => {
       </Head>
 
       <Container fluid className="mt-n3 mb-4 mb-lg-5">
-        <CodePen
+        <Codepen
           title="Product landing page"
           slug="bJQBRz"
           height={windowHeight * 0.6}

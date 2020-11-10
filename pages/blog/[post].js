@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 import { get, startCase } from "lodash";
 import clsx from "clsx";
-import DateTime from "../../components/date-time";
+import DateTime from "../../components/DateTime";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import {
   markdownToHtml,

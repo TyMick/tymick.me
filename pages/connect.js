@@ -25,8 +25,8 @@ import {
   faWikipediaW,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import ContactMethod from "../components/contact-method";
-import MiscProfile from "../components/misc-profile";
+import ContactMethod from "../components/ContactMethod";
+import MiscProfile from "../components/MiscProfile";
 import clsx from "clsx";
 
 export default function Connect() {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import CodePen from "../../components/codepen";
+import Codepen from "../../components/Codepen";
 
 const TechnicalDocumentationPage = () => {
   // Just capture the window height once
@@ -17,7 +17,7 @@ const TechnicalDocumentationPage = () => {
       </Head>
 
       <Container fluid className="mt-n3 mb-4 mb-lg-5">
-        <CodePen
+        <Codepen
           title="Technical documentation page"
           slug="EJrmvx"
           height={windowHeight * 0.6}

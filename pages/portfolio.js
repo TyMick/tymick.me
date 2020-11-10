@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
 import TeX from "@matejmazur/react-katex";
-import PortfolioSection from "../components/portfolio-section";
-import A from "../components/internal-link";
+import PortfolioSection from "../components/PortfolioSection";
+import A from "../components/InternalLink";
 
 export default function Portfolio() {
   return (
