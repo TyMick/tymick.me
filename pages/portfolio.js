@@ -65,6 +65,11 @@ export default function Portfolio() {
                   </a>
                 </li>
                 <li>
+                  <a href="https://hackernoon.com/can-i-grade-loans-better-than-lendingclub-xgt3wue">
+                    Can I Grade Loans Better Than LendingClub?
+                  </a>
+                </li>
+                <li>
                   <a href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9">
                     Making a Browser Console Log Wait Until Page Reloads [A
                     How-To Guide]
