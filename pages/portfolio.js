@@ -350,6 +350,12 @@ export default function Portfolio() {
               for Next.js
             </>,
             <>
+              <a href="https://github.com/pulls?q=user%3AFaithlife+author%3Atywmick+is%3Apr+is%3Amerged">
+                New features
+              </a>{" "}
+              for Faithlife
+            </>,
+            <>
               <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
                 New feature and bug fixes
               </a>{" "}
