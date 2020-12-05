@@ -1,15 +1,5 @@
-# dependencies (remove exceptions when Next.js releases fix)
+# dependencies
 /node_modules/*
-!/node_modules/next
-/node_modules/next/*
-!/node_modules/next/dist
-/node_modules/next/dist/*
-!/node_modules/next/dist/next-server
-/node_modules/next/dist/next-server/*
-!/node_modules/next/dist/next-server/server
-/node_modules/next/dist/next-server/server/*
-!/node_modules/next/dist/next-server/server/render.js
-!/node_modules/next/dist/next-server/server/render.js.map
 
 # testing
 /coverage
