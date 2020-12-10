@@ -392,16 +392,16 @@ export default function Portfolio() {
               for R<sub>t</sub> Live&rsquo;s COVID-19 model
             </>,
             <>
-              <a href="https://github.com/mauriciopoppe/function-plot/pull/145">
-                Licensing help
-              </a>{" "}
-              for Function Plot
-            </>,
-            <>
               <a href="https://github.com/twbs/bootstrap/pull/30010">
                 Documentation help
               </a>{" "}
               for Bootstrap
+            </>,
+            <>
+              <a href="https://github.com/styled-components/styled-components-website/pull/744">
+                Documentation help
+              </a>{" "}
+              for styled-components
             </>,
             <>
               <a href="https://github.com/brefphp/bref/pull/760">
