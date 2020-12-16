@@ -344,16 +344,16 @@ export default function Portfolio() {
           id="open-source"
           projects={[
             <>
+              <a href="https://github.com/pulls?q=user%3AFaithlife+author%3Atywmick+is%3Apr+is%3Amerged">
+                Feature development and bug fixes
+              </a>{" "}
+              for Faithlife
+            </>,
+            <>
               <a href="https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
                 Bug fixes and documentation help
               </a>{" "}
               for Next.js
-            </>,
-            <>
-              <a href="https://github.com/pulls?q=user%3AFaithlife+author%3Atywmick+is%3Apr+is%3Amerged">
-                New features
-              </a>{" "}
-              for Faithlife
             </>,
             <>
               <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
