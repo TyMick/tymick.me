@@ -15,10 +15,10 @@ export default function Home() {
     <>
       {/* prettier-ignore */}
       <Head>
-        <title>Ty Mick, Data Scientist</title>
+        <title>Ty Mick, software developer</title>
 
-        <meta property="og:title" content="Ty Mick, Data Scientist" />
-        <meta property="og:description" content="Hi! I'm Ty. I'm an award-winning analyst and data scientist who's nuts about neural networks." />
+        <meta property="og:title" content="Ty Mick, software developer" />
+        <meta property="og:description" content="Hi! I'm Ty. I'm an award-winning analyst, data scientist, and web developer." />
         <meta property="og:image" content="https://tymick.me/preview.png" />
         <meta property="og:url" content="https://tymick.me/" />
         <meta name="twitter:card" content="summary_large_image" />
