@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Container, Navbar, Nav, Image, Dropdown } from "react-bootstrap";
+import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import profilePic from "../images/profile-pic.jpg?sizes[]=48&sizes[]=96&sizes[]=144&sizes[]=192";
+import Image from "./Image";
 
 export default function Navigation() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function Navigation() {
   const toggleExpanded = () => setExpanded(!expanded);
   const collapse = () => setExpanded(false);
 
-  function getSubdirectory(path) {
+  function getSubdirectory(path: string): string {
     return "/" + path.split("/")[1];
   }
 
@@ -29,11 +29,13 @@ export default function Navigation() {
           <Navbar.Brand onClick={collapse} className="signature">
             {router.pathname !== "/" && (
               <Image
-                srcSet={profilePic.srcSet}
-                src={profilePic.src}
-                sizes="(min-width: 1420px) 48px, calc(1.09vw + 33px)" // instead of 1.5em, as per https://ausi.github.io/respimagelint/
+                src="/images/profile-pic.jpg"
+                dimensions={{ width: 2201, height: 2201 }}
                 alt="Ty hiking in Joshua Tree National Park"
+                size="1.5em"
+                className="align-top mr-3"
                 roundedCircle
+                priority
               />
             )}
             Ty Mick

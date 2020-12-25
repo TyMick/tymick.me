@@ -49,10 +49,7 @@ export default function Post({ post }) {
           <>
             <meta
               property="og:image"
-              content={
-                "https://tymick.me" +
-                require(`../../images/${ogImage.fileName}`)
-              }
+              content={`https://tymick.me/images/${ogImage.fileName}`}
             />
             <meta name="og:image:alt" content={ogImage.alt} />
             <meta name="twitter:image:alt" content={ogImage.alt} />

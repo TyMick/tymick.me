@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import { Container, Row, Col, Image } from "react-bootstrap";
-import A from "../components/InternalLink";
-import profilePic from "../images/profile-pic.jpg?sizes[]=200&sizes[]=400&sizes[]=600&sizes[]=800";
+import { Container, Row, Col } from "react-bootstrap";
+import { Image, InternalLink as A } from "../components";
 
 export default function Home() {
   // Logic to remove Mastodon verification link after page loads
@@ -35,12 +34,13 @@ export default function Home() {
             className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left"
           >
             <Image
-              srcSet={profilePic.srcSet}
-              src={profilePic.src}
+              src="/images/profile-pic.jpg"
+              dimensions={{ width: 2201, height: 2201 }}
               alt="Ty hiking in Joshua Tree National Park"
-              style={{ width: "100%", maxWidth: "200px" }}
-              sizes="(min-width: 200px) 200px, 100vw"
+              width="100%"
+              maxWidth="200px"
               roundedCircle
+              priority
             />
           </Col>
           <Col xs={12} sm className="text-center text-sm-left">
