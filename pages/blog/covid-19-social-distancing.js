@@ -193,7 +193,9 @@ export default function Covid19SocialDistancing() {
 
         <Figure className="full-width-padded mt-2 mb-4">
           <Figure.Image
-            src={"https://pbs.twimg.com/media/ETuMzdBWAAgzf-T?format=jpg&name=medium"}
+            src={
+              "https://pbs.twimg.com/media/ETuMzdBWAAgzf-T?format=jpg&name=medium"
+            }
             dimensions={{ width: 1118, height: 732 }}
             className="d-block mx-auto"
             rounded

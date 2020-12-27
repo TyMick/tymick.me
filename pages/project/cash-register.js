@@ -8,7 +8,7 @@ import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 const CashRegister = () => {
   function checkCashRegister(price, cash, cid) {
     let changeLeft = cash - price;
-    let drawerTotal = cid.reduce(function(acc, cur) {
+    let drawerTotal = cid.reduce(function (acc, cur) {
       return acc + cur[1];
     }, 0);
 

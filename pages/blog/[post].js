@@ -106,18 +106,20 @@ export default function Post({ post }) {
                       {label === "linkedin" ? "LinkedIn" : startCase(label)}
                     </a>
 
-                    {// Determine appropriate list punctation
-                    numLinks === 1
-                      ? ""
-                      : numLinks === 2
-                      ? i + 1 === numLinks
+                    {
+                      // Determine appropriate list punctation
+                      numLinks === 1
                         ? ""
-                        : " or "
-                      : i + 1 === numLinks
-                      ? ""
-                      : i + 2 === numLinks
-                      ? ", or "
-                      : ", "}
+                        : numLinks === 2
+                        ? i + 1 === numLinks
+                          ? ""
+                          : " or "
+                        : i + 1 === numLinks
+                        ? ""
+                        : i + 2 === numLinks
+                        ? ", or "
+                        : ", "
+                    }
                   </span>
                 ))}
               .

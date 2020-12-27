@@ -6,10 +6,11 @@ export default function filterProps<FilteredType, OtherType>(
   let otherProps: any = {};
 
   for (const [propName, propValue] of Object.entries(props)) {
-    if (filterNames.includes(propName))
+    if (filterNames.includes(propName)) {
       filteredProps[propName] = propValue;
-    else
+    } else {
       otherProps[propName] = propValue;
+    }
   }
 
   return [filteredProps, otherProps];
