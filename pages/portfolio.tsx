@@ -263,13 +263,6 @@ export default function Portfolio() {
             <a href="https://nextjs-local-authentication.tymick.me">
               Next.js + MongoDB local authentication boilerplate
             </a>,
-          ]}
-        />
-
-        <PortfolioSection
-          name="Multi-page static websites"
-          id="static-sites"
-          projects={[
             <A href="/project/personal-site" title="About this site">
               Personal portfolio/blog site
             </A>,
