@@ -49,6 +49,10 @@
       "destination": "https://instagram.com/tywmick"
     },
     {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/tywmick"
+    },
+    {
       "source": "/loan-risk-neural-network",
       "destination": "/blog/loan-risk-neural-network"
     },
