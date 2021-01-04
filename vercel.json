@@ -41,10 +41,6 @@
       "destination": "https://www.freecodecamp.org/certification/tywmick/information-security-and-quality-assurance"
     },
     {
-      "source": "/freecodecamp-contributions",
-      "destination": "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged"
-    },
-    {
       "source": "/github",
       "destination": "https://github.com/tywmick"
     },
@@ -63,14 +59,6 @@
     {
       "source": "/miles",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdsheP_Mh8glRYDrdYmDdTEbddXuD1T9IkZke-keMYZV1P_DQ/viewform?usp=sf_link"
-    },
-    {
-      "source": "/nextjs",
-      "destination": "https://github.com/vercel/next.js/pulls?q=author%3Atywmick"
-    },
-    {
-      "source": "/nextjs-contributions",
-      "destination": "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged"
     },
     {
       "source": "/python-apis",
