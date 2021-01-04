@@ -92,8 +92,5 @@
       "source": "/youtube",
       "destination": "https://www.youtube.com/tylerwestinmick"
     }
-  ],
-  "github": {
-    "silent": true
-  }
+  ]
 }
