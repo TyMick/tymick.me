@@ -34,6 +34,9 @@ export {
   Testimonial,
 };
 
-export const mdxComponents: Components = {
+export const mdxComponents: Components & {
+  [shortcode: string]: React.ComponentType<any>;
+} = {
   a: IsometricLink,
+  Image: Image,
 };

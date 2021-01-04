@@ -1454,8 +1454,9 @@ def plot_loss_metrics(history, model_num=None):
 plot_loss_metrics(history_1, "1")
 ```
 
-<img
+<Image
   src="/images/loan-risk-nlp_37_0.png"
+  dimensions={{ width: 384, height: 278 }}
   alt="A line plot entitled “Model 1 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. Training loss falls rapidly and fairly smoothly, with another small but interesting drop around the 40th epoch. The validation loss line, while very jagged, appears on average to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting."
 />
 
@@ -1514,8 +1515,9 @@ except NameError:
 plot_loss_metrics(history_2, "2")
 ```
 
-<img
+<Image
   src="/images/loan-risk-nlp_41_0.png"
+  dimensions={{ width: 384, height: 278 }}
   alt="A line plot entitled “Model 2 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. The validation loss line is even chaotic this time than in the model 1 plot but still doesn’t appear to be overfitting."
 />
 

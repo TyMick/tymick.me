@@ -44,18 +44,18 @@
   }
   p + pre,
   p + .data-table,
-  p + img,
+  p + .image-wrapper,
   ul + pre,
   ul + .data-table,
-  ul + img,
+  ul + .image-wrapper,
   ol + pre,
   ol + .data-table,
-  ol + img {
+  ol + .image-wrapper {
     margin-top: 2rem;
   }
   pre,
   .data-table,
-  img {
+  .image-wrapper {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
@@ -65,9 +65,9 @@
   .data-table + p,
   .data-table + ul,
   .data-table + ol,
-  img + p,
-  img + ul,
-  img + ol {
+  .image-wrapper + p,
+  .image-wrapper + ul,
+  .image-wrapper + ol {
     margin-top: 2rem;
   }
   .data-table p {

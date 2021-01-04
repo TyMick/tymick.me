@@ -1,3 +1,6 @@
+/**
+ * @todo Change most of this page to a list of blog posts.
+ */
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
@@ -18,7 +21,7 @@ export default function Home() {
 
         <meta property="og:title" content="Ty Mick, software developer" />
         <meta property="og:description" content="Hi! I'm Ty. I'm an award-winning analyst, data scientist, and web developer." />
-        <meta property="og:image" content="https://tymick.me/preview.png" />
+        <meta property="og:image" content="https://tymick.me/images/preview.png" />
         <meta property="og:url" content="https://tymick.me/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:site_name" content="Ty Mick" />
