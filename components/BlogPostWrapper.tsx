@@ -15,6 +15,7 @@ type BlogPostWrapperProps = {
   description?: string;
   date: Date | string;
   lastUpdated: Date | string;
+  canonicalUrl?: string;
   ogImage: {
     filename: string;
     alt: string;
@@ -37,6 +38,7 @@ export default function BlogPostWrapper({
   description,
   date,
   lastUpdated,
+  canonicalUrl,
   ogImage,
   cta,
   socialLinks,
@@ -44,9 +46,6 @@ export default function BlogPostWrapper({
   className,
   ...otherProps
 }: BlogPostWrapperProps) {
-  const router = useRouter();
-  const slug: string = lastElement(router.pathname.split("/"));
-
   const breakpoint = useWindowWidthBreakpoints();
 
   const numLinks: number = socialLinks
@@ -60,8 +59,10 @@ export default function BlogPostWrapper({
     return linkRanks?.[keyA] ?? 100 - linkRanks?.[keyB] ?? 100;
   }
 
+  const router = useRouter();
+  const slug: string = lastElement(router.pathname.split("/"));
+  const url = `https://tymick.me/blog/${slug}`;
   const webPageTitle = `${title} - Ty Mick`;
-  const canonicalUrl = `https://tymick.me/blog/${slug}`;
 
   return (
     <>
@@ -69,11 +70,11 @@ export default function BlogPostWrapper({
         {...{
           title: webPageTitle,
           description: description || subtitle,
-          canonical: canonicalUrl,
+          canonical: canonicalUrl || url,
           openGraph: {
             title: webPageTitle,
             description: description || subtitle,
-            url: canonicalUrl,
+            url: url,
             images: [
               {
                 url: `https://tymick.me/images/${ogImage.filename}`,
@@ -98,7 +99,9 @@ export default function BlogPostWrapper({
         <h1 id="article-title">{markdownToReactFragment(title)}</h1>
 
         {subtitle && (
-          <div className="h3 text-secondary">{markdownToReactFragment(subtitle)}</div>
+          <div className="h3 text-secondary">
+            {markdownToReactFragment(subtitle)}
+          </div>
         )}
 
         <div className="font-italic text-secondary sans-serif mb-4">
