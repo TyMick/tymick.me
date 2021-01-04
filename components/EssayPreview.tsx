@@ -1,6 +1,15 @@
 import React from "react";
 import Link from "next/link";
 
+type EssayPreviewProps = {
+  title: string;
+  subtitle?: string;
+  href: string;
+  as?: string;
+  date: string;
+  children: React.ReactNode;
+};
+
 export default function EssayPreview({
   title,
   subtitle,
@@ -8,7 +17,7 @@ export default function EssayPreview({
   as,
   date,
   children,
-}) {
+}: EssayPreviewProps) {
   return (
     <li className="essay-preview">
       <h2 className="h5 serif">

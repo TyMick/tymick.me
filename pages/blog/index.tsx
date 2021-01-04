@@ -1,8 +1,8 @@
 /**
- * @todo Convert old posts to markdown, add to _posts, create dynamic preview
- * list here.
+ * @todo Convert old posts to MDX, create dynamic preview list here.
  * @todo Change canonical links on other distribution platforms to reflect
  * change of adding `/blog` to post urls.
+ * @todo Move this sort of thing to the front page of the website.
  */
 import React from "react";
 import Head from "next/head";
@@ -23,8 +23,7 @@ export default function Blog() {
           <EssayPreview
             title="Natural Language Processing for Loan Risk"
             subtitle="Adding spaCy Word Vectors to a Keras Model"
-            href="/blog/[post]"
-            as="/blog/loan-risk-nlp"
+            href="/blog/loan-risk-nlp"
             date="October 23, 2020"
           >
             A couple months ago, I built a neural network regression model to
@@ -37,8 +36,7 @@ export default function Blog() {
           <EssayPreview
             title="Can I Grade Loans Better Than LendingClub?"
             subtitle="Pitting My Neural Network Against a Corporate Benchmark"
-            href="/blog/[post]"
-            as="/blog/loan-grading-showdown"
+            href="/blog/loan-grading-showdown"
             date="September 23, 2020"
           >
             Today I&rsquo;m going to put my loan risk model to the test, pitting
@@ -52,8 +50,7 @@ export default function Blog() {
           <EssayPreview
             title="Building a Neural Network to Predict Loan Risk"
             subtitle="or, Ty Goes Into Far Too Much Detail About Cleaning Data"
-            href="/blog/[post]"
-            as="/blog/loan-risk-neural-network"
+            href="/blog/loan-risk-neural-network"
             date="July 29, 2020"
           >
             LendingClub is the world&rsquo;s largest peer-to-peer lending
@@ -68,8 +65,7 @@ export default function Blog() {
 
           <EssayPreview
             title="How to make a browser console log wait until after a page reload"
-            href="/blog/[post]"
-            as="/blog/console-log-after-reload"
+            href="/blog/console-log-after-reload"
             date="June 1, 2020"
           >
             Ever wanted to create a browser console log that persists after a
