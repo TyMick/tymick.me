@@ -1,24 +1,47 @@
----
-title: Building a Neural Network to Predict Loan Risk
-subtitle: or, Ty Goes Into Far Too Much Detail About Cleaning Data
-excerpt: LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.
-date: "2020-07-29T14:41:46.514-04:00"
-lastUpdated: "2020-10-23T13:03:32.729-05:00"
-ogImage:
-  fileName: neonbrand-dDvrIJbSCkg-unsplash.jpg
-  alt: A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.
-cta: One of the best/worst things about machine learning is that your models _always_ have room for improvement. I mentioned a couple ideas along the way above for how I could improve the model in the future, but what's the first thing you would tweak? I'd love to hear
-links:
-  twitter: https://twitter.com/tywmick/status/1288557300479909893
-  mastodon: https://mastodon.online/@tywmick/104847811672709307
-  facebook: https://www.facebook.com/tywmick/posts/10213991818068334
-  linkedin: https://www.linkedin.com/posts/tywmick_building-a-neural-network-to-predict-loan-activity-6694323719113912320-Mwcr
-syndicated:
-  medium: https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e
-  dev: https://dev.to/tywmick/building-a-neural-network-to-predict-loan-risk-3k1f
-  hackerNoon: https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2
-ipynb: true
----
+export const metadata = {
+  title: "Building a Neural Network to Predict Loan Risk",
+  subtitle: "or, Ty Goes Into Far Too Much Detail About Cleaning Data",
+  excerpt:
+    "LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.",
+  date: "2020-07-29T14:41:46.514-04:00",
+  lastUpdated: "2020-10-23T13:03:32.729-05:00",
+  ogImage: {
+    filename: "neonbrand-dDvrIJbSCkg-unsplash.jpg",
+    alt:
+      "A few dollar bills floating around a laptop with a screen covered in green code. Photo by NeONBRAND on Unsplash.",
+  },
+  cta:
+    "One of the best/worst things about machine learning is that your models _always_ have room for improvement. I mentioned a couple ideas along the way above for how I could improve the model in the future, but what's the first thing you would tweak? I'd love to hear",
+  socialLinks: {
+    twitter: "https://twitter.com/tywmick/status/1288557300479909893",
+    mastodon: "https://mastodon.online/@tywmick/104847811672709307",
+    facebook: "https://www.facebook.com/tywmick/posts/10213991818068334",
+    linkedin:
+      "https://www.linkedin.com/posts/tywmick_building-a-neural-network-to-predict-loan-activity-6694323719113912320-Mwcr",
+  },
+  syndicated: {
+    medium:
+      "https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e",
+    dev:
+      "https://dev.to/tywmick/building-a-neural-network-to-predict-loan-risk-3k1f",
+    hackerNoon:
+      "https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2",
+  },
+  ipynb: true,
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+@todo Open an issue in MDX and/or Next.js.
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
 
 1. **[Introduction](#introduction)**
 2. **[Data cleaning](#data-cleaning)**
@@ -29,7 +52,11 @@ ipynb: true
 
 <h2 id="introduction">Introduction</h2>
 
-[LendingClub](https://www.lendingclub.com/) is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. I'm accessing the dataset [via Kaggle](https://www.kaggle.com/wordsforthewise/lending-club).
+[LendingClub](https://www.lendingclub.com/) is the world's largest peer-to-peer
+lending platform. Until recently (through the end of 2018), LendingClub
+published a public dataset of all loans issued since the company's launch
+in 2007. I'm accessing the dataset
+[via Kaggle](https://www.kaggle.com/wordsforthewise/lending-club).
 
 ```python
 import pandas as pd
@@ -46,15 +73,26 @@ loans_raw.shape
 (2260701, 151)
 ```
 
-With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. (Spoiler alert: my model can pick grade A loans [better than LendingClub](/blog/loan-grading-showdown)).
+With 2,260,701 loans to look at and 151 potential variables, my goal is to
+create a neural network model to predict the fraction of an expected loan return
+that a prospective borrower will pay back. (Spoiler alert: my model can pick
+grade A loans [better than LendingClub](/blog/loan-grading-showdown)).
 
 Afterward, I'll create a public API to serve that model.
 
-Also, as you may have guessed from the preceding code block, this post is adapted from a Jupyter Notebook. If you'd like to follow along in your own notebook, go ahead and fork mine on [Kaggle](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk "Building a Neural Network to Predict Loan Risk | Kaggle") or [GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-risk-neural-network.ipynb "loan-risk-neural-network/loan-risk-neural-network.ipynb at master · tywmick/loan-risk-neural-network").
+Also, as you may have guessed from the preceding code block, this post is
+adapted from a Jupyter Notebook. If you'd like to follow along in your own
+notebook, go ahead and fork mine on
+[Kaggle](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk "Building a Neural Network to Predict Loan Risk | Kaggle")
+or
+[GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-risk-neural-network.ipynb "loan-risk-neural-network/loan-risk-neural-network.ipynb at master · tywmick/loan-risk-neural-network").
 
 <h2 id="data-cleaning">Data cleaning</h2>
 
-I'll first look at the data dictionary (downloaded directly [from LendingClub's website](https://resources.lendingclub.com/LCDataDictionary.xlsx)) to get an idea of how to create the desired output variable and which remaining features are available at the point of loan application (to avoid data leakage).
+I'll first look at the data dictionary (downloaded directly
+[from LendingClub's website](https://resources.lendingclub.com/LCDataDictionary.xlsx))
+to get an idea of how to create the desired output variable and which remaining
+features are available at the point of loan application (to avoid data leakage).
 
 ```python
 dictionary_df = pd.read_excel("https://resources.lendingclub.com/LCDataDictionary.xlsx")
@@ -226,15 +264,25 @@ new products not publicly available policy_code=2
 •settlement_term: The number of months that the borrower will be on the settlement plan
 ```
 
-For the output variable (the fraction of expected return that was recovered), I'll calculated the _expected return_ by multiplying the monthly payment amount (`installment`) by the number of payments on the loan (`term`), and I'll calculate the _amount actually received_ by summing the total principle, interest, late fees, and post-chargeoff gross recovery received (`total_rec_prncp`, `total_rec_int`, `total_rec_late_fee`, `recoveries`) and subtracting any collection fee (`collection_recovery_fee`).
+For the output variable (the fraction of expected return that was recovered),
+I'll calculated the _expected return_ by multiplying the monthly payment amount
+(`installment`) by the number of payments on the loan (`term`), and I'll
+calculate the _amount actually received_ by summing the total principle,
+interest, late fees, and post-chargeoff gross recovery received
+(`total_rec_prncp`, `total_rec_int`, `total_rec_late_fee`, `recoveries`) and
+subtracting any collection fee (`collection_recovery_fee`).
 
 ```python
 cols_for_output = ["term", "installment", "total_rec_prncp", "total_rec_int", "total_rec_late_fee", "recoveries", "collection_recovery_fee"]
 ```
 
-Several other columns contain either irrelevant demographic data or data not created until after a loan is accepted, so those will need to be removed. I'll hold onto `issue_d` (the month and year the loan was funded) for now, though, in case I want to compare variables to the date of the loan.
+Several other columns contain either irrelevant demographic data or data not
+created until after a loan is accepted, so those will need to be removed. I'll
+hold onto `issue_d` (the month and year the loan was funded) for now, though, in
+case I want to compare variables to the date of the loan.
 
-`emp_title` (the applicant's job title) _does_ seem relevant in the context of a loan, but it may have too many unique values to be useful.
+`emp_title` (the applicant's job title) _does_ seem relevant in the context of a
+loan, but it may have too many unique values to be useful.
 
 ```python
 loans_raw["emp_title"].nunique()
@@ -244,16 +292,27 @@ loans_raw["emp_title"].nunique()
 512694
 ```
 
-Too many unique values indeed. In a future version of this model I could perhaps try to generate a feature from this column by aggregating job titles into categories, but that effort may have a low return on investment, since there are already columns for annual income and length of employment.
+Too many unique values indeed. In a future version of this model I could perhaps
+try to generate a feature from this column by aggregating job titles into
+categories, but that effort may have a low return on investment, since there are
+already columns for annual income and length of employment.
 
-Two other interesting columns that I'll also remove are `title` and `desc` ("description"), which are both freeform text entries written by the borrower. These could be fascinating subjects for natural language processing, but that's outside the scope of the current project. Perhaps in the future I could generate additional features from these fields using measures like syntactic complexity, word count, or keyword inclusion. (I ended up exploring this line of thinking in [a later post](/blog/loan-risk-nlp "Natural Language Processing for Loan Risk") using document vectors.)
+Two other interesting columns that I'll also remove are `title` and `desc`
+("description"), which are both freeform text entries written by the borrower.
+These could be fascinating subjects for natural language processing, but that's
+outside the scope of the current project. Perhaps in the future I could generate
+additional features from these fields using measures like syntactic complexity,
+word count, or keyword inclusion. (I ended up exploring this line of thinking in
+[a later post](/blog/loan-risk-nlp "Natural Language Processing for Loan Risk")
+using document vectors.)
 
 ```python
 cols_to_drop = ["id", "member_id", "funded_amnt", "funded_amnt_inv", "int_rate", "grade", "sub_grade", "emp_title", "pymnt_plan", "url", "desc", "title", "zip_code", "addr_state", "initial_list_status", "out_prncp", "out_prncp_inv", "total_pymnt", "total_pymnt_inv", "last_pymnt_d", "last_pymnt_amnt", "next_pymnt_d", "last_credit_pull_d", "last_fico_range_high", "last_fico_range_low", "policy_code", "hardship_flag", "hardship_type", "hardship_reason", "hardship_status", "deferral_term", "hardship_amount", "hardship_start_date", "hardship_end_date", "payment_plan_start_date", "hardship_length", "hardship_dpd", "hardship_loan_status", "orig_projected_additional_accrued_interest", "hardship_payoff_balance_amount", "hardship_last_payment_amount", "disbursement_method", "debt_settlement_flag", "debt_settlement_flag_date", "settlement_status", "settlement_date", "settlement_amount", "settlement_percentage", "settlement_term"]
 loans = loans_raw.drop(columns=cols_to_drop)
 ```
 
-Before creating the output variable, however, I must take a closer look at `loan_status`, to see if any loans in the dataset are still open.
+Before creating the output variable, however, I must take a closer look at
+`loan_status`, to see if any loans in the dataset are still open.
 
 ```python
 loans.groupby("loan_status")["loan_status"].count()
@@ -273,7 +332,9 @@ Late (31-120 days)                                       21467
 Name: loan_status, dtype: int64
 ```
 
-For practical purposes, I'll consider loans with statuses that don't contain "Fully Paid" or "Charged Off" to still be open, so I'll remove those from the dataset. I'll also merge the "credit policy" columns with their matching status.
+For practical purposes, I'll consider loans with statuses that don't contain
+"Fully Paid" or "Charged Off" to still be open, so I'll remove those from the
+dataset. I'll also merge the "credit policy" columns with their matching status.
 
 ```python
 credit_policy = "Does not meet the credit policy. Status:"
@@ -300,7 +361,8 @@ Fully Paid     1078739
 Name: loan_status, dtype: int64
 ```
 
-Now to create the output variable. I'll start by checking the null counts of the variables involved.
+Now to create the output variable. I'll start by checking the null counts of the
+variables involved.
 
 ```python
 loans[cols_for_output].info()
@@ -323,7 +385,8 @@ dtypes: float64(6), object(1)
 memory usage: 82.3+ MB
 ```
 
-Every remaining row has each of these seven variables, but `term`'s data type is `object`, so that needs to be fixed first.
+Every remaining row has each of these seven variables, but `term`'s data type is
+`object`, so that needs to be fixed first.
 
 ```python
 loans.groupby("term")["term"].count()
@@ -336,9 +399,12 @@ term
 Name: term, dtype: int64
 ```
 
-Ah, so `term` is a categorical feature with two options. I'll treat it as such when I use it as an input to the model, but to calculate the output variable I'll create a numerical column from it.
+Ah, so `term` is a categorical feature with two options. I'll treat it as such
+when I use it as an input to the model, but to calculate the output variable
+I'll create a numerical column from it.
 
-Also, I need to trim the whitespace from the beginning of those values—that's no good.
+Also, I need to trim the whitespace from the beginning of those values—that's no
+good.
 
 ```python
 onehot_cols = ["term"]
@@ -367,24 +433,10 @@ loans["fraction_recovered"] = received / expected
 loans.groupby("loan_status")["fraction_recovered"].describe()
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-    .dataframe tbody tr td {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>count</th>
         <th>mean</th>
@@ -434,9 +486,17 @@ loans.groupby("loan_status")["fraction_recovered"].describe()
   </table>
 </div>
 
-There is at least one odd outlier on the right in both categories. But also, many of the "fully paid" loans do not quite reach 1. One potential explanation is that when the last payment comes in, the system just flips `loan_status` to "Fully Paid" without adding the payment amount to the system itself, or perhaps simply multiplying `installation` by the `term` number leaves off a few cents in the actual total. If I were performing this analysis for Lending Club themselves, I'd ask them, but this is just a personal project. I'll consider every loan marked "Fully Paid" to have fully recovered the expected return.
+There is at least one odd outlier on the right in both categories. But also,
+many of the "fully paid" loans do not quite reach 1. One potential explanation
+is that when the last payment comes in, the system just flips `loan_status` to
+"Fully Paid" without adding the payment amount to the system itself, or perhaps
+simply multiplying `installation` by the `term` number leaves off a few cents in
+the actual total. If I were performing this analysis for Lending Club
+themselves, I'd ask them, but this is just a personal project. I'll consider
+every loan marked "Fully Paid" to have fully recovered the expected return.
 
-For that matter, I'll cap my `fraction_recovered` values for charged off loans at 1.0 as well, since at least one value is above that for some reason.
+For that matter, I'll cap my `fraction_recovered` values for charged off loans
+at 1.0 as well, since at least one value is above that for some reason.
 
 ```python
 import numpy as np
@@ -449,21 +509,10 @@ loans["fraction_recovered"] = np.where(
 loans.groupby("loan_status")["fraction_recovered"].describe()
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-  }
-    .dataframe tbody tr th {
-      vertical-align: top;
-  }
-    .dataframe thead th {
-      text-align: right;
-  }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>count</th>
         <th>mean</th>
@@ -513,7 +562,8 @@ loans.groupby("loan_status")["fraction_recovered"].describe()
   </table>
 </div>
 
-For the sake of curiosity, I'll plot the distribution of fraction recovered for charged-off loans.
+For the sake of curiosity, I'll plot the distribution of fraction recovered for
+charged-off loans.
 
 ```python
 import matplotlib.pyplot as plt
@@ -530,9 +580,13 @@ plt.title('Distribution of "fraction recovered"')
 plt.show()
 ```
 
-<img src="/images/loan-risk-neural-network_25_0.png" alt='A KDE (kernel density estimation) plot depicting the distribution of "fraction recovered" amounts among charged-off loans. It looks like a smoothed out triangular distribution, starting close to 0 density at 0.0 fraction recovered, peaking around 0.25 fraction recovered, and gradually falling back near 0 density at 1.0 fraction recovered.' />
+<img
+  src="/images/loan-risk-neural-network_25_0.png"
+  alt='A KDE (kernel density estimation) plot depicting the distribution of "fraction recovered" amounts among charged-off loans. It looks like a smoothed out triangular distribution, starting close to 0 density at 0.0 fraction recovered, peaking around 0.25 fraction recovered, and gradually falling back near 0 density at 1.0 fraction recovered.'
+/>
 
-Now that the output is formatted, it's time to clean up the inputs. I'll check the null counts of each variable.
+Now that the output is formatted, it's time to clean up the inputs. I'll check
+the null counts of each variable.
 
 ```python
 loans.drop(columns=cols_for_output, inplace=True)
@@ -648,10 +702,15 @@ memory usage: 1007.9+ MB
 
 Remaining columns with lots of null values seem to fall into three categories:
 
-1. Derogatory/delinquency metrics (where null means the borrower doesn't have any such marks)
-   - I'll also add `mths_since_recent_inq` to this list, since its non-null count is below what seems to be the threshold for complete data, which is around 1,277,783. I'll assume a null value here means no recent inquiries.
-2. Metrics that only apply to joint applications (where null means it was a single application)
-3. An inexplicable series of 14 credit history–related columns that only have around 537,000 entries. Are these newer metrics?
+1. Derogatory/delinquency metrics (where null means the borrower doesn't have
+   any such marks)
+   - I'll also add `mths_since_recent_inq` to this list, since its non-null
+     count is below what seems to be the threshold for complete data, which is
+     around 1,277,783. I'll assume a null value here means no recent inquiries.
+2. Metrics that only apply to joint applications (where null means it was a
+   single application)
+3. An inexplicable series of 14 credit history–related columns that only have
+   around 537,000 entries. Are these newer metrics?
 
 ```python
 negative_mark_cols = ["mths_since_last_delinq", "mths_since_last_record", "mths_since_last_major_derog", "mths_since_recent_bc_dlq", "mths_since_recent_inq", "mths_since_recent_revol_delinq", "mths_since_recent_revol_delinq", "sec_app_mths_since_last_major_derog"]
@@ -659,7 +718,9 @@ joint_cols = ["annual_inc_joint", "dti_joint", "verification_status_joint", "rev
 confusing_cols = ["open_acc_6m", "open_act_il", "open_il_12m", "open_il_24m", "mths_since_rcnt_il", "total_bal_il", "il_util", "open_rv_12m", "open_rv_24m", "max_bal_bc", "all_util", "inq_fi", "total_cu_tl", "inq_last_12m"]
 ```
 
-I'll first look at those more confusing columns to find out whether or not they're a newer set of metrics. That'll require converting `issue_d` to date format first.
+I'll first look at those more confusing columns to find out whether or not
+they're a newer set of metrics. That'll require converting `issue_d` to date
+format first.
 
 ```python
 loans["issue_d"] = loans["issue_d"].astype("datetime64[ns]")
@@ -691,13 +752,23 @@ max      2018-12-01 00:00:00
 Name: issue_d, dtype: object
 ```
 
-It appears that these are indeed newer metrics, their use only beginning in December 2015, but even after that point usage is spotty. I'm curious to see if these additional metrics would make a model more accurate, though, so once I'm done cleaning the data I'll copy the rows with these new metrics into a new dataset and create another model using the new metrics.
+It appears that these are indeed newer metrics, their use only beginning in
+December 2015, but even after that point usage is spotty. I'm curious to see if
+these additional metrics would make a model more accurate, though, so once I'm
+done cleaning the data I'll copy the rows with these new metrics into a new
+dataset and create another model using the new metrics.
 
 ```python
 new_metric_cols = confusing_cols
 ```
 
-As for the derogatory/delinquency metrics, taking a cue [from Michael Wurm](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb), I'm going to take the inverse of all the "months since recent/last" fields, which will turn each into a proxy for the frequency of the event and also let me set all the null values (when an event has never happened) to 0. For the "months since oldest" fields, I'll just set the null values to 0 and leave the rest untouched.
+As for the derogatory/delinquency metrics, taking a cue
+[from Michael Wurm](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb),
+I'm going to take the inverse of all the "months since recent/last" fields,
+which will turn each into a proxy for the frequency of the event and also let me
+set all the null values (when an event has never happened) to 0. For the "months
+since oldest" fields, I'll just set the null values to 0 and leave the rest
+untouched.
 
 ```python
 mths_since_last_cols = [
@@ -783,7 +854,8 @@ dtypes: float64(14), object(2)
 memory usage: 3.3+ MB
 ```
 
-It seems there may be a case of newer metrics for joint applications as well. I'll investigate.
+It seems there may be a case of newer metrics for joint applications as well.
+I'll investigate.
 
 ```python
 joint_new_metric_cols = ["revol_bal_joint", "sec_app_fico_range_low", "sec_app_fico_range_high", "sec_app_earliest_cr_line", "sec_app_inq_last_6mths", "sec_app_mort_acc", "sec_app_open_acc", "sec_app_revol_util", "sec_app_open_act_il", "sec_app_num_rev_accts", "sec_app_chargeoff_within_12_mths", "sec_app_collections_12_mths_ex_med", "sec_app_inv_mths_since_last_major_derog"]
@@ -814,7 +886,8 @@ max      2018-12-01 00:00:00
 Name: issue_d, dtype: object
 ```
 
-Newer than the previous set of new metrics, even—these didn't start getting used till March 2017. Now I wonder when joint loans were first introduced.
+Newer than the previous set of new metrics, even—these didn't start getting used
+till March 2017. Now I wonder when joint loans were first introduced.
 
 ```python
 joint_loans["issue_d"].agg(["count", "min", "max"])
@@ -827,7 +900,12 @@ max      2018-12-01 00:00:00
 Name: issue_d, dtype: object
 ```
 
-2015\. I think I'll save the newer joint metrics for perhaps a third model, but I believe I can include `annual_inc_joint`, `dti_joint`, and `verification_status_joint` in the main model—I'll just binary-encode `application_type`, and for individual applications I'll set `annual_inc_joint`, `dti_joint`, and `verification_status_joint` equal to their non-joint counterparts.
+2015\. I think I'll save the newer joint metrics for perhaps a third model, but
+I believe I can include `annual_inc_joint`, `dti_joint`, and
+`verification_status_joint` in the main model—I'll just binary-encode
+`application_type`, and for individual applications I'll set `annual_inc_joint`,
+`dti_joint`, and `verification_status_joint` equal to their non-joint
+counterparts.
 
 ```python
 onehot_cols.append("application_type")
@@ -954,9 +1032,12 @@ dtypes: datetime64[ns](1), float64(86), object(10)
 memory usage: 1007.9+ MB
 ```
 
-Now the only remaining steps should be removing rows with null values (in columns that aren't new metrics) and encoding categorical features.
+Now the only remaining steps should be removing rows with null values (in
+columns that aren't new metrics) and encoding categorical features.
 
-I'm _removing_ rows with null values in those columns because that should still leave the vast majority of rows intact, over 1 million, which is still plenty of data. But I guess I should make sure before I overwrite `loans`.
+I'm _removing_ rows with null values in those columns because that should still
+leave the vast majority of rows intact, over 1 million, which is still plenty of
+data. But I guess I should make sure before I overwrite `loans`.
 
 ```python
 cols_to_search = [
@@ -975,27 +1056,17 @@ Yes, still 1,110,171. That'll do.
 loans.dropna(axis="index", subset=cols_to_search, inplace=True)
 ```
 
-Then actually I'll tackle `earliest_cr_line` and its joint counterpart first before looking at the categorical features.
+Then actually I'll tackle `earliest_cr_line` and its joint counterpart first
+before looking at the categorical features.
 
 ```python
 loans[["earliest_cr_line", "sec_app_earliest_cr_line"]]
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>earliest_cr_line</th>
         <th>sec_app_earliest_cr_line</th>
@@ -1062,7 +1133,8 @@ loans[["earliest_cr_line", "sec_app_earliest_cr_line"]]
   <p>1110171 rows × 2 columns</p>
 </div>
 
-I should convert that to the age of the credit line at the time of application (or the time of loan issuing, more precisely).
+I should convert that to the age of the credit line at the time of application
+(or the time of loan issuing, more precisely).
 
 ```python
 def get_credit_history_age(col_name):
@@ -1181,7 +1253,12 @@ Verified           307157
 Name: verification_status_joint, dtype: int64
 ```
 
-First, in researching income verification, I learned that LendingClub only tries to [verify income](https://www.lendingclub.com/investing/investor-education/income-verification) on a subset of loan applications based on the content of the application, so this feature is a source of target leakage. I'll remove the two offending columns (and a couple more I don't need anymore).
+First, in researching income verification, I learned that LendingClub only tries
+to
+[verify income](https://www.lendingclub.com/investing/investor-education/income-verification)
+on a subset of loan applications based on the content of the application, so
+this feature is a source of target leakage. I'll remove the two offending
+columns (and a couple more I don't need anymore).
 
 ```python
 loans.drop(
@@ -1195,7 +1272,9 @@ loans.drop(
 )
 ```
 
-Once I create my pipeline, I'll binary encode `term`, one-hot encode `home_ownership` and `purpose`, and since `emp_length` is an ordinal variable, I'll convert it to the integers 0–10.
+Once I create my pipeline, I'll binary encode `term`, one-hot encode
+`home_ownership` and `purpose`, and since `emp_length` is an ordinal variable,
+I'll convert it to the integers 0–10.
 
 ```python
 onehot_cols += ["home_ownership", "purpose"]
@@ -1216,7 +1295,10 @@ ordinal_cols = {
 }
 ```
 
-That should cover all the cleaning necessary for the first model's data. I'll save the columns that'll be used in the first model to a new DataFrame, and while I'm at it, I'll start formatting the DataFrames for the two additional models adding the two sets of new metrics.
+That should cover all the cleaning necessary for the first model's data. I'll
+save the columns that'll be used in the first model to a new DataFrame, and
+while I'm at it, I'll start formatting the DataFrames for the two additional
+models adding the two sets of new metrics.
 
 ```python
 loans_1 = loans.drop(columns=new_metric_cols + joint_new_metric_cols)
@@ -1314,7 +1396,9 @@ dtypes: float64(74), int64(1), object(5)
 memory usage: 686.1+ MB
 ```
 
-Before I drop a bunch of rows with nulls from `loans_2`, I'm concerned about `il_util`, as it's missing values in about 50,000 more rows than the rest of the new metric columns. Why would that be?
+Before I drop a bunch of rows with nulls from `loans_2`, I'm concerned about
+`il_util`, as it's missing values in about 50,000 more rows than the rest of the
+new metric columns. Why would that be?
 
 ```python
 loans_2["il_util"][loans_2["il_util"].notna()].describe()
@@ -1332,7 +1416,12 @@ max         464.000000
 Name: il_util, dtype: float64
 ```
 
-Peeking back up to the data dictionary, `il_util` is the "ratio of total current balance to high credit/credit limit on all install acct". The relevant balance (`total_bal_il`) and credit limit (`total_il_high_credit_limit`) metrics appear to already be in the data, so perhaps this utilization metric doesn't contain any new information. I'll compare `il_util` (where it's present) to the ratio of the other two variables.
+Peeking back up to the data dictionary, `il_util` is the "ratio of total current
+balance to high credit/credit limit on all install acct". The relevant balance
+(`total_bal_il`) and credit limit (`total_il_high_credit_limit`) metrics appear
+to already be in the data, so perhaps this utilization metric doesn't contain
+any new information. I'll compare `il_util` (where it's present) to the ratio of
+the other two variables.
 
 ```python
 query_df = loans[["il_util", "total_bal_il", "total_il_high_credit_limit"]].dropna(
@@ -1344,21 +1433,10 @@ query_df["il_util_compute"] = (
 query_df[["il_util", "il_util_compute"]]
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>il_util</th>
         <th>il_util_compute</th>
@@ -1454,9 +1532,20 @@ max        1108.000000
 Name: compute_diff, dtype: float64
 ```
 
-That's weird. `il_util` is equal to the computed ratio three-quarters of the time, but when it's off, the median difference is 10 points off. Perhaps there's new information there sometimes after all. Maybe whatever credit bureau is reporting the utilization rate uses a different formula than just a simple ratio? Again, something I could ask if I were performing this analysis for a client, but that's not the case. I'll assume that this variable is still valuable, and where `il_util` is null I'll impute the value to make it equal to the ratio of `total_bal_il` to `total_il_high_credit_limit` (or 0 if the limit is 0). And I'll add one more boolean field to mark the imputed entries.
+That's weird. `il_util` is equal to the computed ratio three-quarters of the
+time, but when it's off, the median difference is 10 points off. Perhaps there's
+new information there sometimes after all. Maybe whatever credit bureau is
+reporting the utilization rate uses a different formula than just a simple
+ratio? Again, something I could ask if I were performing this analysis for a
+client, but that's not the case. I'll assume that this variable is still
+valuable, and where `il_util` is null I'll impute the value to make it equal to
+the ratio of `total_bal_il` to `total_il_high_credit_limit` (or 0 if the limit
+is 0). And I'll add one more boolean field to mark the imputed entries.
 
-Also, that 1,108 is a doozy of an outlier, but I think I'll just leave it be, as it appears that [outliers aren't too big a deal](https://medium.com/analytics-vidhya/effect-of-outliers-on-neural-networks-performance-ca1d9185dce9) if the neural network architecture is sufficiently deep.
+Also, that 1,108 is a doozy of an outlier, but I think I'll just leave it be, as
+it appears that
+[outliers aren't too big a deal](https://medium.com/analytics-vidhya/effect-of-outliers-on-neural-networks-performance-ca1d9185dce9)
+if the neural network architecture is sufficiently deep.
 
 ```python
 loans["il_util_imputed"] = [
@@ -1572,7 +1661,8 @@ dtypes: bool(1), float64(74), int64(1), object(5)
 memory usage: 687.1+ MB
 ```
 
-Good. Ready to drop rows with nulls in `loans_2` and move on to the DataFrame for the model that adds the new metrics for joint applications.
+Good. Ready to drop rows with nulls in `loans_2` and move on to the DataFrame
+for the model that adds the new metrics for joint applications.
 
 ```python
 loans_2.dropna(axis="index", inplace=True)
@@ -1689,9 +1779,16 @@ Phew, the data's all clean now! Time for the fun part.
 
 <h2 id="building-the-neural-networks">Building the neural networks</h2>
 
-After a good deal of trial and error, I found that a network architecture with three hidden layers, each followed by a dropout layer of rate 0.3, was as good as I could find. I used ReLU activation in those hidden layers, and adam optimization and a loss metric of mean squared error in the model as a whole. I also settled on a mean squared logarithmic error loss function, since it performed better than mean absolute error, mean squared error, and mean absolute percentage error.
+After a good deal of trial and error, I found that a network architecture with
+three hidden layers, each followed by a dropout layer of rate 0.3, was as good
+as I could find. I used ReLU activation in those hidden layers, and adam
+optimization and a loss metric of mean squared error in the model as a whole. I
+also settled on a mean squared logarithmic error loss function, since it
+performed better than mean absolute error, mean squared error, and mean absolute
+percentage error.
 
-The dataset being so large, I had great results increasing the batch size for the first couple models.
+The dataset being so large, I had great results increasing the batch size for
+the first couple models.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -2372,7 +2469,14 @@ Epoch 100/100
 362/362 - 1s - loss: 0.0301 - val_loss: 0.0509
 ```
 
-The first model performed best, settling around a mean squared logarithmic error of 0.0231 (though it seems even after setting `random_state` inside `train_test_split` and `seed` inside the dropout layers, there's still a bit of entropy left in the training of the model, so if you run this notebook yourself, the course of your training may look a little different). Apparently the additional _records_ in the first dataset did more to aid in training than the additional _metrics_ in the subsequent sets. And the dropout layers didn't stop the third model from overfitting anyway.
+The first model performed best, settling around a mean squared logarithmic error
+of 0.0231 (though it seems even after setting `random_state` inside
+`train_test_split` and `seed` inside the dropout layers, there's still a bit of
+entropy left in the training of the model, so if you run this notebook yourself,
+the course of your training may look a little different). Apparently the
+additional _records_ in the first dataset did more to aid in training than the
+additional _metrics_ in the subsequent sets. And the dropout layers didn't stop
+the third model from overfitting anyway.
 
 ```python
 sns.lineplot(x=range(1, 101), y=history_1["loss"], label="loss")
@@ -2382,11 +2486,16 @@ plt.title("Model 1 loss metrics during training")
 plt.show()
 ```
 
-<img src="/images/loan-risk-neural-network_77_0.png" alt="A line plot depicting the changes in training loss and validation loss metrics over the 100 epochs of training. Training loss falls rapidly and smoothly as expected. The validation loss line, while jagged, appears to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting." />
-
+<img
+  src="/images/loan-risk-neural-network_77_0.png"
+  alt="A line plot depicting the changes in training loss and validation loss metrics over the 100 epochs of training. Training loss falls rapidly and smoothly as expected. The validation loss line, while jagged, appears to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting."
+/>
 <h2 id="saving-the-final-model">Saving the final model</h2>
 
-First I need to _create_ the final model, training `model_1`'s architecture on the full dataset. Then I'll save the model to disk with its `save` function and save the data transformer using [joblib](https://joblib.readthedocs.io) so I can use it in the API.
+First I need to _create_ the final model, training `model_1`'s architecture on
+the full dataset. Then I'll save the model to disk with its `save` function and
+save the data transformer using [joblib](https://joblib.readthedocs.io) so I can
+use it in the API.
 
 ```python
 import joblib
@@ -2608,11 +2717,31 @@ Epoch 100/100
 
 <h2 id="building-the-api">Building the API</h2>
 
-I first tried building this API and its demonstrational front end on [Glitch](https://glitch.com/), which, officially, only supports Node.js back ends, but unofficially you can get a Python server running there (which I've [done before](https://ty-metricimpconverter-python.glitch.me/ "Python metric-imperial converter microservice – Ty Mick") using [Flask](https://flask.palletsprojects.com/)). When I was almost finished, though, I tried importing TensorFlow to load my model, and it was then that I discovered that unlike Node.js dependencies, Python dependencies get installed to your project's disk space on Glitch, and not even their pro plan provides enough space to contain the entire TensorFlow library. Which totally makes sense—I certainly wasn't using the platform as intended.
+I first tried building this API and its demonstrational front end on
+[Glitch](https://glitch.com/), which, officially, only supports Node.js back
+ends, but unofficially you can get a Python server running there (which I've
+[done before](https://ty-metricimpconverter-python.glitch.me/ "Python metric-imperial converter microservice – Ty Mick")
+using [Flask](https://flask.palletsprojects.com/)). When I was almost finished,
+though, I tried importing TensorFlow to load my model, and it was then that I
+discovered that unlike Node.js dependencies, Python dependencies get installed
+to your project's disk space on Glitch, and not even their pro plan provides
+enough space to contain the entire TensorFlow library. Which totally makes
+sense—I certainly wasn't using the platform as intended.
 
-Then I discovered [PythonAnywhere](https://www.pythonanywhere.com/)! They have plenty of common Python libraries already installed out-of-the-box, including TensorFlow, so I got everything working perfectly there.
+Then I discovered [PythonAnywhere](https://www.pythonanywhere.com/)! They have
+plenty of common Python libraries already installed out-of-the-box, including
+TensorFlow, so I got everything working perfectly there.
 
-So [head on over](https://tywmick.pythonanywhere.com/ "Neural Network Loan Risk Prediction API – Ty Mick") if you'd like to check it out; the front end includes a form where you can fill in all the parameters for the API request, and there are a couple of buttons that let you fill the form with typical examples from the dataset (since there are a _lot_ of fields to fill in). Or you can send a GET request to `https://tywmick.pythonanywhere.com/api/predict` if you really want to include every parameter in your query string. In either case, you're also more than welcome to take a look at its source [on GitHub](https://github.com/tywmick/loan-risk-neural-network).
+So
+[head on over](https://tywmick.pythonanywhere.com/ "Neural Network Loan Risk Prediction API – Ty Mick")
+if you'd like to check it out; the front end includes a form where you can fill
+in all the parameters for the API request, and there are a couple of buttons
+that let you fill the form with typical examples from the dataset (since there
+are a _lot_ of fields to fill in). Or you can send a GET request to
+`https://tywmick.pythonanywhere.com/api/predict` if you really want to include
+every parameter in your query string. In either case, you're also more than
+welcome to take a look at its source
+[on GitHub](https://github.com/tywmick/loan-risk-neural-network).
 
 <h2 id="further-reading">Further reading</h2>
 

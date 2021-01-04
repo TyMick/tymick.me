@@ -1,8 +1,9 @@
 import React from "react";
 import Router from "next/router";
+import { AppProps } from "next/app";
+import { MDXProvider } from "@mdx-js/react";
 import NProgress from "nprogress";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import { Nav, Footer, mdxComponents } from "../components";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "../styles/index.scss";
 
@@ -12,18 +13,18 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-const App = ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Nav />
 
       <main className="mb-5">
-        <Component {...pageProps} />
+        <MDXProvider components={mdxComponents}>
+          <Component {...pageProps} />
+        </MDXProvider>
       </main>
 
       <Footer />
     </>
   );
-};
-
-export default App;
+}

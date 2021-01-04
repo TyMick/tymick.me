@@ -1,25 +1,47 @@
----
-title: Natural Language Processing for Loan Risk
-subtitle: Adding spaCy Word Vectors to a Keras Model
-description: Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.
-excerpt: A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.
-date: "2020-10-23T13:03:32.729-05:00"
-lastUpdated: "2020-10-24T12:58:32.455-05:00"
-ogImage:
-  fileName: aaron-burden-y02jEX_B0O0-unsplash.jpg
-  alt: A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.
-cta: Well that was fun! Have any thoughts on how to better integrate language data into the model? I'd love to hear them
-links:
-  twitter: https://twitter.com/tywmick/status/1319709097307049986
-  mastodon: https://mastodon.online/@tywmick/105085580139071056
-  facebook: https://www.facebook.com/tywmick/posts/10214467025628226
-  linkedin: https://www.linkedin.com/feed/update/urn:li:activity:6725480058460413952/
-syndicated:
-  medium: https://towardsdatascience.com/loan-risk-nlp-d98021613ff3
-  dev: https://dev.to/tywmick/natural-language-processing-for-loan-risk-3m1k
-  hackerNoon:
-ipynb: true
----
+export const metadata = {
+  title: "Natural Language Processing for Loan Risk",
+  subtitle: "Adding spaCy Word Vectors to a Keras Model",
+  description:
+    "Now that I've learned the fundamentals of NLP, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields.",
+  excerpt:
+    "A few months ago, I built a neural network regression model to predict loan risk. Now that I've learned the fundamentals of natural language processing, I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset.",
+  date: "2020-10-23T13:03:32.729-05:00",
+  lastUpdated: "2020-10-24T12:58:32.455-05:00",
+  ogImage: {
+    filename: "aaron-burden-y02jEX_B0O0-unsplash.jpg",
+    alt:
+      "A close-up photo of a fountain pen writing in cursive on lined paper with black ink. Photo by Aaron Burden (@aaronburden) on Unsplash.",
+  },
+  cta:
+    "Well that was fun! Have any thoughts on how to better integrate language data into the model? I'd love to hear them",
+  socialLinks: {
+    twitter: "https://twitter.com/tywmick/status/1319709097307049986",
+    mastodon: "https://mastodon.online/@tywmick/105085580139071056",
+    facebook: "https://www.facebook.com/tywmick/posts/10214467025628226",
+    linkedin:
+      "https://www.linkedin.com/feed/update/urn:li:activity:6725480058460413952/",
+  },
+  syndicated: {
+    medium: "https://towardsdatascience.com/loan-risk-nlp-d98021613ff3",
+    dev:
+      "https://dev.to/tywmick/natural-language-processing-for-loan-risk-3m1k",
+    hackerNoon: null,
+  },
+  ipynb: true,
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+@todo Open an issue in MDX and/or Next.js.
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
 
 1. **[The story so far](#the-story-so-far)**
 2. **[Exploratory data analysis](#exploratory-data-analysis)**
@@ -32,11 +54,25 @@ ipynb: true
 
 <h2 id="the-story-so-far">The story so far</h2>
 
-A few months ago, I [built a neural network regression model](/blog/loan-risk-neural-network) to predict loan risk, training it with a [public dataset](https://www.kaggle.com/wordsforthewise/lending-club) from [LendingClub](https://www.lendingclub.com/). Then I built a [public API](https://tywmick.pythonanywhere.com/) with [Flask](https://flask.palletsprojects.com/en/1.1.x/) to serve the model's predictions.
+A few months ago, I
+[built a neural network regression model](/blog/loan-risk-neural-network) to
+predict loan risk, training it with a
+[public dataset](https://www.kaggle.com/wordsforthewise/lending-club) from
+[LendingClub](https://www.lendingclub.com/). Then I built a
+[public API](https://tywmick.pythonanywhere.com/) with
+[Flask](https://flask.palletsprojects.com/en/1.1.x/) to serve the model's
+predictions.
 
-Then last month, I decided to put my model to the test and found out that my model can pick grade A loans [better than LendingClub](/blog/loan-grading-showdown)!
+Then last month, I decided to put my model to the test and found out that my
+model can pick grade A loans
+[better than LendingClub](/blog/loan-grading-showdown)!
 
-But I'm not done. Now that I've learned the fundamentals of natural language processing (I highly recommend [Kaggle's course](https://www.kaggle.com/learn/natural-language-processing) on the subject), I'm going to see if I can eke out a bit more predictive power using a couple of freeform text fields in the dataset: `title` and `desc` (description).
+But I'm not done. Now that I've learned the fundamentals of natural language
+processing (I highly recommend
+[Kaggle's course](https://www.kaggle.com/learn/natural-language-processing) on
+the subject), I'm going to see if I can eke out a bit more predictive power
+using a couple of freeform text fields in the dataset: `title` and `desc`
+(description).
 
 ```python
 import joblib
@@ -55,21 +91,10 @@ This dataset includes 1,110,171 loans.
 loans.head()
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>loan_amnt</th>
         <th>term</th>
@@ -220,11 +245,20 @@ loans.head()
   <p>5 rows × 69 columns</p>
 </div>
 
-This post, like its predecessors, was adapted from a Jupyter Notebook, so feel free to fork my notebook on [Kaggle](https://www.kaggle.com/tywmick/natural-language-processing-for-loan-risk "Natural Language Processing for Loan Risk | Kaggle") or [GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-risk-nlp.ipynb "loan-risk-neural-network/loan-risk-nlp.ipynb at master · tywmick/loan-risk-neural-network") if you'd like to follow along.
+This post, like its predecessors, was adapted from a Jupyter Notebook, so feel
+free to fork my notebook on
+[Kaggle](https://www.kaggle.com/tywmick/natural-language-processing-for-loan-risk "Natural Language Processing for Loan Risk | Kaggle")
+or
+[GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-risk-nlp.ipynb "loan-risk-neural-network/loan-risk-nlp.ipynb at master · tywmick/loan-risk-neural-network")
+if you'd like to follow along.
 
 <h2 id="exploratory-data-analysis">Exploratory data analysis</h2>
 
-There isn't _too_ much exploratory data analysis left to do after how thoroughly I [cleaned the data](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk#Data-cleaning) in my first post, but I do have a few quick questions about the `title` and `desc` fields I'd like to answer before I move on.
+There isn't _too_ much exploratory data analysis left to do after how thoroughly
+I
+[cleaned the data](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk#Data-cleaning)
+in my first post, but I do have a few quick questions about the `title` and
+`desc` fields I'd like to answer before I move on.
 
 - How many loans use each field?
 - Have these fields always been included in the loan application?
@@ -236,21 +270,10 @@ nlp_cols = ["title", "desc"]
 loans[nlp_cols].describe()
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>title</th>
         <th>desc</th>
@@ -281,7 +304,8 @@ loans[nlp_cols].describe()
   </table>
 </div>
 
-If the most frequent `desc` value is empty (or maybe just whitespace), perhaps I need to convert all empty or whitespace-only values to `NaN` before continuing.
+If the most frequent `desc` value is empty (or maybe just whitespace), perhaps I
+need to convert all empty or whitespace-only values to `NaN` before continuing.
 
 ```python
 import re
@@ -295,21 +319,10 @@ description = loans[nlp_cols].describe()
 description
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>title</th>
         <th>desc</th>
@@ -329,7 +342,9 @@ description
       <tr>
         <th>top</th>
         <td>Debt&nbsp;consolidation</td>
-        <td>Borrower&nbsp;added&nbsp;on&nbsp;03/17/14&nbsp;&gt;&nbsp;Debt&nbsp;consolidat...</td>
+        <td>
+          Borrower&nbsp;added&nbsp;on&nbsp;03/17/14&nbsp;&gt;&nbsp;Debt&nbsp;consolidat...
+        </td>
       </tr>
       <tr>
         <th>freq</th>
@@ -340,7 +355,8 @@ description
   </table>
 </div>
 
-Thankfully that didn't remove too many values, but this "Borrower added on [date]" deal worries me now. I'll deal with that a little later.
+Thankfully that didn't remove too many values, but this "Borrower added on
+[date]" deal worries me now. I'll deal with that a little later.
 
 ```python
 for col in nlp_cols:
@@ -357,7 +373,9 @@ print(f'The title "Debt consolidation" is used in {percentage}% of loans.')
 The title "Debt consolidation" is used in 51% of loans.
 ```
 
-These fields may not be as useful as I had previously thought. Even though there are 35,860 unique titles used across the dataset, 51% of them just use "Debt consolidation". Maybe the titles are more descriptive in the other 49%?
+These fields may not be as useful as I had previously thought. Even though there
+are 35,860 unique titles used across the dataset, 51% of them just use "Debt
+consolidation". Maybe the titles are more descriptive in the other 49%?
 
 And the `desc` field is only used with 6% of loans.
 
@@ -392,7 +410,8 @@ max   2016-07-01
 Name: issue_d, dtype: datetime64[ns]
 ```
 
-Neither of these fields were introduced late, but they may have stopped using the `desc` field for the last two years of the database.
+Neither of these fields were introduced late, but they may have stopped using
+the `desc` field for the last two years of the database.
 
 Now I'll take a closer look at values in these fields.
 
@@ -458,9 +477,14 @@ Project Pay Off Debt                          1
 Name: title, Length: 35863, dtype: int64
 ```
 
-Interesting. It seems like there's plenty of variety in loan titles in the other 49%. A lot of them seem to directly correspond to the `purpose` categorical field, but not so many as to make this field useless, I think.
+Interesting. It seems like there's plenty of variety in loan titles in the other
+49%. A lot of them seem to directly correspond to the `purpose` categorical
+field, but not so many as to make this field useless, I think.
 
-Side note: I discovered at one point when perusing this column that someone entered the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) as the title of their loan application, and their inclusion in this dataset means that the code apparently worked for them—they got the loan.
+Side note: I discovered at one point when perusing this column that someone
+entered the [Konami Code](https://en.wikipedia.org/wiki/Konami_Code) as the
+title of their loan application, and their inclusion in this dataset means that
+the code apparently worked for them—they got the loan.
 
 ```python
 loans[loans["title"] == "up up down down left right left right ba"][
@@ -468,21 +492,10 @@ loans[loans["title"] == "up up down down left right left right ba"][
 ]
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>loan_amnt</th>
         <th>title</th>
@@ -493,7 +506,9 @@ loans[loans["title"] == "up up down down left right left right ba"][
       <tr>
         <th>1856340</th>
         <td>12000.0</td>
-        <td>up&nbsp;up&nbsp;down&nbsp;down&nbsp;left&nbsp;right&nbsp;left&nbsp;right&nbsp;ba</td>
+        <td>
+          up&nbsp;up&nbsp;down&nbsp;down&nbsp;left&nbsp;right&nbsp;left&nbsp;right&nbsp;ba
+        </td>
         <td>2013-04-01</td>
       </tr>
     </tbody>
@@ -563,7 +578,9 @@ I have been in business for a year and want to eliminate some personal debt and 
 Name: desc, Length: 84, dtype: int64
 ```
 
-It looks like the borrower may be able to add information to the description at different points in time. I should check and see if any of those dates come after the actual issue date of the loan.
+It looks like the borrower may be able to add information to the description at
+different points in time. I should check and see if any of those dates come
+after the actual issue date of the loan.
 
 ```python
 from datetime import datetime, date
@@ -603,9 +620,12 @@ for row in loans[["desc", "issue_d"]].itertuples():
 2012-10-01 00:00:00 –   Borrower added on 10/22/12 > Need money by 10/26/2012 to purchase property on discounted APR.<br>
 ```
 
-Good, all of the dates that come after the month the loan is issued only come up because the borrower is talking about a future event.
+Good, all of the dates that come after the month the loan is issued only come up
+because the borrower is talking about a future event.
 
-Now to clean these `desc` values up a bit I'm going to remove the `Borrower added on [date] >`s and the `<br>`s, since those don't add value to the description content.
+Now to clean these `desc` values up a bit I'm going to remove the
+`Borrower added on [date] >`s and the `<br>`s, since those don't add value to
+the description content.
 
 ```python
 def clean_desc(desc):
@@ -622,7 +642,9 @@ loans["desc"] = loans["desc"].map(clean_desc)
 
 <h2 id="imputing-missing-values">Imputing missing values</h2>
 
-Since only 2% of loans in this set are missing a title, and since most titles simply copy the loan's `purpose`, I'm going to impute missing titles with their loan's purpose.
+Since only 2% of loans in this set are missing a title, and since most titles
+simply copy the loan's `purpose`, I'm going to impute missing titles with their
+loan's purpose.
 
 ```python
 loans["title"].fillna(
@@ -630,15 +652,24 @@ loans["title"].fillna(
 )
 ```
 
-Since only 6% of loans _use_ a description, I'll just impute missing descriptions with an empty string. I'm going to wait and include that as a pipeline step a little later, though.
+Since only 6% of loans _use_ a description, I'll just impute missing
+descriptions with an empty string. I'm going to wait and include that as a
+pipeline step a little later, though.
 
 <h2 id="optimizing-data-types">Optimizing data types</h2>
 
-I'd really love to get right to the fun part, converting these text fields into document vectors, but I ran into a problem the first several times I tried doing so. Manually adding two sets of 300-dimensional vectors to this 1,110,171-row DataFrame caused its size in memory to skyrocket, exhausting the 16GB Kaggle gives me.
+I'd really love to get right to the fun part, converting these text fields into
+document vectors, but I ran into a problem the first several times I tried doing
+so. Manually adding two sets of 300-dimensional vectors to this 1,110,171-row
+DataFrame caused its size in memory to skyrocket, exhausting the 16GB Kaggle
+gives me.
 
-My first attempt to fix this was optimizing my data types, which still didn't solve the problem on its own, but it's a worthwhile step to take anyway.
+My first attempt to fix this was optimizing my data types, which still didn't
+solve the problem on its own, but it's a worthwhile step to take anyway.
 
-After removing the `issue_d` column, which is no longer needed, the dataset contains five types of data: float, integer, ordinal, (unordered) categorical, and text.
+After removing the `issue_d` column, which is no longer needed, the dataset
+contains five types of data: float, integer, ordinal, (unordered) categorical,
+and text.
 
 ```python
 from pandas.api.types import CategoricalDtype
@@ -705,21 +736,10 @@ size_metrics
 Reduced DataFrame size in memory by 69%.
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>previous_dtype</th>
         <th>previous_size</th>
@@ -1207,10 +1227,14 @@ Reduced DataFrame size in memory by 69%.
     </tbody>
   </table>
 </div>
-
 <h2 id="creating-document-vectors">Creating document vectors</h2>
 
-_Now_ the fun part. Wrapping my [spaCy](https://spacy.io/) document vector function in a scikit-learn [`FunctionTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html) turned out to be the secret that kept this process within memory limits. Scikit-learn must just be way better optimized than whatever manual process I was using (go figure).
+_Now_ the fun part. Wrapping my [spaCy](https://spacy.io/) document vector
+function in a scikit-learn
+[`FunctionTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.FunctionTransformer.html)
+turned out to be the secret that kept this process within memory limits.
+Scikit-learn must just be way better optimized than whatever manual process I
+was using (go figure).
 
 ```python
 import spacy
@@ -1237,7 +1261,9 @@ vectorizer = FunctionTransformer(get_doc_vectors)
 
 <h2 id="building-the-pipeline">Building the pipeline</h2>
 
-First, the transformer. I'll use scikit-learn's [`ColumnTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html) to apply different transformations to different kinds of data.
+First, the transformer. I'll use scikit-learn's
+[`ColumnTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html)
+to apply different transformations to different kinds of data.
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -1288,7 +1314,10 @@ transformer = ColumnTransformer(
 )
 ```
 
-This model itself will be identical to my [previous model](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk#Building-the-neural-networks), but I'll use Keras callbacks and a [tqdm](https://github.com/tqdm/tqdm) progress bar to make the training logs much more concise.
+This model itself will be identical to my
+[previous model](https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk#Building-the-neural-networks),
+but I'll use Keras callbacks and a [tqdm](https://github.com/tqdm/tqdm) progress
+bar to make the training logs much more concise.
 
 ```python
 import tensorflow as tf
@@ -1425,9 +1454,17 @@ def plot_loss_metrics(history, model_num=None):
 plot_loss_metrics(history_1, "1")
 ```
 
-<img src="/images/loan-risk-nlp_37_0.png" alt='A line plot entitled “Model 1 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. Training loss falls rapidly and fairly smoothly, with another small but interesting drop around the 40th epoch. The validation loss line, while very jagged, appears on average to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting.' />
+<img
+  src="/images/loan-risk-nlp_37_0.png"
+  alt="A line plot entitled “Model 1 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. Training loss falls rapidly and fairly smoothly, with another small but interesting drop around the 40th epoch. The validation loss line, while very jagged, appears on average to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting."
+/>
 
-Well, it didn't overfit, but this model performed a bit _worse_ than my original, which had settled around a loss of 0.0231. I bet the `desc` feature is getting in the way&mdash;zeroes spanning 300 columns of the input data on 94% of the rows is probably quite confusing to the model. I'll see what happens if I repeat the process while leaving `desc` out (making the `title` vectors the only new feature of this model compared to my original).
+Well, it didn't overfit, but this model performed a bit _worse_ than my
+original, which had settled around a loss of 0.0231. I bet the `desc` feature is
+getting in the way&mdash;zeroes spanning 300 columns of the input data on 94% of
+the rows is probably quite confusing to the model. I'll see what happens if I
+repeat the process while leaving `desc` out (making the `title` vectors the only
+new feature of this model compared to my original).
 
 ```python
 history_2, _, _ = run_pipeline(
@@ -1477,12 +1514,25 @@ except NameError:
 plot_loss_metrics(history_2, "2")
 ```
 
-<img src="/images/loan-risk-nlp_41_0.png" alt="A line plot entitled “Model 2 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. The validation loss line is even chaotic this time than in the model 1 plot but still doesn’t appear to be overfitting." />
+<img
+  src="/images/loan-risk-nlp_41_0.png"
+  alt="A line plot entitled “Model 2 loss metrics during training”, with separate lines for training loss and validation loss, plotting the loss metric value on the y-axis across the 100 epochs of training on the x-axis. The validation loss line is even chaotic this time than in the model 1 plot but still doesn’t appear to be overfitting."
+/>
 
-Wow, still not good enough to beat my original model. Just for kicks, I also tried additional runs where I trained for 1,000 epochs, and others where I increased the numbers of nodes in the first two dense layers to 128 and 64. And I tried decreasing the batch size to 64. But still none of these beat my original model. I suppose these text features have no predictive quality to them in terms of loan outcomes. Interesting.
+Wow, still not good enough to beat my original model. Just for kicks, I also
+tried additional runs where I trained for 1,000 epochs, and others where I
+increased the numbers of nodes in the first two dense layers to 128 and 64. And
+I tried decreasing the batch size to 64. But still none of these beat my
+original model. I suppose these text features have no predictive quality to them
+in terms of loan outcomes. Interesting.
 
 <h2 id="next-steps">Next steps</h2>
 
-If adding these two features decreased predictive capability, then perhaps some of the other variables I was already using are doing the same thing. I should try using some of scikit-learn's [feature selection methods](https://scikit-learn.org/stable/modules/feature_selection.html) to reduce the dimensionality of the input data.
+If adding these two features decreased predictive capability, then perhaps some
+of the other variables I was already using are doing the same thing. I should
+try using some of scikit-learn's
+[feature selection methods](https://scikit-learn.org/stable/modules/feature_selection.html)
+to reduce the dimensionality of the input data.
 
-A more efficient method of hyperparameter optimization would be pretty useful as well. I should give [AutoKeras](https://autokeras.com/) a shot.
+A more efficient method of hyperparameter optimization would be pretty useful as
+well. I should give [AutoKeras](https://autokeras.com/) a shot.

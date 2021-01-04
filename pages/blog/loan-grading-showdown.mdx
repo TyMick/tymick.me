@@ -1,24 +1,45 @@
----
-title: Can I Grade Loans Better Than LendingClub?
-subtitle: Pitting My Neural Network Against a Corporate Benchmark
-excerpt: Today I'm going to put my loan risk model to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!
-date: "2020-09-23T16:51:17.048-04:00"
-lastUpdated: "2020-10-23T13:03:32.729-05:00"
-ogImage:
-  fileName: the-new-york-public-library-w8uU35aGU6A-unsplash.jpg
-  alt: A 1937 photo of Liberty Finance Company in Oklahoma City. The sign on the building advertises "Salary Loans – $5 to $50". Photo by The New York Public Library on Unsplash.
-cta: What I'd really like to know now is what quantitative range of estimated risk each LendingClub grade and sub-grade corresponds to, but it looks like [that's proprietary](https://www.lendingclub.com/foliofn/rateDetail.action). Does anyone know if loans grades generally correspond to certain percentage ranges like letter grades in academic classes? If not, have any ideas for better benchmarks I could use to evaluate my model's performance? Go ahead and chime in
-links:
-  twitter: https://twitter.com/tywmick/status/1308907207845703680
-  mastodon: https://mastodon.online/@tywmick/104916772860010856
-  facebook: https://www.facebook.com/tywmick/posts/10214308124695802
-  linkedin: https://www.linkedin.com/posts/tywmick_can-i-grade-loans-better-than-lendingclub-activity-6714674213397037056-rTt2
-syndicated:
-  medium: https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2
-  dev: https://dev.to/tywmick/can-i-grade-loans-better-than-lendingclub-19jd
-  hackerNoon: https://app.hackernoon.com/drafts/cW0z6aFAM6mUVeflWCoL
-ipynb: true
----
+export const metadata = {
+  title: "Can I Grade Loans Better Than LendingClub?",
+  subtitle: "Pitting My Neural Network Against a Corporate Benchmark",
+  excerpt:
+    "Today I'm going to put my loan risk model to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!",
+  date: "2020-09-23T16:51:17.048-04:00",
+  lastUpdated: "2020-10-23T13:03:32.729-05:00",
+  ogImage: {
+    filename: "the-new-york-public-library-w8uU35aGU6A-unsplash.jpg",
+    alt:
+      'A 1937 photo of Liberty Finance Company in Oklahoma City. The sign on the building advertises "Salary Loans – $5 to $50". Photo by The New York Public Library on Unsplash.',
+  },
+  cta:
+    "What I'd really like to know now is what quantitative range of estimated risk each LendingClub grade and sub-grade corresponds to, but it looks like [that's proprietary](https://www.lendingclub.com/foliofn/rateDetail.action). Does anyone know if loans grades generally correspond to certain percentage ranges like letter grades in academic classes? If not, have any ideas for better benchmarks I could use to evaluate my model's performance? Go ahead and chime in",
+  socialLinks: {
+    twitter: "https://twitter.com/tywmick/status/1308907207845703680",
+    mastodon: "https://mastodon.online/@tywmick/104916772860010856",
+    facebook: "https://www.facebook.com/tywmick/posts/10214308124695802",
+    linkedin:
+      "https://www.linkedin.com/posts/tywmick_can-i-grade-loans-better-than-lendingclub-activity-6714674213397037056-rTt2",
+  },
+  syndicated: {
+    medium: "https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2",
+    dev:
+      "https://dev.to/tywmick/can-i-grade-loans-better-than-lendingclub-19jd",
+    hackerNoon: "https://app.hackernoon.com/drafts/cW0z6aFAM6mUVeflWCoL",
+  },
+  ipynb: true,
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+@todo Open an issue in MDX and/or Next.js.
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
 
 1. **[Introduction](#introduction)**
 2. **[Ground rules](#ground-rules)**
@@ -30,9 +51,18 @@ ipynb: true
 
 <h2 id="introduction">Introduction</h2>
 
-In case you missed it, I [built a neural network to predict loan risk](/blog/loan-risk-neural-network) using a [public dataset](https://www.kaggle.com/wordsforthewise/lending-club) from [LendingClub](https://www.lendingclub.com/). Then I built a [public API](https://tywmick.pythonanywhere.com/) to serve the model's predictions. That's nice and all, but&hellip; how _good_ is my model?
+In case you missed it, I
+[built a neural network to predict loan risk](/blog/loan-risk-neural-network)
+using a [public dataset](https://www.kaggle.com/wordsforthewise/lending-club)
+from [LendingClub](https://www.lendingclub.com/). Then I built a
+[public API](https://tywmick.pythonanywhere.com/) to serve the model's
+predictions. That's nice and all, but&hellip; how _good_ is my model?
 
-Today I'm going to put it to the test, pitting it against the risk models of the very institution who issued those loans. That's right, LendingClub included their own calculated loan grades (and sub-grades) in the dataset, so all the pieces are in place for the most thrilling risk modeling smackdown of the ~~century~~ week. May the best algorithm win!
+Today I'm going to put it to the test, pitting it against the risk models of the
+very institution who issued those loans. That's right, LendingClub included
+their own calculated loan grades (and sub-grades) in the dataset, so all the
+pieces are in place for the most thrilling risk modeling smackdown of the
+~~century~~ week. May the best algorithm win!
 
 ```python
 import joblib
@@ -50,21 +80,10 @@ loans.shape
 loans.head()
 ```
 
-<div class="data-table">
-  <style scoped>
-    .dataframe tbody tr th:only-of-type {
-      vertical-align: middle;
-    }
-    .dataframe tbody tr th {
-      vertical-align: top;
-    }
-    .dataframe thead th {
-      text-align: right;
-    }
-  </style>
-  <table border="1" class="dataframe">
+<div className="data-table">
+  <table border="1" className="dataframe">
     <thead>
-      <tr style="text-align: right;">
+      <tr style={{ textAlign: "right" }}>
         <th></th>
         <th>loan_amnt</th>
         <th>term</th>
@@ -215,13 +234,22 @@ loans.head()
   <p>5 rows × 70 columns</p>
 </div>
 
-This post was adapted from a Jupyter Notebook, by the way, so if you'd like to follow along in your own notebook, go ahead and fork mine [Kaggle](https://www.kaggle.com/tywmick/can-i-grade-loans-better-than-lendingclub "Can I Grade Loans Better Than LendingClub? | Kaggle") or [GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-grading-showdown.ipynb "loan-risk-neural-network/loan-grading-showdown.ipynb at master · tywmick/loan-risk-neural-network")!
+This post was adapted from a Jupyter Notebook, by the way, so if you'd like to
+follow along in your own notebook, go ahead and fork mine
+[Kaggle](https://www.kaggle.com/tywmick/can-i-grade-loans-better-than-lendingclub "Can I Grade Loans Better Than LendingClub? | Kaggle")
+or
+[GitHub](https://github.com/tywmick/loan-risk-neural-network/blob/master/models/loan-grading-showdown.ipynb "loan-risk-neural-network/loan-grading-showdown.ipynb at master · tywmick/loan-risk-neural-network")!
 
 <h2 id="ground-rules">Ground rules</h2>
 
-This is going to be a clean fight—my model won't use any data LendingClub wouldn't have access to at the point they calculate a loan's grade (including the grade itself).
+This is going to be a clean fight—my model won't use any data LendingClub
+wouldn't have access to at the point they calculate a loan's grade (including
+the grade itself).
 
-I'm going to sort the dataset chronologically (using the `issue_d` column, the month and year the loan was issued) and split it into two parts. The first 80% I'll use for training my competition model, and I'll compare performance on the last 20%.
+I'm going to sort the dataset chronologically (using the `issue_d` column, the
+month and year the loan was issued) and split it into two parts. The first 80%
+I'll use for training my competition model, and I'll compare performance on the
+last 20%.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -238,17 +266,38 @@ print(f"The test set contains {len(test):,} loans.")
 The test set contains 222,035 loans.
 ```
 
-At the earlier end of the test set my model may have a slight informational advantage, having been trained on a few loans that may not have closed yet at the point LendingClub was grading those ones. On the other hand, LendingClub may have a slight informational advantage on the later end of the test set, since they would have known the outcomes of some loans on the earlier end of the test set by that time.
+At the earlier end of the test set my model may have a slight informational
+advantage, having been trained on a few loans that may not have closed yet at
+the point LendingClub was grading those ones. On the other hand, LendingClub may
+have a slight informational advantage on the later end of the test set, since
+they would have known the outcomes of some loans on the earlier end of the test
+set by that time.
 
-I have to give credit to Michael Wurm, by the way, for [the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8) of comparing my model's performance to LendingClub's loan grades, but my approach is pretty different. I'm not trying to simulate the performance of an investment portfolio; I'm just evaluating how well my predictions of simple risk compare.
+I have to give credit to Michael Wurm, by the way, for
+[the idea](https://towardsdatascience.com/intelligent-loan-selection-for-peer-to-peer-lending-575dfa2573cb#fac8)
+of comparing my model's performance to LendingClub's loan grades, but my
+approach is pretty different. I'm not trying to simulate the performance of an
+investment portfolio; I'm just evaluating how well my predictions of simple risk
+compare.
 
 <h2 id="test-metric">Test metric</h2>
 
-The test: who can pick the best set of grade A loans, judged on the basis of the independent variable from [my last notebook](/blog/loan-risk-neural-network), the fraction of an expected loan return that a prospective borrower will pay back (which I engineered as `fraction_recovered`).
+The test: who can pick the best set of grade A loans, judged on the basis of the
+independent variable from [my last notebook](/blog/loan-risk-neural-network),
+the fraction of an expected loan return that a prospective borrower will pay
+back (which I engineered as `fraction_recovered`).
 
-LendingClub will take the plate first. I'll gather all their grade A loans from the test set, count them, and calculate their average `fraction_recovered`. That average will be the metric my model has to beat.
+LendingClub will take the plate first. I'll gather all their grade A loans from
+the test set, count them, and calculate their average `fraction_recovered`. That
+average will be the metric my model has to beat.
 
-Then I'll train my model on the training set using the same [pipeline and parameters](/blog/loan-risk-neural-network#building-the-neural-networks) I settled on in my last notebook. Once it's trained, I'll use it to make predictions on the test set, then gather the number of top predictions equal to the number of LendingClub's grade A loans. Finally, I'll calculate the same average of `fraction_recovered` on that subset, and we'll have ourselves a winner!
+Then I'll train my model on the training set using the same
+[pipeline and parameters](/blog/loan-risk-neural-network#building-the-neural-networks)
+I settled on in my last notebook. Once it's trained, I'll use it to make
+predictions on the test set, then gather the number of top predictions equal to
+the number of LendingClub's grade A loans. Finally, I'll calculate the same
+average of `fraction_recovered` on that subset, and we'll have ourselves a
+winner!
 
 <h2 id="lendingclubs-turn">LendingClub's turn</h2>
 
@@ -273,7 +322,8 @@ That's a pretty high percentage. I'm a bit nervous.
 
 <h2 id="my-turn">My turn</h2>
 
-First, I'll copy over my `run_pipeline` function from [my previous notebook](/blog/loan-risk-neural-network#building-the-neural-networks):
+First, I'll copy over my `run_pipeline` function from
+[my previous notebook](/blog/loan-risk-neural-network#building-the-neural-networks):
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -600,7 +650,9 @@ Average `fraction_recovered` on Ty's grade A loans:
 
 <h2 id="victory">Victory!</h2>
 
-Phew, that was a close one! My win might be too small to be statistically significant, but hey, it's cool seeing that I can keep up with LendingClub's best and brightest.
+Phew, that was a close one! My win might be too small to be statistically
+significant, but hey, it's cool seeing that I can keep up with LendingClub's
+best and brightest.
 
 <h2 id="further-reading">Further reading</h2>
 

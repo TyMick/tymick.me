@@ -26,10 +26,21 @@
     @extend .rounded;
     max-height: 22.2rem;
   }
-  .data-table table {
-    display: block;
-    border: none;
-    overflow-x: auto;
+  .data-table {
+    table {
+      display: block;
+      border: none;
+      overflow-x: auto;
+    }
+    .dataframe tbody tr th:only-of-type {
+      vertical-align: middle;
+    }
+    .dataframe tbody tr th {
+      vertical-align: top;
+    }
+    .dataframe thead th {
+      text-align: right;
+    }
   }
   p + pre,
   p + .data-table,
