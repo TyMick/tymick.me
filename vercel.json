@@ -1,95 +1,95 @@
 {
   "redirects": [
     {
-      "source": "beverages",
+      "source": "/beverages",
       "destination": "https://workflowy.com/s/beverages-id-enjoy-a/sDeB5YcOcO6syrRE"
     },
     {
-      "source": "console-log-after-reload",
+      "source": "/console-log-after-reload",
       "destination": "/blog/console-log-after-reload"
     },
     {
-      "source": "coursera-assignment",
+      "source": "/coursera-assignment",
       "destination": "https://github.com/tywmick/coursera-neural-networks-assignment/blob/master/complete_writeup.ipynb"
     },
     {
-      "source": "covid-19-social-distancing",
+      "source": "/covid-19-social-distancing",
       "destination": "/blog/covid-19-social-distancing"
     },
     {
-      "source": "facebook",
+      "source": "/facebook",
       "destination": "https://www.facebook.com/tywmick"
     },
     {
-      "source": "fcc1",
+      "source": "/fcc1",
       "destination": "https://www.freecodecamp.org/certification/tywmick/responsive-web-design"
     },
     {
-      "source": "fcc2",
+      "source": "/fcc2",
       "destination": "https://www.freecodecamp.org/certification/tywmick/javascript-algorithms-and-data-structures"
     },
     {
-      "source": "fcc3",
+      "source": "/fcc3",
       "destination": "https://www.freecodecamp.org/certification/tywmick/front-end-libraries"
     },
     {
-      "source": "fcc5",
+      "source": "/fcc5",
       "destination": "https://www.freecodecamp.org/certification/tywmick/apis-and-microservices"
     },
     {
-      "source": "fcc6",
+      "source": "/fcc6",
       "destination": "https://www.freecodecamp.org/certification/tywmick/information-security-and-quality-assurance"
     },
     {
-      "source": "freecodecamp-contributions",
+      "source": "/freecodecamp-contributions",
       "destination": "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged"
     },
     {
-      "source": "github",
+      "source": "/github",
       "destination": "https://github.com/tywmick"
     },
     {
-      "source": "instagram",
+      "source": "/instagram",
       "destination": "https://instagram.com/tywmick"
     },
     {
-      "source": "loan-risk-neural-network",
+      "source": "/loan-risk-neural-network",
       "destination": "/blog/loan-risk-neural-network"
     },
     {
-      "source": "mileage",
+      "source": "/mileage",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdsheP_Mh8glRYDrdYmDdTEbddXuD1T9IkZke-keMYZV1P_DQ/viewform?usp=sf_link"
     },
     {
-      "source": "miles",
+      "source": "/miles",
       "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdsheP_Mh8glRYDrdYmDdTEbddXuD1T9IkZke-keMYZV1P_DQ/viewform?usp=sf_link"
     },
     {
-      "source": "nextjs",
+      "source": "/nextjs",
       "destination": "https://github.com/vercel/next.js/pulls?q=author%3Atywmick"
     },
     {
-      "source": "nextjs-contributions",
+      "source": "/nextjs-contributions",
       "destination": "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged"
     },
     {
-      "source": "python-apis",
+      "source": "/python-apis",
       "destination": "/portfolio#python-apis"
     },
     {
-      "source": "starship-noise",
+      "source": "/starship-noise",
       "destination": "https://mynoise.net/superGenerator.php?g1=spaceshipNoiseGenerator.php%3Fl%3D40404030400000000015%26a%3D1%26am%3D1%26c%3D3&g2=modernSpaceshipNoiseGenerator.php%3Fl%3D00000040000000000025%26a%3D1%26am%3D1%26c%3D3&g3=&g4=&g5=&yt="
     },
     {
-      "source": "twitter",
+      "source": "/twitter",
       "destination": "https://twitter.com/tywmick"
     },
     {
-      "source": "wishlist",
+      "source": "/wishlist",
       "destination": "https://www.amazon.com/hz/wishlist/ls/18NUWAXWOM98H?ref_=wl_share"
     },
     {
-      "source": "youtube",
+      "source": "/youtube",
       "destination": "https://www.youtube.com/tylerwestinmick"
     }
   ],
