@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import TeX from "@matejmazur/react-katex";
 import PortfolioSection from "../components/PortfolioSection";
-import A from "../components/InternalLink";
+import { IsometricLink as A } from "../components";
 
 export default function Portfolio() {
   return (

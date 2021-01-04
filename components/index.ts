@@ -9,7 +9,7 @@ import Figure from "./Figure";
 import Footer from "./Footer";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
-import InternalLink from "./InternalLink";
+import IsometricLink from "./IsometricLink";
 import MiscProfile from "./MiscProfile";
 import Nav from "./Nav";
 import PortfolioSection from "./PortfolioSection";
@@ -27,11 +27,13 @@ export {
   Footer,
   Image,
   InlineFootnote,
-  InternalLink,
+  IsometricLink,
   MiscProfile,
   Nav,
   PortfolioSection,
   Testimonial,
 };
 
-export const mdxComponents: Components = {};
+export const mdxComponents: Components = {
+  a: IsometricLink,
+};

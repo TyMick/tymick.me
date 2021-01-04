@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import { InternalLink as A } from "../../components";
+import { IsometricLink as A } from "../../components";
 
 export default function PersonalSite() {
   return (
