@@ -1,0 +1,204 @@
+export const metadata = {
+  title: "COVID-19 social distancing will probably last longer than you think",
+  subtitle: "And what isolation means for nomads",
+  excerpt:
+    "My goodness gracious, this coronavirus epidemic keeps looking worse every single day. From what I'm reading lately, it now looks like the need for social distancing is going to extend for several more months, not just several more weeks. Most frightening, look at these maps of projected infection rates in the United States by July 1 based on three different scenarios.",
+  date: new Date("2020-03-26"),
+  ogImage: {
+    filename: "outbreak-scenarios-july.png",
+    alt: "Three scenarios for how the outbreak could spread.",
+  },
+  socialLinks: {
+    twitter: "https://twitter.com/tywmick/status/1243542879798263810",
+    facebook: "https://www.facebook.com/tywmick/posts/10213154763342489",
+  },
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
+
+import { Container, Row, Col } from "react-bootstrap";
+import { Figure, Image } from "../../components";
+
+My goodness gracious, this coronavirus epidemic keeps looking worse every single
+day. From what I'm reading lately, it now looks like the need for social
+distancing is going to extend for several more months, not just several more
+weeks. Most frightening, look at these maps of
+[projected infection rates](https://www.nytimes.com/interactive/2020/03/20/us/coronavirus-model-us-outbreak.html)
+in the United States by July 1 based on three different scenarios:
+
+<Figure className="full-width-padded mt-2 mb-4">
+  <Figure.Image
+    src="/images/outbreak-scenarios-july.png"
+    dimensions={{ width: 3204, height: 894 }}
+    className="d-block mx-auto"
+  />
+  <Figure.Caption className="sans-serif text-center">
+    Source:{" "}
+    <a
+      href="https://www.nytimes.com/interactive/2020/03/20/us/coronavirus-model-us-outbreak.html"
+      title="Coronavirus Could Overwhelm U.S. Without Urgent Action, Estimates Say"
+      className="text-secondary"
+    >
+      <cite>The New York Times</cite>
+    </a>
+  </Figure.Caption>
+</Figure>
+
+In the interactive map farther down in the article, move the timeline just a
+month later to August 1 and it looks even worse:
+
+<Figure className="full-width-padded mt-2 mb-4">
+  <Row className="figure-img">
+    <Col>
+      <Image
+        src="/images/outbreak-scenario-1-august.png"
+        dimensions={{ width: 2402, height: 1510 }}
+      />
+    </Col>
+    <Col>
+      <Image
+        src="/images/outbreak-scenario-2-august.png"
+        dimensions={{ width: 2402, height: 1510 }}
+      />
+    </Col>
+    <Col>
+      <Image
+        src="/images/outbreak-scenario-3-august.png"
+        dimensions={{ width: 2402, height: 1510 }}
+      />
+    </Col>
+  </Row>
+  <Figure.Caption className="sans-serif text-center">
+    Source:{" "}
+    <a
+      href="https://www.nytimes.com/interactive/2020/03/20/us/coronavirus-model-us-outbreak.html"
+      title="Coronavirus Could Overwhelm U.S. Without Urgent Action, Estimates Say"
+      className="text-secondary"
+    >
+      <cite>The New York Times</cite>
+    </a>
+  </Figure.Caption>
+</Figure>
+
+The article does say that the "No control measures" scenario is unlikely, since
+people and governments are already at least doing _something_, but here's how it
+describes #2 and #3: "A second scenario envisions what would happen with some
+control measures, such as partial adherance to social distancing guidlines and a
+patchwork of government-imposed restrictions on work, travel, and dining out. A
+third envisions severe control measures: strict adherance across the country to
+social distancing, working remotely, closing schools and restaurants and banning
+large gatherings."
+
+#2 sounds like the current situation in this country, and those maps by July and
+August look _awful_. I _really_ hope the country as a whole moves to more severe
+control measures so our infection map ends up looks more like #3. But it's going
+to be tougher to compel people to stay home here in a Western society where the
+importance of the individual is praised above the importance of the group, as
+opposed to the more naturally group-oriented thinking of East Asian societies.
+
+But regardless of the infection rate, how long are we going to have to isolate
+ourselves? China's infection rate started decreasing after two months, but
+they're still having to use a lot of restrictions to keep the virus at bay.
+Scientists also don't know for sure yet whether surviving a COVID-19 infection
+makes you immune. <cite>The Washington Post</cite> sums up
+[the potential timeline](https://www.washingtonpost.com/health/2020/03/16/social-distancing-coronavirus/)
+pretty well: "So it's possible, even most likely, that after U.S. cases peak,
+Americans will still have to maintain some measures — such as isolating the
+infected, constant hand-washing, some degree of social distancing — until a
+viable vaccine is developed, which could take 12 to 18 months."
+
+Some experts think that
+[40—70% of the world's population](https://www.cbsnews.com/news/coronavirus-infection-outbreak-worldwide-virus-expert-warning-today-2020-03-02/)
+will eventually be infected.
+
+---
+
+So what does that mean for Corrie and me as full-time nomads? We live in an RV
+and have no stationary home to go back to. We'd already decided on March 17 that
+we needed to hole up in a national forest and stop visiting beaches and national
+parks, but when staying on public lands, we have to move every 2 weeks. We're
+hearing from the nomad community on social media that governments are closing
+off a lot of public lands now, but even if we could continue to find some places
+to live here and there, after reading about the
+[harsh steps required to stop this virus](https://www.nytimes.com/2020/03/22/health/coronavirus-restrictions-us.html),
+I'm convinced that such slow but constant movement would be irresponsible. In
+the small but existing chance that we do get the virus (we still need to go into
+town for groceries and water) we could take it with us to a new city that
+wouldn't have had it otherwise.
+
+So we need to hunker down in one place for a while. Campgrounds are closing
+everywhere. A lot of RV parks likely are as well, and besides, RV parks are
+pretty expensive long-term. And we can't rent an apartment somewhere right now
+not knowing the timeline of how long we'll have to be there.
+
+That brings us to staying with friends and family. Looking at the data on
+[COVID-19 risks for different age groups](https://www.vox.com/2020/3/23/21190033/coronavirus-covid-19-deaths-by-age),
+it appears that fatality risk rises pretty consistently as age increases, so we
+don't feel comfortable staying with people our parents' age or older.
+
+<Figure className="full-width-padded mt-2 mb-4">
+  <Figure.Image
+    src={"https://pbs.twimg.com/media/ETuMzdBWAAgzf-T?format=jpg&name=medium"}
+    dimensions={{ width: 1118, height: 732 }}
+    className="d-block mx-auto"
+    rounded
+    border
+  />
+  <Figure.Caption className="sans-serif text-center">
+    Source:{" "}
+    <a
+      href="https://twitter.com/AndyBiotech/status/1241741127205572609"
+      title="Andy Biotech on Twitter"
+      className="text-secondary"
+    >
+      Andy Biotech
+    </a>
+  </Figure.Caption>
+</Figure>
+
+We ended up deciding three days ago to take up an offer to stay with some good
+friends of ours who are also in their late twenties. They also live in a more
+rural area, and we'd rather add the (small) burden of our presence in a
+community to as few people as possible.
+
+These friends also have small children in the home, but amazingly, so far not a
+single child under the age of 10 has died from COVID-19 in the entire world.
+Surprising, since kids are usually more vulnerable to the flu, but quite a
+relief.
+
+Finally, to make absolutely sure we don't pass along an infection unknowingly
+caught at a gas station or auto mechanic along the way despite our best efforts,
+Corrie and I are going to remain isolated in our RV for our first two weeks at
+our fiends' house, because symptoms can take
+[up to 14 days](https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html)
+to appear after exposure to this coronavirus. After that point, we can be
+confident that our risk profile is identical to that of our friends, since it
+won't make a difference which member of the household does the grocery runs.
+
+---
+
+Speaking of groceries, this article on
+[grocery shopping safely during a pandemic](https://slate.com/human-interest/2020/03/coronavirus-grocery-shopping-best-practices-explained.html)
+answered several concerns that have popped into my head over the past few days.
+Do I need to clean the outside of cans and boxes before putting them onto my
+pantry shelves? According to the experts, probably not.
+
+Also, here's a reminder of
+[all the times you need to wash your hands](https://www.unicef.org/coronavirus/everything-you-need-know-about-washing-your-hands-protect-against-coronavirus-covid-19),
+which is a lot more often than my instincts tell me to. I plan on making signs
+to post around the house to remind me. And this 6-year-old taught me
+[_how_ to wash my hands properly](https://www.instagram.com/tv/B9p5SQNF4cl/?igshid=ru10e9kt8ubi)
+for the first time in my life.
+
+Stay safe, friends, and please stay home if you can. If you cannot, thank you
+for your sacrifice to keep the essentials running for everyone, and know that
+your safety is one of the reasons that I am staying home myself.

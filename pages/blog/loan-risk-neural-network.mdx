@@ -3,8 +3,8 @@ export const metadata = {
   subtitle: "or, Ty Goes Into Far Too Much Detail About Cleaning Data",
   excerpt:
     "LendingClub is the world's largest peer-to-peer lending platform. Until recently (through the end of 2018), LendingClub published a public dataset of all loans issued since the company's launch in 2007. With 2,260,701 loans to look at and 151 potential variables, my goal is to create a neural network model to predict the fraction of an expected loan return that a prospective borrower will pay back. Afterward, I'll create a public API to serve that model.",
-  date: "2020-07-29T14:41:46.514-04:00",
-  lastUpdated: "2020-10-23T13:03:32.729-05:00",
+  date: new Date("2020-07-29T14:41:46.514-04:00"),
+  lastUpdated: new Date("2020-10-23T13:03:32.729-05:00"),
   ogImage: {
     filename: "neonbrand-dDvrIJbSCkg-unsplash.jpg",
     alt:
@@ -36,8 +36,6 @@ Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-t
 doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
 as it should. Perhaps this will be fixed in future versions of MDX and/or
 @next/mdx?
-
-@todo Open an issue in MDX and/or Next.js.
 -->
 
 import { withBlogPostWrapper } from "../../components";

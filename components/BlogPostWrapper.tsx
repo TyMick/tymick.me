@@ -14,11 +14,11 @@ type BlogPostWrapperProps = {
   subtitle?: string;
   description?: string;
   date: Date | string;
-  lastUpdated: Date | string;
+  lastUpdated?: Date | string;
   canonicalUrl?: string;
   ogImage: {
     filename: string;
-    alt: string;
+    alt?: string;
   };
   cta?: string;
   socialLinks?: {
@@ -78,7 +78,7 @@ export default function BlogPostWrapper({
             images: [
               {
                 url: `https://tymick.me/images/${ogImage.filename}`,
-                alt: ogImage.alt,
+                alt: ogImage?.alt,
               },
             ],
             site_name: "Ty Mick",
@@ -105,12 +105,12 @@ export default function BlogPostWrapper({
         )}
 
         <div className="font-italic text-secondary sans-serif mb-4">
-          <DateTime isoString={date} formatString="LLLL d, yyyy" />
+          <DateTime date={date} formatString="LLLL d, yyyy" />
           {lastUpdated && (
             <>
               {breakpoint.xs ? <br /> : " "}
               (last updated{" "}
-              <DateTime isoString={lastUpdated} formatString="LLLL d, yyyy" />)
+              <DateTime date={lastUpdated} formatString="LLLL d, yyyy" />)
             </>
           )}
         </div>
@@ -162,7 +162,7 @@ export default function BlogPostWrapper({
         <p className="text-secondary font-italic">
           Found an error or typo in this post you&rsquo;d like to fix? Send me a{" "}
           <a
-            href={`https://github.com/tywmick/tywmick.github.io/blob/source/_posts/${slug}.md`}
+            href={`https://github.com/tywmick/tymick.me/edit/master/pages/blog/${slug}.mdx`}
           >
             pull request on GitHub
           </a>

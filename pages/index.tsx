@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
-import { Image, IsometricLink as A } from "../components";
+import { Image, Link as A } from "../components";
 
 export default function Home() {
   // Logic to remove Mastodon verification link after page loads

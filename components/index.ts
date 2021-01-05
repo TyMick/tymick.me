@@ -9,11 +9,12 @@ import Figure from "./Figure";
 import Footer from "./Footer";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
-import IsometricLink from "./IsometricLink";
+import Link from "./Link";
 import MiscProfile from "./MiscProfile";
 import Nav from "./Nav";
 import PortfolioSection from "./PortfolioSection";
 import Testimonial from "./Testimonial";
+import ThematicBreak from "./ThematicBreak";
 
 export {
   AlgorithmTest,
@@ -27,16 +28,32 @@ export {
   Footer,
   Image,
   InlineFootnote,
-  IsometricLink,
+  Link,
   MiscProfile,
   Nav,
   PortfolioSection,
   Testimonial,
+  ThematicBreak,
 };
 
 export const mdxComponents: Components & {
   [shortcode: string]: React.ComponentType<any>;
 } = {
-  a: IsometricLink,
-  Image: Image,
+  // Component replacements for Markdown syntax
+  a: Link,
+  hr: ThematicBreak,
+
+  // Shortcodes (components available in every MDX file)
+  Image,
+
+  // Layout component
+  /**
+   * Currently not working when using MDX files as Next.js pages, as the {@link https://mdxjs.com/getting-started#using-the-wrapper
+   * wrapper component} doesn't receive {@link https://mdxjs.com/advanced/components#layout-props
+   * `layoutProps`} as it should. Perhaps this will be fixed in future versions
+   * of MDX and/or @next/mdx?
+   *
+   * @todo Open an issue in MDX and/or Next.js.
+   */
+  // wrapper: BlogPostWrapper,
 };

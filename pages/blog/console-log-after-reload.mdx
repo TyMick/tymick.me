@@ -4,7 +4,7 @@ export const metadata = {
     'Sure, that isn\'t a problem if you enable the "preserve log" option in your developer console, but hear me out.',
   excerpt:
     'Ever wanted to create a browser console log that persists after a page reloads? Sure, that isn\'t a problem if you enable the "preserve log" option in your developer console, but hear me out.',
-  date: "2020-06-01T16:35:53.401-04:00",
+  date: new Date("2020-06-01T16:35:53.401-04:00"),
   ogImage: {
     filename: "console-log-after-reload.jpg",
     alt: "A view of Chrome's developer console",
@@ -25,8 +25,6 @@ Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-t
 doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
 as it should. Perhaps this will be fixed in future versions of MDX and/or
 @next/mdx?
-
-@todo Open an issue in MDX and/or Next.js.
 -->
 
 import { withBlogPostWrapper } from "../../components";

@@ -1,10 +1,10 @@
 import React from "react";
-import Link, { LinkProps } from "next/link";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 
-type IsometricLinkProps = React.PropsWithChildren<LinkProps> &
+type IsometricLinkProps = React.PropsWithChildren<NextLinkProps> &
   React.HTMLProps<HTMLAnchorElement>;
 
-export default function IsometricLink({
+export default function Link({
   href,
   as,
   replace,
@@ -17,12 +17,16 @@ export default function IsometricLink({
   ...anchorProps
 }: IsometricLinkProps) {
   return href[0] === "/" && !href.includes(".") ? (
-    <Link
+    // Internal link
+    <NextLink
       {...{ href, as, replace, scroll, shallow, passHref, prefetch, locale }}
     >
       <a {...anchorProps}>{children}</a>
-    </Link>
+    </NextLink>
   ) : (
-    <a href={href} {...anchorProps}>{children}</a>
+    // External link
+    <a href={href} {...anchorProps}>
+      {children}
+    </a>
   );
 }
