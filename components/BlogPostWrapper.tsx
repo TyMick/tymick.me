@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { Container } from "react-bootstrap";
 import useWindowWidthBreakpoints from "use-window-width-breakpoints";
-import { last as lastElement, startCase } from "lodash";
+import { get, last as lastElement, startCase } from "lodash";
 import clsx from "clsx";
 import DateTime from "./DateTime";
 import { markdownToReactFragment } from "../lib/text-processing";
@@ -56,7 +56,7 @@ export default function BlogPostWrapper({
     [keyB, valueB]: [string, string]
   ): number {
     const linkRanks = { twitter: 1, mastodon: 2, facebook: 3, linkedin: 4 };
-    return linkRanks?.[keyA] ?? 100 - linkRanks?.[keyB] ?? 100;
+    return get(linkRanks, keyA, 100) - get(linkRanks, keyB, 100);
   }
 
   const router = useRouter();
@@ -131,7 +131,7 @@ export default function BlogPostWrapper({
               {Object.entries(socialLinks)
                 .sort(linkSort)
                 .map(([label, link], i) => (
-                  <span key={i}>
+                  <span key={label}>
                     <a href={link} className={`${label}-link`}>
                       {label === "linkedin" ? "LinkedIn" : startCase(label)}
                     </a>
