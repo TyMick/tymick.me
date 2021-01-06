@@ -1,15 +1,24 @@
-import React from "react";
-import { Figure as RBFigure } from "react-bootstrap";
+import styled from "styled-components";
 import clsx from "clsx";
-import Image, { ImageProps } from "./Image";
+import { processMarkdown } from "../lib/text-processing";
+import { Figure as RBFigure } from "react-bootstrap";
+import Image from "./Image";
 
-function FigureImage({ className, ...otherProps }: ImageProps) {
-  return <Image className={clsx(className, "figure-img")} {...otherProps} />;
-}
+const FigureImage = styled(Image).attrs(({ className }) => ({
+  className: clsx(className, "figure-img"),
+}))``;
 
-type FigureType = Omit<typeof RBFigure, "Image"> & {
+const FigureCaption = styled(RBFigure.Caption).attrs(({ children }) => ({
+  children: typeof children === "string" ? processMarkdown(children) : children,
+}))``;
+
+type FigureType = Omit<Omit<typeof RBFigure, "Image">, "Caption"> & {
   Image: typeof FigureImage;
+  Caption: typeof FigureCaption;
 };
-const Figure: FigureType = Object.assign(RBFigure, { Image: FigureImage });
+const Figure: FigureType = Object.assign(RBFigure, {
+  Image: FigureImage,
+  Caption: FigureCaption,
+});
 
 export default Figure;

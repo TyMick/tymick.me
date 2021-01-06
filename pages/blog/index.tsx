@@ -1,7 +1,5 @@
 /**
  * @todo Convert old posts to MDX, create dynamic preview list here.
- * @todo Change canonical links on other distribution platforms to reflect
- * change of adding `/blog` to post urls.
  * @todo Move this sort of thing to the front page of the website.
  */
 import React from "react";
@@ -90,7 +88,7 @@ export default function Blog() {
 
           <EssayPreview
             title="Asking your Uber driver #WhatsMyName is the exact opposite of what you should do"
-            href="https://medium.com/@tywmick/whatsmyname-puts-drivers-at-risk-56285d6a56ac?source=friends_link&sk=bd1ad67637a4c0fe3298aec63f0e4c59"
+            href="/blog/whatsmyname-puts-drivers-at-risk"
             date="June 9, 2019"
           >
             The tragic death of Samantha Josephson on March 29, 2019, is

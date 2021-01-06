@@ -1,0 +1,158 @@
+export const metadata = {
+  title:
+    "Asking your Uber driver #WhatsMyName is the exact opposite of what you should do",
+  date: new Date("2019-06-09"),
+  canonicalUrl:
+    "https://medium.com/swlh/whatsmyname-puts-drivers-at-risk-56285d6a56ac",
+  description:
+    "Rideshare safety is important, but asking your driver #WhatsMyName is the wrong solution. Ask #WhatsYourName instead!",
+  excerpt:
+    "The tragic death of Samantha Josephson on March 29, 2019, is extremely heart-wrenching and was _not at all_ her fault. Her parents' mission to educate the world on rideshare safety in her memory is noble and absolutely worth pursuing. But unfortunately, their central recommendation and social media campaign of asking your driver \"What's my name?\" when you get in the car is the exact opposite of what you should do and in fact puts rideshare drivers at risk.",
+  ogImage: {
+    filename: "victor-xok-qd-zd2MoeE8-unsplash.jpg",
+    alt: "Photo by Victor Xok on Unsplash",
+  },
+  socialLinks: {
+    twitter: "https://twitter.com/tywmick/status/1137946949133451265",
+    facebook: "https://www.facebook.com/tywmick/posts/10211398958608468",
+  },
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
+
+import { Figure, PullQuote } from "../../components";
+
+<Figure className="full-width mt-2 mb-4">
+  <Figure.Image
+    src="/images/victor-xok-qd-zd2MoeE8-unsplash.jpg"
+    dimensions={{ width: 2000, height: 1250 }}
+    className="d-block mx-auto"
+    maxWidth={1192}
+  />
+  <Figure.Caption className="sans-serif text-center">
+    Photo by [Victor Xok](https://unsplash.com/@xokvictor) on
+    [Unsplash](https://unsplash.com)
+  </Figure.Caption>
+</Figure>
+
+The tragic
+[death of Samantha Josephson](https://www.cnn.com/2019/03/30/us/south-carolina-missing-college-student/index.html)
+on March 29, 2019, is extremely heart-wrenching and was _not at all_ her fault.
+[Her parents' mission](https://www.whatsmyname.org/) to educate the world on
+rideshare safety in her memory is noble and absolutely worth pursuing. But
+unfortunately, their central recommendation and social media campaign of asking
+your driver "What's my name?" when you get in the car is the exact opposite of
+what you should do and in fact puts rideshare drivers at risk.
+
+Uber and Lyft have long provided the following four key pieces of information to
+identify your driver:
+
+1. The make, model, and color of their vehicle
+2. Their license plate number
+3. A photo of your driver
+4. Your driver's name
+
+Put these together and you know you're getting in the right car with the right
+person. Still, though, it doesn't hurt to be extra careful, right? Asking your
+driver what _your_ name is would be fine except for one thing: a passenger's
+name is the _only_ piece of information a driver has to be sure they've picked
+up the right person.
+
+<PullQuote>
+  A passenger's name is the only piece of information a driver has to be sure
+  they've picked up the right person.
+</PullQuote>
+
+<Figure className="full-width mt-2 mb-4">
+  <Figure.Image
+    src="/images/thought-catalog-x5GdvJ-taiQ-unsplash.jpg"
+    dimensions={{ width: 1000, height: 666 }}
+    className="d-block mx-auto"
+    maxWidth={506}
+  />
+  <Figure.Caption className="sans-serif text-center">
+    Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog) on
+    [Unsplash](https://unsplash.com)
+  </Figure.Caption>
+</Figure>
+
+Over the past two and a half years I've now given 3,024 rides across the Uber
+and Lyft platforms, so, needless to say, I've got my beginning-of-ride script
+down to a science. I always hope that my passengers check my license plate first
+before opening the door, but it seems like most just look for the black and pink
+stickers on my windshield and hop right in. For that reason (and also because
+it's polite), I introduce myself immediately as soon as a passenger starts
+climbing in.
+
+> "Hi, I'm Ty!"
+
+Oftentimes my passenger responds in kind with their own name, but if not I ask
+for it. Only when I get a name that matches the name on my driver app (which
+sometimes involves a "Oh, my friend Carlos ordered this ride for me!") do I
+start the trip, because about once every twenty or thirty times _the wrong
+person is in my car_.
+
+Nearly always this is an honest mistake, a legitimate Uber or Lyft customer who
+simply hadn't realized their error. I know I've accidentally given the wrong
+person a ride at least once in my early days, and I don't want to repeat the
+blunder. But the honest mistake is not the one I'm worried about.
+
+Say you want to steal an Uber ride. You see me pull up nearby, turn on my hazard
+lights, and expertly parallel park. I'm obviously waiting for a passenger. You
+slyly sidle on up, make like you're looking at an Uber app on your phone, open
+my back door, and ask me, "#WhatsMyName?" If I give you a name that sounds like
+it could match your gender and ethnicity, you respond "Correct!" and jump in,
+and I feel good for making you feel safe. If the name doesn't sound like it
+could be yours, you respond "Yep! My buddy ordered the ride for me." Then after
+I start driving, you look at your phone and say, "Ope, looks like my friends are
+changing their mind again. Could you change my destination to MacLaren's Pub
+instead?"
+
+I suspect that this happened to me once. Not exactly like this, as it was before
+the advent of #WhatsMyName—I just wasn't judicious enough about verifying the
+identity of my passenger. So particularly because I give my own name right away
+when someone opens my door, I can't give up the name of my passenger, or I open
+myself up to ride thieves. Or worse. It's not fun to talk about, but that's the
+subject at hand, and
+[Uber drivers have been targeted](https://www.google.com/search?q=uber+driver+killed)
+in the past, too.
+
+When someone does ask "What's my name?", which has happened approximately five
+times so far, I've determined that the best response is "I'm sorry, I have to
+hear that from you. But _your_ app does say that my name is Ty and that I'm
+driving a red Prius with license plate number…"
+
+---
+
+Fixing #WhatsMyName is easy. After verifying the make, model, color, and license
+plate of your driver's car and checking that the driver's face matches the photo
+in your app, if your driver doesn't immediately give their name when you open
+the door, just flip the script and ask, "What's _your_ name?" If that name
+matches the one in your app, then be assured that you're entering the right car!
+And if you feel like it,
+[share the status of your Uber ride](https://www.uber.com/ride/how-uber-works/share-status/)
+or [your Lyft ride](https://blog.lyft.com/posts/shareroute) with your friends so
+they know when to expect you and what vehicle you'll be arriving in.
+
+I'm going to contact the
+[What's My Name Foundation](https://www.whatsmyname.org/) to ask if they'd have
+the courage to change their name and their social media campaign in order to
+promote rideshare safety for both riders _and_ drivers instead of accidentally
+promoting rideshare safety for riders at the expense of drivers. All of their
+acronym still applies: **S**top, **A**sk, **M**atch, **I**nform.
+[Remember Sami](https://www.whatsmyname.org/#comp-jvejc3r3). Her death was not
+her fault.
+
+And remember: check the car, check the photo, then ask
+"[#WhatsYourName](https://clicktotweet.com/63eea)?"
+
+<PullQuote>[#WhatsYourName](https://clicktotweet.com/63eea)?</PullQuote>

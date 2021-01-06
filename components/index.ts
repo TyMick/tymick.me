@@ -1,5 +1,6 @@
 import { Components } from "@mdx-js/react";
 import AlgorithmTest from "./AlgorithmTest";
+import Blockquote from "./Blockquote";
 import BlogPostWrapper, { withBlogPostWrapper } from "./BlogPostWrapper";
 import Codepen from "./Codepen";
 import ContactMethod from "./ContactMethod";
@@ -13,11 +14,13 @@ import Link from "./Link";
 import MiscProfile from "./MiscProfile";
 import Nav from "./Nav";
 import PortfolioSection from "./PortfolioSection";
+import PullQuote from "./PullQuote";
 import Testimonial from "./Testimonial";
 import ThematicBreak from "./ThematicBreak";
 
 export {
   AlgorithmTest,
+  Blockquote,
   BlogPostWrapper,
   withBlogPostWrapper,
   Codepen,
@@ -32,6 +35,7 @@ export {
   MiscProfile,
   Nav,
   PortfolioSection,
+  PullQuote,
   Testimonial,
   ThematicBreak,
 };
@@ -41,6 +45,7 @@ export const mdxComponents: Components & {
 } = {
   // Component replacements for Markdown syntax
   a: Link,
+  blockquote: Blockquote,
   hr: ThematicBreak,
 
   // Shortcodes (components available in every MDX file)

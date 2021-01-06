@@ -38,6 +38,9 @@ hr {
   @extend .my-4;
   width: 5rem;
 }
+.h3-size {
+  @include font-size($h3-font-size);
+}
 
 // Other custom
 @import "blog";
