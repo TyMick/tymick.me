@@ -60,7 +60,11 @@ export default function Image({
   >(otherProps, [...layout.propNames, "className"]);
 
   return (
-    <ImageWrapper className="image-wrapper" {...wrapperProps}>
+    <ImageWrapper
+      className="image-wrapper"
+      maxWidth={dimensions.width}
+      {...wrapperProps}
+    >
       <NextImage
         {...dimensions}
         layout="intrinsic"
