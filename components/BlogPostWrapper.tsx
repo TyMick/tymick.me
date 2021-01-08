@@ -7,7 +7,7 @@ import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 import { get, last as lastElement, startCase } from "lodash";
 import clsx from "clsx";
 import DateTime from "./DateTime";
-import { processMarkdown } from "../lib/text-processing";
+import { parseInlineMarkdown } from "../lib/text-processing";
 
 type BlogPostWrapperProps = {
   title: string;
@@ -96,11 +96,11 @@ export default function BlogPostWrapper({
         aria-labelledby="article-title"
         className="serif cap-width-lg"
       >
-        <h1 id="article-title">{processMarkdown(title)}</h1>
+        <h1 id="article-title">{parseInlineMarkdown(title)}</h1>
 
         {subtitle && (
           <div className="h3 text-secondary">
-            {processMarkdown(subtitle)}
+            {parseInlineMarkdown(subtitle)}
           </div>
         )}
 
@@ -125,7 +125,7 @@ export default function BlogPostWrapper({
             <hr />
             <p>
               {cta
-                ? processMarkdown(cta)
+                ? parseInlineMarkdown(cta)
                 : "Want to discuss this topic further? Chime in"}{" "}
               on{" "}
               {Object.entries(socialLinks)

@@ -1,4 +1,5 @@
 import { Components } from "@mdx-js/react";
+import { withMarkdownParsing } from "../lib/text-processing";
 import AlgorithmTest from "./AlgorithmTest";
 import Blockquote from "./Blockquote";
 import BlogPostWrapper, { withBlogPostWrapper } from "./BlogPostWrapper";
@@ -6,7 +7,7 @@ import Codepen from "./Codepen";
 import ContactMethod from "./ContactMethod";
 import DateTime from "./DateTime";
 import EssayPreview from "./EssayPreview";
-import Figure from "./Figure";
+import { Figure, FigureImage, FigureCaption } from "./Figure";
 import Footer from "./Footer";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
@@ -28,6 +29,8 @@ export {
   DateTime,
   EssayPreview,
   Figure,
+  FigureImage,
+  FigureCaption,
   Footer,
   Image,
   InlineFootnote,
@@ -41,7 +44,12 @@ export {
 };
 
 export const mdxComponents: Components & {
-  [shortcode: string]: React.ComponentType<any>;
+  /**
+   * @todo Find a better typing for this. I tried React.ComponentType<any>, but
+   * that doesn't work with `Figure`. I can't find anything better at the
+   * moment.
+   */
+  [shortcode: string]: any;
 } = {
   // Component replacements for Markdown syntax
   a: Link,
@@ -49,7 +57,16 @@ export const mdxComponents: Components & {
   hr: ThematicBreak,
 
   // Shortcodes (components available in every MDX file)
+  Blockquote: withMarkdownParsing(Blockquote),
+  Figure,
+  FigureImage,
+  FigureCaption: withMarkdownParsing(FigureCaption),
+  I: withMarkdownParsing("i"),
   Image,
+  InlineFootnote: withMarkdownParsing(InlineFootnote),
+  LI: withMarkdownParsing("li"),
+  P: withMarkdownParsing("p"),
+  PullQuote: withMarkdownParsing(PullQuote),
 
   // Layout component
   /**

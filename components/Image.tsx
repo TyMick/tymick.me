@@ -1,6 +1,6 @@
 import React from "react";
 import NextImage, { ImageProps as NextImageProps } from "next/image";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { layout, LayoutProps } from "styled-system";
 import clsx from "clsx";
 import filterProps from "../lib/filterProps";

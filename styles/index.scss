@@ -20,7 +20,8 @@ $h1-font-size: $font-size-base * 2.875; // Works better on Alegreya fonts
 
 // Miscellaneous
 p,
-li {
+li,
+blockquote {
   text-align: justify;
   hyphens: auto;
 }

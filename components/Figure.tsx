@@ -1,24 +1,18 @@
-import styled from "styled-components";
+import React from "react";
 import clsx from "clsx";
-import { processMarkdown } from "../lib/text-processing";
 import { Figure as RBFigure } from "react-bootstrap";
-import Image from "./Image";
+import Image, { ImageProps } from "./Image";
 
-const FigureImage = styled(Image).attrs(({ className }) => ({
-  className: clsx(className, "figure-img"),
-}))``;
+/**
+ * @remarks MDX cannot handle subcomponents, so React Bootstrap's `Figure` needs
+ * to be split up.
+ */
+export function Figure(props: React.ComponentProps<typeof RBFigure>) {
+  return <RBFigure {...props} />;
+}
 
-const FigureCaption = styled(RBFigure.Caption).attrs(({ children }) => ({
-  children: typeof children === "string" ? processMarkdown(children) : children,
-}))``;
+export function FigureImage({ className, ...props }: ImageProps) {
+  return <Image className={clsx(className, "figure-img")} {...props} />;
+}
 
-type FigureType = Omit<Omit<typeof RBFigure, "Image">, "Caption"> & {
-  Image: typeof FigureImage;
-  Caption: typeof FigureCaption;
-};
-const Figure: FigureType = Object.assign(RBFigure, {
-  Image: FigureImage,
-  Caption: FigureCaption,
-});
-
-export default Figure;
+export const FigureCaption = RBFigure.Caption;

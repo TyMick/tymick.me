@@ -104,7 +104,7 @@ export default function Blog() {
           <EssayPreview
             title="Optimal investing"
             subtitle="Or, Betterment vs Wealthfront 2017"
-            href="https://medium.com/@tywmick/simple-effective-investing-4268a1e6229c?source=friends_link&sk=216f469b906f63d7be4e271422facf98"
+            href="/blog/optimal-investing"
             date="July 29, 2017"
           >
             I’m a recovering mutual fund investor. Not that I ever thought that

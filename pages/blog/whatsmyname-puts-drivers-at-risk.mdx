@@ -29,19 +29,18 @@ as it should. Perhaps this will be fixed in future versions of MDX and/or
 import { withBlogPostWrapper } from "../../components";
 export default withBlogPostWrapper(metadata);
 
-import { Figure, PullQuote } from "../../components";
-
 <Figure className="full-width mt-2 mb-4">
-  <Figure.Image
+  <FigureImage
     src="/images/victor-xok-qd-zd2MoeE8-unsplash.jpg"
     dimensions={{ width: 2000, height: 1250 }}
     className="d-block mx-auto"
     maxWidth={1192}
+    priority
   />
-  <Figure.Caption className="sans-serif text-center">
+  <FigureCaption className="sans-serif text-center">
     Photo by [Victor Xok](https://unsplash.com/@xokvictor) on
     [Unsplash](https://unsplash.com)
-  </Figure.Caption>
+  </FigureCaption>
 </Figure>
 
 The tragic
@@ -73,16 +72,16 @@ up the right person.
 </PullQuote>
 
 <Figure className="full-width mt-2 mb-4">
-  <Figure.Image
+  <FigureImage
     src="/images/thought-catalog-x5GdvJ-taiQ-unsplash.jpg"
     dimensions={{ width: 1000, height: 666 }}
     className="d-block mx-auto"
     maxWidth={506}
   />
-  <Figure.Caption className="sans-serif text-center">
+  <FigureCaption className="sans-serif text-center">
     Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog) on
     [Unsplash](https://unsplash.com)
-  </Figure.Caption>
+  </FigureCaption>
 </Figure>
 
 Over the past two and a half years I've now given 3,024 rides across the Uber

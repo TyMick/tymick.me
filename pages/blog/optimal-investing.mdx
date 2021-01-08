@@ -1,0 +1,342 @@
+export const metadata = {
+  title: "Optimal investing",
+  subtitle: "Or, Betterment vs Wealthfront 2017",
+  date: new Date("2017-07-29"),
+  canonicalUrl:
+    "https://medium.com/@tywmick/simple-effective-investing-4268a1e6229c",
+  excerpt:
+    "I'm a recovering mutual fund investor. Not that I ever thought that mutual funds were a good idea—I just didn't think about it. But now I've done just the slightest bit of research and found out how to save at least hundreds of thousands of dollars in opportunity cost over the coming decades.",
+  ogImage: {
+    filename: "pexels-pixabay-164474.jpg",
+    alt: "Dollar bills appearing to grow out of the soil.",
+  },
+  socialLinks: {
+    facebook: "https://www.facebook.com/tywmick/posts/10207473936885378",
+  },
+};
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
+doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
+as it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+-->
+
+import { withBlogPostWrapper } from "../../components";
+export default withBlogPostWrapper(metadata);
+
+<Figure className="full-width mt-2 mb-4">
+  <FigureImage
+    src="/images/pexels-pixabay-164474.jpg"
+    dimensions={{ width: 4000, height: 2666 }}
+    className="d-block mx-auto"
+    priority
+  />
+</Figure>
+
+I'm a recovering mutual fund investor. Not that I ever thought that mutual funds
+were a good idea—I just didn't think about it. But now I've done just the
+slightest bit of research and found out how to save at least hundreds of
+thousands of dollars in opportunity cost over the coming decades.
+
+<P>
+  <InlineFootnote note="Maybe not a bad place to buy life insurance—I have no idea.">
+    My dad referred me to [Edward Jones](https://www.edwardjones.com/) my first
+    year out of college to buy life insurance.
+  </InlineFootnote>{" "}
+  Then they convinced my wife and me to open a couple of IRAs with them. I have
+  to mention first that I'm glad they did, because that was way better than what
+  I was doing at the time, which was _not investing_ (other than in [my
+  employer's retirement plan](https://www.tsp.gov/), which I'd given little
+  thought to). But now that I'm actually looking at other options four years
+  later, I'm finding it's far from the best.
+</P>
+
+<P>
+  I'm kicking myself for not asking at the beginning the now-obvious question of
+  how Edward Jones makes money when I invest, but oh well. [You don't know what
+  you don't know](https://en.wikipedia.org/wiki/Four_stages_of_competence),
+  right? Betterment was kind enough to point me to the answer the other day,
+  though, when I experimented a bit with [their external account syncing
+  feature](https://www.betterment.com/resources/inside-betterment/product-news/4-reasons-to-sync-your-accounts-with-betterment/).
+  In my neglect to scour our IRAs' fine print,{" "}
+  <InlineFootnote note="And I'm not sure whether or not that 5.75% front load fee applies to me, which would be rather significant in its own right, but we'll just focus on that expense ratio.">
+    I missed the part about this fund's [1.12% expense
+    ratio](https://www.google.com/finance?q=MUTF%3AMAAGX), essentially the
+    yearly fee on all our holdings.
+  </InlineFootnote>
+</P>
+
+Now 1.12% doesn't sound like a huge loss at face value, but that's money that
+you can't keep in your investment portfolio to earn a lifetime of compound
+interest, so it can add up to quite a bit. Trent Hamm of
+[The Simple Dollar](http://www.thesimpledollar.com/) wrote
+[a fantastic thought experiment](http://www.thesimpledollar.com/why-fees-matter/)
+that illustrates this perfectly.
+
+> In this example, I'm going to say that we're investing $5,000 a year at the
+> start of the year in a particular investment. Over the course of that year, it
+> earns a 7% return—each and every year, like clockwork. At the end of the year,
+> the investment house takes out their fee and we start all over again by adding
+> the next year's $5,000 investment.
+>
+> You are going to be shocked as to how much impact fees have over the course of
+> a long-term investment.
+
+You can read the article for more details, but here's the summary. After 40
+years under this same scenario, here's how three different investments fare, the
+only difference between them being the annual management fee:
+
+### Example 1
+
+- Annual fee: 0.05%
+- Investment value after 40 years: $1,057,904.60
+- Total cost of fees: $15,143.25
+
+### Example 2
+
+- Annual fee: 0.3%
+- Investment value after 40 years: $985,600.07
+- Total cost of fees: $87,447.78
+
+### Example 3
+
+- Annual fee: 1%
+- Investment value after 40 years: $810,415.39
+- Total cost of fees: $262,632.46
+
+For comparison, without any fee, the investment would have been worth
+$1,073,047.85 at the end. So a 0.05% annual fee ends up costing 1.4% of your
+40-year investment potential, a 0.3% fee costs 8.1% of your investment
+potential, and a 1% annual fee ends up costing you a whopping **24.5%** over 40
+years. Ouch. Needless to say, I'll be moving my IRAs elsewhere in the very near
+future.
+
+---
+
+So should I seek to _eliminate_ fees, then, and buy individual stocks with a
+free trader like [Robinhood](https://robinhood.com)? At that point you're
+swinging the proverbial pendulum too far in the other
+direction—[you](http://www.cbsnews.com/news/you-cant-beat-the-market-so-stop-trying/)
+[can't](http://www.investopedia.com/ask/answers/12/beating-the-market.asp)
+[beat](http://www.marketwatch.com/story/almost-no-one-can-beat-the-market-2013-10-25)
+[the](https://www.mrmoneymustache.com/2011/05/18/how-to-make-money-in-the-stock-market/)
+[market](http://www.thesimpledollar.com/why-dont-professional-investors-beat-the-market/).
+If the majority of professionals—folks who spend their entire lives in the stock
+market—can't do it, I don't think I have much chance.
+
+So now we have _two_ dimensions to optimize: management fees and investor
+stupidity, er, volatility. The way to do that is by buying ALL THE STOCKS using
+low-cost index funds, and the gold standard in that arena is
+[Vanguard](https://investor.vanguard.com/etf/why-vanguard). Their
+[Total Stock Market ETF](https://personal.vanguard.com/us/funds/snapshot?FundId=0970&FundIntExt=INT),
+for instance, has an expense ratio of 0.04%. Not too shabby.
+
+Throw everything in VTI, then? Many a wise financial guru has advised the same,
+and it's an immense improvement over my current situation. But I found one more
+dimension to optimize, and I'm determined to eke every bit of performance I can
+out of my automated investment game. That third dimension: taxes.
+
+---
+
+"Tax loss harvesting" is a term I first heard in podcast advertisements for
+popular "robo-advisors" [Wealthfront](https://www.wealthfront.com/) and
+[Betterment](https://www.betterment.com/). Here's
+[Betterment's description](https://www.betterment.com/tax-loss-harvesting/) of
+the concept:
+
+<Blockquote>
+  Tax loss harvesting is the practice of selling a security that has experienced
+  a loss. By realizing, or "harvesting" a loss,{" "}
+  <InlineFootnote
+    note={
+      "If you hear this and can't help but ask, \"Doesn't tax-loss harvesting just defer tax liability?\", [Wealthfront has addressed that question](https://support.wealthfront.com/hc/en-us/articles/209348546-Doesn-t-tax-loss-harvesting-just-defer-tax-liability-) as well."
+    }
+  >
+    investors are able to offset taxes
+  </InlineFootnote>{" "}
+  on both gains and income. The sold security is replaced by a similar one,
+  maintaining the optimal asset allocation and expected returns.
+</Blockquote>
+
+<P>
+  Wealthfront figures [their Tax-Loss
+  Harvesting](https://support.wealthfront.com/hc/en-us/articles/209348486) would
+  have increased after-tax returns by over 1.55% per year between 2000 and 2011.
+  Betterment quotes an increase of 0.77% over 2000–2013 for [their Tax Loss
+  Harvesting+](https://www.betterment.com/tax-loss-harvesting/). And in case
+  these theoretical calculations aren't convincing enough, everyone's favorite
+  mustachioed early retirement guru has seen Betterment's feature [increasing
+  his
+  returns](http://www.mrmoneymustache.com/2017/02/01/betterment-cranks-up-features-and-costs-is-it-still-worthwhile/)
+  by over 1% per year since 2014. In any case, either service's performance is
+  enough to offset{" "}
+  <InlineFootnote note="Keep in mind that this management fee sits on top of the expense ratios of the individual funds you'll buy through them (which are mostly Vanguard in both cases anyway).">
+    their management fees, which are each essentially 0.25% per year,
+  </InlineFootnote>{" "}
+  with a few subtle differences I'll detail below.
+</P>
+
+So now it's time to decide between the two giants in this narrowed field. They
+do largely the same thing, but each has a few unique strengths that the other
+doesn't share. Fees and feature sets of both players have evolved several times
+over the past few years, but as of July 2017, here's how things stand.
+
+### Betterment's strengths
+
+- **No minimum balance**.
+- **Up to 1 year of free management on new accounts**,
+  [depending on your initial deposit amount](https://www.betterment.com/pricing/).
+- **No fee on additional investments above $2 million**.
+- **Goal-based investing**. Beyond just generic investment portfolios with
+  static stock allocations, Betterment also offers
+  [custom portfolios to facilitate various savings goals](https://www.betterment.com/resources/research/goals-advice-explained/)
+  (because
+  [savings accounts are dumb](https://www.betterment.com/resources/personal-finance/goals-and-advice/short-term-investing-savings-account-alternative/)).
+  Such portfolios automatically lower their risk level (i.e., stock allocation)
+  over time as the savings timeline closes.
+- **Fractional shares**. In order not to leave any idle cash in your account
+  uninvested, Betterment allows customers to
+  [own fractions of ETF shares](https://www.betterment.com/resources/investment-strategy/fractional-shares-diversification-portfolio-investing/),
+  down to one millionth of a share, in fact.
+- **SmartDeposit**. Instead of a normal auto-deposit, where you automatically
+  deposit the same amount of money each week/month from your checking account,
+  [you can tell Betterment the maximum amount of money you want in the bank at any given time](https://www.betterment.com/resources/inside-betterment/product-news/smartdeposit-auto-deposit-but-smarter/),
+  and then at least once a week it will monitor your checking account for excess
+  cash above that amount and deposit it into your investment account.
+- **A
+  [Socially Responsible Investing Portfolio](https://www.betterment.com/resources/inside-betterment/product-news/socially-responsible-investing-portfolio/)
+  option**, which "reduces exposure to companies that are deemed to have a
+  negative social impact—e.g., companies that profit from poor labor standards
+  or environmental devastation—while increasing exposure to companies that are
+  deemed to have a positive social impact—e.g., companies that foster inclusive
+  workplaces or commit to environmentally sustainable practices."
+- [**Referral bonuses**](https://www.betterment.com/referral/) of 30 days free
+  management for each friend who funds a new account, plus an extra free year
+  after your first three referrals.
+
+### Wealthfront's strengths
+
+- **No management fee on your first $10,000** (or your first $15,000 when
+  [referred by a friend](https://wlth.fr/2w8a0vJ)).
+  <LI>
+    **Direct indexing**. On accounts over $100,000, Wealthfront will replace the
+    total U.S. stock market ETF in your portfolio with{" "}
+    <InlineFootnote note="Up to 100, 500, and 1,000 individual stocks for accounts over [$100,000](https://support.wealthfront.com/hc/en-us/articles/211005023-What-is-Direct-Indexing-), [$500,000, and $1 million](https://research.wealthfront.com/whitepapers/advanced-indexing/), respectively.">
+      a number of individual stocks
+    </InlineFootnote>{" "}
+    along with an ETF of much smaller companies, which both reduces your fund
+    expense ratios and further increases opportunities for tax-loss harvesting.
+    They estimate this to [increase tax-loss harvesting benefits to at least
+    2.03%](https://support.wealthfront.com/hc/en-us/articles/211005023-What-is-Direct-Indexing-).
+  </LI>
+- [**Support for 529 College Savings Plans**](https://www.wealthfront.com/529). -
+  [**Portfolio Line of Credit**](https://www.wealthfront.com/portfolio-line-of-credit).
+- [**Referral bonuses**](https://support.wealthfront.com/hc/en-us/articles/209353126-Referrals-What-s-the-Wealthfront-Invite-Program-)
+  of waived management fees on an additional $5,000 for each friend who funds a
+  new account.
+
+## The verdict
+
+It's a close call. You can't really go wrong with either option, but if you must
+have the absolute best, here are the questions you need to ask yourself.
+
+Is having a socially responsible investment portfolio (at least
+[as Betterment defines it](https://www.betterment.com/resources/research/socially-responsible-investing-portfolio/#SRIdefined))
+important to you? If so, that makes your decision much easier: Betterment's your
+only option right now. At least in the robo-arena.
+
+Would a 529 College Savings Plan be useful to you? That tips your scale in
+Wealthfront's favor.
+
+Do you have trouble saving for large purchases? If Betterment's goal-based
+investing approach would be a significant help for you, then by all means, you
+can seal the deal on that point. I think I can duplicate that functionality well
+enough on my own if need be, though.
+
+If none of those three standout features apply, then it's just a numbers game.
+Do you have less than $500 to invest? Then Wealthfront's $500 minimum deflects
+you to Betterment.
+
+Above the $500 line, it's a bit more murky, as you have to evaluate the
+trade-off between Wealthfront's lack of fees on your first $15,000 and
+Betterment's fractional shares. So let's do some rough math.
+
+Without the benefit of fractional shares, a Wealthfront account will at any time
+hold a cash balance between $0 and the value of one full ETF share. "ETFs trade
+in increments of approximately $30 to $100", according to
+[one of their help articles](https://support.wealthfront.com/hc/en-us/articles/211004143-Why-do-I-have-a-cash-balance-),
+so to make things easy, let's say those shares average $65 (the midpoint of $30
+and $100). Thus the average cash balance in your Wealthfront account at any
+given time ought to be around $32.50 (half of $65).
+
+On the other hand, once you reach $13,000 in your Betterment account, you'll
+have a $32.50 annual management fee, which you wouldn't have at Wealthfront. I
+know that the trade-off is more complex than that, but the point is, at some low
+number (in investing terms), Wealthfront's fee structure mitigates their lack of
+fractional shares. If you think it'll be a while till your portfolio makes it to
+$13,000 or so, maybe start with Betterment so your investments can be more
+diversified, but beyond that, start looking toward Wealthfront.
+
+With account balances under $100,000, the comparison may be a bit of a wash, but
+once you hit $100,000, Wealthfront's direct indexing kicks in, which looks to be
+a decisive advantage. If you're high-rolling enough to have more than $2 million
+in your nest egg, Betterment's then-decreasing management fee comes into play,
+but since Wealthfront's direct indexing advantage seems worth more than 0.25%
+per year at the least, I think I'd still stick with Wealthfront above $2
+million, too.
+
+So personally, I'm going to go with Wealthfront. I'm not at that $100,000 mark
+yet, but it shouldn't take _too_ much longer to get there, and now I'll be ready
+to reap those sweet direct indexing benefits from day one.
+
+## Should you move your existing investments to a robo-advisor?
+
+I've got the benefit of being pretty near the beginning of my investing journey
+— IRAs are quite easy to roll over, and it looks like the few ETFs I hold now
+should transfer directly to Wealthfront without having to sell. But what if
+you've already been in this investing game for a while?
+
+As mentioned, IRAs are easy. Both Wealthfront and Betterment allow for direct
+transfers with no tax implications. Old employer-sponsored retirement plans
+(401k, 403b, etc.) can be rolled into an IRA as well.
+
+As for taxable investments, both services allow transfers via the Automated
+Customer Account Transfer Service (ACATS), but there are a few catches.
+Betterment _only_ accepts transfers of
+[compatible ETFs](https://support.betterment.com/customer/en/portal/articles/2463086-can-i-transfer-my-shares-from-an-outside-brokerage-to-betterment-?b_id=9042).
+Wealthfront will accept all securities transferred to them, incorporating all
+[compatible ETFs](https://support.wealthfront.com/hc/en-us/articles/210999343-What-ETFs-does-Wealthfront-use-to-implement-tax-loss-harvesting-)
+and large-cap stocks directly into your Wealthfront investment mix, but they
+will then
+[sell any incompatible assets for you in a tax-minimized way](https://support.wealthfront.com/hc/en-us/articles/209348146-Can-I-transfer-my-outside-account-into-Wealthfront-).
+
+Is it worth liquidating incompatible investments to fund a new portfolio? That
+depends on a variety of factors, including your investment time frame. I'd
+recommend playing around with
+[Betterment's Switching Cost Calculator](https://www.betterment.com/resources/investment-strategy/taxes/investment-switching-costs-calculate-your-costs-and-benefits/)
+to inform your decision. And even if you do keep some old investments where they
+are, it's probably still worth putting any new investment capital into a
+Wealthfront or Betterment portfolio instead of continuing to fund an old one.
+
+---
+
+So does Wealthfront sound best for you, too? If you sign up with
+[my referral link](https://wlth.fr/2w8a0vJ) you'll get that extra $5,000 managed
+for free. 😁
+
+Are the socially responsible or goal-based investing options of Betterment more
+up your alley? If so, thanks to some brief Betterment experimentation, I do have
+[a referral link](https://www.betterment.com/invite/tylermick) you can use to
+get an extra 90 days of free management, even though the referral won't benefit
+me anymore. 👍🏼
+
+Have fun, and keep growing that nest egg!
+
+---
+
+<I>
+  I'm not a financial advisor. Don't take this as advice. I'm just offering
+  ideas. 👐🏼 You're a smart, capable adult; you've got this. 👊🏼
+</I>

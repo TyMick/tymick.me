@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import React from "react";
+import { css } from "@emotion/react";
 import clsx from "clsx";
 
 /**
@@ -8,10 +9,17 @@ import clsx from "clsx";
  */
 const gray500 = "#adb5bd";
 
-const Blockquote = styled.blockquote.attrs((props) => ({
-  className: clsx(props.className, "pl-2 my-4"),
-}))`
-  border-left: 4px solid ${gray500};
-`;
-
-export default Blockquote;
+export default function Blockquote({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"blockquote">) {
+  return (
+    <blockquote
+      className={clsx(className, "pl-2 my-4")}
+      css={css`
+        border-left: 4px solid ${gray500};
+      `}
+      {...props}
+    />
+  );
+}

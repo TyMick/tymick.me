@@ -1,8 +1,14 @@
-import styled from "styled-components";
 import clsx from "clsx";
 
-const ThematicBreak = styled.hr.attrs((props) => ({
-  className: clsx(props?.className, "border-secondary my-4"),
-}))({ width: "5rem" });
-
-export default ThematicBreak;
+export default function ThematicBreak({
+  className,
+  ...props
+}: React.ComponentProps<"hr">) {
+  return (
+    <hr
+      className={clsx(className, "border-secondary my-4")}
+      css={{ width: "5rem" }}
+      {...props}
+    />
+  );
+}
