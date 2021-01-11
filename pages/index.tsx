@@ -1,18 +1,12 @@
 /**
  * @todo Change most of this page to a list of blog posts.
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
-import { Image, Link as A } from "../components";
+import { Image, Link as A, MastodonVerification } from "../components";
 
 export default function Home() {
-  // Logic to remove Mastodon verification link after page loads
-  const [pageLoaded, setPageLoaded] = useState(false);
-  useEffect(() => {
-    setPageLoaded(true);
-  }, []);
-
   return (
     <>
       {/* prettier-ignore */}
@@ -112,8 +106,7 @@ export default function Home() {
         </div>
       </Container>
 
-      {/* Mastodon verification */}
-      {!pageLoaded && <a rel="me" href="https://mastodon.online/@tywmick" />}
+      <MastodonVerification instance="mastodon.online" username="tywmick" />
     </>
   );
 }

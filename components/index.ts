@@ -12,6 +12,7 @@ import Footer from "./Footer";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
 import Link from "./Link";
+import MastodonVerification from "./MastodonVerification";
 import MiscProfile from "./MiscProfile";
 import Nav from "./Nav";
 import PortfolioSection from "./PortfolioSection";
@@ -35,6 +36,7 @@ export {
   Image,
   InlineFootnote,
   Link,
+  MastodonVerification,
   MiscProfile,
   Nav,
   PortfolioSection,
