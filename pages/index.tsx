@@ -2,26 +2,21 @@
  * @todo Change most of this page to a list of blog posts.
  */
 import React from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { Container, Row, Col } from "react-bootstrap";
 import { Image, Link as A, MastodonVerification } from "../components";
 
 export default function Home() {
   return (
     <>
-      {/* prettier-ignore */}
-      <Head>
-        <title>Ty Mick, software developer</title>
-
-        <meta property="og:title" content="Ty Mick, software developer" />
-        <meta property="og:description" content="Hi! I'm Ty. I'm an award-winning analyst, data scientist, and web developer." />
-        <meta property="og:image" content="https://tymick.me/images/preview.png" />
-        <meta property="og:url" content="https://tymick.me/" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:site_name" content="Ty Mick" />
-        <meta name="twitter:image:alt" content="A preview of Ty Mick's personal website" />
-        <meta name="twitter:site" content="@tywmick" />
-      </Head>
+      <NextSeo
+        title="Ty Mick"
+        canonical="https://tymick.me/"
+        twitter={{
+          handle: "@tywmick",
+          site: "@tywmick",
+        }}
+      />
 
       <Container className="cap-lg-49">
         <Row className="align-items-center mb-3 mb-sm-5">
