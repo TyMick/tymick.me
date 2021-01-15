@@ -8,7 +8,7 @@
   "repository": "https://github.com/tywmick/tymick.me.git",
   "license": "Apache-2.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start"
   },
