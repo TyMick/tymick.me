@@ -13,8 +13,10 @@ type BlogPostWrapperProps = {
   title: string;
   subtitle?: string;
   description?: string;
-  date: Date | string;
-  lastUpdated?: Date | string;
+  /** Date/time first published, in ISO format. */
+  date: string;
+  /** Date/time last updated, in ISO format. */
+  lastUpdated?: string;
   canonicalUrl?: string;
   ogImage: {
     filename: string;

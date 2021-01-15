@@ -1,13 +1,15 @@
 import { format, formatISO } from "date-fns";
 
 type DateTimeProps = {
-  date: Date | string;
+  /** Date and time in ISO format. */
+  date: string;
   formatString: string;
 };
 
-export default function DateTime({ date, formatString }: DateTimeProps) {
-  const jsDate = new Date(date);
-  return (
-    <time dateTime={formatISO(jsDate)}>{format(jsDate, formatString)}</time>
-  );
+export default function DateTime({
+  date: dateString,
+  formatString,
+}: DateTimeProps) {
+  const date = new Date(dateString);
+  return <time dateTime={formatISO(date)}>{format(date, formatString)}</time>;
 }

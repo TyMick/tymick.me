@@ -20,7 +20,7 @@ export async function getPostBySlug(
 ) {
   try {
     const { metadata }: { metadata: BlogPostMetadata } = await import(
-      `../pages/blog/${slug}`
+      `../pages/blog/${slug}.mdx`
     );
     let data: object = {};
 
@@ -28,6 +28,8 @@ export async function getPostBySlug(
     for (const field of fields) {
       if (metadata?.[field]) {
         data[field] = metadata[field];
+      } else if (field === "slug") {
+        data["slug"] = slug;
       }
     }
 
@@ -57,13 +59,16 @@ export async function getAllPosts(fields: MetadataField[] = []) {
   }
 }
 
-type BlogPostMetadata = {
+export type BlogPostMetadata = {
+  slug?: string;
   title: string;
   subtitle?: string;
   description?: string;
   excerpt: string;
-  date: Date | string;
-  lastUpdated: Date | string;
+  /** Date/time first published, in ISO format. */
+  date: string;
+  /** Date/time last updated, in ISO format. */
+  lastUpdated?: string;
   ogImage?: {
     filename: string;
     alt: string;
@@ -84,6 +89,7 @@ type BlogPostMetadata = {
 };
 
 type MetadataField =
+  | "slug"
   | "title"
   | "subtitle"
   | "description"

@@ -5,6 +5,10 @@
       "destination": "https://workflowy.com/s/beverages-id-enjoy-a/sDeB5YcOcO6syrRE"
     },
     {
+      "source": "/blog",
+      "destination": "/"
+    },
+    {
       "source": "/console-log-after-reload",
       "destination": "/blog/console-log-after-reload"
     },
@@ -55,14 +59,6 @@
     {
       "source": "/loan-risk-neural-network",
       "destination": "/blog/loan-risk-neural-network"
-    },
-    {
-      "source": "/mileage",
-      "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdsheP_Mh8glRYDrdYmDdTEbddXuD1T9IkZke-keMYZV1P_DQ/viewform?usp=sf_link"
-    },
-    {
-      "source": "/miles",
-      "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdsheP_Mh8glRYDrdYmDdTEbddXuD1T9IkZke-keMYZV1P_DQ/viewform?usp=sf_link"
     },
     {
       "source": "/python-apis",

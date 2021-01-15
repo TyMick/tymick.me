@@ -1,6 +1,7 @@
 import React, { ReactFragment, ReactElement, ReactNode } from "react";
 import remark from "remark";
 import smartypants from "@silvenon/remark-smartypants";
+import gfm from "remark-gfm";
 import remarkReact from "remark-react";
 import { VFile } from "vfile";
 
@@ -8,6 +9,7 @@ import { VFile } from "vfile";
 export function parseInlineMarkdown(markdown: string): ReactFragment {
   const react = remark()
     .use(smartypants)
+    .use(gfm)
     .use(remarkReact, {
       remarkReactComponents: { p: React.Fragment },
     })

@@ -9,9 +9,11 @@ import DateTime from "./DateTime";
 import EssayPreview from "./EssayPreview";
 import { Figure, FigureImage, FigureCaption } from "./Figure";
 import Footer from "./Footer";
+import Greeting from "./Greeting";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
 import Link from "./Link";
+import ListOfPosts from "./ListOfPosts";
 import MastodonVerification from "./MastodonVerification";
 import MiscProfile from "./MiscProfile";
 import Nav from "./Nav";
@@ -33,9 +35,11 @@ export {
   FigureImage,
   FigureCaption,
   Footer,
+  Greeting,
   Image,
   InlineFootnote,
   Link,
+  ListOfPosts,
   MastodonVerification,
   MiscProfile,
   Nav,

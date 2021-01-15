@@ -1,21 +1,3 @@
-.essay-preview {
-  @extend .position-relative;
-  &:not(:last-child) {
-    @extend .mb-5;
-  }
-  h2 a {
-    @extend .text-reset;
-    @extend .stretched-link;
-  }
-  h3,
-  p {
-    @extend .text-muted;
-  }
-  small {
-    @extend .font-italic;
-  }
-}
-
 .ipynb {
   .language-python {
     @extend .border;
