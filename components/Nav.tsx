@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Image from "./Image";
@@ -49,25 +49,6 @@ export default function Navigation() {
           >
             <Link href="/portfolio" passHref>
               <Nav.Link>Portfolio</Nav.Link>
-            </Link>
-
-            <Dropdown>
-              <Dropdown.Toggle as={Nav.Link}>Résumé</Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="/data-scientist-resume.pdf">
-                  Data Scientist
-                </Dropdown.Item>
-                <Dropdown.Item href="/data-engineer-resume.pdf">
-                  Data Engineer
-                </Dropdown.Item>
-                <Dropdown.Item href="/web-developer-resume.pdf">
-                  Web Developer
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Link href="/blog" passHref>
-              <Nav.Link>Blog</Nav.Link>
             </Link>
 
             <Link href="/connect" passHref>
