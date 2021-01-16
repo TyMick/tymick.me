@@ -1,5 +1,4 @@
 import React from "react";
-import { format } from "date-fns";
 import DateHeading from "./DateHeading";
 import A from "./Link";
 
