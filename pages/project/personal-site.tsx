@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
-import { Link as A } from "../../components";
+import A from "../../components/Link";
 
 export default function PersonalSite() {
   return (

@@ -1,61 +1,15 @@
 import { Components } from "@mdx-js/react";
 import { withMarkdownParsing } from "../lib/text-processing";
-import AlgorithmTest from "./AlgorithmTest";
 import Blockquote from "./Blockquote";
-import BlogPostWrapper, { withBlogPostWrapper } from "./BlogPostWrapper";
-import Codepen from "./Codepen";
-import ContactMethod from "./ContactMethod";
-import DateTime from "./DateTime";
-import EssayPreview from "./EssayPreview";
 import { Figure, FigureImage, FigureCaption } from "./Figure";
-import Footer from "./Footer";
-import Greeting from "./Greeting";
 import Image from "./Image";
 import InlineFootnote from "./InlineFootnote";
 import Link from "./Link";
-import ListOfPosts from "./ListOfPosts";
-import MastodonVerification from "./MastodonVerification";
-import MiscProfile from "./MiscProfile";
-import Nav from "./Nav";
-import PortfolioSection from "./PortfolioSection";
 import PullQuote from "./PullQuote";
-import Testimonial from "./Testimonial";
 import ThematicBreak from "./ThematicBreak";
 
-export {
-  AlgorithmTest,
-  Blockquote,
-  BlogPostWrapper,
-  withBlogPostWrapper,
-  Codepen,
-  ContactMethod,
-  DateTime,
-  EssayPreview,
-  Figure,
-  FigureImage,
-  FigureCaption,
-  Footer,
-  Greeting,
-  Image,
-  InlineFootnote,
-  Link,
-  ListOfPosts,
-  MastodonVerification,
-  MiscProfile,
-  Nav,
-  PortfolioSection,
-  PullQuote,
-  Testimonial,
-  ThematicBreak,
-};
-
-export const mdxComponents: Components & {
-  /**
-   * @todo Find a better typing for this. I tried React.ComponentType<any>, but
-   * that doesn't work with `Figure`. I can't find anything better at the
-   * moment.
-   */
-  [shortcode: string]: any;
+const mdxComponents: Components & {
+  [shortcode: string]: React.ComponentType<any>;
 } = {
   // Component replacements for Markdown syntax
   a: Link,
@@ -85,3 +39,5 @@ export const mdxComponents: Components & {
    */
   // wrapper: BlogPostWrapper,
 };
+
+export default mdxComponents;

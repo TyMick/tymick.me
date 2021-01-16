@@ -3,7 +3,8 @@ import { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import { Container } from "react-bootstrap";
 import { getAllPosts } from "../lib/blog-api";
-import { Greeting, MastodonVerification } from "../components";
+import Greeting from "../components/Greeting";
+import MastodonVerification from "../components/MastodonVerification";
 import ListOfPosts, {
   Post,
   Props as PostsProps,

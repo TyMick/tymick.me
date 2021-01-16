@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import TeX from "@matejmazur/react-katex";
 import PortfolioSection from "../components/PortfolioSection";
-import { Link as A } from "../components";
+import A from "../components/Link";
 
 export default function Portfolio() {
   return (

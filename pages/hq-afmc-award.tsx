@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import useBreakpoints from "use-window-width-breakpoints";
 import clsx from "clsx";
-import { Image } from "../components";
+import Image from "../components/Image";
 
 export default function HqAfmcAward() {
   const breakpoint = useBreakpoints();
