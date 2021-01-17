@@ -1,9 +1,15 @@
 import React, { useRef, useState } from "react";
 import { kebabCase } from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import { Overlay, Tooltip } from "react-bootstrap";
 
-export default function MiscProfile({ brand, icon, href, username }) {
+type Props = { brand: string; icon: IconDefinition } & (
+  | { href: string; username?: never }
+  | { href?: never; username: string }
+);
+
+export default function SocialLink({ brand, icon, href, username }: Props) {
   const anchor = useRef(null);
 
   const [hover, setHover] = useState(false);

@@ -9,6 +9,10 @@
       "destination": "/"
     },
     {
+      "source": "/connect",
+      "destination": "/about"
+    },
+    {
       "source": "/console-log-after-reload",
       "destination": "/blog/console-log-after-reload"
     },

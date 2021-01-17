@@ -22,7 +22,7 @@ export default function Navigation() {
   return (
     <Container as="header" className="px-0 mb-4 mb-sm-5">
       <Navbar
-        expand="sm"
+        expand={true}
         expanded={expanded}
         onSelect={collapse}
         onToggle={toggleExpanded}
@@ -47,14 +47,14 @@ export default function Navigation() {
         <Navbar.Collapse id="nav-links" className="justify-content-end">
           <Nav
             activeKey={getSubdirectory(router.pathname)}
-            className="align-items-end align-items-sm-center"
+            className="align-items-center"
           >
             <Link href="/projects" passHref>
               <Nav.Link>Projects</Nav.Link>
             </Link>
 
-            <Link href="/connect" passHref>
-              <Nav.Link>Connect</Nav.Link>
+            <Link href="/about" passHref>
+              <Nav.Link>About</Nav.Link>
             </Link>
 
             <Nav.Link
