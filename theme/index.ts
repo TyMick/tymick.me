@@ -1,3 +1,5 @@
 import colors from "./colors";
+import space from "./space";
 
-export default { colors };
+const theme = { colors, space };
+export default theme;

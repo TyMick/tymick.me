@@ -17,6 +17,8 @@ export default function Navigation() {
     return "/" + path.split("/")[1];
   }
 
+  const pathnamesWithoutProfilePic = ["/", "/projects", "/about"];
+
   return (
     <Container as="header" className="px-0 mb-4 mb-sm-5">
       <Navbar
@@ -27,7 +29,7 @@ export default function Navigation() {
       >
         <Link href="/" passHref>
           <Navbar.Brand onClick={collapse} className="signature">
-            {router.pathname !== "/" && (
+            {!pathnamesWithoutProfilePic.includes(router.pathname) && (
               <Image
                 src="/images/profile-pic.jpg"
                 dimensions={{ width: 2201, height: 2201 }}
@@ -47,8 +49,8 @@ export default function Navigation() {
             activeKey={getSubdirectory(router.pathname)}
             className="align-items-end align-items-sm-center"
           >
-            <Link href="/portfolio" passHref>
-              <Nav.Link>Portfolio</Nav.Link>
+            <Link href="/projects" passHref>
+              <Nav.Link>Projects</Nav.Link>
             </Link>
 
             <Link href="/connect" passHref>

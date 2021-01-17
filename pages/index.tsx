@@ -23,7 +23,7 @@ export default function Home({ posts }: PostsProps) {
       />
 
       <Container className="cap-lg-49">
-        <Greeting />
+        <Greeting h1 />
         <ListOfPosts posts={posts} />
       </Container>
 

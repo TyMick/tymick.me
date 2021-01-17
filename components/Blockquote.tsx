@@ -1,13 +1,7 @@
 import React from "react";
-import { css } from "@emotion/react";
+import css from "@styled-system/css";
+import { themeGet } from "@styled-system/theme-get";
 import clsx from "clsx";
-
-/**
- * Copied from Bootstrap's color variables.
- *
- * @todo Create a Styled System theme to use instead.
- */
-const gray500 = "#adb5bd";
 
 export default function Blockquote({
   className,
@@ -16,9 +10,9 @@ export default function Blockquote({
   return (
     <blockquote
       className={clsx(className, "pl-2 my-4")}
-      css={css`
-        border-left: 4px solid ${gray500};
-      `}
+      css={css({
+        borderLeft: `4px solid ${themeGet("colors.gray500")(props)}`,
+      })}
       {...props}
     />
   );

@@ -2,7 +2,9 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Image from "./Image";
 
-export default function Greeting() {
+export default function Greeting({ h1 }: { h1?: boolean }) {
+  const Hi = h1 ? "h1" : "div";
+
   return (
     <Row className="align-items-center mb-3 mb-sm-5">
       <Col
@@ -21,7 +23,7 @@ export default function Greeting() {
         />
       </Col>
       <Col xs={12} sm className="text-center text-sm-left">
-        <h1 className="greeting">Hi! I&rsquo;m Ty.</h1>
+        <Hi className="greeting">Hi! I&rsquo;m Ty.</Hi>
       </Col>
     </Row>
   );

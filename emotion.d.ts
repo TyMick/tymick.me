@@ -4,6 +4,10 @@ import "@emotion/react";
 
 declare module "@emotion/react" {
   export interface Theme {
-    colors: any;
+    colors: ColorScale;
+    space: SpaceScale;
   }
+
+  export type ColorScale = { [key: string]: string | ColorScale };
+  export type SpaceScale = { [key: number]: string };
 }

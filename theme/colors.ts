@@ -1,7 +1,8 @@
 import { merge } from "lodash";
 import chroma from "chroma-js";
+import type { ColorScale } from "@emotion/react";
 
-const colors: any = {
+const colors: ColorScale = {
   white: "#fff",
   gray100: "#f8f9fa",
   gray200: "#e9ecef",
@@ -24,7 +25,7 @@ const colors: any = {
   teal: "#20c997",
   cyan: "#17a2b8",
 };
-merge(colors, {
+merge<ColorScale, ColorScale>(colors, {
   gray: colors.gray600,
   grayDark: colors.gray800,
   primary: colors.blue,
@@ -36,14 +37,16 @@ merge(colors, {
   light: colors.gray100,
   dark: colors.gray800,
 });
-merge(colors, {
+merge<ColorScale, ColorScale>(colors, {
   light: {
-    primary: chroma(colors.primary).brighten().hex(),
+    primary: chroma(colors.primary as string)
+      .brighten()
+      .hex(),
   },
 });
 merge(colors, {
   light: {
-    primaryHoverFocus: chroma(colors.light.primary).brighten(0.5).hex(),
+    primaryHoverFocus: chroma(colors.light["primary"]).brighten(0.5).hex(),
   },
 });
 export default colors;
