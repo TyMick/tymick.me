@@ -19,9 +19,9 @@ export default function About() {
         <p>
           By day, I&rsquo;m a full-stack software developer for{" "}
           <a href="https://faithlife.com/about">Faithlife</a>, but that&rsquo;s
-          not what this website is about. Not primarily, at least. This site is
-          a space for me both to write about anything on my mind and to have fun
-          experimenting with web tools like React and Next.js.
+          not what this website is about. This site is a space for me both to
+          write about anything on my mind and to have fun experimenting with web
+          tools like React and Next.js.
         </p>
         <p>
           What do I write about? We&rsquo;ll find out. Once I&rsquo;ve written
