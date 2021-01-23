@@ -141,7 +141,7 @@ export default function BlogPostWrapper({
                     </a>
 
                     {
-                      // Determine appropriate list punctation
+                      // Determine appropriate list punctuation
                       numLinks === 1
                         ? ""
                         : numLinks === 2
