@@ -19,17 +19,6 @@ export const metadata = {
   },
 };
 
-<!--
-Explicit wrapper export shouldn't be necessary, but when using MDX files as
-Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
-doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
-as it should. Perhaps this will be fixed in future versions of MDX and/or
-@next/mdx?
--->
-
-import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
-export default withBlogPostWrapper(metadata);
-
 Ever wanted to create a browser console log that persists after a page reloads?
 Sure, that isn't a problem if you
 [enable the "preserve log" option](https://stackoverflow.com/questions/5327955/how-to-make-google-chrome-javascript-console-persistent)
@@ -86,3 +75,16 @@ if (sessionStorage && sessionStorage.getItem("consoleWarnAfterReload")) {
 ```
 
 That did the trick!
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);

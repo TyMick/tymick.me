@@ -14,17 +14,6 @@ export const metadata = {
   },
 };
 
-<!--
-Explicit wrapper export shouldn't be necessary, but when using MDX files as
-Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
-doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
-as it should. Perhaps this will be fixed in future versions of MDX and/or
-@next/mdx?
--->
-
-import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
-export default withBlogPostWrapper(metadata);
-
 import { Row, Col } from "react-bootstrap";
 
 My goodness gracious, this coronavirus epidemic keeps looking worse every single
@@ -201,3 +190,16 @@ for the first time in my life.
 Stay safe, friends, and please stay home if you can. If you cannot, thank you
 for your sacrifice to keep the essentials running for everyone, and know that
 your safety is one of the reasons that I am staying home myself.
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);

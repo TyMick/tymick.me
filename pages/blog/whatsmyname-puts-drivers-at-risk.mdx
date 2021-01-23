@@ -18,17 +18,6 @@ export const metadata = {
   },
 };
 
-<!--
-Explicit wrapper export shouldn't be necessary, but when using MDX files as
-Next.js pages, the [wrapper component](https://mdxjs.com/getting-started#using-the-wrapper)
-doesn't receive [`layoutProps`](https://mdxjs.com/advanced/components#layout-props)
-as it should. Perhaps this will be fixed in future versions of MDX and/or
-@next/mdx?
--->
-
-import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
-export default withBlogPostWrapper(metadata);
-
 <Figure className="full-width mt-2 mb-4">
   <FigureImage
     src="/images/victor-xok-qd-zd2MoeE8-unsplash.jpg"
@@ -155,3 +144,16 @@ And remember: check the car, check the photo, then ask
 "[#WhatsYourName](https://clicktotweet.com/63eea)?"
 
 <PullQuote>[#WhatsYourName](https://clicktotweet.com/63eea)?</PullQuote>
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);
