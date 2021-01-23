@@ -1,0 +1,42 @@
+export const metadata = {
+  title: "New job, new site design",
+  date: "2021-01-23T16:01:09.178-06:00",
+  excerpt:
+    "I got a full-time job! Full-stack software developer at Faithlife—just finished my second week. Anyway, now that no longer have to sell myself as either a freelancer or a job applicant, I figured I can adjust this site to focus more on my writing.",
+};
+
+I got a full-time job! Full-stack software developer at [Faithlife][f]—just
+finished my second week. Anyway, now that no longer have to sell myself as
+either a freelancer or a job applicant, I figured I can adjust this site to
+focus more on my writing.
+
+What will I write about? We'll find out. My posts have been pretty code-focused
+lately, but that was mostly to serve a marketing purpose. I plan to branch out
+more in the future.
+
+The design's definitely a work in progress. I'd love to improve the typography,
+for starters (I'm very inspired by [Butterick’s Practical Typography][pt] on
+that front). Maybe add a dark color theme as well (which Butterick is [not fond
+of][newsletter], ironically).
+
+But all in good time. This post is mainly just an acknowledgement that Things
+Have Changed here.
+
+[f]: https://faithlife.com/about
+[pt]: https://practicaltypography.com/
+[newsletter]:
+  https://tinyletter.com/mbutterick/letters/my-cheap-cheerful-last-minute-2020-gift-guide
+  "My cheap & cheerful last-minute 2020 gift guide – Matthew Butterick"
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);

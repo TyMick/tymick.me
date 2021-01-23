@@ -18,7 +18,7 @@ type BlogPostWrapperProps = {
   /** Date/time last updated, in ISO format. */
   lastUpdated?: string;
   canonicalUrl?: string;
-  ogImage: {
+  ogImage?: {
     filename: string;
     alt?: string;
   };
@@ -77,12 +77,14 @@ export default function BlogPostWrapper({
             title: webPageTitle,
             description: description || subtitle,
             url: url,
-            images: [
-              {
-                url: `https://tymick.me/images/${ogImage.filename}`,
-                alt: ogImage?.alt,
-              },
-            ],
+            images: ogImage
+              ? [
+                  {
+                    url: `https://tymick.me/images/${ogImage.filename}`,
+                    alt: ogImage?.alt,
+                  },
+                ]
+              : undefined,
             site_name: "Ty Mick",
           },
           twitter: {
