@@ -39,11 +39,11 @@ export default function InlineFootnote({
           id={id}
           css={css`
             a {
-              color: ${theme.colors.light.primary};
+              color: ${theme.colors.light["primary"]};
 
               &:hover,
               &:focus {
-                color: ${theme.colors.light.primaryHoverFocus};
+                color: ${theme.colors.light["primaryHoverFocus"]};
               }
             }
           `}
