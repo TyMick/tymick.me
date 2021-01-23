@@ -28,7 +28,7 @@ export default function About() {
           more, maybe a few patterns will start to stand out.
         </p>
         <p>
-          Other favorite pasttimes of mine include hiking, downhill skiing,
+          Other favorite pastimes of mine include hiking, downhill skiing,
           playing story-driven video games, making homemade ice cream,
           and&hellip; philosophy.
         </p>
