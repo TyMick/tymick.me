@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Container } from "react-bootstrap";
 import Codepen from "../../components/Codepen";
 
-const TechnicalDocumentationPage = () => {
+export default function TechnicalDocumentationPage() {
   // Just capture the window height once
   const [windowHeight, setWindowHeight] = useState(0);
   useEffect(() => {
@@ -148,6 +148,4 @@ const TechnicalDocumentationPage = () => {
       </Container>
     </>
   );
-};
-
-export default TechnicalDocumentationPage;
+}

@@ -21,7 +21,7 @@ export default function Dtic() {
           <EssayPreview
             title="The Case for AFMC Social Media Analysis"
             href="https://apps.dtic.mil/sti/citations/AD1012101"
-            date="November 18, 2015"
+            date="2015-11-18"
           >
             AFMC Public Affairs is charged with the task of &ldquo;telling the
             story of equipping the Air Force for world-dominant airpower.&rdquo;
@@ -34,7 +34,7 @@ export default function Dtic() {
           <EssayPreview
             title="An Evaluation of milSuite for A9 and the AFMC Analysis Community"
             href="https://apps.dtic.mil/sti/citations/AD1012055"
-            date="January 9, 2015"
+            date="2015-01-09"
           >
             milSuite is a collection of online social business applications
             developed for the DoD by MilTech Solutions, a Forward Operating
@@ -48,7 +48,7 @@ export default function Dtic() {
           <EssayPreview
             title="Readiness Based Sparing: A Research Summary"
             href="https://apps.dtic.mil/sti/citations/AD1012051"
-            date="July 13, 2012"
+            date="2012-07-13"
           >
             We believe that Readiness Based Sparing (RBS) is the superior method
             of sparing, far more efficient, cost-effective, and comprehensive

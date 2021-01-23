@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 
-export default function PortfolioSection({ name, id, projects }) {
+type Props = {
+  name: string;
+  id: string;
+  projects: ReactNode[];
+};
+
+export default function PortfolioSection({ name, id, projects }: Props) {
   const breakpoint = useWindowWidthBreakpoints();
 
   return (

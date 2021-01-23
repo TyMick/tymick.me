@@ -3,7 +3,17 @@ import { Form, InputGroup, Card } from "react-bootstrap";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-const AlgorithmTest = ({ algorithm, argumentName, inputType }) => {
+type Props = {
+  algorithm: Function;
+  argumentName: string;
+  inputType: "text" | "number";
+};
+
+export default function AlgorithmTest({
+  algorithm,
+  argumentName,
+  inputType,
+}: Props) {
   const [argValue, setArgValue] = useState(null);
 
   return (
@@ -52,6 +62,4 @@ const AlgorithmTest = ({ algorithm, argumentName, inputType }) => {
       </div>
     </div>
   );
-};
-
-export default AlgorithmTest;
+}
