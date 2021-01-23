@@ -4,7 +4,7 @@ import Gist from "react-gist";
 import { Container } from "react-bootstrap";
 import AlgorithmTest from "../../components/AlgorithmTest";
 
-export default function TelephoneNumberValidator() {
+const TelephoneNumberValidator = () => {
   function telephoneCheck(str) {
     let numDigits;
     if (str.match(/\d/g)) {
@@ -72,4 +72,6 @@ export default function TelephoneNumberValidator() {
       </Container>
     </>
   );
-}
+};
+
+export default TelephoneNumberValidator;

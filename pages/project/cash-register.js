@@ -5,7 +5,7 @@ import { Container, Form, InputGroup, Button, Card } from "react-bootstrap";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
-function CashRegister() {
+const CashRegister = () => {
   function checkCashRegister(price, cash, cid) {
     let changeLeft = cash - price;
     let drawerTotal = cid.reduce(function (acc, cur) {
@@ -132,7 +132,7 @@ function CashRegister() {
                   min="0"
                   value={price}
                   onChange={(e) => {
-                    setPrice(parseInt(e.target.value));
+                    setPrice(e.target.value);
                   }}
                   aria-describedby="dsPrice"
                   required
@@ -154,7 +154,7 @@ function CashRegister() {
                   min="0"
                   value={cash}
                   onChange={(e) => {
-                    setCash(parseInt(e.target.value));
+                    setCash(e.target.value);
                   }}
                   aria-describedby="dsCash"
                   required
@@ -185,7 +185,7 @@ function CashRegister() {
                   min="0"
                   value={penny}
                   onChange={(e) => {
-                    setPenny(parseInt(e.target.value));
+                    setPenny(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsPenny"
@@ -209,7 +209,7 @@ function CashRegister() {
                   min="0"
                   value={nickel}
                   onChange={(e) => {
-                    setNickel(parseInt(e.target.value));
+                    setNickel(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsNickel"
@@ -230,7 +230,7 @@ function CashRegister() {
                   min="0"
                   value={dime}
                   onChange={(e) => {
-                    setDime(parseInt(e.target.value));
+                    setDime(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsDime"
@@ -254,7 +254,7 @@ function CashRegister() {
                   min="0"
                   value={quarter}
                   onChange={(e) => {
-                    setQuarter(parseInt(e.target.value));
+                    setQuarter(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsQuarter"
@@ -278,7 +278,7 @@ function CashRegister() {
                   min="0"
                   value={dollar}
                   onChange={(e) => {
-                    setDollar(parseInt(e.target.value));
+                    setDollar(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsDollar"
@@ -299,7 +299,7 @@ function CashRegister() {
                   min="0"
                   value={five}
                   onChange={(e) => {
-                    setFive(parseInt(e.target.value));
+                    setFive(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsFive"
@@ -320,7 +320,7 @@ function CashRegister() {
                   min="0"
                   value={ten}
                   onChange={(e) => {
-                    setTen(parseInt(e.target.value));
+                    setTen(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsTen"
@@ -344,7 +344,7 @@ function CashRegister() {
                   min="0"
                   value={twenty}
                   onChange={(e) => {
-                    setTwenty(parseInt(e.target.value));
+                    setTwenty(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsTwenty"
@@ -368,7 +368,7 @@ function CashRegister() {
                   min="0"
                   value={hundred}
                   onChange={(e) => {
-                    setHundred(parseInt(e.target.value));
+                    setHundred(e.target.value);
                   }}
                   aria-labelledby="cid"
                   aria-describedby="dsHundred"
@@ -475,6 +475,6 @@ function CashRegister() {
       </Container>
     </>
   );
-}
+};
 
 export default CashRegister;
