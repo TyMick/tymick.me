@@ -13,7 +13,7 @@ export default function Greeting({ h1 }: { h1?: boolean }) {
         className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left"
       >
         <Image
-          src="/images/profile-pic.jpg"
+          src="/images/ty-mick-full.jpg"
           dimensions={{ width: 2201, height: 2201 }}
           alt="Ty hiking in Joshua Tree National Park"
           width="100%"

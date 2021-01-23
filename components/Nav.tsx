@@ -31,7 +31,7 @@ export default function Navigation() {
           <Navbar.Brand onClick={collapse} className="signature">
             {!pathnamesWithoutProfilePic.includes(router.pathname) && (
               <Image
-                src="/images/profile-pic.jpg"
+                src="/images/ty-mick-cropped.jpg"
                 dimensions={{ width: 2201, height: 2201 }}
                 alt="Ty hiking in Joshua Tree National Park"
                 size="1.5em"
