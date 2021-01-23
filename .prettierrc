@@ -1,7 +1,7 @@
 {
   "overrides": [
     {
-      "files": "*.mdx",
+      "files": ["*.md", "*.mdx"],
       "options": {
         "proseWrap": "always"
       }
