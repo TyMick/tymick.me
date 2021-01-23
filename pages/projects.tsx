@@ -26,7 +26,7 @@ export default function Projects() {
           </li>
 
           <li>
-            npm packages
+            React hooks
             <SpacedList>
               <li>
                 <a href="https://www.npmjs.com/package/use-window-width-breakpoints">
