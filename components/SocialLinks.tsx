@@ -80,7 +80,7 @@ export default function SocialLinks() {
         icon={faInstagram}
         href="https://instagram.com/tywmick"
       />
-      <SocialLink brand="Discord" icon={faDiscord} username="tywmick#4573" />
+      <SocialLink brand="Discord" icon={faDiscord} username="Ty Mick#4573" />
       <SocialLink
         brand="Spotify"
         icon={faSpotify}
