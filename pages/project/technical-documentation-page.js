@@ -38,7 +38,7 @@ const TechnicalDocumentationPage = () => {
         <h1>Technical documentation page</h1>
         <p>
           I created this page as a requirement for{" "}
-          <a href="https://www.freecodecamp.org/certification/tywmick/responsive-web-design">
+          <a href="https://www.freecodecamp.org/certification/tymick/responsive-web-design">
             my freeCodeCamp Responsive Web Design Certification
           </a>
           , using{" "}

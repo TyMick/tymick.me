@@ -69,7 +69,7 @@ const RomanNumeralConverter = () => {
         {/* Explanation */}
         <p>
           I created this algorithm as a requirement for{" "}
-          <a href="https://www.freecodecamp.org/certification/tywmick/javascript-algorithms-and-data-structures">
+          <a href="https://www.freecodecamp.org/certification/tymick/javascript-algorithms-and-data-structures">
             my freeCodeCamp JavaScript Algorithms and Data Structures
             Certification
           </a>

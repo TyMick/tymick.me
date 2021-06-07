@@ -21,7 +21,7 @@ export default function Codepen({
         data-height={height}
         data-theme-id={theme}
         data-default-tab="result"
-        data-user="tywmick"
+        data-user="TyMick"
         data-slug-hash={slug}
         style={{
           height: height + "px",
@@ -38,7 +38,7 @@ export default function Codepen({
         <span>
           See the Pen{" "}
           <a href={"https://codepen.io/TyMick/pen/" + slug}>{title}</a> by Ty
-          Mick (<a href="https://codepen.io/TyMick">@tywmick</a>) on{" "}
+          Mick (<a href="https://codepen.io/TyMick">@TyMick</a>) on{" "}
           <a href="https://codepen.io">CodePen</a>.
         </span>
       </p>

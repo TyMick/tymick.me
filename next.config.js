@@ -55,37 +55,37 @@ module.exports = withMDX({
       {
         source: "/fcc1",
         destination:
-          "https://www.freecodecamp.org/certification/tywmick/responsive-web-design",
+          "https://www.freecodecamp.org/certification/tymick/responsive-web-design",
         permanent: true,
       },
       {
         source: "/fcc2",
         destination:
-          "https://www.freecodecamp.org/certification/tywmick/javascript-algorithms-and-data-structures",
+          "https://www.freecodecamp.org/certification/tymick/javascript-algorithms-and-data-structures",
         permanent: true,
       },
       {
         source: "/fcc3",
         destination:
-          "https://www.freecodecamp.org/certification/tywmick/front-end-libraries",
+          "https://www.freecodecamp.org/certification/tymick/front-end-libraries",
         permanent: true,
       },
       {
         source: "/fcc5",
         destination:
-          "https://www.freecodecamp.org/certification/tywmick/apis-and-microservices",
+          "https://www.freecodecamp.org/certification/tymick/apis-and-microservices",
         permanent: true,
       },
       {
         source: "/fcc6",
         destination:
-          "https://www.freecodecamp.org/certification/tywmick/information-security-and-quality-assurance",
+          "https://www.freecodecamp.org/certification/tymick/information-security-and-quality-assurance",
         permanent: true,
       },
       {
         source: "/freecodecamp-contributions",
         destination:
-          "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
+          "https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged",
         permanent: true,
       },
       {
@@ -111,13 +111,13 @@ module.exports = withMDX({
       {
         source: "/nextjs",
         destination:
-          "https://github.com/vercel/next.js/pulls?q=author%3Atywmick",
+          "https://github.com/vercel/next.js/pulls?q=author%3ATyMick",
         permanent: true,
       },
       {
         source: "/nextjs-contributions",
         destination:
-          "https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged",
+          "https://github.com/vercel/next.js/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged",
         permanent: true,
       },
       {

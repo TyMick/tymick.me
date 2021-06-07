@@ -337,31 +337,31 @@ export default function Portfolio() {
           id="open-source"
           projects={[
             <>
-              <a href="https://github.com/pulls?q=user%3AFaithlife+author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/pulls?q=user%3AFaithlife+author%3ATyMick+is%3Apr+is%3Amerged">
                 Feature development and bug fixes
               </a>{" "}
               for Faithlife
             </>,
             <>
-              <a href="https://github.com/vercel/next.js/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/vercel/next.js/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged">
                 Bug fixes and documentation help
               </a>{" "}
               for Next.js
             </>,
             <>
-              <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/MatejBransky/react-katex/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged">
                 New feature and bug fixes
               </a>{" "}
               for react-katex
             </>,
             <>
-              <a href="https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged">
                 New features
               </a>{" "}
               for nextjs-redirect
             </>,
             <>
-              <a href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged">
                 Curriculum help
               </a>{" "}
               for freeCodeCamp
@@ -415,7 +415,7 @@ export default function Portfolio() {
               for Code Shelter
             </>,
             <>
-              <a href="https://github.com/pulls?q=user%3AVSCodium+author%3Atywmick+is%3Apr+is%3Amerged">
+              <a href="https://github.com/pulls?q=user%3AVSCodium+author%3ATyMick+is%3Apr+is%3Amerged">
                 Documentation help
               </a>{" "}
               for VSCodium
