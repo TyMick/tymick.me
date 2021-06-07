@@ -1,5 +1,6 @@
 {
   "name": "personal-site",
+  "private": true,
   "author": {
     "name": "Ty Mick",
     "email": "ty@tymick.me",
