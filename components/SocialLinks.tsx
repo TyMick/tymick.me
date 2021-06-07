@@ -28,7 +28,7 @@ export default function SocialLinks() {
       <SocialLink
         brand="GitHub"
         icon={faGithub}
-        href="https://github.com/tywmick"
+        href="https://github.com/TyMick"
       />
       <SocialLink
         brand="Twitter"
@@ -48,7 +48,7 @@ export default function SocialLinks() {
       <SocialLink
         brand="LinkedIn"
         icon={faLinkedin}
-        href="https://www.linkedin.com/in/tywmick"
+        href="https://www.linkedin.com/in/tymick"
       />
       <SocialLink
         brand="Kaggle"
@@ -63,17 +63,17 @@ export default function SocialLinks() {
       <SocialLink
         brand="freeCodeCamp"
         icon={faFreeCodeCamp}
-        href="https://www.freecodecamp.org/tywmick"
+        href="https://www.freecodecamp.org/tymick"
       />
       <SocialLink
         brand="CodePen"
         icon={faCodepen}
-        href="https://codepen.io/tywmick"
+        href="https://codepen.io/TyMick"
       />
       <SocialLink
         brand="GitLab"
         icon={faGitlab}
-        href="https://gitlab.com/tywmick"
+        href="https://gitlab.com/TyMick"
       />
       <SocialLink
         brand="Instagram"
@@ -89,9 +89,9 @@ export default function SocialLinks() {
       <SocialLink
         brand="Medium"
         icon={faMediumM}
-        href="https://medium.com/@tywmick"
+        href="https://medium.com/@TyMick"
       />
-      <SocialLink brand="DEV" icon={faDev} href="https://dev.to/tywmick" />
+      <SocialLink brand="DEV" icon={faDev} href="https://dev.to/tymick" />
       <SocialLink
         brand="Stack Exchange"
         icon={faStackExchange}

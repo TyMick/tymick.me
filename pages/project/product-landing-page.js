@@ -28,10 +28,10 @@ const ProductLandingPage = () => {
       <Container>
         <p className="lead font-italic">
           View this project{" "}
-          <a href="https://codepen.io/tywmick/full/bJQBRz">in its own window</a>
+          <a href="https://codepen.io/TyMick/full/bJQBRz">in its own window</a>
           , or view the source on{" "}
-          <a href="https://github.com/tywmick/product-landing-page">GitHub</a>{" "}
-          or <a href="https://codepen.io/tywmick/pen/bJQBRz">CodePen</a>.
+          <a href="https://github.com/TyMick/product-landing-page">GitHub</a>{" "}
+          or <a href="https://codepen.io/TyMick/pen/bJQBRz">CodePen</a>.
         </p>
         <h1>Product landing page</h1>
         <p>

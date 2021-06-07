@@ -166,7 +166,7 @@ export default function BlogPostWrapper({
         <p className="text-secondary font-italic">
           Found an error or typo in this post you&rsquo;d like to fix? Send me a{" "}
           <a
-            href={`https://github.com/tywmick/tymick.me/edit/master/pages/blog/${slug}.mdx`}
+            href={`https://github.com/TyMick/tymick.me/edit/master/pages/blog/${slug}.mdx`}
           >
             pull request on GitHub
           </a>

@@ -19,7 +19,7 @@ export default function PersonalSite() {
           Why yes, I built this site! I built <A href="/">TyMick.me</A> with{" "}
           <a href="https://nextjs.org/">Next.js</a> and host it on{" "}
           <a href="https://vercel.com/">Vercel</a>. You can view the{" "}
-          <a href="https://github.com/tywmick/tymick.me">source</a> on GitHub.
+          <a href="https://github.com/TyMick/tymick.me">source</a> on GitHub.
         </p>
 
         <p>

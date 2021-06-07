@@ -59,7 +59,7 @@ export default function Navigation() {
 
             <Nav.Link
               className="github-nav-link pr-0"
-              href="https://github.com/tywmick"
+              href="https://github.com/TyMick"
             >
               <FontAwesomeIcon icon={faGithub} />
             </Nav.Link>

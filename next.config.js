@@ -39,7 +39,7 @@ module.exports = withMDX({
       {
         source: "/coursera-assignment",
         destination:
-          "https://github.com/tywmick/coursera-neural-networks-assignment/blob/master/complete_writeup.ipynb",
+          "https://github.com/TyMick/coursera-neural-networks-assignment/blob/master/complete_writeup.ipynb",
         permanent: true,
       },
       {
@@ -90,7 +90,7 @@ module.exports = withMDX({
       },
       {
         source: "/github",
-        destination: "https://github.com/tywmick",
+        destination: "https://github.com/TyMick",
         permanent: true,
       },
       {
@@ -100,7 +100,7 @@ module.exports = withMDX({
       },
       {
         source: "/linkedin",
-        destination: "https://www.linkedin.com/in/tywmick",
+        destination: "https://www.linkedin.com/in/tymick",
         permanent: true,
       },
       {

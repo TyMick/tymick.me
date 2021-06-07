@@ -247,7 +247,7 @@ export default function Portfolio() {
           name="Data structure implementations"
           id="data-structures"
           projects={[
-            <a href="https://github.com/tywmick/data-structures#readme">
+            <a href="https://github.com/TyMick/data-structures#readme">
               12 common data structures in C, TypeScript, and Python
             </a>,
           ]}
@@ -292,17 +292,17 @@ export default function Portfolio() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://codepen.io/tywmick/full/BaBVeVO">
+                  <a href="https://codepen.io/TyMick/full/BaBVeVO">
                     Calculator
                   </a>
                 </li>
                 <li>
-                  <a href="https://codepen.io/tywmick/full/zYOaPyW">
+                  <a href="https://codepen.io/TyMick/full/zYOaPyW">
                     Drum machine
                   </a>
                 </li>
                 <li>
-                  <a href="https://codepen.io/tywmick/full/PoYeapB">
+                  <a href="https://codepen.io/TyMick/full/PoYeapB">
                     Markdown previewer
                   </a>
                 </li>

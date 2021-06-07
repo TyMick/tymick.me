@@ -28,12 +28,12 @@ const TechnicalDocumentationPage = () => {
       <Container>
         <p className="lead font-italic">
           View this project{" "}
-          <a href="https://codepen.io/tywmick/full/EJrmvx">in its own window</a>
+          <a href="https://codepen.io/TyMick/full/EJrmvx">in its own window</a>
           , or view the source on{" "}
-          <a href="https://github.com/tywmick/technical-documentation-page">
+          <a href="https://github.com/TyMick/technical-documentation-page">
             GitHub
           </a>{" "}
-          or <a href="https://codepen.io/tywmick/pen/EJrmvx">CodePen</a>.
+          or <a href="https://codepen.io/TyMick/pen/EJrmvx">CodePen</a>.
         </p>
         <h1>Technical documentation page</h1>
         <p>

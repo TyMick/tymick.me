@@ -5,7 +5,7 @@
     "email": "ty@tymick.me",
     "url": "https://tymick.me"
   },
-  "repository": "https://github.com/tywmick/tymick.me.git",
+  "repository": "https://github.com/TyMick/tymick.me.git",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",

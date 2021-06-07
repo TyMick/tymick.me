@@ -37,8 +37,8 @@ export default function Codepen({
       >
         <span>
           See the Pen{" "}
-          <a href={"https://codepen.io/tywmick/pen/" + slug}>{title}</a> by Ty
-          Mick (<a href="https://codepen.io/tywmick">@tywmick</a>) on{" "}
+          <a href={"https://codepen.io/TyMick/pen/" + slug}>{title}</a> by Ty
+          Mick (<a href="https://codepen.io/TyMick">@tywmick</a>) on{" "}
           <a href="https://codepen.io">CodePen</a>.
         </span>
       </p>
