@@ -39,7 +39,6 @@
     "nanoid": "^3.1.23",
     "next": "^10.2.3",
     "next-seo": "^4.24.0",
-    "node-sass": "^4.14.1",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -52,6 +51,7 @@
     "remark-react": "^8.0.0",
     "retext": "^7.0.1",
     "retext-smartypants": "^4.0.0",
+    "sass": "^1.34.1",
     "styled-system": "^5.1.5",
     "use-window-width-breakpoints": "^1.0.11"
   },
