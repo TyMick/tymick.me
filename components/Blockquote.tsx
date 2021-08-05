@@ -1,18 +1,19 @@
 import React from "react";
-import css from "@styled-system/css";
-import { themeGet } from "@styled-system/theme-get";
+import { css, useTheme } from "@emotion/react";
 import clsx from "clsx";
 
 export default function Blockquote({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"blockquote">) {
+  const theme = useTheme();
+
   return (
     <blockquote
       className={clsx(className, "pl-2 my-4")}
-      css={css({
-        borderLeft: `4px solid ${themeGet("colors.gray500")(props)}`,
-      })}
+      css={css`
+        border-left: 4px solid ${theme.colors.gray500};
+      `}
       {...props}
     />
   );
