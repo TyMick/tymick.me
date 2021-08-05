@@ -6,8 +6,12 @@
     "Faithlife",
     "Vercel",
     "clsx",
+    "fontawesome",
+    "fortawesome",
     "linkedin",
+    "nprogress",
     "pathnames",
+    "shortcode",
     "tywmick"
   ]
 }
