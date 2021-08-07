@@ -14,7 +14,7 @@ type FilteredNextImageProps = Omit<
 
 export type ImageProps = FilteredNextImageProps &
   WrapperProps & {
-    dimensions: {
+    dimensions?: {
       width: number;
       height: number;
     };
@@ -66,15 +66,17 @@ export default function Image({
       {...wrapperProps}
     >
       <NextImage
-        {...dimensions}
-        layout="intrinsic"
-        className={clsx(
-          rounded && "rounded",
-          roundedCircle && "rounded-circle",
-          thumbnail && "img-thumbnail",
-          border && "border"
-        )}
-        {...nextImageProps}
+        {...({
+          ...dimensions,
+          layout: "intrinsic",
+          className: clsx(
+            rounded && "rounded",
+            roundedCircle && "rounded-circle",
+            thumbnail && "img-thumbnail",
+            border && "border"
+          ),
+          ...nextImageProps,
+        } as NextImageProps)}
       />
     </ImageWrapper>
   );
