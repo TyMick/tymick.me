@@ -1,0 +1,103 @@
+export const metadata = {
+  title: "How to debug Next.js applications with VS Code",
+  description:
+    "Suprisingly, you need to debug client-side and server-side code separately. I've built VS Code launch configurations for both.",
+  excerpt:
+    "Debugging Next.js is hard. Their documentation includes a Debugging page, but as of this writing, it only covers debugging server-side code. The worst part, though, is that it doesn't _say_ it only works for server-side code, which caused me a good deal of frustration (and nearly tears) wondering why none of my breakpoints were working. My current project, as it happens, is completely statically generated so far, so _all_ of my code is client-side.",
+  date: "2021-09-04T15:23:53.589-07:00",
+  cta: "Know any ways I could improve these launch configs? Let me know",
+  // socialLinks: {
+  //   twitter: "",
+  //   facebook: "",
+  //   linkedin: "",
+  // },
+};
+
+Debugging Next.js is hard. Their documentation includes a [Debugging][1] page,
+but [as of this writing][2], it only covers debugging server-side code. The
+worst part, though, is that it doesn't _say_ it only works for server-side code,
+which caused me a good deal of frustration (and nearly tears) wondering why none
+of my breakpoints were working. My current project, as it happens, is completely
+[statically generated][3] so far, so _all_ of my code is client-side.
+
+[1]: https://nextjs.org/docs/advanced-features/debugging
+[2]:
+  https://web.archive.org/web/20210904210536/https://nextjs.org/docs/advanced-features/debugging
+[3]: https://nextjs.org/docs/advanced-features/automatic-static-optimization
+
+There's been an [open issue][4] in the Next.js repo for over a year now on this
+subject. That led me in the right direction, at least: to some relatively new
+magic in VS Code's [built-in JavaScript debugger][5] and a closer look at the
+editor's [debugging docs][6]. After all this investigation, I've come up with a
+few launch configurations that have solved all my Next.js debugging problems,
+letting me debug just the front end, just the back end, or both at the same
+time, right in the comfort of VS Code. I hope they can help you too!
+
+[4]: https://github.com/vercel/next.js/issues/16442
+[5]: https://github.com/microsoft/vscode-js-debug
+[6]: https://code.visualstudio.com/docs/editor/debugging
+
+To get started, create a file named `.vscode/launch.json` at the root of your
+project with the following content:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "next dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "next dev",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
+```
+
+If you're using `npm run dev` or `yarn dev` to start your dev server, replace
+both instances of `next dev` above with `npm run dev` or `yarn dev`, whichever
+you're using. If you're [changing the port number][7] your application starts
+on, replace the `3000` in `http://localhost:3000` with the port you're using
+instead.
+
+[7]: https://nextjs.org/docs/api-reference/cli#development
+
+Now go to the Debug panel (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> on
+Windows/Linux, <kbd>⇧</kbd><kbd>⌘</kbd><kbd>D</kbd> on macOS), select a launch
+configuration, then press <kbd>F5</kbd> or select <samp>Debug: Start
+Debugging</samp> from the Command Palette to start your debugging session.
+Voilà!
+
+I'm about to open a Next.js documentation PR with these improvements, so
+hopefully their debugging page won't be out of date for too much longer. 🤞🏼
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);
