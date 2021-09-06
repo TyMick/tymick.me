@@ -68,7 +68,7 @@ export type BlogPostMetadata = {
   /** Date/time first published, in ISO format. */
   date: string;
   /** Date/time last updated, in ISO format. */
-  lastUpdated?: string;
+  updated?: string;
   ogImage?: {
     filename: string;
     alt: string;
@@ -95,7 +95,7 @@ type MetadataField =
   | "description"
   | "excerpt"
   | "date"
-  | "lastUpdated"
+  | "updated"
   | "ogImage"
   | "cta"
   | "socialLinks"

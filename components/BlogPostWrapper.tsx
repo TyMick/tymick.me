@@ -16,7 +16,7 @@ type BlogPostWrapperProps = {
   /** Date/time first published, in ISO format. */
   date: string;
   /** Date/time last updated, in ISO format. */
-  lastUpdated?: string;
+  updated?: string;
   canonicalUrl?: string;
   ogImage?: {
     filename: string;
@@ -39,7 +39,7 @@ export default function BlogPostWrapper({
   subtitle,
   description,
   date,
-  lastUpdated,
+  updated,
   canonicalUrl,
   ogImage,
   cta,
@@ -110,11 +110,11 @@ export default function BlogPostWrapper({
 
         <div className="font-italic text-secondary sans-serif mb-4">
           <DateTime date={date} formatString="LLLL d, yyyy" />
-          {lastUpdated && (
+          {updated && (
             <>
               {breakpoint.xs ? <br /> : " "}
               (last updated{" "}
-              <DateTime date={lastUpdated} formatString="LLLL d, yyyy" />)
+              <DateTime date={updated} formatString="LLLL d, yyyy" />)
             </>
           )}
         </div>
