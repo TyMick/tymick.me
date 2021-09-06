@@ -5,6 +5,7 @@ export const metadata = {
   excerpt:
     "Debugging Next.js is hard. Their documentation includes a Debugging page, but as of this writing, it only covers debugging server-side code. The worst part, though, is that it doesn't _say_ it only works for server-side code, which caused me a good deal of frustration (and nearly tears) wondering why none of my breakpoints were working. My current project, as it happens, is completely statically generated so far, so _all_ of my code is client-side.",
   date: "2021-09-04T15:23:53.589-07:00",
+  lastUpdated: "2021-09-05T17:41:20.017-07:00",
   cta: "Know any ways I could improve these launch configs? Let me know",
   socialLinks: {
     twitter: "https://twitter.com/tywmick/status/1434282824652054532",
@@ -87,8 +88,10 @@ configuration, then press <kbd>F5</kbd> or select <samp>Debug: Start
 Debugging</samp> from the Command Palette to start your debugging session.
 Voilà!
 
-I'll be opening a Next.js documentation PR soon with these improvements, so
+I've opened a [Next.js documentation PR][8] with these improvements, so
 hopefully their debugging page won't be out of date for too much longer. 🤞🏼
+
+[8]: https://github.com/vercel/next.js/pull/28815
 
 <!--
 Explicit wrapper export shouldn't be necessary, but when using MDX files as
