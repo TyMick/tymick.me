@@ -4,10 +4,10 @@ import useWindowWidthBreakpoints from "use-window-width-breakpoints";
 type Props = {
   name: string;
   id: string;
-  projects: ReactNode[];
+  children: ReactNode;
 };
 
-export default function PortfolioSection({ name, id, projects }: Props) {
+export default function PortfolioSection({ name, id, children }: Props) {
   const breakpoint = useWindowWidthBreakpoints();
 
   return (
@@ -16,7 +16,7 @@ export default function PortfolioSection({ name, id, projects }: Props) {
         {name}
       </h2>
       <ul style={{ ...(breakpoint.xs && { paddingInlineStart: "2rem" }) }}>
-        {projects.map((project, index) => (
+        {React.Children.map(children, (project, index) => (
           <li
             className="text-left position-relative"
             style={{ maxWidth: "max-content" }}

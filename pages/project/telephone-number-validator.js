@@ -65,7 +65,7 @@ const TelephoneNumberValidator = () => {
           . It checks an entered string of text to see if it looks like a valid
           United States phone number (according to{" "}
           <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/javascript-algorithms-and-data-structures-projects/telephone-number-validator">
-            freeCodeCamp's parameters
+            freeCodeCamp&rsquo;s parameters
           </a>
           , at least).
         </p>

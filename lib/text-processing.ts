@@ -31,13 +31,14 @@ export function parseChildMarkdown(children: ReactNode): ReactNode[] {
  * wrapped component.
  */
 export function withMarkdownParsing(WrappedComponent: React.ElementType<any>) {
-  return ({
+  return function WithMarkdownParsingHOC({
     children,
     ...props
-  }: React.ComponentProps<typeof WrappedComponent>) =>
-    React.createElement(
+  }: React.ComponentProps<typeof WrappedComponent>) {
+    return React.createElement(
       WrappedComponent,
       props,
       ...parseChildMarkdown(children)
     );
+  };
 }

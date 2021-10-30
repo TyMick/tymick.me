@@ -432,10 +432,10 @@ const CashRegister = () => {
             my freeCodeCamp JavaScript Algorithms and Data Structures
             Certification
           </a>
-          . Output isn't terribly human-readable, but, well, human-readable
-          wasn't part of the requirements. I suppose cash registers don't really
-          speak English, though, so I guess that's okay. Here are the
-          requirements I built to:
+          . Output isn&rsquo;t terribly human-readable, but, well,
+          human-readable wasn&rsquo;t part of the requirements. I suppose cash
+          registers don&rsquo;t really speak English, though, so I guess
+          that&rsquo;s okay. Here are the requirements I built to:
         </p>
 
         <ul>
@@ -456,20 +456,23 @@ const CashRegister = () => {
           </li>
           <li>
             Return{" "}
-            <code>&#123;status: "INSUFFICIENT_FUNDS", change: []&#125;</code> if
-            cash-in-drawer is less than the change due, or if you cannot return
-            the exact change.
+            <code>
+              &#123;status: &quot;INSUFFICIENT_FUNDS&quot;, change: []&#125;
+            </code>{" "}
+            if cash-in-drawer is less than the change due, or if you cannot
+            return the exact change.
           </li>
           <li>
-            Return <code>&#123;status: "CLOSED", change: [...]&#125;</code> with
-            cash-in-drawer as the value for the key <code>change</code> if it is
-            equal to the change due.
+            Return{" "}
+            <code>&#123;status: &quot;CLOSED&quot;, change: [...]&#125;</code>{" "}
+            with cash-in-drawer as the value for the key <code>change</code> if
+            it is equal to the change due.
           </li>
           <li>
             Otherwise, return{" "}
-            <code>&#123;status: "OPEN", change: [...]&#125;</code>, with the
-            change due in coins and bills, sorted in highest to lowest order, as
-            the value of the <code>change</code> key.
+            <code>&#123;status: &quot;OPEN&quot;, change: [...]&#125;</code>,
+            with the change due in coins and bills, sorted in highest to lowest
+            order, as the value of the <code>change</code> key.
           </li>
         </ul>
       </Container>
