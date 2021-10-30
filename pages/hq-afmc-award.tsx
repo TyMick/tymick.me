@@ -29,7 +29,7 @@ export default function HqAfmcAward() {
           In my time working in the Studies and Analyses Division of
           Headquarters Air Force Materiel Command, I had the honor of being
           named the 2014 HQ AFMC Category I Civilian of the Year, which gave me
-          the opportunity to represent the Headquarters at AFMC's Annual
+          the opportunity to represent the Headquarters at AFMC&rsquo;s Annual
           Excellence Awards banquet, pictured above.
         </p>
       </Container>

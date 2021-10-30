@@ -34,11 +34,11 @@ const CaesarsCipher = () => {
   return (
     <>
       <Head>
-        <title>Caesar's cipher – Ty Mick</title>
+        <title>Caesar&rsquo;s cipher – Ty Mick</title>
       </Head>
 
       <Container>
-        <h1 className="mb-4">Caesar's cipher algorithm</h1>
+        <h1 className="mb-4">Caesar&rsquo;s cipher algorithm</h1>
 
         <AlgorithmTest algorithm={rot13} argumentName="str" inputType="text" />
 

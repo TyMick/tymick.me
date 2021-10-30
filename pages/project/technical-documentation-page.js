@@ -28,8 +28,8 @@ const TechnicalDocumentationPage = () => {
       <Container>
         <p className="lead font-italic">
           View this project{" "}
-          <a href="https://codepen.io/TyMick/full/EJrmvx">in its own window</a>
-          , or view the source on{" "}
+          <a href="https://codepen.io/TyMick/full/EJrmvx">in its own window</a>,
+          or view the source on{" "}
           <a href="https://github.com/TyMick/technical-documentation-page">
             GitHub
           </a>{" "}
@@ -46,7 +46,7 @@ const TechnicalDocumentationPage = () => {
           modeled it some after{" "}
           <a href="https://codepen.io/freeCodeCamp/pen/RKRbwL">their example</a>
           , but I was more inspired more by{" "}
-          <a href="https://www.w3schools.com">W3School</a>'s{" "}
+          <a href="https://www.w3schools.com">W3School</a>&rsquo;s{" "}
           <a href="https://www.w3schools.com/w3css/w3css_sidebar.asp">
             sidebar tutorials
           </a>
@@ -55,8 +55,8 @@ const TechnicalDocumentationPage = () => {
         <ol>
           <li>
             I can see a <code>main</code> element with a corresponding{" "}
-            <code>id="main-doc"</code>, which contains the page's main content
-            (technical documentation).
+            <code>id=&quot;main-doc&quot;</code>, which contains the
+            page&rsquo;s main content (technical documentation).
           </li>
           <li>
             Within the <code>#main-doc</code> element, I can see several{" "}
@@ -73,8 +73,9 @@ const TechnicalDocumentationPage = () => {
             <code>main-section</code> should also have an id that corresponds
             with the text of each <code>header</code> contained within it. Any
             spaces should be replaced with underscores (e.g. The{" "}
-            <code>section</code> that contains the header "JavaScript and Java"
-            should have a corresponding <code>id="JavaScript_and_Java"</code>).
+            <code>section</code> that contains the header &ldquo;JavaScript and
+            Java&rdquo; should have a corresponding{" "}
+            <code>id=&quot;JavaScript_and_Java&quot;</code>).
           </li>
           <li>
             The <code>.main-section</code> elements should contain at least 10{" "}
@@ -90,7 +91,7 @@ const TechnicalDocumentationPage = () => {
           </li>
           <li>
             I can see a <code>nav</code> element with a corresponding{" "}
-            <code>id="navbar"</code>.
+            <code>id=&quot;navbar&quot;</code>.
           </li>
           <li>
             The navbar element should contain one <code>header</code> element
@@ -109,21 +110,22 @@ const TechnicalDocumentationPage = () => {
           <li>
             Each element with the class of <code>nav-link</code> should contain
             text that corresponds to the <code>header</code> text within each{" "}
-            <code>section</code> (e.g. if you have a "Hello world"
+            <code>section</code> (e.g. if you have a &ldquo;Hello world&rdquo;
             section/header, your navbar should have an element which contains
-            the text "Hello world").
+            the text &ldquo;Hello world&rdquo;).
           </li>
           <li>
             When I click on a navbar element, the page should navigate to the
             corresponding section of the <code>main-doc</code> element (e.g. If
             I click on a <code>nav-link</code> element that contains the text
-            "Hello world", the page navigates to a <code>section</code> element
-            that has that id and contains the corresponding <code>header</code>.
+            &ldquo;Hello world&rdquo;, the page navigates to a{" "}
+            <code>section</code> element that has that id and contains the
+            corresponding <code>header</code>.
           </li>
           <li>
             On regular sized devices (laptops, desktops), the element with{" "}
-            <code>id="navbar"</code> should be shown on the left side of the
-            screen and should always be visible to the user.
+            <code>id=&quot;navbar&quot;</code> should be shown on the left side
+            of the screen and should always be visible to the user.
           </li>
           <li>
             My Technical Documentation page should use at least one media query.

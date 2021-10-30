@@ -12,6 +12,7 @@ export function Figure(props: React.ComponentProps<typeof RBFigure>) {
 }
 
 export function FigureImage({ className, ...props }: ImageProps) {
+  // eslint-disable-next-line jsx-a11y/alt-text
   return <Image className={clsx(className, "figure-img")} {...props} />;
 }
 

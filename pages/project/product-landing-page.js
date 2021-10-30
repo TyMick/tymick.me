@@ -28,10 +28,10 @@ const ProductLandingPage = () => {
       <Container>
         <p className="lead font-italic">
           View this project{" "}
-          <a href="https://codepen.io/TyMick/full/bJQBRz">in its own window</a>
-          , or view the source on{" "}
-          <a href="https://github.com/TyMick/product-landing-page">GitHub</a>{" "}
-          or <a href="https://codepen.io/TyMick/pen/bJQBRz">CodePen</a>.
+          <a href="https://codepen.io/TyMick/full/bJQBRz">in its own window</a>,
+          or view the source on{" "}
+          <a href="https://github.com/TyMick/product-landing-page">GitHub</a> or{" "}
+          <a href="https://codepen.io/TyMick/pen/bJQBRz">CodePen</a>.
         </p>
         <h1>Product landing page</h1>
         <p>
@@ -45,7 +45,7 @@ const ProductLandingPage = () => {
           <a href="https://codepen.io/freeCodeCamp/pen/RKRbwL">their example</a>{" "}
           but I was inspired more by{" "}
           <a href="https://www.w3schools.com">W3School</a>
-          's{" "}
+          &rsquo;s{" "}
           <a href="https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_parallax&amp;stacked=h">
             Parallax Template
           </a>
@@ -53,22 +53,23 @@ const ProductLandingPage = () => {
           <a href="https://web.archive.org/web/20200130223029/https://lenscaptions.com/">
             Lens Captions homepage
           </a>
-          , which I'd built with <a href="https://www.shopify.com">Shopify</a>'s
-          website builder. It fulfills the following user stories:
+          , which I&rsquo;d built with{" "}
+          <a href="https://www.shopify.com">Shopify</a>&rsquo;s website builder.
+          It fulfills the following user stories:
         </p>
         <ol>
           <li>
             My product landing page should have a <code>header</code> element
-            with a corresponding <code>id="header"</code>.
+            with a corresponding <code>id=&quot;header&quot;</code>.
           </li>
           <li>
             I can see an image within the <code>header</code> element with a
-            corresponding <code>id="header-img"</code>. A company logo would
-            make a good image here.
+            corresponding <code>id=&quot;header-img&quot;</code>. A company logo
+            would make a good image here.
           </li>
           <li>
             Within the <code>#header</code> element I can see a <code>nav</code>{" "}
-            element with a corresponding <code>id="nav-bar"</code>.
+            element with a corresponding <code>id=&quot;nav-bar&quot;</code>.
           </li>
           <li>
             I can see at least three clickable elements inside the{" "}
@@ -80,15 +81,17 @@ const ProductLandingPage = () => {
             page.
           </li>
           <li>
-            I can watch an embedded product video with <code>id="video"</code>.
+            I can watch an embedded product video with{" "}
+            <code>id=&quot;video&quot;</code>.
           </li>
           <li>
             My landing page has a <code>form</code> element with a corresponding{" "}
-            <code>id="form"</code>.
+            <code>id=&quot;form&quot;</code>.
           </li>
           <li>
             Within the form, there is an <code>input</code> field with{" "}
-            <code>id="email"</code> where I can enter an email address.
+            <code>id=&quot;email&quot;</code> where I can enter an email
+            address.
           </li>
           <li>
             The <code>#email</code> input field should have placeholder text to
@@ -100,12 +103,16 @@ const ProductLandingPage = () => {
           </li>
           <li>
             Within the form, there is a submit <code>input</code> with a
-            corresponding <code>id="submit"</code>.
+            corresponding <code>id=&quot;submit&quot;</code>.
           </li>
           <li>
             When I click the <code>#submit</code> element, the email is
             submitted to a static page (use this mock URL:{" "}
-            <a href="https://www.freecodecamp.com/email-submit" target="_blank">
+            <a
+              href="https://www.freecodecamp.com/email-submit"
+              target="_blank"
+              rel="noreferrer"
+            >
               https://www.freecodecamp.com/email-submit
             </a>
             ) that confirms the email address was entered and that it posted

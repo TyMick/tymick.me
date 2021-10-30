@@ -193,7 +193,7 @@ export default function BlogPostWrapper({
 }
 
 export function withBlogPostWrapper(wrapperProps: BlogPostWrapperProps) {
-  return ({ children }) => (
-    <BlogPostWrapper {...wrapperProps}>{children}</BlogPostWrapper>
-  );
+  return function WithBlogPostWrapperHOC({ children }) {
+    return <BlogPostWrapper {...wrapperProps}>{children}</BlogPostWrapper>;
+  };
 }
