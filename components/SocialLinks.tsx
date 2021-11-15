@@ -31,14 +31,14 @@ export default function SocialLinks() {
         href="https://github.com/TyMick"
       />
       <SocialLink
+        brand="Mastodon"
+        icon={faMastodon}
+        href="https://mastodon.social/@TyMick"
+      />
+      <SocialLink
         brand="Twitter"
         icon={faTwitter}
         href="https://twitter.com/tywmick"
-      />
-      <SocialLink
-        brand="Mastodon"
-        icon={faMastodon}
-        href="https://mastodon.online/@tywmick"
       />
       <SocialLink
         brand="Facebook"
