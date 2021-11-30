@@ -28,7 +28,6 @@ export default function Home({ posts }: PostsProps) {
       </Container>
 
       <MastodonVerification instance="mastodon.social" username="TyMick" />
-      <MastodonVerification instance="mastodon.online" username="tywmick" />
     </>
   );
 }
