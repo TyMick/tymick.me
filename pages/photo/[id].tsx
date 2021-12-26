@@ -15,7 +15,7 @@ export default function Photo({ id }) {
       onceReady={startGyroscope}
       panorama={`/360-photos/${id}.jpg`}
       fisheye={true}
-      navbar={["autorotate", "zoom", "gyroscope", "fullscreen", "caption"]}
+      navbar={["autorotate", "zoom", "gyroscope", "fullscreen"]}
       plugins={[GyroscopePlugin]}
       style={{ width: "100vw", height: "100vh" }}
     />
