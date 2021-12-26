@@ -17,6 +17,7 @@ type ContainerProps = { [propName: string]: any };
 type PhotoSphereViewerProps = ViewerOptions &
   ContainerProps & {
     as?: React.ElementType;
+    onReady?: (viewer: Viewer) => Promise<void>;
   };
 
 const viewerOptionNames = [
@@ -56,7 +57,7 @@ const viewerOptionNames = [
 ];
 
 const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
-  ({ as: Component = "div", ...props }, ref) => {
+  ({ as: Component = "div", onReady, ...props }, ref) => {
     const [viewerOptions, containerProps] = filterProps<
       ViewerOptions,
       ContainerProps
@@ -71,8 +72,9 @@ const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
         container: containerRef.current,
         ...viewerOptions,
       });
+      onReady && onReady(viewerRef.current);
       return () => viewerRef.current.destroy();
-    }, [viewerOptions]);
+    }, [onReady, viewerOptions]);
 
     return <Component ref={containerRef} {...containerProps} />;
   }
