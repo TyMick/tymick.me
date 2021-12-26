@@ -18,11 +18,10 @@ export default function Photo({ id }) {
   );
 }
 
-async function startGyroscopeOrRotate(viewer: Viewer) {
+function startGyroscopeOrRotate(viewer: Viewer) {
   const gyroscope = viewer.getPlugin(GyroscopePlugin);
-  try {
-    await gyroscope.start();
-  } catch {
+  gyroscope.toggle();
+  if (!gyroscope.isEnabled()) {
     viewer.startAutorotate();
   }
 }

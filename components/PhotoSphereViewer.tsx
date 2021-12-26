@@ -13,7 +13,7 @@ type ContainerProps = { [propName: string]: any };
 type PhotoSphereViewerProps = Omit<ViewerOptions, "container"> &
   ContainerProps & {
     as?: React.ElementType;
-    onceReady?: (viewer: Viewer) => Promise<void>;
+    onceReady?: (viewer: Viewer) => void;
   };
 
 const viewerOptionNames = [
@@ -69,10 +69,7 @@ const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
         ...viewerOptions,
       });
       if (onceReady)
-        viewerRef.current.once(
-          "ready",
-          async () => await onceReady(viewerRef.current)
-        );
+        viewerRef.current.once("ready", () => onceReady(viewerRef.current));
       return () => viewerRef.current.destroy();
     }, [onceReady, viewerOptions]);
 
