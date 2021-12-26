@@ -1,12 +1,18 @@
 import fs from "fs/promises";
 import { join } from "path";
-import React from "react";
+import React, { useCallback } from "react";
 import { GyroscopePlugin } from "photo-sphere-viewer/dist/plugins/gyroscope";
 import PhotoSphereViewer from "../../components/PhotoSphereViewer";
 
 export default function Photo({ id }) {
+  const startGyroscope = useCallback(async (viewer) => {
+    const gyroscope = viewer.getPlugin(GyroscopePlugin);
+    if (gyroscope.isEnabled()) await gyroscope.start();
+  }, []);
+
   return (
     <PhotoSphereViewer
+      onceReady={startGyroscope}
       panorama={`/360-photos/${id}.jpg`}
       fisheye={true}
       navbar={["autorotate", "zoom", "gyroscope", "fullscreen", "caption"]}

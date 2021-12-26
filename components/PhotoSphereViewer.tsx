@@ -5,18 +5,15 @@ import React, {
   useImperativeHandle,
   useRef,
 } from "react";
-import {
-  Viewer,
-  ViewerOptions as PhotoSphereViewerOptions,
-} from "photo-sphere-viewer";
+import { Viewer, ViewerOptions } from "photo-sphere-viewer";
 import "photo-sphere-viewer/dist/photo-sphere-viewer.css";
 import filterProps from "../lib/filterProps";
 
-type ViewerOptions = Omit<PhotoSphereViewerOptions, "container">;
 type ContainerProps = { [propName: string]: any };
-type PhotoSphereViewerProps = ViewerOptions &
+type PhotoSphereViewerProps = Omit<ViewerOptions, "container"> &
   ContainerProps & {
     as?: React.ElementType;
+    onceReady?: (viewer: Viewer) => Promise<void>;
   };
 
 const viewerOptionNames = [
@@ -56,9 +53,9 @@ const viewerOptionNames = [
 ];
 
 const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
-  ({ as: Component = "div", ...props }, ref) => {
+  ({ as: Component = "div", onceReady, ...props }, ref) => {
     const [viewerOptions, containerProps] = filterProps<
-      ViewerOptions,
+      Omit<ViewerOptions, "container">,
       ContainerProps
     >(props, viewerOptionNames);
 
@@ -71,8 +68,13 @@ const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
         container: containerRef.current,
         ...viewerOptions,
       });
+      if (onceReady)
+        viewerRef.current.once(
+          "ready",
+          async () => await onceReady(viewerRef.current)
+        );
       return () => viewerRef.current.destroy();
-    }, [viewerOptions]);
+    }, [onceReady, viewerOptions]);
 
     return <Component ref={containerRef} {...containerProps} />;
   }
