@@ -1,5 +1,5 @@
 import React from "react";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { AppProps } from "next/app";
 import { MDXProvider } from "@mdx-js/react";
 import NProgress from "nprogress";
@@ -18,7 +18,11 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
+  const router = useRouter();
+
+  return router.pathname === "/photo/[id]" ? (
+    <Component {...pageProps} />
+  ) : (
     <ThemeProvider theme={theme}>
       <Nav />
 
