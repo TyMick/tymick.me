@@ -6,12 +6,12 @@ import NProgress from "nprogress";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import mdxComponents from "../components/mdxComponents";
-import { config } from "@fortawesome/fontawesome-svg-core";
+import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../theme";
 import "../styles/index.scss";
 
-config.autoAddCss = false;
+fontAwesomeConfig.autoAddCss = false;
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
