@@ -8,7 +8,7 @@ import PhotoSphereViewer from "../../components/PhotoSphereViewer";
 export default function Photo({ id }) {
   return (
     <PhotoSphereViewer
-      onceReady={startGyroscopeOrRotate}
+      onceReady={startAutorotate}
       panorama={`/360-photos/${id}.jpg`}
       fisheye={true}
       navbar={["autorotate", "zoom", "gyroscope", "fullscreen"]}
@@ -18,12 +18,8 @@ export default function Photo({ id }) {
   );
 }
 
-function startGyroscopeOrRotate(viewer: Viewer) {
-  const gyroscope = viewer.getPlugin(GyroscopePlugin);
-  gyroscope.toggle();
-  if (!gyroscope.isEnabled()) {
-    viewer.startAutorotate();
-  }
+function startAutorotate(viewer: Viewer) {
+  viewer.startAutorotate();
 }
 
 export async function getStaticProps(context) {
