@@ -1,5 +1,5 @@
 import React from "react";
-import { css, useTheme } from "@emotion/react";
+import { useTheme } from "styled-components";
 import clsx from "clsx";
 
 export default function Blockquote({
@@ -11,7 +11,7 @@ export default function Blockquote({
   return (
     <blockquote
       className={clsx(className, "pl-2 my-4")}
-      css={css`
+      css={`
         border-left: 4px solid ${theme.colors.gray500};
       `}
       {...props}

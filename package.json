@@ -15,8 +15,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -53,19 +51,21 @@
     "retext": "^7.0.1",
     "retext-smartypants": "^4.0.0",
     "sass": "^1.37.5",
+    "styled-components": "^5.3.3",
     "styled-system": "^5.1.5",
     "use-window-width-breakpoints": "^1.0.12"
   },
   "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@types/chroma-js": "^2.1.3",
     "@types/lodash": "^4.14.172",
     "@types/node": "^14.14.21",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.17",
+    "@types/styled-components": "^5.1.19",
     "@types/styled-system": "^5.1.12",
     "@types/styled-system__css": "^5.0.16",
     "@types/styled-system__theme-get": "^5.0.1",
+    "babel-plugin-styled-components": "^2.0.2",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^8.3.0",

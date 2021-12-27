@@ -2,7 +2,7 @@ import { useState } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { nanoid } from "nanoid";
 import { parseInlineMarkdown } from "../lib/text-processing";
-import { css, useTheme } from "@emotion/react";
+import { useTheme } from "styled-components";
 
 type InlineFootnoteProps = {
   note: string;
@@ -37,7 +37,7 @@ export default function InlineFootnote({
       overlay={
         <Tooltip
           id={id}
-          css={css`
+          css={`
             a {
               color: ${theme.colors.light["primary"]};
 

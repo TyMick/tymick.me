@@ -1,4 +1,4 @@
-import type { SpaceScale } from "@emotion/react";
+import type { SpaceScale } from "styled-components";
 
 const space: SpaceScale = ["0", "0.25rem", "0.5rem", "1rem", "1.5rem", "3rem"];
 const numNonNegativeElements = (space as string[]).length;

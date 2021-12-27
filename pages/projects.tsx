@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
 import TeX from "@matejmazur/react-katex";

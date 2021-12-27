@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import mdxComponents from "../components/mdxComponents";
 import { config as fontAwesomeConfig } from "@fortawesome/fontawesome-svg-core";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "styled-components";
 import theme from "../theme";
 import "../styles/index.scss";
 

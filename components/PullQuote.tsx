@@ -1,5 +1,4 @@
 import React from "react";
-import { css } from "@emotion/react";
 import clsx from "clsx";
 
 export default function PullQuote({
@@ -9,7 +8,7 @@ export default function PullQuote({
   return (
     <div
       className={clsx(className, "h3-size px-4 text-secondary font-italic")}
-      css={css`
+      css={`
         margin-bottom: 1rem;
         a {
           color: inherit;

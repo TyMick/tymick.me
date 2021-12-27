@@ -1,9 +1,8 @@
-/// <reference types="@emotion/react/types/css-prop" />
+import "styled-components";
+import {} from "styled-components/cssprop";
 
-import "@emotion/react";
-
-declare module "@emotion/react" {
-  export interface Theme {
+declare module "styled-components" {
+  export interface DefaultTheme {
     colors: ColorScale;
     space: SpaceScale;
   }

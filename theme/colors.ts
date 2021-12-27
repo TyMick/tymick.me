@@ -1,6 +1,6 @@
 import { merge } from "lodash";
 import chroma from "chroma-js";
-import type { ColorScale } from "@emotion/react";
+import type { ColorScale } from "styled-components";
 
 const colors: ColorScale = {
   white: "#fff",

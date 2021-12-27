@@ -1,5 +1,4 @@
 import React from "react";
-import { css } from "@emotion/react";
 import { format } from "date-fns";
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 export default function DateHeading({ date }: Props) {
   return (
     <div
-      css={css`
+      css={`
         display: flex;
         flex: 1;
         width: 100%;
