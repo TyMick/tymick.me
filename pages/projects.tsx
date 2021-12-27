@@ -18,6 +18,11 @@ export default function Projects() {
         <h1 className="h2">A few things I&rsquo;ve made:</h1>
         <SpacedList>
           <li>
+            TyMick.me (
+            <a href="https://github.com/TyMick/tymick.me">source code</a>)
+          </li>
+
+          <li>
             <a href="https://rtsimulator.com">
               <TeX as="var">R_t</TeX> Simulator
             </a>{" "}
