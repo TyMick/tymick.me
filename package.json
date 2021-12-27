@@ -41,6 +41,7 @@
     "photo-sphere-viewer": "^4.4.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
+    "react-div-100vh": "^0.7.0",
     "react-dom": "^17.0.2",
     "react-gist": "^1.2.2",
     "react-syntax-highlighter": "^13.5.3",

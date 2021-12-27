@@ -4,16 +4,17 @@ import React from "react";
 import { Viewer } from "photo-sphere-viewer";
 import { GyroscopePlugin } from "photo-sphere-viewer/dist/plugins/gyroscope";
 import PhotoSphereViewer from "../../components/PhotoSphereViewer";
+import FullWindow from "../../components/FullWindow";
 
 export default function Photo({ id }) {
   return (
     <PhotoSphereViewer
-      onceReady={startAutorotate}
+      as={FullWindow}
       panorama={`/360-photos/${id}.jpg`}
       fisheye={true}
       navbar={["autorotate", "zoom", "gyroscope", "fullscreen"]}
       plugins={[GyroscopePlugin]}
-      style={{ width: "100vw", height: "100vh" }}
+      onceReady={startAutorotate}
     />
   );
 }
