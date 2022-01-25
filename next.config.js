@@ -18,7 +18,7 @@ module.exports = withMDX({
       {
         source: "/beverages",
         destination:
-          "https://workflowy.com/s/beverages-id-enjoy-a/sDeB5YcOcO6syrRE",
+          "https://workflowy.com/s/beverages-id-enjoy-a/oaRwwKAzGyJF25dt",
         permanent: true,
       },
       {
