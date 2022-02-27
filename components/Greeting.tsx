@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Image from "./Image";
+import profilePic from "../public/images/ty-mick-full.jpg";
 
 export default function Greeting({ h1 }: { h1?: boolean }) {
   const Hi = h1 ? "h1" : "div";
@@ -13,8 +14,7 @@ export default function Greeting({ h1 }: { h1?: boolean }) {
         className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left"
       >
         <Image
-          src="/images/ty-mick-full.jpg"
-          dimensions={{ width: 2201, height: 2201 }}
+          src={profilePic}
           alt="Ty hiking in Joshua Tree National Park"
           width="100%"
           maxWidth="200px"

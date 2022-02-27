@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import useBreakpoints from "use-window-width-breakpoints";
 import clsx from "clsx";
 import Image from "../components/Image";
+import awardImage from "../public/images/2014-afmc-annual-excellence-awards.jpg";
 
 export default function HqAfmcAward() {
   const breakpoint = useBreakpoints();
@@ -18,8 +19,7 @@ export default function HqAfmcAward() {
         <h1>2014 HQ AFMC Category I Civilian of the Year</h1>
 
         <Image
-          src="/images/2014-afmc-annual-excellence-awards.jpg"
-          dimensions={{ width: 2863, height: 1911 }}
+          src={awardImage}
           alt="Ty Mick, wearing a medal featuring the AFMC logo, walking on a red carpet between Airmen holding swords at the 2014 AFMC Annual Excellents Awards."
           className={clsx("mb-3 mx-md-n3", breakpoint.down.sm && "full-width")}
           priority
