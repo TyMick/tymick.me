@@ -27,6 +27,9 @@ export const metadata = {
   ipynb: true,
 };
 
+import fractionRecovered from "../../public/images/loan-risk-neural-network_25_0.png";
+import lossMetrics from "../../public/images/loan-risk-neural-network_77_0.png";
+
 1. **[Introduction](#introduction)**
 2. **[Data cleaning](#data-cleaning)**
 3. **[Building the neural networks](#building-the-neural-networks)**
@@ -565,8 +568,7 @@ plt.show()
 ```
 
 <Image
-  src="/images/loan-risk-neural-network_25_0.png"
-  dimensions={{ width: 386, height: 264 }}
+  src={fractionRecovered}
   alt='A KDE (kernel density estimation) plot depicting the distribution of "fraction recovered" amounts among charged-off loans. It looks like a smoothed out triangular distribution, starting close to 0 density at 0.0 fraction recovered, peaking around 0.25 fraction recovered, and gradually falling back near 0 density at 1.0 fraction recovered.'
 />
 
@@ -2472,10 +2474,10 @@ plt.show()
 ```
 
 <Image
-  src="/images/loan-risk-neural-network_77_0.png"
-  dimensions={{ width: 391, height: 278 }}
+  src={lossMetrics}
   alt="A line plot depicting the changes in training loss and validation loss metrics over the 100 epochs of training. Training loss falls rapidly and smoothly as expected. The validation loss line, while jagged, appears to follow the same trend as training loss throughout the 100 epochs of training, indicating that the dropout layers in the neural network were sufficient to prevent overfitting."
 />
+
 <h2 id="saving-the-final-model">Saving the final model</h2>
 
 First I need to _create_ the final model, training `model_1`'s architecture on

@@ -5,6 +5,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Image from "./Image";
+import profilePic from "../public/images/ty-mick-cropped.jpg";
 
 export default function Navigation() {
   const router = useRouter();
@@ -31,8 +32,7 @@ export default function Navigation() {
           <Navbar.Brand onClick={collapse} className="signature">
             {!pathnamesWithoutProfilePic.includes(router.pathname) && (
               <Image
-                src="/images/ty-mick-cropped.jpg"
-                dimensions={{ width: 2201, height: 2201 }}
+                src={profilePic}
                 alt="Ty hiking in Joshua Tree National Park"
                 size="1.5em"
                 className="align-top mr-3"

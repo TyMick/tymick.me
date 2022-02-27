@@ -18,10 +18,12 @@ export const metadata = {
   },
 };
 
+import driver from "../../public/images/victor-xok-qd-zd2MoeE8-unsplash.jpg";
+import cars from "../../public/images/thought-catalog-x5GdvJ-taiQ-unsplash.jpg";
+
 <Figure className="full-width mt-2 mb-4">
   <FigureImage
-    src="/images/victor-xok-qd-zd2MoeE8-unsplash.jpg"
-    dimensions={{ width: 2000, height: 1250 }}
+    src={driver}
     className="d-block mx-auto"
     maxWidth={1192}
     priority
@@ -61,12 +63,7 @@ up the right person.
 </PullQuote>
 
 <Figure className="full-width mt-2 mb-4">
-  <FigureImage
-    src="/images/thought-catalog-x5GdvJ-taiQ-unsplash.jpg"
-    dimensions={{ width: 1000, height: 666 }}
-    className="d-block mx-auto"
-    maxWidth={506}
-  />
+  <FigureImage src={cars} className="d-block mx-auto" maxWidth={506} />
   <FigureCaption className="sans-serif text-center">
     Photo by [Thought Catalog](https://unsplash.com/@thoughtcatalog) on
     [Unsplash](https://unsplash.com)

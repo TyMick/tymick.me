@@ -15,6 +15,10 @@ export const metadata = {
 };
 
 import { Row, Col } from "react-bootstrap";
+import outbreakJuly from "../../public/images/outbreak-scenarios-july.png";
+import outbreakAugust1 from "../../public/images/outbreak-scenario-1-august.png";
+import outbreakAugust2 from "../../public/images/outbreak-scenario-2-august.png";
+import outbreakAugust3 from "../../public/images/outbreak-scenario-3-august.png";
 
 My goodness gracious, this coronavirus epidemic keeps looking worse every single
 day. From what I'm reading lately, it now looks like the need for social
@@ -24,11 +28,7 @@ weeks. Most frightening, look at these maps of
 in the United States by July 1 based on three different scenarios:
 
 <Figure className="full-width-padded mt-2 mb-4">
-  <FigureImage
-    src="/images/outbreak-scenarios-july.png"
-    dimensions={{ width: 3204, height: 894 }}
-    className="d-block mx-auto"
-  />
+  <FigureImage src={outbreakJuly} className="d-block mx-auto" />
   <FigureCaption className="sans-serif text-center">
     Source:{" "}
     <a
@@ -47,22 +47,13 @@ month later to August 1 and it looks even worse:
 <Figure className="full-width-padded mt-2 mb-4">
   <Row className="figure-img">
     <Col>
-      <Image
-        src="/images/outbreak-scenario-1-august.png"
-        dimensions={{ width: 2402, height: 1510 }}
-      />
+      <Image src={outbreakAugust1} />
     </Col>
     <Col>
-      <Image
-        src="/images/outbreak-scenario-2-august.png"
-        dimensions={{ width: 2402, height: 1510 }}
-      />
+      <Image src={outbreakAugust2} />
     </Col>
     <Col>
-      <Image
-        src="/images/outbreak-scenario-3-august.png"
-        dimensions={{ width: 2402, height: 1510 }}
-      />
+      <Image src={outbreakAugust3} />
     </Col>
   </Row>
   <FigureCaption className="sans-serif text-center">
