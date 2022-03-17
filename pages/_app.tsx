@@ -17,6 +17,11 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
+/** @todo This is a temporary hack. I'm in a hurry this morning. */
+const licenseChanges = {
+  "/blog/sunshine-protection-act": "CC0",
+};
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
@@ -32,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </MDXProvider>
       </main>
 
-      <Footer />
+      <Footer license={licenseChanges[router.pathname] ?? "CC-BY"} />
     </ThemeProvider>
   );
 }

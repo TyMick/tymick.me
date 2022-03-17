@@ -32,6 +32,7 @@ type BlogPostWrapperProps = {
   ipynb?: boolean;
   className?: string;
   license?: "CC-BY" | "CC0" | null;
+  skipLicenseTextAtBottom?: boolean;
   [propName: string]: any;
 };
 
@@ -48,6 +49,7 @@ export default function BlogPostWrapper({
   ipynb,
   className,
   license = "CC-BY",
+  skipLicenseTextAtBottom,
   ...otherProps
 }: BlogPostWrapperProps) {
   const breakpoint = useWindowWidthBreakpoints();
@@ -175,7 +177,7 @@ export default function BlogPostWrapper({
           !
         </p>
 
-        {license && (
+        {license && !skipLicenseTextAtBottom && (
           <p className="text-secondary font-italic">
             Want to publish this article on your blog, in your magazine, or
             anywhere else?{" "}

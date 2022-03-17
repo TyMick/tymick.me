@@ -1,0 +1,71 @@
+export const metadata = {
+  title: "Vote No on the Sunshine Protection Act",
+  description:
+    "Switching clocks twice a year is bad, but permanent Daylight Saving Time (DST) would be a move in the wrong direction for human health.",
+  excerpt:
+    "Dear Representatives (especially my Representative, Rick Larsen), I urge you to vote No on the Sunshine Protection Act that the Senate just approved yesterday. Switching clocks twice a year is bad, but permanent Daylight Saving Time (DST) would be a move in the wrong direction for human health.",
+  date: "2022-03-17T10:14:18.881-07:00",
+  cta: "Want to send a copy of this letter to [your representative](https://www.house.gov/representatives/find-your-representative) as well? I've released this post under a [CC0 Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/), so you're welcome to use it however you please. Want to discuss this ballot measure or biological clocks in general? Let's chat",
+  socialLinks: {
+    mastodon: "https://mastodon.social/@TyMick",
+  },
+  license: "CC0",
+  skipLicenseTextAtBottom: true,
+};
+
+Dear Representatives (especially my representative, [Rick Larsen][0]),
+
+I urge you to vote No on the Sunshine Protection Act that the Senate just
+approved yesterday. Switching clocks twice a year is bad, but permanent Daylight
+Saving Time (DST) would be a move in the wrong direction for human health.
+
+The science is very clear on this when comparing populations living in permanent
+DST with populations living in permanent Standard Time (ST), and even when
+comparing people living on the western versus eastern edges of time zones.
+[Study upon study][1] demonstrate the negative effects of later sunlight on
+physical and mental health, including cancer, heart disease, depression,
+diabetes, obesity, decreased life expectancy, and shorter sleep. And numerous
+scientific societies oppose permanent DST, including the [Society for Research
+on Biological Rhythms][2] (which represents over 1,000 scientists in the United
+States and worldwide), the [American Academy of Sleep Medicine][3], the
+[European Biological Rhythms Society][4], and the [Daylight Academy][5].
+
+Advocates of permanent DST often point out associations between later sunsets
+and increased exercise. Exercise is good, but it is a tool, not an outcome. The
+outcome that matters is health, and according to the above wealth of studies,
+any marginal increase in exercise that accompanies later sunlight is not enough
+to improve any of those suffering health metrics.
+
+And the risks are economic as well. Lack of sleep is already [costing 2% of our
+gross domestic product][6]—let's not increase that cost even further.
+
+Please vote No on the Sunshine Protection Act and instead support measures to
+move the United States to permanent Standard Time.
+
+<!-- prettier-ignore -->
+Sincerely,<br />
+Tyler Westin Mick<br />
+Bellingham, Washington
+
+[0]: https://larsen.house.gov/
+[1]: https://doi.org/10.1177/0748730419854197
+[2]: https://srbr.org/wp-content/uploads/2019/11/SRBR-DST-Talking-Points.pdf
+[3]: https://doi.org/10.5664/jcsm.8780
+[4]:
+  https://web.archive.org/web/20200328082042/https://www.ebrs-online.org/news/item/dst-statement-ebrs-endorsed
+[5]:
+  https://daylight.academy/wp-content/uploads/2020/10/DaylightSavingTime_Time-to-change_MeijerFoster181101.pdf
+[6]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5627640/
+
+<!--
+Explicit wrapper export shouldn't be necessary, but when using MDX files as
+Next.js pages, the [wrapper component][1] doesn't receive [`layoutProps`][2] as
+it should. Perhaps this will be fixed in future versions of MDX and/or
+@next/mdx?
+
+[1]: https://mdxjs.com/getting-started#using-the-wrapper
+[2]: https://mdxjs.com/advanced/components#layout-props
+-->
+
+import { withBlogPostWrapper } from "../../components/BlogPostWrapper";
+export default withBlogPostWrapper(metadata);
