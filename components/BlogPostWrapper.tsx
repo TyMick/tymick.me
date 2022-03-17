@@ -31,6 +31,7 @@ type BlogPostWrapperProps = {
   };
   ipynb?: boolean;
   className?: string;
+  license?: "CC-BY" | "CC0" | null;
   [propName: string]: any;
 };
 
@@ -46,6 +47,7 @@ export default function BlogPostWrapper({
   socialLinks,
   ipynb,
   className,
+  license = "CC-BY",
   ...otherProps
 }: BlogPostWrapperProps) {
   const breakpoint = useWindowWidthBreakpoints();
@@ -173,20 +175,39 @@ export default function BlogPostWrapper({
           !
         </p>
 
-        <p className="text-secondary font-italic">
-          Want to publish this article on your blog, in your magazine, or
-          anywhere else? This post, like all the content on my website, is
-          licensed under a{" "}
-          <a href="https://creativecommons.org/licenses/by/4.0/">
-            Creative Commons Attribution license
-          </a>
-          , so you&rsquo;re welcome to share it wherever and however you please,
-          as long as you cite me as the author. I&rsquo;d also enjoy{" "}
-          <Link href="/connect">
-            <a>hearing from you</a>
-          </Link>{" "}
-          if you do publish this somewhere, but that&rsquo;s totally up to you.
-        </p>
+        {license && (
+          <p className="text-secondary font-italic">
+            Want to publish this article on your blog, in your magazine, or
+            anywhere else?{" "}
+            {license == "CC-BY" ? (
+              <>
+                This post, like most of the content on my website, is licensed
+                under a{" "}
+                <a href="https://creativecommons.org/licenses/by/4.0/">
+                  Creative Commons Attribution license
+                </a>
+                , so you&rsquo;re welcome to share it wherever and however you
+                please, as long as you cite me as the author.
+              </>
+            ) : license == "CC0" ? (
+              <>
+                I&rsquo;ve released this post under a{" "}
+                <a href="http://creativecommons.org/publicdomain/zero/1.0/">
+                  CC0 Public Domain Dedication
+                </a>
+                , so you&rsquo;re welcome to use it however you please.
+              </>
+            ) : (
+              <></>
+            )}{" "}
+            I&rsquo;d also enjoy{" "}
+            <Link href="/connect">
+              <a>hearing from you</a>
+            </Link>{" "}
+            if you do publish this somewhere, but that&rsquo;s totally up to
+            you.
+          </p>
+        )}
       </Container>
     </>
   );
