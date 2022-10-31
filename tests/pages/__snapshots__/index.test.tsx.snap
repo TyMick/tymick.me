@@ -1,0 +1,486 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home matches snapshot 1`] = `
+[
+  <div
+    className="cap-lg-49 container"
+  >
+    <div
+      className="align-items-center mb-3 mb-sm-5 row"
+    >
+      <div
+        className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
+      >
+        <div
+          className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+          width="100%"
+        >
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Ty hiking in Joshua Tree National Park"
+              className="rounded-circle"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+              srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        className="text-center text-sm-left col-sm col-12"
+      >
+        <h1
+          className="greeting"
+        >
+          Hi! I’m Ty.
+        </h1>
+      </div>
+    </div>
+    <ul
+      className="list-unstyled mb-n4"
+    >
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/whatsmyname-puts-drivers-at-risk"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              whatsmyname-puts-drivers-at-risk title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            whatsmyname-puts-drivers-at-risk subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            whatsmyname-puts-drivers-at-risk excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/sunshine-protection-act"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              sunshine-protection-act title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            sunshine-protection-act subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            sunshine-protection-act excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/optimal-investing"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              optimal-investing title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            optimal-investing subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            optimal-investing excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/new-job-new-site-design"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              new-job-new-site-design title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            new-job-new-site-design subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            new-job-new-site-design excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-risk-nlp"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-risk-nlp title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-risk-nlp subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-risk-nlp excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-risk-neural-network"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-risk-neural-network title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-risk-neural-network subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-risk-neural-network excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-grading-showdown"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-grading-showdown title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-grading-showdown subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-grading-showdown excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/debug-nextjs-with-vs-code"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              debug-nextjs-with-vs-code title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            debug-nextjs-with-vs-code subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            debug-nextjs-with-vs-code excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/covid-19-social-distancing"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              covid-19-social-distancing title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            covid-19-social-distancing subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            covid-19-social-distancing excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        >
+          October 31, 2022
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/console-log-after-reload"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              console-log-after-reload title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            console-log-after-reload subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            console-log-after-reload excerpt…
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>,
+  <a
+    href="https://mastodon.social/@TyMick"
+    rel="me"
+  />,
+]
+`;

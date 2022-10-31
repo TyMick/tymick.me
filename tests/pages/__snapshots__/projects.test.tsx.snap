@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects matches snapshot 1`] = `
+<div
+  className="cap-lg-49 container"
+>
+  <div
+    className="align-items-center mb-3 mb-sm-5 row"
+  >
+    <div
+      className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
+    >
+      <div
+        className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+        width="100%"
+      >
+        <span
+          style={
+            {
+              "background": "none",
+              "border": 0,
+              "boxSizing": "border-box",
+              "display": "inline-block",
+              "height": "initial",
+              "margin": 0,
+              "maxWidth": "100%",
+              "opacity": 1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "relative",
+              "width": "initial",
+            }
+          }
+        >
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "padding": 0,
+                "width": "initial",
+              }
+            }
+          >
+            <img
+              alt=""
+              aria-hidden={true}
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            />
+          </span>
+          <img
+            alt="Ty hiking in Joshua Tree National Park"
+            className="rounded-circle"
+            data-nimg="intrinsic"
+            decoding="async"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+            srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+            style={
+              {
+                "border": "none",
+                "bottom": 0,
+                "boxSizing": "border-box",
+                "display": "block",
+                "height": 0,
+                "left": 0,
+                "margin": "auto",
+                "maxHeight": "100%",
+                "maxWidth": "100%",
+                "minHeight": "100%",
+                "minWidth": "100%",
+                "objectFit": undefined,
+                "objectPosition": undefined,
+                "padding": 0,
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "width": 0,
+              }
+            }
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      className="text-center text-sm-left col-sm col-12"
+    >
+      <div
+        className="greeting"
+      >
+        Hi! I’m Ty.
+      </div>
+    </div>
+  </div>
+  <h1
+    className="h2"
+  >
+    A few things I’ve made:
+  </h1>
+  <ul
+    className="projects__SpacedList-sc-f180mm-0 WkCrl"
+  >
+    <li>
+      TyMick.me (
+      <a
+        href="https://github.com/TyMick/tymick.me"
+      >
+        source code
+      </a>
+      )
+    </li>
+    <li>
+      <a
+        href="https://rtsimulator.com"
+      >
+        <var
+          dangerouslySetInnerHTML={
+            {
+              "__html": "",
+            }
+          }
+        />
+         Simulator
+      </a>
+       
+      – An interactive data simulation that demonstrates why it’s so important to keep COVID-19’s reproduction number below 1.
+    </li>
+    <li>
+      React hooks
+      <ul
+        className="projects__SpacedList-sc-f180mm-0 WkCrl"
+      >
+        <li>
+          <a
+            href="https://www.npmjs.com/package/use-window-width-breakpoints"
+          >
+            useWindowWidthBreakpoints
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.npmjs.com/package/use-window-orientation"
+          >
+            useWindowOrientation
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;

@@ -12,11 +12,11 @@ export type Post = {
   excerpt: string;
 };
 
-export type Props = {
+export type PostsProps = {
   posts: Post[];
 };
 
-export default function ListOfPosts({ posts }: Props) {
+export default function ListOfPosts({ posts }: PostsProps) {
   return (
     <>
       <ul className="list-unstyled mb-n4">

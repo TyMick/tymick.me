@@ -2,5 +2,14 @@ extends:
   - next/core-web-vitals
   - prettier
 
+overrides:
+  - files:
+      - tests/**
+    plugins:
+      - jest
+    extends:
+      - plugin:jest/recommended
+      - plugin:jest/style
+
 rules:
   react/prop-types: off
