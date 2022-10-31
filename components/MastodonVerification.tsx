@@ -19,5 +19,5 @@ export default function MastodonVerification({
     setPageLoaded(true);
   }, []);
 
-  return !pageLoaded && <a rel="me" href={href} />;
+  return pageLoaded ? null : <a rel="me" href={href} />;
 }
