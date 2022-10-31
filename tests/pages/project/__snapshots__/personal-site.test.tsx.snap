@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonalSite matches snapshot 1`] = `
+<div
+  className="cap-width-lg container"
+>
+  <h1>
+    About 
+    <a
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      TyMick.me
+    </a>
+  </h1>
+  <p>
+    Why yes, I built this site! I built 
+    <a
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      TyMick.me
+    </a>
+     with
+     
+    <a
+      href="https://nextjs.org/"
+    >
+      Next.js
+    </a>
+     and host it on
+     
+    <a
+      href="https://vercel.com/"
+    >
+      Vercel
+    </a>
+    . You can view the
+     
+    <a
+      href="https://github.com/TyMick/tymick.me"
+    >
+      source
+    </a>
+     on GitHub.
+  </p>
+  <p>
+    Design I accomplished with
+     
+    <a
+      href="https://getbootstrap.com/"
+    >
+      Bootstrap
+    </a>
+     (via
+     
+    <a
+      href="https://react-bootstrap.netlify.com/"
+    >
+      React Bootstrap
+    </a>
+    ) and a little custom 
+    <a
+      href="https://sass-lang.com/"
+    >
+      Sass
+    </a>
+    . Just wanted something minimal.
+  </p>
+</div>
+`;

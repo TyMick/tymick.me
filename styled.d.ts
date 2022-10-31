@@ -1,5 +1,6 @@
 import "styled-components";
-import {} from "styled-components/cssprop";
+import { CSSProp } from "styled-components";
+import theme from "./theme";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -9,4 +10,10 @@ declare module "styled-components" {
 
   export type ColorScale = { [key: string]: string | ColorScale };
   export type SpaceScale = { [key: number]: string };
+}
+
+declare module "react" {
+  interface Attributes {
+    css?: CSSProp<typeof theme>;
+  }
 }

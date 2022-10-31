@@ -1,0 +1,967 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portfolio matches snapshot 1`] = `
+<div
+  className="cap-width-lg container"
+>
+  <h1>
+    Portfolio
+  </h1>
+  <section
+    aria-labelledby="papers-articles"
+  >
+    <h2
+      className="h4"
+      id="papers-articles"
+    >
+      Published papers and articles
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <cite
+          className="text-muted"
+        >
+          Towards Data Science
+        </cite>
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://towardsdatascience.com/loan-risk-neural-network-30c8f65f052e"
+            >
+              Building a Neural Network to Predict Loan Risk
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://towardsdatascience.com/loan-grading-showdown-ba64110c99f2"
+            >
+              Can I Grade Loans Better Than LendingClub?
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://towardsdatascience.com/loan-risk-nlp-d98021613ff3"
+            >
+              Natural Language Processing for Loan Risk
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <cite
+          className="text-muted"
+        >
+          Defense Technical Information Center
+        </cite>
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://apps.dtic.mil/sti/citations/AD1012051"
+            >
+              Readiness Based Sparing: A Research Summary
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://apps.dtic.mil/sti/citations/AD1012101"
+            >
+              The Case for AFMC Social Media Analysis
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <cite
+          className="text-muted"
+        >
+          Hacker Noon
+        </cite>
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://hackernoon.com/loan-risk-prediction-using-neural-network-algorithm-gg4q3uu2"
+            >
+              Loan Risk Prediction Using Neural Networks
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://hackernoon.com/can-i-grade-loans-better-than-lendingclub-xgt3wue"
+            >
+              Can I Grade Loans Better Than LendingClub?
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://hackernoon.com/making-a-browser-console-log-wait-until-page-reloads-a-how-to-guide-2j1z3yt9"
+            >
+              Making a Browser Console Log Wait Until Page Reloads [A How-To Guide]
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <cite
+          className="text-muted"
+        >
+          JavaScript in Plain English
+        </cite>
+        <ul>
+          <li>
+            <a
+              href="https://medium.com/javascript-in-plain-english/how-to-make-a-browser-console-log-wait-until-after-a-page-reload-bccc538c9938"
+            >
+              Make a Browser Console Log Wait for a Page Reload
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="machine-learning"
+  >
+    <h2
+      className="h4"
+      id="machine-learning"
+    >
+      Machine learning models
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://www.kaggle.com/tywmick/building-a-neural-network-to-predict-loan-risk"
+        >
+          Loan risk prediction using neural network regression
+        </a>
+        <ul>
+          <li>
+            <a
+              href="https://tywmick.pythonanywhere.com"
+            >
+              Flask API serving this model’s predictions
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://www.kaggle.com/tywmick/natural-language-processing-for-loan-risk"
+        >
+          Natural language processing of loan applications
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="data-visualizations"
+  >
+    <h2
+      className="h4"
+      id="data-visualizations"
+    >
+      Interactive data visualizations
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://rtsimulator.com"
+        >
+          <var
+            dangerouslySetInnerHTML={
+              {
+                "__html": "",
+              }
+            }
+          />
+           Simulator
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="apis"
+  >
+    <h2
+      className="h4"
+      id="apis"
+    >
+      APIs and microservices
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        Python/Flask with SQLite
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://library-python.tymick.me"
+            >
+              Personal library
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://stock-checker-python.tymick.me"
+            >
+              Stock price checker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://issue-tracker-python.tymick.me"
+            >
+              Issue tracker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://message-board-python.tymick.me"
+            >
+              Anonymous message board
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://exercise-tracker-python.tymick.me"
+            >
+              Exercise tracker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://url-shortener-python.tymick.me"
+            >
+              URL shortener
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        Python/Flask
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://ty-metricimpconverter-python.glitch.me"
+            >
+              Metric-imperial converter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-file-metadata-python.glitch.me"
+            >
+              File metadata microservice
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-timestamp-python.glitch.me"
+            >
+              Timestamp microservice
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-headerparser-python.glitch.me"
+            >
+              Request header parser
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        Node.js/Express with MongoDB
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://ty-library.glitch.me"
+            >
+              Personal library
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-stockchecker.glitch.me"
+            >
+              Stock price checker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-issue-tracker.glitch.me"
+            >
+              Issue tracker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-messageboard.glitch.me"
+            >
+              Anonymous message board
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-exercise-tracker.glitch.me"
+            >
+              Exercise tracker
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-urlshortener.glitch.me"
+            >
+              URL shortener
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        Node.js/Express
+        <ul>
+          <li>
+            <a
+              href="https://ty-metricimpconverter.glitch.me"
+            >
+              Metric-imperial converter
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-file-metadata.glitch.me"
+            >
+              File metadata microservice
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-timestamp.glitch.me"
+            >
+              Timestamp microservice
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://ty-headerparser.glitch.me"
+            >
+              Request header parser
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="data-structures"
+  >
+    <h2
+      className="h4"
+      id="data-structures"
+    >
+      Data structure implementations
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/TyMick/data-structures#readme"
+        >
+          12 common data structures in C, TypeScript, and Python
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="full-stack"
+  >
+    <h2
+      className="h4"
+      id="full-stack"
+    >
+      Full-stack web apps
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://real-estate-listing-page.tymick.me"
+        >
+          Real estate listing page
+        </a>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://nextjs-local-authentication.tymick.me"
+        >
+          Next.js + MongoDB local authentication boilerplate
+        </a>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="/project/personal-site"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchStart={[Function]}
+          title="About this site"
+        >
+          Personal portfolio/blog site
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="wordpress"
+  >
+    <h2
+      className="h4"
+      id="wordpress"
+    >
+      WordPress themes
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://ty-mick-wordpress-port.000webhostapp.com"
+        >
+          Personal site WordPress port
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="single-page-apps"
+  >
+    <h2
+      className="h4"
+      id="single-page-apps"
+    >
+      Single-page apps
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        React
+        <ul
+          className="mb-1"
+        >
+          <li>
+            <a
+              href="https://ty-pomodoro-clock.glitch.me/"
+            >
+              Pomodoro clock
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://codepen.io/TyMick/full/BaBVeVO"
+            >
+              Calculator
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://codepen.io/TyMick/full/zYOaPyW"
+            >
+              Drum machine
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://codepen.io/TyMick/full/PoYeapB"
+            >
+              Markdown previewer
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        PHP
+        <ul>
+          <li>
+            <a
+              href="http://php-todo.tymick.me/"
+            >
+              To-do list
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="react-hooks"
+  >
+    <h2
+      className="h4"
+      id="react-hooks"
+    >
+      React hooks
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://www.npmjs.com/package/use-window-width-breakpoints"
+        >
+          useWindowWidthBreakpoints
+        </a>
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://www.npmjs.com/package/use-window-orientation"
+        >
+          useWindowOrientation
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    aria-labelledby="open-source"
+  >
+    <h2
+      className="h4"
+      id="open-source"
+    >
+      Selected open-source contributions
+    </h2>
+    <ul
+      style={
+        {
+          "paddingInlineStart": "2rem",
+        }
+      }
+    >
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/pulls?q=user%3AFaithlife+author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          Feature development and bug fixes
+        </a>
+         
+        for Faithlife
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/vercel/next.js/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          Bug fixes and documentation help
+        </a>
+         
+        for Next.js
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/MatejBransky/react-katex/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          New feature and bug fixes
+        </a>
+         
+        for react-katex
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/pablopunk/nextjs-redirect/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          New features
+        </a>
+         
+        for nextjs-redirect
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/freeCodeCamp/freeCodeCamp/pulls?q=author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          Curriculum help
+        </a>
+         
+        for freeCodeCamp
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/tensorflow/tensorflow/pull/41599"
+        >
+          Documentation help
+        </a>
+         
+        for TensorFlow
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/pandas-dev/pandas/pull/35337"
+        >
+          Documentation help
+        </a>
+         
+        for pandas
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/rtcovidlive/covid-model/pull/27"
+        >
+          Formatting help
+        </a>
+         
+        for R
+        <sub>
+          t
+        </sub>
+         Live’s COVID-19 model
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/twbs/bootstrap/pull/30010"
+        >
+          Documentation help
+        </a>
+         
+        for Bootstrap
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/styled-components/styled-components-website/pull/744"
+        >
+          Documentation help
+        </a>
+         
+        for styled-components
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/brefphp/bref/pull/760"
+        >
+          Documentation help
+        </a>
+         
+        for Bref
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/ant-design/ant-design/pull/23917"
+        >
+          Documentation help
+        </a>
+         
+        for Ant Design
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://gitlab.com/codeshelter/codeshelter-web/-/merge_requests/10"
+        >
+          Documentation help
+        </a>
+         
+        for Code Shelter
+      </li>
+      <li
+        className="text-left position-relative"
+        style={
+          {
+            "maxWidth": "max-content",
+          }
+        }
+      >
+        <a
+          href="https://github.com/pulls?q=user%3AVSCodium+author%3ATyMick+is%3Apr+is%3Amerged"
+        >
+          Documentation help
+        </a>
+         
+        for VSCodium
+      </li>
+    </ul>
+  </section>
+</div>
+`;

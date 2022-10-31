@@ -3,7 +3,6 @@ import remark from "remark";
 import smartypants from "@silvenon/remark-smartypants";
 import gfm from "remark-gfm";
 import remarkReact from "remark-react";
-import { VFile } from "vfile";
 
 /** Converts a Markdown string into a parsed React fragment. */
 export function parseInlineMarkdown(markdown: string): ReactFragment {
@@ -13,7 +12,7 @@ export function parseInlineMarkdown(markdown: string): ReactFragment {
     .use(remarkReact, {
       remarkReactComponents: { p: React.Fragment },
     })
-    .processSync(markdown) as VFile & { result: ReactElement }; // VFile typing is outdated here
+    .processSync(markdown);
   return react.result;
 }
 

@@ -5,10 +5,7 @@ import { Container } from "react-bootstrap";
 import { getAllPosts } from "../lib/blog-api";
 import Greeting from "../components/Greeting";
 import MastodonVerification from "../components/MastodonVerification";
-import ListOfPosts, {
-  Post,
-  Props as PostsProps,
-} from "../components/ListOfPosts";
+import ListOfPosts, { Post, PostsProps } from "../components/ListOfPosts";
 
 export default function Home({ posts }: PostsProps) {
   return (

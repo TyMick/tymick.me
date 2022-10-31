@@ -39,7 +39,7 @@ export default function Image({
   const [wrapperProps, nextImageProps] = filterProps<
     WrapperProps,
     FilteredNextImageProps
-  >(otherProps, [...layout.propNames, "className"]);
+  >(otherProps, [...(layout.propNames ?? []), "className"]);
 
   return (
     <ImageWrapper

@@ -22,21 +22,26 @@ export async function getPostBySlug(
     const { metadata }: { metadata: BlogPostMetadata } = await import(
       `../pages/blog/${slug}.mdx`
     );
-    let data: object = {};
+    let data: Partial<BlogPostMetadata> = {};
 
     // Only return requested fields
     for (const field of fields) {
-      if (metadata?.[field]) {
-        data[field] = metadata[field];
-      } else if (field === "slug") {
-        data["slug"] = slug;
+      if (field === "slug") {
+        data = {
+          ...data,
+          ...{ slug },
+        };
+      } else {
+        data = {
+          ...data,
+          ...{ [field]: metadata[field] ?? null },
+        };
       }
     }
 
-    return data as Partial<BlogPostMetadata>;
+    return data;
   } catch (err) {
-    err.message = `Slug '${slug}' does not exist.`;
-    throw err;
+    throw new Error(`Slug '${slug}' does not exist.`, { cause: err });
   }
 }
 
@@ -49,13 +54,18 @@ export async function getAllPosts(fields: MetadataField[] = []) {
 
     if (fields.includes("date")) {
       // sort posts by date in descending order
-      posts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+      posts = posts.sort((post1, post2) => {
+        if (!post1.date || !post2.date) return 0;
+
+        return post1.date > post2.date ? -1 : 1;
+      });
     }
 
     return posts;
   } catch (err) {
-    err.message = "Blog API functions aren't working correctly.";
-    throw err;
+    throw new Error("Blog API functions aren't working correctly.", {
+      cause: err,
+    });
   }
 }
 
@@ -88,16 +98,4 @@ export type BlogPostMetadata = {
   ipynb?: boolean;
 };
 
-type MetadataField =
-  | "slug"
-  | "title"
-  | "subtitle"
-  | "description"
-  | "excerpt"
-  | "date"
-  | "updated"
-  | "ogImage"
-  | "cta"
-  | "socialLinks"
-  | "syndicated"
-  | "ipynb";
+type MetadataField = keyof BlogPostMetadata;

@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dtic matches snapshot 1`] = `
+<div
+  className="cap-width-lg container"
+>
+  <h1>
+    Papers by Ty Mick in the Defense Technical Information Center
+  </h1>
+  <p
+    className="lead text-muted mb-5"
+  >
+    Collected here since DTIC’s website has no author pages.
+  </p>
+  <ul
+    className="list-unstyled"
+  >
+    <li
+      className="mb-5"
+    >
+      <div
+        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+      >
+        November 17, 2015
+      </div>
+      <div
+        className="position-relative"
+      >
+        <h2
+          className="h5 serif"
+        >
+          <a
+            className="text-reset stretched-link"
+            href="https://apps.dtic.mil/sti/citations/AD1012101"
+          >
+            The Case for AFMC Social Media Analysis
+          </a>
+        </h2>
+        <p
+          className="serif"
+        >
+          AFMC Public Affairs is charged with the task of “telling the story of equipping the Air Force for world-dominant airpower.” AFMC is unique amongst the rest of the Air Force, given its support role, emphasis on science and technology, greater proportion of civilian employees, and other factors, making this a distinct story worth telling.
+        </p>
+      </div>
+    </li>
+    <li
+      className="mb-5"
+    >
+      <div
+        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+      >
+        January 8, 2015
+      </div>
+      <div
+        className="position-relative"
+      >
+        <h2
+          className="h5 serif"
+        >
+          <a
+            className="text-reset stretched-link"
+            href="https://apps.dtic.mil/sti/citations/AD1012055"
+          >
+            An Evaluation of milSuite for A9 and the AFMC Analysis Community
+          </a>
+        </h2>
+        <p
+          className="serif"
+        >
+          milSuite is a collection of online social business applications developed for the DoD by MilTech Solutions, a Forward Operating Agency of the Army’s Program Executive Office for Command, Control and Communications-Tactical (PEO C3T). It is comprised of four active sites: milBook, milWiki, milWire, and milTube. All four operate under secure CAC authentication and thus can facilitate up to UNCLASSIFIED//FOUO content.
+        </p>
+      </div>
+    </li>
+    <li
+      className="mb-5"
+    >
+      <div
+        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+      >
+        July 12, 2012
+      </div>
+      <div
+        className="position-relative"
+      >
+        <h2
+          className="h5 serif"
+        >
+          <a
+            className="text-reset stretched-link"
+            href="https://apps.dtic.mil/sti/citations/AD1012051"
+          >
+            Readiness Based Sparing: A Research Summary
+          </a>
+        </h2>
+        <p
+          className="serif"
+        >
+          We believe that Readiness Based Sparing (RBS) is the superior method of sparing, far more efficient, cost-effective, and comprehensive than its predecessors, and that it should be utilized across the U.S. Department of Defense. Unfortunately, Department of Defense and Air Force policy is currently rather ambiguous concerning its use, and we plan to make a case to those individuals involved in policy-making to update the wording of such policy to more plainly mandate the use of RBS methods. In the interest of more thoroughly investigating this belief and, if it is confirmed, building a body of supporting evidence, we performed a measure of scholarly research on the topic.
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
