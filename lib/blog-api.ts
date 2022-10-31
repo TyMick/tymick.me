@@ -34,7 +34,7 @@ export async function getPostBySlug(
       } else {
         data = {
           ...data,
-          ...{ [field]: metadata[field] },
+          ...{ [field]: metadata[field] ?? null },
         };
       }
     }

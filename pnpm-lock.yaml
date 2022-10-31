@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fortawesome/fontawesome-common-types': ^0.2.36
   '@fortawesome/fontawesome-svg-core': ^1.2.36
   '@fortawesome/free-brands-svg-icons': ^5.15.4
   '@fortawesome/react-fontawesome': ^0.1.15
@@ -93,6 +94,7 @@ dependencies:
   use-window-width-breakpoints: 1.0.12_react@17.0.2
 
 devDependencies:
+  '@fortawesome/fontawesome-common-types': 0.2.36
   '@jest/transform': 29.2.2
   '@types/chroma-js': 2.1.4
   '@types/jest': 29.2.0
@@ -590,7 +592,6 @@ packages:
     resolution: {integrity: sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==}
     engines: {node: '>=6'}
     requiresBuild: true
-    dev: false
 
   /@fortawesome/fontawesome-svg-core/1.2.36:
     resolution: {integrity: sha512-YUcsLQKYb6DmaJjIHdDWpBIGCcyE/W+p/LMGvjQem55Mm2XWVAP5kWTMKWLv9lwpCVjpLxPyOMOyUocP1GxrtA==}
