@@ -30,7 +30,7 @@ export default function Footer({ license = "CC-BY" }: FooterProps) {
           <a
             {...{ "xmlns:cc": "http://creativecommons.org/ns#" }}
             href="https://tymick.me"
-            property="cc:attributionName"
+            property="cc:attributionName" // eslint-disable-line react/no-unknown-property
             rel="cc:attributionURL"
             className="text-reset text-decoration-none"
           >
@@ -59,7 +59,11 @@ export default function Footer({ license = "CC-BY" }: FooterProps) {
             href="https://tymick.me"
             className="text-reset text-decoration-none"
           >
-            <span property="dct:title">Tyler Westin Mick</span>
+            <span
+              property="dct:title" // eslint-disable-line react/no-unknown-property
+            >
+              Tyler Westin Mick
+            </span>
           </a>
         </span>
       ) : (

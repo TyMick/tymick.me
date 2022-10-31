@@ -52,28 +52,31 @@ const viewerOptionNames = [
   "plugins",
 ];
 
-const PhotoSphereViewer = forwardRef<Viewer, PhotoSphereViewerProps>(
-  ({ as: Component = "div", onceReady, ...props }, ref) => {
-    const [viewerOptions, containerProps] = filterProps<
-      Omit<ViewerOptions, "container">,
-      ContainerProps
-    >(props, viewerOptionNames);
+const PhotoSphereViewer = memo(
+  forwardRef<Viewer, PhotoSphereViewerProps>(
+    ({ as: Component = "div", onceReady, ...props }, ref) => {
+      const [viewerOptions, containerProps] = filterProps<
+        Omit<ViewerOptions, "container">,
+        ContainerProps
+      >(props, viewerOptionNames);
 
-    const containerRef = useRef<HTMLElement>();
-    const viewerRef = useRef<Viewer>();
-    useImperativeHandle(ref, () => viewerRef.current, []);
+      const containerRef = useRef<HTMLElement>();
+      const viewerRef = useRef<Viewer>();
+      useImperativeHandle(ref, () => viewerRef.current, []);
 
-    useEffect(() => {
-      viewerRef.current = new Viewer({
-        container: containerRef.current,
-        ...viewerOptions,
-      });
-      if (onceReady)
-        viewerRef.current.once("ready", () => onceReady(viewerRef.current));
-      return () => viewerRef.current.destroy();
-    }, [onceReady, viewerOptions]);
+      useEffect(() => {
+        viewerRef.current = new Viewer({
+          container: containerRef.current,
+          ...viewerOptions,
+        });
+        if (onceReady)
+          viewerRef.current.once("ready", () => onceReady(viewerRef.current));
+        return () => viewerRef.current.destroy();
+      }, [onceReady, viewerOptions]);
 
-    return <Component ref={containerRef} {...containerProps} />;
-  }
+      return <Component ref={containerRef} {...containerProps} />;
+    }
+  )
 );
-export default memo(PhotoSphereViewer);
+
+export default PhotoSphereViewer;
