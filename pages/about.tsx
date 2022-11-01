@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import { Container } from "react-bootstrap";
 import Greeting from "../components/Greeting";
-import SocialLinks from "../components/SocialLinks";
 
 export default function About() {
   return (
@@ -32,12 +31,6 @@ export default function About() {
           playing story-driven video games, making homemade ice cream,
           and&hellip; philosophy.
         </p>
-        <p>
-          Here are a few other places I&rsquo;ve been known to hang out online,
-          by the way:
-        </p>
-
-        <SocialLinks />
       </Container>
     </>
   );

@@ -4,11 +4,13 @@
 }
 .github-nav-link {
   @include font-size($h4-font-size);
+  @include hover-focus() {
+    color: #333 !important;
+  }
 }
-@if $emphasized-link-hover-darken-percentage != 0 {
-  a.github-nav-link {
-    @include hover-focus() {
-      color: #333 !important;
-    }
+.mastodon-nav-link {
+  @include font-size($h4-font-size);
+  @include hover-focus() {
+    color: #3088d4 !important;
   }
 }
