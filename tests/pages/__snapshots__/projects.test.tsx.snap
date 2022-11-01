@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Projects matches snapshot 1`] = `
+.c0 {
+  display: inline-block;
+  max-width: 200px;
+  width: 100%;
+}
+
+.c1 {
+  margin-bottom: -0.25rem;
+}
+
+.c1 ul {
+  margin-top: 0.25rem;
+}
+
+.c1 li {
+  margin-bottom: 0.25rem;
+}
+
 <div
   className="cap-lg-49 container"
 >
@@ -11,7 +29,7 @@ exports[`Projects matches snapshot 1`] = `
       className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
     >
       <div
-        className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+        className="c0 image-wrapper"
         width="100%"
       >
         <span
@@ -118,7 +136,7 @@ exports[`Projects matches snapshot 1`] = `
     A few things I’ve made:
   </h1>
   <ul
-    className="projects__SpacedList-sc-f180mm-0 WkCrl"
+    className="c1"
   >
     <li>
       TyMick.me (
@@ -148,7 +166,7 @@ exports[`Projects matches snapshot 1`] = `
     <li>
       React hooks
       <ul
-        className="projects__SpacedList-sc-f180mm-0 WkCrl"
+        className="c1"
       >
         <li>
           <a

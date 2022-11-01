@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dtic matches snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  font-family: "Alegreya",serif;
+  font-size: 1.2rem;
+}
+
+.c0:before,
+.c0:after {
+  content: "";
+  height: 0;
+  margin-top: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+}
+
+.c0:before {
+  margin-right: 0.5rem;
+  width: 2rem;
+}
+
+.c0:after {
+  margin-left: 0.5rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
 <div
   className="cap-width-lg container"
 >
@@ -19,9 +55,9 @@ exports[`Dtic matches snapshot 1`] = `
       className="mb-5"
     >
       <div
-        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        className="c0"
       >
-        November 17, 2015
+        November 18, 2015
       </div>
       <div
         className="position-relative"
@@ -47,9 +83,9 @@ exports[`Dtic matches snapshot 1`] = `
       className="mb-5"
     >
       <div
-        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        className="c0"
       >
-        January 8, 2015
+        January 9, 2015
       </div>
       <div
         className="position-relative"
@@ -75,9 +111,9 @@ exports[`Dtic matches snapshot 1`] = `
       className="mb-5"
     >
       <div
-        className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+        className="c0"
       >
-        July 12, 2012
+        July 13, 2012
       </div>
       <div
         className="position-relative"

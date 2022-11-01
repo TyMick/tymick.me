@@ -1,4 +1,5 @@
 const path = require("path");
+const { fromUnixTime } = require("date-fns");
 
 /** @type {import("@jest/transform").Transformer} */
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
         subtitle: slug + " subtitle",
         description: slug + " description",
         excerpt: slug + " excerpt",
-        date: new Date().toISOString(),
+        date: getSimpleDateHash(slug),
       },
     };
     return {
@@ -20,3 +21,15 @@ module.exports = {
     };
   },
 };
+
+/**
+ * @param {string} source
+ * @returns {string}
+ */
+function getSimpleDateHash(source) {
+  let int = 0;
+  for (let i = 0; i < source.length; i++) {
+    int += source.charCodeAt(i);
+  }
+  return fromUnixTime(int * 100000).toISOString();
+}

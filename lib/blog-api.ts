@@ -18,55 +18,46 @@ export async function getPostBySlug(
   slug: string,
   fields: MetadataField[] = []
 ) {
-  try {
-    const { metadata }: { metadata: BlogPostMetadata } = await import(
-      `../pages/blog/${slug}.mdx`
-    );
-    let data: Partial<BlogPostMetadata> = {};
+  const { metadata }: { metadata: BlogPostMetadata } = await import(
+    `../pages/blog/${slug}.mdx`
+  );
+  let data: Partial<BlogPostMetadata> = {};
 
-    // Only return requested fields
-    for (const field of fields) {
-      if (field === "slug") {
-        data = {
-          ...data,
-          ...{ slug },
-        };
-      } else {
-        data = {
-          ...data,
-          ...{ [field]: metadata[field] ?? null },
-        };
-      }
+  // Only return requested fields
+  for (const field of fields) {
+    if (field === "slug") {
+      data = {
+        ...data,
+        ...{ slug },
+      };
+    } else {
+      data = {
+        ...data,
+        ...{ [field]: metadata[field] ?? null },
+      };
     }
-
-    return data;
-  } catch (err) {
-    throw new Error(`Slug '${slug}' does not exist.`, { cause: err });
   }
+
+  return data;
 }
 
 export async function getAllPosts(fields: MetadataField[] = []) {
   const slugs = getPostSlugs();
-  try {
-    let posts = await Promise.all(
-      slugs.map(async (slug) => await getPostBySlug(slug, fields))
-    );
 
-    if (fields.includes("date")) {
-      // sort posts by date in descending order
-      posts = posts.sort((post1, post2) => {
-        if (!post1.date || !post2.date) return 0;
+  let posts = await Promise.all(
+    slugs.map(async (slug) => await getPostBySlug(slug, fields))
+  );
 
-        return post1.date > post2.date ? -1 : 1;
-      });
-    }
+  if (fields.includes("date")) {
+    // sort posts by date in descending order
+    posts = posts.sort((post1, post2) => {
+      if (!post1.date || !post2.date) return 0;
 
-    return posts;
-  } catch (err) {
-    throw new Error("Blog API functions aren't working correctly.", {
-      cause: err,
+      return post1.date > post2.date ? -1 : 1;
     });
   }
+
+  return posts;
 }
 
 export type BlogPostMetadata = {

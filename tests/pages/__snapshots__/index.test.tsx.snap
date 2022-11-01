@@ -2,7 +2,49 @@
 
 exports[`Home matches snapshot 1`] = `
 [
-  <div
+  .c0 {
+  display: inline-block;
+  max-width: 200px;
+  width: 100%;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  font-family: "Alegreya",serif;
+  font-size: 1.2rem;
+}
+
+.c1:before,
+.c1:after {
+  content: "";
+  height: 0;
+  margin-top: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+}
+
+.c1:before {
+  margin-right: 0.5rem;
+  width: 2rem;
+}
+
+.c1:after {
+  margin-left: 0.5rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
     className="cap-lg-49 container"
   >
     <div
@@ -12,7 +54,7 @@ exports[`Home matches snapshot 1`] = `
         className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
       >
         <div
-          className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+          className="c0 image-wrapper"
           width="100%"
         >
           <span
@@ -120,9 +162,9 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
-          October 31, 2022
+          April 29, 1980
         </div>
         <div
           className="position-relative"
@@ -156,261 +198,9 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/sunshine-protection-act"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              sunshine-protection-act title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            sunshine-protection-act subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            sunshine-protection-act excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/optimal-investing"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              optimal-investing title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            optimal-investing subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            optimal-investing excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/new-job-new-site-design"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              new-job-new-site-design title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            new-job-new-site-design subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            new-job-new-site-design excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/loan-risk-nlp"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              loan-risk-nlp title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            loan-risk-nlp subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            loan-risk-nlp excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/loan-risk-neural-network"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              loan-risk-neural-network title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            loan-risk-neural-network subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            loan-risk-neural-network excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/loan-grading-showdown"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              loan-grading-showdown title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            loan-grading-showdown subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            loan-grading-showdown excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
-        </div>
-        <div
-          className="position-relative"
-        >
-          <h2
-            className="h5 serif"
-          >
-            <a
-              className="text-reset stretched-link"
-              href="/blog/debug-nextjs-with-vs-code"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onTouchStart={[Function]}
-            >
-              debug-nextjs-with-vs-code title
-            </a>
-          </h2>
-          <h3
-            className="h6 serif text-muted font-italic"
-          >
-            debug-nextjs-with-vs-code subtitle
-          </h3>
-          <p
-            className="serif"
-          >
-            debug-nextjs-with-vs-code excerpt…
-          </p>
-        </div>
-      </li>
-      <li
-        className="mb-5"
-      >
-        <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
-        >
-          October 31, 2022
+          October 28, 1977
         </div>
         <div
           className="position-relative"
@@ -444,9 +234,117 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
-          October 31, 2022
+          October 12, 1977
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/debug-nextjs-with-vs-code"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              debug-nextjs-with-vs-code title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            debug-nextjs-with-vs-code subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            debug-nextjs-with-vs-code excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          September 10, 1977
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-risk-neural-network"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-risk-neural-network title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-risk-neural-network subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-risk-neural-network excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          July 10, 1977
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/sunshine-protection-act"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              sunshine-protection-act title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            sunshine-protection-act subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            sunshine-protection-act excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          July 9, 1977
         </div>
         <div
           className="position-relative"
@@ -473,6 +371,150 @@ exports[`Home matches snapshot 1`] = `
             className="serif"
           >
             console-log-after-reload excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          January 20, 1977
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/new-job-new-site-design"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              new-job-new-site-design title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            new-job-new-site-design subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            new-job-new-site-design excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          October 9, 1976
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-grading-showdown"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-grading-showdown title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-grading-showdown subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-grading-showdown excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          August 30, 1975
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/optimal-investing"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              optimal-investing title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            optimal-investing subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            optimal-investing excerpt…
+          </p>
+        </div>
+      </li>
+      <li
+        className="mb-5"
+      >
+        <div
+          className="c1"
+        >
+          January 29, 1974
+        </div>
+        <div
+          className="position-relative"
+        >
+          <h2
+            className="h5 serif"
+          >
+            <a
+              className="text-reset stretched-link"
+              href="/blog/loan-risk-nlp"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onTouchStart={[Function]}
+            >
+              loan-risk-nlp title
+            </a>
+          </h2>
+          <h3
+            className="h6 serif text-muted font-italic"
+          >
+            loan-risk-nlp subtitle
+          </h3>
+          <p
+            className="serif"
+          >
+            loan-risk-nlp excerpt…
           </p>
         </div>
       </li>
