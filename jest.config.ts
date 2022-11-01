@@ -1,5 +1,7 @@
 import { Config } from "jest";
 
+process.env.TZ = "UTC";
+
 // You can learn more about each option below in the Jest docs: https://jestjs.io/docs/configuration.
 const jestConfig: Config = {
   collectCoverageFrom: [
@@ -13,12 +15,12 @@ const jestConfig: Config = {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
 
     // Handle CSS imports (without CSS modules)
-    "^.+\\.(css|sass|scss)$": "<rootDir>/tests/mocks/styleMock.js",
+    "^.+\\.(css|sass|scss)$": "<rootDir>/tests/__mocks__/styleMock.js",
 
     // Handle image imports
     // https://jestjs.io/docs/webpack#handling-static-assets
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$":
-      "<rootDir>/tests/mocks/fileMock.js",
+      "<rootDir>/tests/__mocks__/fileMock.js",
   },
   setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
@@ -27,7 +29,7 @@ const jestConfig: Config = {
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
 
-    "\\.mdx$": "<rootDir>/tests/mocks/blogPostMockTransformer.js",
+    "\\.mdx$": "<rootDir>/tests/__mocks__/blogPostMockTransformer.js",
   },
   transformIgnorePatterns: [
     "/node_modules/",
