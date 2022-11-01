@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HqAfmcAward matches snapshot 1`] = `
+.c0 {
+  display: inline-block;
+}
+
 <div
   className="cap-width-lg container"
 >
@@ -8,7 +12,7 @@ exports[`HqAfmcAward matches snapshot 1`] = `
     2014 HQ AFMC Category I Civilian of the Year
   </h1>
   <div
-    className="Image__ImageWrapper-sc-wuromz-0 cBHqVO mb-3 mx-md-n3 full-width"
+    className="c0 mb-3 mx-md-n3 full-width"
   >
     <span
       style={

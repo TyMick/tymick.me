@@ -32,6 +32,7 @@ specifiers:
   highlight.js: ^10.5.0
   jest: ^29.2.2
   jest-environment-jsdom: ^29.2.2
+  jest-styled-components: ^7.1.1
   katex: ^0.12.0
   lodash: ^4.17.21
   nanoid: ^3.1.25
@@ -113,12 +114,17 @@ devDependencies:
   eslint-plugin-jest: 27.1.3_dm6uta3wknev2tjqalgdocmlsy
   jest: 29.2.2_t5wpzltkkzdw6ng6jmtbqvsf2q
   jest-environment-jsdom: 29.2.2
+  jest-styled-components: 7.1.1_styled-components@5.3.6
   prettier: 2.7.1
   react-test-renderer: 17.0.2_react@17.0.2
   ts-node: 10.9.1_yodorn5kzjgomblrsstrk2spaa
   typescript: 4.8.4
 
 packages:
+
+  /@adobe/css-tools/4.0.1:
+    resolution: {integrity: sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==}
+    dev: true
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -3783,6 +3789,16 @@ packages:
       semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-styled-components/7.1.1_styled-components@5.3.6:
+    resolution: {integrity: sha512-OUq31R5CivBF8oy81dnegNQrRW13TugMol/Dz6ZnFfEyo03exLASod7YGwyHGuayYlKmCstPtz0RQ1+NrAbIIA==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      styled-components: '>= 5'
+    dependencies:
+      '@adobe/css-tools': 4.0.1
+      styled-components: 5.3.6_sfoxds7t5ydpegc3knd667wn6m
     dev: true
 
   /jest-util/29.2.1:

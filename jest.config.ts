@@ -20,6 +20,7 @@ const jestConfig: Config = {
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$":
       "<rootDir>/tests/mocks/fileMock.js",
   },
+  setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset

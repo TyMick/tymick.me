@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`About matches snapshot 1`] = `
+.c0 {
+  display: inline-block;
+  max-width: 200px;
+  width: 100%;
+}
+
 <div
   className="cap-lg-49 container"
 >
@@ -11,7 +17,7 @@ exports[`About matches snapshot 1`] = `
       className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
     >
       <div
-        className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+        className="c0 image-wrapper"
         width="100%"
       >
         <span

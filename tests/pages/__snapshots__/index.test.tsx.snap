@@ -2,7 +2,49 @@
 
 exports[`Home matches snapshot 1`] = `
 [
-  <div
+  .c0 {
+  display: inline-block;
+  max-width: 200px;
+  width: 100%;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 0.25rem;
+  font-family: "Alegreya",serif;
+  font-size: 1.2rem;
+}
+
+.c1:before,
+.c1:after {
+  content: "";
+  height: 0;
+  margin-top: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+}
+
+.c1:before {
+  margin-right: 0.5rem;
+  width: 2rem;
+}
+
+.c1:after {
+  margin-left: 0.5rem;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+<div
     className="cap-lg-49 container"
   >
     <div
@@ -12,7 +54,7 @@ exports[`Home matches snapshot 1`] = `
         className="mr-md-4 mb-2 mb-sm-0 text-center text-sm-left col-sm-auto col-12"
       >
         <div
-          className="Image__ImageWrapper-sc-wuromz-0 divnQl image-wrapper"
+          className="c0 image-wrapper"
           width="100%"
         >
           <span
@@ -120,7 +162,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -156,7 +198,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -192,7 +234,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -228,7 +270,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -264,7 +306,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -300,7 +342,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -336,7 +378,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -372,7 +414,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -408,7 +450,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
@@ -444,7 +486,7 @@ exports[`Home matches snapshot 1`] = `
         className="mb-5"
       >
         <div
-          className="DateHeading___StyledDiv-sc-17zqdwo-0 cilEMx"
+          className="c1"
         >
           October 31, 2022
         </div>
