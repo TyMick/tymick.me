@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faMastodon } from "@fortawesome/free-brands-svg-icons";
 import Image from "./Image";
 import profilePic from "../public/images/ty-mick-cropped.jpg";
 
@@ -58,10 +58,17 @@ export default function Navigation() {
             </Link>
 
             <Nav.Link
-              className="github-nav-link pr-0"
+              className="github-nav-link"
               href="https://github.com/TyMick"
             >
               <FontAwesomeIcon icon={faGithub} />
+            </Nav.Link>
+
+            <Nav.Link
+              className="mastodon-nav-link pr-0"
+              href="https://mastodon.social/@TyMick"
+            >
+              <FontAwesomeIcon icon={faMastodon} />
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
