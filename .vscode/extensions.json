@@ -2,6 +2,7 @@
   "recommendations": [
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
+    "github.vscode-github-actions",
     "jpoissonnier.vscode-styled-components",
     "silvenon.mdx",
     "streetsidesoftware.code-spell-checker"
